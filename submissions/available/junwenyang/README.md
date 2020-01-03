@@ -20,7 +20,7 @@ Inside the docker image, you can find the following items:
   
    * The 114 issues collected from the bug tracking system of the 12 applications.
 
-3. The [questionnaires](http://bit.ly/user-questionnaire) and [results of our user study](http://bit.ly/error-message-user-study) is located at /home/main278/user-study.
+3. The [questionnaires](http://bit.ly/user-questionnaire) and [results of our user study](http://bit.ly/error-message-user-study) is located at `/home/main278/user-study`.
 
 ## What to do with the artifact and how?
 
