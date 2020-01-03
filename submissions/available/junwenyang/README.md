@@ -8,10 +8,11 @@ We hope this artifact can demonstrate the use of our data-constraint analysis to
 
 Inside the docker image, you can find the following items:
 
-1. The source code of our data-constraint analysis tools, including different parameters to analyze different aspects of constraints
-  --lastest, extract all constraints in the latest version of the applications
-  --tva, analyze the evolution of constraints change
-  --single, compare the constraints across layer 
+1. The source code of our data-constraint analysis tools, including different parameters to analyze different aspects of constraints:
+
+  * --lastest, extract all constraints in the latest version of the applications
+  * --tva, analyze the evolution of constraints change
+  * --single, compare the constraints across layer 
   
 2. Benchmarks used in our paper to evaluate our data-constraint analysis tools, including
 The source code of 12 open-source Ruby-on-Rails applications that we evaluate Panorama upon, under main278/formatchecker/apps/
