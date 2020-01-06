@@ -1,9 +1,3 @@
-
-
-<div class="container" markdown="1">
-<div class="row" markdown="1">
-<div class="col-md-12" markdown="1">
-
 We provide a docker image that contains the script checkers in Vibranium and all the applications we use in the paper.
 Below are steps to run it and reproduce the experiments on docker.
 
@@ -42,7 +36,7 @@ $ docker run -it -p 127.0.0.1:3000:3000 managedataconstraints/data-constraints-a
   ```
   $ grep “db_present_model_absent” log/output.log
   ```
-  Detailed data is presented in the [excel file](http://bit.ly/constraints-mismatch). 
+  Detailed data is presented in the [excel file](http://bit.ly/constraint-mismatch). 
   
 * Table 6: # Constraints in Application but not in DB 
 
@@ -54,7 +48,7 @@ $ docker run -it -p 127.0.0.1:3000:3000 managedataconstraints/data-constraints-a
   ```
   $ grep “model_present_db_absent” log/output.log
   ```
-  Detailed data presented in the [excel file](http://bit.ly/constraints-mismatch).
+  Detailed data presented in the [excel file](http://bit.ly/constraint-mismatch).
 
 * Table 7:  Top 5 popular types of different layer
 
@@ -88,7 +82,7 @@ $ docker run -it -p 127.0.0.1:3000:3000 managedataconstraints/data-constraints-a
   
 * Table 10: # Mismatch constraints 
 
-  Details presented in the [excel file](https://bit.ly/32s0gMs)
+  Details presented in the [excel file](http://bit.ly/constraint-mismatch)
 
   Go to the `main278/formatchecker/`script folder and run:
   ```
@@ -98,9 +92,13 @@ $ docker run -it -p 127.0.0.1:3000:3000 managedataconstraints/data-constraints-a
   ```
   $ grep “mismatch_constraint” log/output.log
   ```
-* [User study results](http://bit.ly/error-message-user-study)
+* User study 
+  
+  results can be accessed through [google drive](http://bit.ly/error-message-user-study) or [here](./user-study.html)
 
-* [User study questionnaire](http://bit.ly/user-questionnaire)
+  User study questionnaire can be found [here](http://bit.ly/user-questionnaire).
+  
+  Both file can be found under the folder `main278/user-study` on the docker image.
 
 * The table in the Discussion section of [issues in Django](http://bit.ly/data-constraints-issues-in-Django) 
 
@@ -108,6 +106,23 @@ $ docker run -it -p 127.0.0.1:3000:3000 managedataconstraints/data-constraints-a
 
 * Source Code for better error message [gem](https://github.com/manangeconstraints/better_error_msg_gem).
 
-</div>
-</div>
-</div>
+
+### Apply on other applications
+
+* Prepare your application
+
+  Go to `main278/formatchecker/apps/` folder, clone your application there. 
+  
+  ```
+  $ git clone git_repo_link app_name
+  ```
+  
+  It's not required to put the file under th app folder, just for convenience to next step. 
+  
+* Run our scripts.
+
+  Go to `main278/formatchecker/constraint_analyzer` folder. 
+  
+  ```
+  $ ruby main.rb -a ../apps/app_name -h
+  ```
