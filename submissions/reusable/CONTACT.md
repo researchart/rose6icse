@@ -15,3 +15,7 @@
 - Zhiwu Xu
   - email: xuzhiwu@szu.edu.cn
   - github ids: happyxzw
+
+- Hongxu Chen
+  - email: hongxu.chen@ntu.edu.sg
+  - github ids: HongxuChen
