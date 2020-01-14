@@ -12,15 +12,15 @@ MemLock is built on top of the fuzzer AFL. Check out [AFL's website](http://lcam
 
 ### Requirements
 
-- Strongly Recommended: Ubuntu 16.04 LTS
-- Run the following command to install Docker:
+- Operating System: Ubuntu 16.04 LTS (*We have tested the artifact on the Ubuntu 16.04*)
+- Run the following command to install Docker (*Docker version 18.09.7*):
   ```sh
   $ sudo apt-get install docker.io
   ```
   (If you have any question on docker, you can see [Docker's Documentation](https://docs.docker.com/install/linux/docker-ce/ubuntu/)).
 - Run the following command to install required packages
     ```sh
-    $ sudo apt-get install tmux git build-essential python3 cmake libtool automake autoconf autotools-dev m4 autopoint help2man bison flex texinfo zlib1g-dev libexpat1-dev libfreetype6 libfreetype6-dev
+    $ sudo apt-get install git build-essential python3 cmake tmux libtool automake autoconf autotools-dev m4 autopoint help2man bison flex texinfo zlib1g-dev libexpat1-dev libfreetype6 libfreetype6-dev
     ```
 
 ### Clone the Repository
@@ -57,7 +57,7 @@ $ sudo docker run --cap-add=SYS_PTRACE -it memlock /bin/bash
 
 ## Tests
 
-Before you use MemLock fuzzer, you need to first use two simple examples provided by us to determine whether the Memlock fuzzer can work normally. We show two simple examples to shows how MemLock can detect excessive memory consumption and why AFL cannot detect these bugs easily. Example 1 demonstrates an uncontrolled-recursion bug and Example 2 demonstrates an uncontrolled-memory-allocation bug.
+Before you use MemLock fuzzer, we suggest that you first use two simple examples provided by us to determine whether the Memlock fuzzer can work normally. We show two simple examples to shows how MemLock can detect excessive memory consumption and why AFL cannot detect these bugs easily. Example 1 demonstrates an uncontrolled-recursion bug and Example 2 demonstrates an uncontrolled-memory-allocation bug.
 
 ### Run for testing example 1
 
