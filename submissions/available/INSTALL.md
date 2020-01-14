@@ -1,10 +1,6 @@
 # MemLock: Memory Usage Guided Fuzzing
 
-- **Website**: https://icse2020-memlock.github.io/
-
-- **GitHub**: https://github.com/ICSE2020-MemLock/MemLock
-
-- **Benchmark**: https://github.com/ICSE2020-MemLock/MemLock_Benchmark
+[![MIT License](https://img.shields.io/github/license/xiaocong/uiautomator.svg)](http://opensource.org/licenses/MIT)
 
 This repository provides the tool and the evaluation subjects for the paper "MemLock: Memory Usage Guided Fuzzing" accepted for the technical track at ICSE'2020. A pre-print of the paper can be found at [ICSE2020_MemLock.pdf](https://wcventure.github.io/pdf/ICSE2020_MemLock.pdf).
 
@@ -12,81 +8,91 @@ The repository contains three folders: [*tool*](#tool), [*tests*](#tests) and [*
 
 ## Tool
 
-MemLock is built on top of the fuzzer AFL. Check out [AFL's website](http://lcamtuf.coredump.cx/afl/) for more information details. We provide here a snapshot of MemLock. For simplicity, we provide shell script for the whole installation. And we recommend that you use [docker image](#installation-using-docker) to build MemLock.
+MemLock is built on top of the fuzzer AFL. Check out [AFL's website](http://lcamtuf.coredump.cx/afl/) for more information details. We provide here a snapshot of MemLock. For simplicity, we provide shell script for the whole installation.
 
 ### Requirements
 
-- Recommended: Ubuntu 16.04 LTS
-- Tmux, Git, Build-Essentials, Python3, Cmake, Libtool, Automake, Autoconf, Autotools, M4, Autopoint, Help2man, Bison, Flex, Texinfo, Zlib, Libexpat, Freetype: run 
-    ```shell
-    sudo apt install tmux git build-essential python3 cmake libtool autoamke autoconf autotools-dev m4 autopoint help2man bison flex texinfo zlib1g-dev libexpat-dev libfreetype6 libfreetype6-dev
+- Strongly Recommended: Ubuntu 16.04 LTS
+- Run the following command to install Docker:
+  ```sh
+  $ sudo apt-get install docker.io
+  ```
+  (If you have any question on docker, you can see [Docker's Documentation](https://docs.docker.com/install/linux/docker-ce/ubuntu/)).
+- Run the following command to install required packages
+    ```sh
+    $ sudo apt-get install tmux git build-essential python3 cmake libtool automake autoconf autotools-dev m4 autopoint help2man bison flex texinfo zlib1g-dev libexpat1-dev libfreetype6 libfreetype6-dev
     ```
-- Docker: see [Docker Documentation](https://docs.docker.com/install/linux/docker-ce/ubuntu/).
-- clang+LLVM 6.0.1: run ` ./tool/install_llvm.sh`
 
 ### Clone the Repository
 
 ```sh
-git clone https://github.com/ICSE2020-MemLock/MemLock.git MemLock --depth=1
-cd MemLock
+$ git clone https://github.com/ICSE2020-MemLock/MemLock.git MemLock --depth=1
+$ cd MemLock
 ```
 
-### Installation using Docker
+### Build and Run the Docker Image
 
-We recommend that you perform the installation using Docker. This will save you a lot of time to configure the environment.
+Firstly, system core dumps must be disabled as with AFL.
+
+```sh
+$ echo core|sudo tee /proc/sys/kernel/core_pattern
+$ echo performance|sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+```
+
+Run the following command to automatically build the docker image and configure the environment.
 
 ```sh
 # disable ptrace_scope for PIN
 $ echo 0|sudo tee /proc/sys/kernel/yama/ptrace_scope
 
 # build docker image
-$ sudo docker build -t memlock ./
+$ sudo docker build -t memlock --no-cache ./
 
 # run docker image
 $ sudo docker run --cap-add=SYS_PTRACE -it memlock /bin/bash
 ```
 
+
+
+
 ## Tests
 
-As with AFL, system core dumps must be disabled.
-
-```sh
-$ sudo su
-$ echo core >/proc/sys/kernel/core_pattern
-$ cd /sys/devices/system/cpu
-$ echo performance | tee cpu*/cpufreq/scaling_governor
-$ exit
-```
+Before you use MemLock fuzzer, you need to first use two simple examples provided by us to determine whether the Memlock fuzzer can work normally. We show two simple examples to shows how MemLock can detect excessive memory consumption and why AFL cannot detect these bugs easily. Example 1 demonstrates an uncontrolled-recursion bug and Example 2 demonstrates an uncontrolled-memory-allocation bug.
 
 ### Run for testing example 1
 
-In our experiments for testing example 1, MemLock can find crashes in a few minutes while AFL can not find any crashes.
+Example 1 demonstrates an uncontrolled-recursion bug. The function `fact()` in `example1.c` is a recursive function. With a sufficiently large recursive depth, the execution would run out of stack memory, causing stack-overflow. You can perform fuzzing on this example program by following commands.
 
 ```sh
 # enter the tests folder
 $ cd tests
 
 # run testing example 1 with MemLock
-$ run_test1_MemLock.sh
+$ ./run_test1_MemLock.sh
 
 # run testing example 1 with AFL (Open another terminal)
-$ run_test1_AFL.sh
+$ ./run_test1_AFL.sh
 ```
+
+In our experiments for testing example 1, MemLock can find crashes in a few minutes while AFL can not find any crashes.
 
 ### Run for testing example 2
 
-In our experiments for testing example 2, MemLock can find crashes in a few minutes while AFL can not find any crashes.
+Example 2 demonstrates an uncontrolled-memory-allocation bug.  At line 25 in `example2.c`, the length of the user inputs is fed directly into `new []`. By carefully handcrafting the input, an adversary can provide arbitrarily large values, leading to program crash (i.e., `std::bad_alloc`) or running out of memory. You can perform fuzzing on this example program by following commands.
 
 ```sh
 # enter the tests folder
 $ cd tests
 
 # run testing example 2 with MemLock
-$ run_test2_MemLock.sh
+$ ./run_test2_MemLock.sh
 
 # run testing example 2 with AFL (Open another terminal)
-$ run_test2_AFL.sh
+$ ./run_test2_AFL.sh
 ```
+
+In our experiments for testing example 2, MemLock can find crashes in a few minutes while AFL can not find any crashes.
+
 
 ## Evaluation
 
@@ -114,12 +120,18 @@ $ ./run_MemLock_cxxfilt.sh
 
 ## Publications
 ```
-MemLock: Memory Usage Guided Fuzzing. IEEE/ACM 42nd International Conference on Software Engineering, Seoul, South Korea, 23-29 May 2020.
-
 @inproceedings{Wen2020MemLock,
   title={MemLock: Memory Usage Guided Fuzzing},
   author={Wen, Cheng and Wang, Haijun and Li, Yuekang and Qin, Shengchao and Liu Yang, and Xu Zhiwu, and Chen, Hongxu and Xie, Xiaofei and Pu, Geguang and Liu Ting},
-  booktitle={Proceedings of the 42nd International Conference on Software Engineering, ICSE, Seoul, South Korea},
+  booktitle={Proceedings of the 42nd International Conference on Software Engineering},
   year={2020}
 }
 ```
+
+## Links
+
+- **Website**: https://icse2020-memlock.github.io/
+
+- **GitHub**: https://github.com/ICSE2020-MemLock/MemLock
+
+- **Benchmark**: https://github.com/ICSE2020-MemLock/MemLock_Benchmark
