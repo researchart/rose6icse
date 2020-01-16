@@ -24,13 +24,15 @@ SmartBugs is an execution framework aiming at simplifying the execution of analy
 
 ## Smart Contracts dataset
 
-We propose two dataset a smart contract dataset with SmartBugs.
-The first dataset contains 69 annotated contracts to evaluate the accuracy of analysis tools.
-The second dataset contains 47,518 unique contract from the Ethereum network.
+We make available two smart contract datasets with SmartBugs:
+
+- **SB Curated**: a curated dataset with 69 annotated contracts that can be used to evaluate the accuracy of analysis tools.
+- **SB Wild**: a dataset with 47,518 unique contract from the Ethereum network (for details on
+how they were collected, please see [the ICSE 2020 paper](https://arxiv.org/abs/1910.10601)).
 
 ### SB Curated
 
-SB Curated provides a collection of vulnerable Solidity smart contracts organized according to the [DASP taxonomy](https://dasp.co). It is available in the `dataset` repository.
+SB Curated provides a collection of vulnerable Solidity smart contracts organized according to the [DASP taxonomy](https://dasp.co). It is available in the `dataset` directory.
 
 | Vulnerability | Description | Level |
 | --- | --- | -- |
