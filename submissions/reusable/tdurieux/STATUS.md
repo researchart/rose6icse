@@ -8,7 +8,7 @@ We apply for the two badges: *Available* and *Reusable*
 
 ## SmartBugs matches the requirements for the badges as follows:
 
-- [X] The artifacts are documented, consistent, complete, exercisable, and include appropriate evidence of verification and validation.
-- [X] Placed on a publicly accessible archival repository: https://github.com/smartbugs/smartbugs
+- [X] The artifacts are functional, carefully documented, available, reusable, consistent, complete, and include appropriate evidence of verification and validation.
+- [X] The artifacts are publicly accessible from an archival repository: https://github.com/smartbugs/smartbugs  (see also the Github organization link: https://github.com/smartbugs)
 - [X] DOI for https://github.com/smartbugs/smartbugs: TODO
 
