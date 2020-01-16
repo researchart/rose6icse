@@ -1,27 +1,30 @@
 # Installation
 
-## Requirement
+## Requirements
 
-- Docker
-- Unix based system
+- Unix-based system
+- [Docker](https://docs.docker.com/install)
+- [Python3](https://www.python.org)
+
 
 ## Structure
 
 SmartBugs is composed of 3 modules:
 1. SmartBugs execution framework: https://github.com/smartbugs/smartbugs
 2. The dataset of  47,518 smart-contact extracted from the Ethereum network: https://github.com/smartbugs/smartbugs-wild
-3. The RAW results of the vulnerability analysis of 9 tools on 47,518 smart contracts :https://github.com/smartbugs/smartbugs-results
+3. The RAW results of the vulnerability analysis of 9 tools on 47,518 smart contracts: https://github.com/smartbugs/smartbugs-results
 
 ## Installation
 
-1. Install Docker: https://docs.docker.com/install/
-2. Clone [SmartBugs's repository](https://github.com/smartbugs/smartbugs):
+Once you have Docker and Python3 installed in your system, follow the steps:
+
+1. Clone [SmartBugs's repository](https://github.com/smartbugs/smartbugs):
 `git clone https://github.com/smartbugs/smartbugs.git`
-3. Install python dependencies: `pip3 install -r requirements.txt`
+2. Install python dependencies: `pip3 install -r requirements.txt`
 
 ## Usage
 
-HoneyBadger, Maian, Manticore, Mythril, Osiris, Oyente, Securify, Slither, Smartcheck, Solhint
+Tools available: HoneyBadger, Maian, Manticore, Mythril, Osiris, Oyente, Securify, Slither, Smartcheck, Solhint
 
 SmartBugs provides a command-line interface that can be used as follows:
 ```bash
