@@ -1,47 +1,16 @@
 # MemLock: Memory Usage Guided Fuzzing
 
-This is the artifact is for the paper: "MemLock: Memory Usage Guided Fuzzing, ICSE 2020". A pre-print of the paper can be found at [ICSE2020_MemLock.pdf](https://wcventure.github.io/pdf/ICSE2020_MemLock.pdf).
-
-## Artifact Description
-
-The artifcat shows:
-
-1) A prototype tool of MemLock, of which source code is available via [a publicly accessible archival repository](https://github.com/ICSE2020-MemLock/MemLock).
-2) [Documentation](#tool) showing how MemLock is installed and how MemLock can be used.
-3) [Benchmark programs and bug reports](https://github.com/ICSE2020-MemLock/MemLock_Benchmark) used in the paper. 
-4) [Shell script](#evaluation) to automatically compile the benchmark programs and perform fuzzing on the benchmark programs.
-
-
-## Contact Lists
-
-See [Contract.md](./CONTACT.md)
-
-If you have any question, please contact the authors: [Cheng Wen](wencheng888888@163.com) and [Yuekang Li](yli044@e.ntu.edu.sg)
-
-  
-## License
-
 [![MIT License](https://img.shields.io/github/license/xiaocong/uiautomator.svg)](http://opensource.org/licenses/MIT)
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-## MemLock's Repository
-
-For more detail, please see [INSTALL.md](./INSTALL)
-
-The repository provides the tool and the evaluation subjects for the paper "MemLock: Memory Usage Guided Fuzzing" accepted for the technical track at ICSE'2020. A pre-print of the paper can be found at [ICSE2020_MemLock.pdf](https://wcventure.github.io/pdf/ICSE2020_MemLock.pdf).
+This repository provides the tool and the evaluation subjects for the paper "MemLock: Memory Usage Guided Fuzzing" accepted for the technical track at ICSE'2020. A pre-print of the paper can be found at [ICSE2020_MemLock.pdf](https://wcventure.github.io/pdf/ICSE2020_MemLock.pdf).
 
 The repository contains three folders: [*tool*](#tool), [*tests*](#tests) and [*evaluation*](#evaluation).
 
-### Tool
+## Tool
 
 MemLock is built on top of the fuzzer AFL. Check out [AFL's website](http://lcamtuf.coredump.cx/afl/) for more information details. We provide here a snapshot of MemLock. For simplicity, we provide shell script for the whole installation.
 
-#### Requirements
+### Requirements
 
 - Operating System: Ubuntu 16.04 LTS (*We have tested the artifact on the Ubuntu 16.04*)
 - Run the following command to install Docker (*Docker version 18.09.7*):
@@ -54,14 +23,14 @@ MemLock is built on top of the fuzzer AFL. Check out [AFL's website](http://lcam
     $ sudo apt-get install git build-essential python3 cmake tmux libtool automake autoconf autotools-dev m4 autopoint help2man bison flex texinfo zlib1g-dev libexpat1-dev libfreetype6 libfreetype6-dev
     ```
 
-#### Clone the Repository
+### Clone the Repository
 
 ```sh
 $ git clone https://github.com/ICSE2020-MemLock/MemLock.git MemLock --depth=1
 $ cd MemLock
 ```
 
-#### Build and Run the Docker Image
+### Build and Run the Docker Image
 
 Firstly, system core dumps must be disabled as with AFL.
 
@@ -84,11 +53,13 @@ $ sudo docker run --cap-add=SYS_PTRACE -it memlock /bin/bash
 ```
 
 
-### Tests
+
+
+## Tests
 
 Before you use MemLock fuzzer, we suggest that you first use two simple examples provided by us to determine whether the Memlock fuzzer can work normally. We show two simple examples to shows how MemLock can detect excessive memory consumption and why AFL cannot detect these bugs easily. Example 1 demonstrates an uncontrolled-recursion bug and Example 2 demonstrates an uncontrolled-memory-allocation bug.
 
-#### Run for testing example 1
+### Run for testing example 1
 
 Example 1 demonstrates an uncontrolled-recursion bug. The function `fact()` in `example1.c` is a recursive function. With a sufficiently large recursive depth, the execution would run out of stack memory, causing stack-overflow. You can perform fuzzing on this example program by following commands.
 
@@ -105,7 +76,7 @@ $ ./run_test1_AFL.sh
 
 In our experiments for testing example 1, MemLock can find crashes in a few minutes while AFL can not find any crashes.
 
-#### Run for testing example 2
+### Run for testing example 2
 
 Example 2 demonstrates an uncontrolled-memory-allocation bug.  At line 25 in `example2.c`, the length of the user inputs is fed directly into `new []`. By carefully handcrafting the input, an adversary can provide arbitrarily large values, leading to program crash (i.e., `std::bad_alloc`) or running out of memory. You can perform fuzzing on this example program by following commands.
 
@@ -123,11 +94,11 @@ $ ./run_test2_AFL.sh
 In our experiments for testing example 2, MemLock can find crashes in a few minutes while AFL can not find any crashes.
 
 
-### Evaluation
+## Evaluation
 
 The fold *evaluation* contains all our evaluation subjects. After having MemLock installed, you can run the script to build and instrument the subjects. After instrument the subjects you can run the script to perform fuzzing on the subjects.
 
-#### Build Target Program
+### Build Target Program
 
 In BUILD folder, You can run the script `./build_xxx.sh`. It shows how to build and instrument the subject. For example:
 
@@ -137,7 +108,7 @@ $ cd BUILD
 $ ./build_cxxfilt.sh
 ```
 
-#### Run for Fuzzing
+### Run for Fuzzing
 
 After instrumenting the subjects, In FUZZ folder you can run the script `./run_MemLock_cxxfilt.sh` to run a MemLock fuzzer instance on program *cxxfilt*. If you want to compare its performance with AFL, you can open another terminal and run the script `./run_AFL_cxxfilt.sh`.
 
