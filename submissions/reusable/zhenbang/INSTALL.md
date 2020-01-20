@@ -4,7 +4,7 @@ Please follow the following steps to install the docker image of MPI-SV, verify 
 
 We suppose that **the host OS** is **Linux** or **Mac OS X** on which docker can be installed. We suppose that you have installed the **docker** environment; otherwise, please go to [this link](https://docs.docker.com/install/) for help. 
 
-## Download MPI-SV's docker image
+# Download MPI-SV's docker image
 
 ```
 docker pull mpisv/mpi-sv
