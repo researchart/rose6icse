@@ -12,6 +12,25 @@ An Empirical Study of Security Patches in Solidity" accepted at ICSE 2020.
 * Scala version 2.12.3
 
 
+## Repository
+We provide two different ways for artifact evaluation.
+
+The first option is to download VM. All the necessary software is installed in this environment.
+The tester only needs to run our analyzer in this setup.
+
+The second option is to clone the repository into the tester's local machine.
+In this case, sbt, java, and scala must be installed by tester manually, but building and executing our analyzer should be straightforward.
+
+### Download VM for Artifact Evaluation
+
+### Clone the Repository
+```sh
+$ git clone https://github.com/sjmini/icse2020-Solidity.git
+```
+
+
+
+
 ### Building & Executing Test
 
 The input to the tool is smart contract written in Solidity programming language.
