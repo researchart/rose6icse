@@ -31,7 +31,7 @@ PW : 1234
 
 The tool is located in <b>/home/icse20/icse2020-Solidity</b> directory.
 
-Test file is located in <b>/home/icse20/icse2020-Solidity/test/test.sol
+Test file is located in <b>/home/icse20/icse2020-Solidity/test/test.sol</b>
 
 To test the static analyzer, follow instructions in section <b>Run Test & Result</b>
 
