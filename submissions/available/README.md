@@ -19,19 +19,29 @@ The first option is to download VM. All the necessary software is installed in t
 The tester only needs to run our analyzer in this setup.
 
 The second option is to clone the repository into the tester's local machine.
-In this case, sbt, java, and scala must be installed by tester manually, but building and executing our analyzer should be straightforward.
+In this case, sbt, java, and scala must be installed by tester manually.
+
 
 ### Download VM for Artifact Evaluation
+
+Download VM from below link.
+
+ID : icse20
+PW : 1234
+
+The tool is located in <b>/home/icse20/icse2020-Solidity</b> directory.
+
+Test file is located in <b>/home/icse20/icse2020-Solidity/test/test.sol
+
+To test the static analyzer, follow instructions in section <b> Run Test & Result </b>
 
 ### Clone the Repository
 ```sh
 $ git clone https://github.com/sjmini/icse2020-Solidity.git
+$ cd icse2020-Solidity
 ```
 
-
-
-
-### Building & Executing Test
+## Build
 
 The input to the tool is smart contract written in Solidity programming language.
 
@@ -54,13 +64,13 @@ bash-3.2$ sbt
 [success] Total time: 32 s, completed Jan 3, 2020 2:29:55 AM
 ```
 
-4. To execute the our static analzer enter the following command.
+## Run Test & Result
+
+1. To execute the our static analzer enter the following command.
 
 Our analyzer detects eight vulnerabilities discussed in the paper.
 
-The command structure is : 
-
-<i> run command_name target_file </i>
+The command structure is : <i> run command_name target_file </i>
 
 ```
 run runTest test/test.sol
@@ -68,7 +78,7 @@ run runTest test/test.sol
 
 5. Result 
 
-result of analyzer will be summarized in <i>test_result.txt</i> file
+The result of analysis will be summarized in <i>test_result.txt</i> file
 
 ```
 Analyzed : test/test.sol
@@ -162,5 +172,9 @@ Gap between Theory and Practice : An Empirical Study of Security Patches in Soli
   year={2020}
 }
 ```
+
+## Link
+
+github : https://github.com/sjmini/icse2020-Solidity
 
 Copyright (c) 2020, KAIST
