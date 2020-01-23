@@ -69,7 +69,12 @@ bash-3.2$ sbt
 
 ### Running Test 
 
-Our analyzer detects eight vulnerabilities discussed in the paper. (Table 1)
+Our analyzer detects eight vulnerabilities discussed in the paper. 
+The list of eight vulnerabilities are summarized in :
+
+<b>Table1 : Known vulnerabilities patched by the Solidity compiler and the number of contracts that are vulnerable to them</b>
+
+Each of the vulnerabilities are explained through out section 5 in the paper.
 
 To execute the static analzer, enter the following command.
 
