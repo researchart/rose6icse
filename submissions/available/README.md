@@ -26,6 +26,8 @@ In this case, sbt, java, and scala must be installed by tester manually.
 
 Download VM from below link.
 
+https://drive.google.com/file/d/1gFnUvF-0x_IS6QSV8e2UC_vT78ikbM3E/view?usp=sharing
+
 ID : icse20
 PW : 1234
 
