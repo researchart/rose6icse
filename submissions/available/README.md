@@ -74,7 +74,7 @@ The list of eight vulnerabilities are summarized in :
 
 <b>Table1 : Known vulnerabilities patched by the Solidity compiler and the number of contracts that are vulnerable to them</b>
 
-Each of the vulnerabilities are explained through out section 5 in the paper.
+Each of the vulnerabilities are explained through out <b>section 5</b> in the paper.
 
 To execute the static analzer, enter the following command.
 
