@@ -67,17 +67,18 @@ bash-3.2$ sbt
 
 ## Run Test & Result
 
-1. To execute the our static analzer enter the following command.
+### Running Test 
 
-Our analyzer detects eight vulnerabilities discussed in the paper.
+Our analyzer detects eight vulnerabilities discussed in the paper. (Table 1)
 
-The command structure is : <i> run command_name target_file </i>
+To execute the static analzer, enter the following command.
+
 
 ```
 run runTest test/test.sol
 ```
 
-5. Result 
+### Result 
 
 The result of analysis will be summarized in <i>test_result.txt</i> file
 
