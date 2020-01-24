@@ -1,0 +1,5 @@
+We are applying for the functional/reusable/available badges.
+
+The artifact is available as we have provided a replication package containing the code of the artifact, which will be put in an archival repository after AE. The artifact is functional; we have included the original code used to run the experiments in the paper, and this code can be built and run on the provided benchmarks. 
+
+We believe the artifact is reusable as we have provided an extensive README detailing how to (1) replicate the plots shown in the paper from the pre-existing data, and (2) how to re-run the experiments from the paper on a different machine, and use the same plotting scripts to validate that the results are close enough (i.e., within variation due to machine specs/randomness) to those presented in the paper. 
