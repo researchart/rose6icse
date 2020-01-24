@@ -51,3 +51,7 @@ SB Curated provides a collection of vulnerable Solidity smart contracts organize
 ### SB Wild
 
 SB Wild is available in a separated repository due to its size: https://github.com/smartbugs/smartbugs-wild
+
+
+## License
+See the license file in each of the repositories for more details.
