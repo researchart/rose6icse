@@ -67,7 +67,7 @@ Download
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <span style="">
-The artifact of Watchman, `Watchman.zip`, is available at [http://www.watchman-pypi.com/artifacts](http://www.watchman-pypi.com/artifacts). Please first download the package from the DOI to reproduce the results.
+The artifact of Watchman, `Watchman.zip`, is available at [http://www.watchman-pypi.com/artifacts](http://www.watchman-pypi.com/artifacts). Please first download the package, to reproduce the results.
 </span>
 
 
