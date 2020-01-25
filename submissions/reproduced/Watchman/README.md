@@ -108,9 +108,9 @@ Example Python projects
 Three example Python projects with three types of (potential) DC issues, are provided as follows:
 </span>
 
-1. **Pattern A** : `moto3.14`
-2. **Type1** : `ldapdomaindump9.1`
-3. **Type2** : `bcdata3.5`
+1. **Pattern A** : `moto` `3.14`
+2. **Type1** : `ldapdomaindump` `9.1`
+3. **Type2** : `bcdata` `3.5`
 
 Displaying full dependency graph
 ---
