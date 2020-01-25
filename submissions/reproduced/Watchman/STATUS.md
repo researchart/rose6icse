@@ -1,3 +1,4 @@
+Our artifact applies for `Reusable`,	`Available`,	`Replicated` and `Reproduced` badges.
 Reusable
 ---
 1. Watchman is developed as an online tool (http://www.watchman-pypi.com/), which can help developers diagnose the dependency conflict (DC) issues in their projects. The functional correctness of Watchman can be verified.
