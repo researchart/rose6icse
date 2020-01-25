@@ -13,7 +13,7 @@ Authors
   - github ids: NeolithEra
   
 - Ming Wen
-  - email: mwenaa@cse.ust.hk
+  - email: mwenaa@hust.edu.cn
   - affiliation : Huazhong University of Science and Technology
   - github ids: justinwm
   
