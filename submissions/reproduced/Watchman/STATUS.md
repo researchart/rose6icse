@@ -25,7 +25,7 @@ Reproduced
 ---
 The main results of the paper have been independently obtained in a subsequent study by a person or team other than the authors, without the use of author-supplied artifacts.
 
-Recently, we promoted Watchman in the open source community by communicating with developers in the comments section of issue reports submitted by us. We also invited several experienced developers from two Chinese software companies, Neusoft Co. Ltd (SSE: 600718) and Pinduoduo Co. Ltd (Nasdaq: PDD), to apply Watchman to their company projects and asked for their feedback. 
+Recently, we promoted Watchman in the open source community by communicating with developers in the comments section of issue reports submitted by us. We also invited several experienced developers from two Chinese software companies, ***Neusoft** Co. Ltd (SSE: 600718) and ***Pinduoduo*** Co. Ltd (Nasdaq: PDD), to apply Watchman to their company projects and asked for their feedback. 
 We observed that 467 users from 15 different countries visited Watchman website from 9 December, 2019 and 17 January, 2020 (we tried our best to filter out the visits by robots/crawlers). And Watchman has successfully generated online diagnosis reports for 2590 Python projects. In addition, the developers of the two software companies sent us reproduction reports via emails.
 
 The provided reproduction report is available at: http://www.watchman-pypi.com/reports
