@@ -1,6 +1,6 @@
 Reusable
 ---
-1. Watchman is developed as an online tool, which can help developers diagnose the dependency conflict (DC) issues in their projects. The functional correctness of Watchman can be verified.
+1. Watchman is developed as an online tool (http://www.watchman-pypi.com/), which can help developers diagnose the dependency conflict (DC) issues in their projects. The functional correctness of Watchman can be verified.
 2. This artifact is documented and well-structured to the extent that reuse and repurposing is facilitated. 
 3. Specially, We released 235 DC issues collected in the empirical study, which is a reusable dataset that can help developers understand and improve the technique for diagnosing DC issues.
 We also released the metadata repository of all the library versions on the PyPI ecosystem from 6 Nov, 2002 (the date of PyPI being founded) to 31 Dec, 2020, under the MIT License. To reproduce the evaluation results in Section 5.1 of this paper, we released a series of scripts, which help to replay the evolution history of the 16,421 releases of 2,067 projects on PyPI from 1 Jan, 2017 to 30 Jun, 2019. The above dataset and scripts are useful for future research.
