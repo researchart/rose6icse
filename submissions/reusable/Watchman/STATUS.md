@@ -12,7 +12,7 @@ Available
 ---
 This artifact is placed on a publicly accessible archival repository. 
 
-A DOI or link to this repository along with a unique identifier for the object is provided: http://doi.org/10.5281/zenodo.3625780</br>
+A DOI or link to this repository along with a unique identifier for the object is provided: https://zenodo.org/record/3627491</br>
 ![](https://github.com/NeolithEra/Figures/blob/master/DOI.png)
 
 Replicated
