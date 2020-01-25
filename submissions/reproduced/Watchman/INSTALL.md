@@ -55,7 +55,6 @@ This artifact is developed based on Python language, and has been tested on Wind
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 Watchman only needs the following three steps to play back the evolution history of the libraries on PyPI, and perform a holistic analysis from the perspective of the entire PyPI ecosystem. Based on the above analysis, Watchman detects the DC issues of **Patterns A.a** and **A.b** , and predicts potential ones that could be induced by the smells of **Type 1** and **Type 2**. Finally, it outputs the diagnosis information, and the values of metrics **resolving ratio** and **lasting time**. The **resolving ratio** measures the proportion of the resolved ones in Watchman&#39;s detected DC issues, and the **lasting time** measures the gap between the detection time of a DC issue and the fixing time of this DC issue. For more detailed definitions of **Patterns A.a** , **A.b** , **Type 1** and **Type 2 issues,** you can refer to the README.md file in the artifact package.</br>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 - **Step 1:** Unzip package `Watchman_Artifacts.zip` to local directory.</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 - **Step 2:** Launch your windows console as an administrator and change your working directory to the one that `Watchman_Artifacts.zip` package being unzipped.</br>
