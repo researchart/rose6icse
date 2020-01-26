@@ -1,4 +1,4 @@
-# Solidity Static Analyzr
+# Solidity Static Analyzer
 
 This artifact submission includes a static analyzer for the ICSE Technical Track, "Gap between Theory and Practice : An Empirical Study of Security Patches in Solidity." 
 
