@@ -26,17 +26,17 @@ In this case, sbt, java, and scala must be installed by tester manually.
 
 Download VM from below link. (ID : icse20 PW : 1234)
 
-https://drive.google.com/file/d/1gFnUvF-0x_IS6QSV8e2UC_vT78ikbM3E/view?usp=sharing
+https://drive.google.com/file/d/1IG91R10M_o8eZ9AO_Oo4gTeAlvWBU0mj/view?usp=drivesdk
 
 
 
 The tool is located in <b>/home/icse20/icse2020-Solidity</b> directory.
 
-Test file is located in <b>/home/icse20/icse2020-Solidity/test/test.sol</b>
+The Test contract is located in <b>/home/icse20/icse2020-Solidity/test/test.sol</b>
 
 To test the static analyzer, follow instructions in section <b>Run Test & Result</b>
 
-### Clone the Repository
+### Clone the Repository [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3625258.svg)](https://doi.org/10.5281/zenodo.3625258)
 ```sh
 $ git clone https://github.com/sjmini/icse2020-Solidity.git
 $ cd icse2020-Solidity
@@ -71,7 +71,7 @@ bash-3.2$ sbt
 
 Our analyzer detects eight vulnerabilities discussed in the paper. (Table 1)
 
-To execute the static analzer, enter the following command.
+To execute the static analzer, enter the following command in the sbt terminal.
 
 
 ```
