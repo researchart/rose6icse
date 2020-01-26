@@ -1,6 +1,6 @@
 # Human Values in Software Engineering Publications (2015-2018)
 
-We make available our manual classification of human values in Software Engineering Publications (2015 - 2018) as a complement to our publication. We permit the use of this artifact for reproduction and validation of our result and classification protocol.
+We make available our manual classification of human values in Software Engineering Publications (2015 - 2018) as a complement to our publication. We used Schwartz's Theory of Basic Values for the classification. 
 
 ## Dataset
 File name: `prevalence-human-values-in-se-publication.csv`
