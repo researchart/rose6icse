@@ -28,13 +28,9 @@ Download VM from below link. (ID : icse20 PW : 1234)
 
 https://drive.google.com/file/d/1IG91R10M_o8eZ9AO_Oo4gTeAlvWBU0mj/view?usp=drivesdk
 
-
-
-The tool is located in <b>/home/icse20/icse2020-Solidity</b> directory.
-
-The Test contract is located in <b>/home/icse20/icse2020-Solidity/test/test.sol</b>
-
-To test the static analyzer, follow instructions in section <b>Run Test & Result</b>
+- The tool is located in <b>/home/icse20/icse2020-Solidity</b> directory.
+- The Test contract is located in <b>/home/icse20/icse2020-Solidity/test/test.sol</b>
+- To test the static analyzer, follow instructions in section <b>Run Test & Result</b>
 
 ### Clone the Repository [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3625258.svg)](https://doi.org/10.5281/zenodo.3625258)
 ```sh
