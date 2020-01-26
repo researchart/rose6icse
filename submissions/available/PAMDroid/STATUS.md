@@ -1,0 +1,1 @@
+We are applying for the AVAILABLE badge. Our study results reveal the misconfiguration of analytic services, which might compromise mobile users' privacy.  The proposed tool PAMDroid can be applied to any app using the listed popular analytic services. Our study result is open to the public and can be reproduced based on the steps described in "README.md"
