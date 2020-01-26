@@ -36,7 +36,7 @@ Test file is located in <b>/home/icse20/icse2020-Solidity/test/test.sol</b>
 
 To test the static analyzer, follow instructions in section <b>Run Test & Result</b>
 
-### Clone the Repository
+### Clone the Repository [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3625258.svg)](https://doi.org/10.5281/zenodo.3625258)
 ```sh
 $ git clone https://github.com/sjmini/icse2020-Solidity.git
 $ cd icse2020-Solidity
