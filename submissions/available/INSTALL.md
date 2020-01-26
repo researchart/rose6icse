@@ -1,4 +1,4 @@
-# Smart Contract Analyzer
+# Solidity Smart Contract Analyzer
 This is the artifact for the paper "Gap between Theory and Practice : 
 An Empirical Study of Security Patches in Solidity" accepted at ICSE 2020.
 
