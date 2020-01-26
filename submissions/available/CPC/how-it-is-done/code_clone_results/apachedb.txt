@@ -1,0 +1,1134 @@
+*
+#
+apachedb\java\build\org\apache\derbyBuild\MessageBuilder.java 716 726
+Flush and close file writers
+#
+apachedb\java\build\org\apache\derbyPreBuild\ReleaseProperties.java 232 242
+Flush and close file writers
+*
+#
+apachedb\java\client\org\apache\derby\client\ClientPooledConnection.java 494 501
+Raise the statementClosed event for all the listeners when the corresponding events occurs
+#
+apachedb\java\engine\org\apache\derby\jdbc\EmbedPooledConnection.java 591 598
+Raise the statementClosed event for all the listeners when the corresponding events occurs
+*
+#
+apachedb\java\client\org\apache\derby\client\ClientPooledConnection.java 511 519
+Raise the statementErrorOccurred event for all the listeners when the corresponding events occurs
+#
+apachedb\java\engine\org\apache\derby\jdbc\EmbedPooledConnection.java 608 616
+Raise the statementErrorOccurred event for all the listeners when the corresponding events occurs
+*
+#
+apachedb\java\client\org\apache\derby\client\am\ClientParameterMetaData.java 125 133
+Returns this if this class implements the specified interface
+Returns an object that implements the interface
+Throws SQLException if no object is found that implements the interface
+#
+apachedb\java\client\org\apache\derby\jdbc\BasicClientDataSource40.java 1504 1512
+Returns this if this class implements the specified interface
+Returns an object that implements the interface
+Throws SQLException if no object is found that implements the interface
+#
+apachedb\java\engine\org\apache\derby\jdbc\BasicEmbeddedDataSource40.java 812 822
+Returns this if this class implements the specified interface
+Returns an object that implements the interface
+Throws SQLException if no object is found that implements the interface
+#
+apachedb\java\client\org\apache\derby\client\am\ColumnMetaData.java 858 866
+Returns this if this class implements the specified interface
+Returns an object that implements the interface
+Throws SQLException if no object is found that implements the interface
+#
+apachedb\java\engine\org\apache\derby\impl\jdbc\EmbedParameterSetMetaData.java 244 253
+Returns this if this class implements the specified interface
+Returns an object that implements the interface
+Throws SQLException if no object is found that implements the interface
+*
+#
+apachedb\java\client\org\apache\derby\client\am\ClientStatement.java 45 48
+Debug method used to test the setLargeMaxRows() method added by JDBC 4.2
+#
+apachedb\java\engine\org\apache\derby\impl\jdbc\EmbedResultSet.java 319 322
+Debug method used to test the setLargeMaxRows() method added by JDBC 4.2
+*
+#
+apachedb\java\client\org\apache\derby\client\am\Decimal.java 60 85
+Convert a range of packed nybbles (up to 9 digits without overflow) to an int
+#
+apachedb\java\drda\org\apache\derby\impl\drda\DDMReader.java 1229 1255
+Convert a range of packed nybbles (up to 9 digits without overflow) to an int
+Returns an int value
+*
+#
+apachedb\java\client\org\apache\derby\client\am\Decimal.java 91 116
+Convert a range of packed nybbles (up to 18 digits without overflow) to a long
+Note that for performance purpose, it does not do array-out-of-bound checking
+#
+apachedb\java\drda\org\apache\derby\impl\drda\DDMReader.java 1266 1292
+Convert a range of packed nybbles (up to 18 digits without overflow) to a long
+Note that for performance purpose, it does not do array-out-of-bound checking
+Returns an long value
+*
+#
+apachedb\java\client\org\apache\derby\client\am\Decimal.java 121 140
+Compute the int array of magnitude from input value segments
+#
+apachedb\java\drda\org\apache\derby\impl\drda\DDMReader.java 1299 1319
+Compute the int array of magnitude from input value segments
+Returns array of int magnitudes
+*
+#
+apachedb\java\client\org\apache\derby\client\am\EncryptionManager.java 703 717
+Convert a string into a byte array in hex format
+For each character (b) two bytes are generated, the first byte represents the high nibble (4 bits) in hexadecimal ( b & 0xf0 ), the second byte represents the low nibble ( b & 0x0f )
+Returns the byte[] (with hexadecimal format) form of the string (str)
+#
+apachedb\java\drda\org\apache\derby\impl\drda\DecryptionManager.java 487 501
+Convert a string into a byte array in hex format
+For each character (b) two bytes are generated, the first byte represents the high nibble (4 bits) in hexidecimal ( b &amp; 0xf0 ), the second byte represents the low nibble ( b &amp; 0x0f )
+Returns the byte[] (with hexidecimal format) form of the string (str)
+*
+#
+apachedb\java\client\org\apache\derby\client\am\FailedProperties40.java 54 59
+Helper method that creates a Propery object with the name-value pair given as arguments
+Returns the created Properties object
+#
+apachedb\java\engine\org\apache\derby\iapi\jdbc\FailedProperties40.java 53 58
+Helper method that creates a Propery object from the name-value pair given as arguments
+Returns the created Properties object
+*
+#
+apachedb\java\client\org\apache\derby\client\am\FailedProperties40.java 70 84
+Creates a new FailedProperties40 instance
+Since Derby doesn't support any properties, all the keys from the props parameter are added to the failedProps_ member with value REASON_UNKNOWN_PROPERTY
+Can be null or empty
+#
+apachedb\java\engine\org\apache\derby\iapi\jdbc\FailedProperties40.java 68 82
+Creates a new FailedProperties40 instance
+Since Derby doesn't support any properties, all the keys from the props parameter are added to the failedProps_ member with value REASON_UNKNOWN_PROPERTY
+Can be null or empty
+*
+#
+apachedb\java\client\org\apache\derby\client\am\LogWriter.java 354 363
+*
+#
+apachedb\java\client\org\apache\derby\client\am\Utils.java 206 213
+Squash an array of longs into an array of ints
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbcapi\BatchUpdateTest.java 222 229
+Squash an array of longs into an array of ints
+#
+apachedb\java\engine\org\apache\derby\impl\jdbc\Util.java 312 319
+Squash an array of longs into an array of ints
+*
+#
+apachedb\java\client\org\apache\derby\jdbc\BasicClientConnectionPoolDataSource40.java 99 107
+Specifies the maximum size of the statement cache
+Throws IllegalArgumentException if maxStatements is negative
+#
+apachedb\java\client\org\apache\derby\jdbc\ClientConnectionPoolDataSource.java 84 91
+Specifies the maximum size of the statement cache
+Throws IllegalArgumentException if maxStatements is negative
+*
+#
+apachedb\java\demo\nserverdemo\SimpleNetworkClientSample.java 227 254
+Test a connection by executing a sample query
+Throws Exception if there is any error
+#
+apachedb\java\demo\nserverdemo\SimpleNetworkServerSample.java 262 290
+Test a connection by executing a sample query
+Throws Exception if there is any error
+*
+#
+apachedb\java\demo\vtis\java\org\apache\derbyDemo\vtis\example\ApacheServerLogVTI.java 117 129
+The Apache Server's logs format timestamps thusly: "01/Jul/2002:17:31:19 +0200"
+#
+apachedb\java\demo\vtis\java\org\apache\derbyDemo\vtis\example\SubversionLogVTI.java 185 197
+Subversion formats timestamps thusly: "2007-09-16 11:17:37 -0700 (Sun, 16 Sep 2007)"
+*
+#
+apachedb\java\drda\org\apache\derby\impl\drda\DRDAConnThread.java 6489 6503
+Build preformatted SQLException text for severe exceptions or SQLExceptions that are not Derby exceptions
+Just send the message text localized to the server locale
+Returns preformated message text with messages separted by SQLERRMC_PREFORMATED_MESSAGE_DELIMITER
+#
+apachedb\java\shared\org\apache\derby\shared\common\error\MessageUtils.java 192 206
+Build preformatted SQLException text for severe exceptions or SQLExceptions that are not Derby exceptions
+Just send the message text localized to the server locale
+Returns preformated message text with messages separted by SQLERRMC_PREFORMATED_MESSAGE_DELIMITER
+*
+#
+apachedb\java\drda\org\apache\derby\impl\drda\DRDAConnThread.java 9522 9534
+Privileged service lookup
+#
+apachedb\java\drda\org\apache\derby\impl\drda\NetworkServerControlImpl.java 4239 4251
+Privileged service lookup
+#
+apachedb\java\engine\org\apache\derby\jdbc\InternalDriver.java 1060 1072
+Privileged service lookup
+#
+apachedb\java\engine\org\apache\derby\impl\jdbc\EmbedConnection.java 4013 4025
+Privileged service lookup
+#
+apachedb\java\testing\org\apache\derbyTesting\unitTests\store\T_Recovery.java 4135 4147
+Privileged service lookup
+#
+apachedb\java\engine\org\apache\derby\impl\store\raw\data\D_DiagnosticUtil.java 490 502
+Privileged service lookup
+#
+apachedb\java\engine\org\apache\derby\jdbc\BasicEmbeddedDataSource40.java 959 971
+Privileged service lookup
+#
+apachedb\java\engine\org\apache\derby\impl\jdbc\LOBStreamControl.java 660 672
+Privileged service lookup
+#
+apachedb\java\optional\org\apache\derby\optional\lucene\LuceneSupport.java 1762 1774
+Privileged service lookup
+#
+apachedb\java\testing\org\apache\derbyTesting\unitTests\store\T_RecoverFullLog.java 893 905
+Privileged service lookup
+*
+#
+apachedb\java\drda\org\apache\derby\impl\drda\DecryptionManager.java 453 467
+Convert a byte array to a String with a hexidecimal format
+The String may be converted back to a byte array using fromHexString
+For each byte (b) two characaters are generated, the first character represents the high nibble (4 bits) in hexidecimal ( b &amp; 0xf0 ), the second character represents the low nibble ( b &amp; 0x0f )
+Returns the String (with hexidecimal format) form of the byte array
+#
+apachedb\java\engine\org\apache\derby\iapi\util\StringUtil.java 180 194
+Convert a byte array to a String with a hexidecimal format
+The String may be converted back to a byte array using fromHexString
+For each byte (b) two characaters are generated, the first character represents the high nibble (4 bits) in hexidecimal ( b &amp; 0xf0 ), the second character represents the low nibble ( b &ampxs; 0x0f )
+Returns the String (with hexidecimal format) form of the byte array
+*
+#
+apachedb\java\drda\org\apache\derby\impl\drda\LayerBStreamedEXTDTAReaderInputStream.java 69 75
+Reads the next byte of data from the input stream
+This subclass of InputStream implements this method by reading the next byte from the current buffer
+If there is more data, it will be requested a new buffer from the DDMReader
+Returns the next byte of data, or -1 if the end of the stream is reached
+Throws IOException if an I/O error occurs
+#
+apachedb\java\drda\org\apache\derby\impl\drda\StandardEXTDTAReaderInputStream.java 74 80
+Reads the next byte of data from the input stream
+This subclass of InputStream implements this method by reading the next byte from the current buffer
+If there is more data, it will be requested a new buffer from the DDMReader
+Returns the next byte of data, or -1 if the end of the stream is reached
+Throws IOException if an I/O error occurs
+*
+#
+apachedb\java\drda\org\apache\derby\impl\drda\NetworkServerControlImpl.java 4221 4233
+Privileged module lookup
+#
+apachedb\java\engine\org\apache\derby\jdbc\InternalDriver.java 1042 1054
+Privileged module lookup
+#
+apachedb\java\engine\org\apache\derby\impl\services\cache\ConcurrentCache.java 809 821
+Privileged module lookup
+#
+apachedb\java\engine\org\apache\derby\mbeans\Management.java 95 107
+Privileged module lookup
+*
+#
+apachedb\java\engine\org\apache\derby\iapi\error\ExceptionUtil.java 69 132
+Get the severity given a message identifier from SQLState
+Returns the constant representing the severity, as defined in org.apache.derby.iapi.error.ExceptionSeverity
+#
+apachedb\java\engine\org\apache\derby\iapi\error\StandardException.java 194 257
+Get the severity given a message identifier from org.apache.derby.iapi.reference.SQLState
+#
+apachedb\java\shared\org\apache\derby\shared\common\error\ExceptionUtil.java 47 110
+Get the severity given a message identifier from SQLState
+*
+#
+apachedb\java\engine\org\apache\derby\iapi\error\ThreadDump.java 40 56
+Returns A string representation of a full thread dump
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\util\ThreadDump.java 32 48
+Returns A string representation of a full thread dump
+#
+apachedb\java\shared\org\apache\derby\shared\common\sanity\ThreadDump.java 32 48
+Returns A string representation of a full thread dump
+*
+#
+apachedb\java\engine\org\apache\derby\iapi\security\SecurityUtil.java 104 117
+Returns the Authorization Identifier for a principal name
+Returns the authorization identifier for this principal
+#
+apachedb\java\testing\org\apache\derbyTesting\unitTests\junit\SystemPrivilegesPermissionTest.java 1283 1296
+Returns the Authorization Identifier for a principal name
+Returns the authorization identifier for this principal
+*
+#
+apachedb\java\engine\org\apache\derby\iapi\services\i18n\MessageService.java 181 193
+Method to use instead of ResourceBundle.getBundle()
+This method acts like ResourceBundle.getBundle() but if the resource is not available in the requested locale, default locale or base class the one for en_US is returned
+#
+apachedb\java\shared\org\apache\derby\shared\common\error\MessageUtils.java 231 243
+Method to use instead of ResourceBundle.getBundle()
+This method acts like ResourceBundle.getBundle() but if the resource is not available in the requested locale, default locale or base class the one for en_US is returned
+*
+#
+apachedb\java\engine\org\apache\derby\iapi\services\i18n\MessageService.java 202 213
+Hash function to split messages into 50 files based upon the message identifier or SQLState
+#
+apachedb\java\shared\org\apache\derby\shared\common\error\MessageUtils.java 213 224
+Hash function to split messages into 50 files based upon the message identifier or SQLState
+*
+#
+apachedb\java\engine\org\apache\derby\iapi\services\info\JVMInfo.java 147 158
+Get system property
+#
+apachedb\java\optional\org\apache\derby\optional\dump\DataFileVTI.java 556 564
+Get system property
+*
+#
+apachedb\java\engine\org\apache\derby\iapi\services\io\ArrayUtil.java 85 96
+Copy a (possibly null) 2-dimensional array of ints
+#
+apachedb\java\tools\org\apache\derby\iapi\tools\ToolUtils.java 66 77
+Copy a (possibly null) 2-dimensional array of ints
+*
+#
+apachedb\java\engine\org\apache\derby\iapi\services\io\FileUtil.java 67 102
+Remove a directory and all of its contents
+This method removes the directory and all of its contents
+Returns true if the complete directory was removed, false if it could not be
+If false is returned then some of the files in the directory may have been removed
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\util\FTFileUtil.java 124 153
+Remove a directory and all of its contents
+Returns true if the omplete directory was removed false otherwise.f false is returned then some of the files in the directory may have been removed
+*
+#
+apachedb\java\engine\org\apache\derby\iapi\util\StringUtil.java 234 290
+Convert a byte array to a human-readable String for debugging purposes
+#
+apachedb\java\testing\org\apache\derbyTesting\unitTests\util\BitUtil.java 141 197
+Convert a byte array to a human-readable String for debugging purposes
+*
+#
+apachedb\java\engine\org\apache\derby\iapi\util\StringUtil.java 372 390
+Compress 2 adjacent (single or double) quotes into a single (s or d) quote when found in the middle of a String
+Returns String where quotes have been compressed
+#
+apachedb\java\testing\org\apache\derbyTesting\junit\JDBC.java 1786 1804
+Compress 2 adjacent (single or double) quotes into a single (s or d) quote when found in the middle of a String
+Returns String where quotes have been compressed
+*
+#
+apachedb\java\engine\org\apache\derby\impl\db\BasicDatabase.java 132 146
+#
+apachedb\java\engine\org\apache\derby\impl\db\SlaveDatabase.java 109 123
+Determines whether this Database implementation should be used to boot the database
+Returns true if the database is updatable (not read-only) and replication slave mode is specified in startParams
+*
+#
+apachedb\java\engine\org\apache\derby\impl\jdbc\EmbedBlob.java 1166 1171
+Return locator for this lob
+Returns The locator identifying this lob
+#
+apachedb\java\engine\org\apache\derby\impl\jdbc\EmbedClob.java 833 838
+Returns locator value for this Clob
+#
+apachedb\java\engine\org\apache\derby\impl\jdbc\EmbedDatabaseMetaData.java 3522 3531
+Returns this if this class implements the interface
+Returns an object that implements the interface
+Throws SQLException if no object is found that implements the interface
+#
+apachedb\java\engine\org\apache\derby\impl\jdbc\EmbedResultSetMetaData.java 406 415
+Returns this if this class implements the interface
+Returns an object that implements the interface
+Throws SQLException if no object is found that implements the interface
+*
+#
+apachedb\java\engine\org\apache\derby\impl\jdbc\authentication\AuthenticationServiceBase.java 864 876
+Privileged service name lookup
+Must be private so that user code can't call this entry point
+#
+apachedb\java\engine\org\apache\derby\impl\jdbc\authentication\NativeAuthenticationServiceImpl.java 595 607
+Privileged Monitor lookup
+Must be private so that user code can't call this entry point
+#
+apachedb\java\engine\org\apache\derby\impl\store\raw\RawStore.java 2910 2922
+Privileged service name lookup
+Must be private so that user code can't call this entry point
+*
+#
+apachedb\java\engine\org\apache\derby\impl\load\Export.java 159 166
+Checks if the specified file exists
+Returns true if the file exists, false if not
+Throws SecurityException if the required privileges are missing
+#
+apachedb\java\engine\org\apache\derby\impl\services\monitor\StorageFactoryService.java 1031 1038
+Checks if the specified file exists
+Returns true if the file exists, false if not
+Throws SecurityException if the required privileges are missing
+*
+#
+apachedb\java\engine\org\apache\derby\impl\services\reflect\UpdateLoader.java 453 465
+Privileged module lookup
+#
+apachedb\java\engine\org\apache\derby\impl\store\raw\data\FileContainer.java 3575 3587
+Privileged module lookup
+#
+apachedb\java\engine\org\apache\derby\impl\store\raw\data\D_DiagnosticUtil.java 472 484
+Privileged module lookup
+#
+apachedb\java\engine\org\apache\derby\impl\store\raw\data\StreamFileContainer.java 1213 1225
+Privileged module lookup
+#
+apachedb\java\engine\org\apache\derby\impl\store\raw\log\LogToFile.java 6024 6036
+Privileged module lookup
+#
+apachedb\java\engine\org\apache\derby\impl\sql\conn\GenericLanguageConnectionFactory.java 573 585
+Privileged module lookup
+*
+#
+apachedb\java\engine\org\apache\derby\impl\sql\compile\BinaryListOperatorNode.java 70 82
+Convert this object to a String
+Returns 	This object as a String
+#
+apachedb\java\engine\org\apache\derby\impl\sql\compile\UnaryOperatorNode.java 214 226
+Convert this object to a String
+Returns 		This object as a String
+#
+apachedb\java\engine\org\apache\derby\impl\sql\compile\BinaryOperatorNode.java 194 206
+Convert this object to a String
+Returns 	This object as a String
+*
+#
+apachedb\java\engine\org\apache\derby\impl\sql\compile\GrantNode.java 64 84
+Convert this object to a String
+Returns 	This object as a String
+#
+apachedb\java\engine\org\apache\derby\impl\sql\compile\RevokeNode.java 63 82
+Convert this object to a String
+Returns 	This object as a String
+*
+#
+apachedb\java\engine\org\apache\derby\impl\sql\compile\ParseException.java 118 160
+This method has the standard behavior when this object has been created using the standard constructors
+Otherwise, it uses "currentToken" and "expectedTokenSequences" to generate a parse error message and returns it
+If this object has been created due to a parse error, and you do not catch it (it gets thrown from the parser), then this method is called during the printing of the final stack trace, and hence the correct error message gets displayed
+#
+apachedb\java\tools\org\apache\derby\impl\tools\ij\ParseException.java 118 160
+This method has the standard behavior when this object has been created using the standard constructors
+Otherwise, it uses "currentToken" and "expectedTokenSequences" to generate a parse error message and returns it
+If this object has been created due to a parse error, and you do not catch it (it gets thrown from the parser), then this method is called during the printing of the final stack trace, and hence the correct error message gets displayed
+*
+#
+apachedb\java\engine\org\apache\derby\impl\sql\compile\UCode_CharStream.java 430 473
+Method to adjust line and column numbers for the start of a token
+#
+apachedb\java\tools\org\apache\derby\impl\tools\ij\UCode_CharStream.java 372 415
+Method to adjust line and column numbers for the start of a token
+*
+#
+apachedb\java\engine\org\apache\derby\impl\sql\execute\AnyResultSet.java 241 253
+Return the total amount of time spent in this ResultSet
+Returns long		The total amount of time spent (in milliseconds)
+#
+apachedb\java\engine\org\apache\derby\impl\sql\execute\NormalizeResultSet.java 232 244
+Return the total amount of time spent in this ResultSet
+Returns long		The total amount of time spent (in milliseconds)
+#
+apachedb\java\engine\org\apache\derby\impl\sql\execute\IndexRowToBaseRowResultSet.java 500 512
+Return the total amount of time spent in this ResultSet
+Returns long		The total amount of time spent (in milliseconds)
+#
+apachedb\java\engine\org\apache\derby\impl\sql\execute\OnceResultSet.java 296 308
+Return the total amount of time spent in this ResultSet
+Returns long		The total amount of time spent (in milliseconds)
+#
+apachedb\java\engine\org\apache\derby\impl\sql\execute\MaterializedResultSet.java 331 343
+Return the total amount of time spent in this ResultSet
+Returns long		The total amount of time spent (in milliseconds)
+#
+apachedb\java\engine\org\apache\derby\impl\sql\execute\WindowResultSet.java 308 316
+Return the total amount of time spent in this ResultSet
+Returns long The total amount of time spent (in milliseconds)
+#
+apachedb\java\engine\org\apache\derby\impl\sql\execute\ScrollInsensitiveResultSet.java 898 910
+Return the total amount of time spent in this ResultSet
+Returns long		The total amount of time spent (in milliseconds)
+*
+#
+apachedb\java\engine\org\apache\derby\impl\sql\execute\BasicNoPutResultSetImpl.java 683 693
+Get the Timestamp for the end of execution
+Returns Timestamp		The Timestamp for the end of execution
+#
+apachedb\java\engine\org\apache\derby\impl\sql\execute\NoRowsResultSetImpl.java 467 477
+Get the Timestamp for the end of execution
+Returns Timestamp		The Timestamp for the end of execution
+*
+#
+apachedb\java\engine\org\apache\derby\impl\sql\execute\BasicNoPutResultSetImpl.java 714 724
+Return the current time in milliseconds, if DEBUG and RunTimeStats is on, else return 0
+Returns long		Current time in milliseconds
+#
+apachedb\java\engine\org\apache\derby\impl\sql\execute\NoRowsResultSetImpl.java 547 557
+Return the current time in milliseconds, if DEBUG and RunTimeStats is on, else return 0
+Returns long		Current time in milliseconds
+*
+#
+apachedb\java\engine\org\apache\derby\impl\sql\execute\GroupedAggregateResultSet.java 545 558
+Return the total amount of time spent in this ResultSet
+Returns long		The total amount of time spent (in milliseconds)
+#
+apachedb\java\engine\org\apache\derby\impl\sql\execute\SortResultSet.java 483 496
+Return the total amount of time spent in this ResultSet
+Returns long		The total amount of time spent (in milliseconds)
+#
+apachedb\java\engine\org\apache\derby\impl\sql\execute\ScalarAggregateResultSet.java 280 293
+Return the total amount of time spent in this ResultSet
+Returns long		The total amount of time spent (in milliseconds)
+*
+#
+apachedb\java\engine\org\apache\derby\impl\sql\execute\HashScanResultSet.java 546 559
+Return the total amount of time spent in this ResultSet
+Returns long		The total amount of time spent (in milliseconds)
+#
+apachedb\java\engine\org\apache\derby\impl\sql\execute\LastIndexKeyResultSet.java 253 266
+Return the total amount of time spent in this ResultSet
+Returns long		The total amount of time spent (in milliseconds)
+#
+apachedb\java\engine\org\apache\derby\impl\sql\execute\TableScanResultSet.java 645 658
+Return the total amount of time spent in this ResultSet
+Returns long		The total amount of time spent (in milliseconds)
+*
+#
+apachedb\java\engine\org\apache\derby\impl\sql\execute\HashTableResultSet.java 477 489
+Return the total amount of time spent in this ResultSet
+Returns long		The total amount of time spent (in milliseconds)
+#
+apachedb\java\engine\org\apache\derby\impl\sql\execute\RowCountResultSet.java 310 318
+Return the total amount of time spent in this ResultSet
+Returns long The total amount of time spent (in milliseconds)
+#
+apachedb\java\engine\org\apache\derby\impl\sql\execute\ProjectRestrictResultSet.java 360 372
+Return the total amount of time spent in this ResultSet
+Returns long		The total amount of time spent (in milliseconds)
+*
+#
+apachedb\java\engine\org\apache\derby\impl\sql\execute\MergeJoinResultSet.java 222 235
+Return the total amount of time spent in this ResultSet
+Returns long		The total amount of time spent (in milliseconds)
+#
+apachedb\java\engine\org\apache\derby\impl\sql\execute\NestedLoopJoinResultSet.java 267 280
+Return the total amount of time spent in this ResultSet
+Returns long		The total amount of time spent (in milliseconds)
+*
+#
+apachedb\java\engine\org\apache\derby\impl\sql\execute\TableScanResultSet.java 1264 1272
+Shallow clone this result set
+#
+apachedb\java\engine\org\apache\derby\impl\sql\execute\TemporaryRowHolderResultSet.java 1321 1329
+Shallow clone this result set
+*
+#
+apachedb\java\engine\org\apache\derby\impl\sql\execute\rts\RealNoPutResultSetStatistics.java 85 105
+Initialize the format info for run time statistics
+#
+apachedb\java\engine\org\apache\derby\impl\sql\execute\rts\RealNoRowsResultSetStatistics.java 82 101
+Initialize the format info for run time statistics
+*
+#
+apachedb\java\engine\org\apache\derby\impl\store\raw\data\FileContainer.java 504 510
+We treat this container as dirty if it has the container file open
+#
+apachedb\java\testing\org\apache\derbyTesting\unitTests\services\T_Cacheable.java 75 79
+Returns true of the object is dirty
+*
+#
+apachedb\java\engine\org\apache\derby\impl\store\raw\data\StoredPage.java 709 717
+Calculate the slot field size from the page size
+Returns slot field size in bytes
+#
+apachedb\java\optional\org\apache\derby\optional\dump\DataFileVTI.java 1514 1525
+*
+#
+apachedb\java\engine\org\apache\derby\jdbc\AutoloadedDriver.java 154 161
+Returns the driver's major version number
+#
+apachedb\java\engine\org\apache\derby\jdbc\EmbeddedDriver.java 142 149
+Returns the driver's major version number
+*
+#
+apachedb\java\engine\org\apache\derby\jdbc\AutoloadedDriver.java 166 173
+Returns the driver's minor version number
+#
+apachedb\java\engine\org\apache\derby\jdbc\EmbeddedDriver.java 155 162
+Returns the driver's minor version number
+*
+#
+apachedb\java\engine\org\apache\derby\jdbc\AutoloadedDriver.java 179 186
+Report whether the Driver is a genuine JDBC COMPLIANT (tm) driver
+#
+apachedb\java\engine\org\apache\derby\jdbc\EmbeddedDriver.java 168 175
+Report whether the Driver is a genuine JDBC COMPLIANT (tm) driver
+*
+#
+apachedb\java\optional\org\apache\derby\optional\lucene\LuceneSupport.java 712 742
+Get the type of an external database's column as a Derby type name
+#
+apachedb\java\tools\org\apache\derby\impl\tools\optional\ForeignDBViews.java 361 401
+Get the type of an external database's column as a Derby type name
+*
+#
+apachedb\java\stubs\felix\org\osgi\framework\BundlePermission.java 132 138
+Called by constructors and when deserialized
+#
+apachedb\java\stubs\felix\org\osgi\framework\PackagePermission.java 126 132
+Called by constructors and when deserialized
+#
+apachedb\java\stubs\felix\org\osgi\framework\ServicePermission.java 121 127
+Called by constructors and when deserialized
+*
+#
+apachedb\java\testing\org\apache\derby\impl\jdbc\BiggerTemporaryClobTest.java 48 62
+Creates a bigger read-write Clob that is being kept on disk due to its size
+#
+apachedb\java\testing\org\apache\derby\impl\jdbc\SmallTemporaryClobTest.java 50 64
+Creates a small read-write Clob that is kept in memory
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\compatibility\AbstractCompatibilityTest.java 151 168
+Assert two objects are equal, allowing nulls to be equal
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\util\DerbyJUnitTest.java 970 987
+Assert two objects are equal, allowing nulls to be equal
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\compatibility\AbstractCompatibilityTest.java 175 193
+Assert two byte arrays are equal, allowing nulls to be equal
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\util\DerbyJUnitTest.java 994 1013
+Assert two byte arrays are equal, allowing nulls to be equal
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\compatibility\AbstractCompatibilityTest.java 200 209
+Assert two Dates are equal, allowing nulls to be equal
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\util\DerbyJUnitTest.java 1020 1030
+Assert two Dates are equal, allowing nulls to be equal
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\compatibility\AbstractCompatibilityTest.java 219 295
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\util\DerbyJUnitTest.java 552 628
+Read a column from a ResultSet given its column name and expected jdbc type
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbc4\BlobTest.java 187 199
+Builds the HashSet which will be used to test whether the given methods can be exempted or not
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbc4\ClobTest.java 177 189
+Builds the HashSet which will be used to test whether the given methods can be exempted or not
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbc4\BlobTest.java 240 284
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbc4\ClobTest.java 249 294
+Enumerate the methods of the Clob interface and get the list of methods present in the interface
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbc4\BlobTest.java 353 359
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbc4\ClobTest.java 351 357
+Return a array of objects containing the default values for the objects passed in as parameters
+Returns an array of Objects containing the null values for the parameter inputs
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbc4\BlobTest.java 369 400
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbc4\UnsupportedVetter.java 804 837
+Returns a null value compatible with the class
+Returns a null value
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbcapi\ClosedObjectTest.java 321 351
+Returns a null value compatible with the class
+Returns a null value
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbc4\ClobTest.java 366 396
+Returns the null value for the specific type
+Returns the null value for the specific type
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbc4\BlobTest.java 891 916
+Try to update the row with the given error
+Flag a failure if a timeout occurs when not expected, and vice versa
+Throws java.sql.SQLException
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbc4\ClobTest.java 1022 1047
+Try to update the row with the given error
+Throws java.sql.SQLException
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbcapi\AutoGenJDBC30Test.java 130 138
+Creates the database objects used in the test cases
+Throws SQLException
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbcapi\CallableTest.java 233 241
+Creates the tables and the stored procedures used in the test cases
+Throws SQLException
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbcapi\AutoGenJDBC30Test.java 453 493
+Requests generated keys after doing a one-row insert into a table that has an auto-generated column
+Old harness Test 6
+Expected result: ResultSet has one row with a non-NULL key
+Throws SQLException
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbcapi\AutoGenJDBC30Test.java 977 1005
+Inserts a row into a table with a SQL function in the VALUES clause; the table has an auto-generated column
+Throws SQLException
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbcapi\ConcurrencyTest.java 547 596
+Test what happens if you update a tuple which has been modified by another transaction
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbcapi\ConcurrencyTest.java 602 651
+Test what happens if you update a tuple which has been modified by another transaction (in this case the same column)
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbcapi\DataSourceReferenceTest.java 450 483
+Obtains a list of bean properties through reflection
+Returns A list of bean property names
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbcapi\XAJNDITest.java 159 192
+Obtains a list of bean properties through reflection
+Returns A list of bean property names
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbcapi\DataSourceTest.java 396 403
+Check that trace file exists in <framework> directory
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbcapi\DriverTest.java 363 370
+Check that trace files exist
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbcapi\DataSourceTest.java 706 717
+Make sure this connection's string is unique (DERBY-243)
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbcapi\J2EEDataSourceTest.java 4338 4349
+Make sure this connection's string is unique (DERBY-243)
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbcapi\DataSourceTest.java 740 749
+Make sure the connection string starts with the right prefix, which is the classname@hashcode
+Returns the expected prefix string, this is used in further string format checking
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbcapi\J2EEDataSourceTest.java 4382 4391
+Make sure the connection string starts with the right prefix, which is the classname@hashcode
+Returns the expected prefix string, this is used in further string format checking
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbcapi\DataSourceTest.java 755 767
+Check uniqueness of connection strings coming from a DataSouce
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbcapi\J2EEDataSourceTest.java 4397 4409
+Check uniqueness of connection strings coming from a DataSouce
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbcapi\DataSourceTest.java 773 779
+Clear out and close connections in the connections hashtable
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbcapi\J2EEDataSourceTest.java 4415 4421
+Clear out and close connections in the connections hashtable
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbcapi\DataSourceTest.java 785 800
+Get connections using getConnection() and make sure they're unique
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbcapi\J2EEDataSourceTest.java 4427 4442
+Get connections using getConnection() and make sure they're unique
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\jdbcapi\InternationalConnectTest.java 133 171
+Will check if the JDBC driver has been loaded and load it if that is not the case
+Any other exception messages than "No suitable driver" on the first attempt to get the JDBC driver will result in an assertion failure
+Throws SQLException if an unexpected exception is thrown
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\memory\ConnectionHandlingJunit.java 248 293
+Will check if the JDBC driver has been loaded and load it if that is not the case
+Any other exception messages than "No suitable driver" on the first attempt to get the JDBC driver will result in an assertion failure
+Throws SQLException if an unexpected exception is thrown
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\lang\BooleanValuesTest.java 2209 2223
+Return true if the SQL routine exists
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\lang\RestrictedVTITest.java 1241 1255
+Return true if the SQL routine exists
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\lang\XMLOptimizerTraceTest.java 668 682
+Return true if the SQL routine exists
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\lang\NewOptimizerOverridesTest.java 475 489
+Return true if the SQL routine exists
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\lang\BooleanValuesTest.java 2226 2240
+Return true if the table exists
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\lang\XMLOptimizerTraceTest.java 685 699
+Return true if the table exists
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\lang\NewOptimizerOverridesTest.java 492 506
+Return true if the table exists
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\lang\RestrictedVTITest.java 1258 1272
+Return true if the table exists
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\lang\CastingTest.java 1274 1280
+Run good DDL
+Throws SQLException
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\lang\TableFunctionTest.java 2689 2696
+Run good DDL
+Throws SQLException
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\lang\CompressTableTest.java 116 172
+Test that statement invalidation works when SYSCS_COMPRESS_TABLE calls and other statements accessing the same table execute concurrently
+DERBY-4275
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\lang\TruncateTableTest.java 309 363
+Test that statement invalidation works when TRUNCATE TABLE statements and other statements accessing the same table execute concurrently
+DERBY-4275
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\lang\CurrentOfTest.java 59 70
+Set the fixture up with tables t and s and insert 4 rows in table t
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\lang\CursorTest.java 210 222
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\lang\GeneratedColumnsHelper.java 194 221
+Assert that the statement text, when executed, raises a warning
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\upgradeTests\Changes10_11.java 577 604
+Assert that the statement text, when executed, raises a warning
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\lang\GrantRevokeTest.java 1567 1577
+Return the given String array as a comma separated String
+Returns a comma separated String of the column names
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\lang\RolesConferredPrivilegesTest.java 2663 2675
+Return the given String array as a comma separated String
+Returns a comma separated String of the column names
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\lang\IdentitySequenceTest.java 805 815
+Get a scalar integer result from a query
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\lang\UDTTest.java 1329 1339
+Get a scalar integer result from a query
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\lang\SequenceGeneratorTest.java 880 890
+Get a scalar integer result from a query
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\lang\SequenceGeneratorTest.java 893 903
+Get a scalar long result from a query
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\lang\TableFunctionTest.java 3118 3128
+Get a scalar long result from a query
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\lang\UpdatableResultSetTest.java 338 371
+Negative test - request a read only resultset and attempt deleteRow and updateRow on it
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\lang\UpdatableResultSetTest.java 377 411
+Negative Test - request a read only resultset and send a sql with FOR UPDATE clause and attempt deleteRow/updateRow on it
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\lang\UpdatableResultSetTest.java 418 453
+Negative Test - request resultset with no FOR UPDATE clause and CONCUR_READ_ONLY
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\largedata\LobLimitsTest.java 559 591
+select from blob table (BLOBTBL)
+expectedRows is number of rows expected to match id
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\largedata\LobLimitsTest.java 639 674
+select from blob table (BLOBTBL2)
+file is name of the file,against which the retrieved data is compared
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\memorydb\Derby6662Test.java 81 96
+Obtains a connection to an in-memory database
+Returns A connection to an in-memory database
+Throws SQLException if obtaining the connection fails
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\memorydb\MogTest.java 174 189
+Obtains a connection to an in-memory database
+Returns A connection to an in-memory database
+Throws SQLException if obtaining the connection fails
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\memorydb\Derby6662Test.java 103 111
+Drops the database used by the test
+Throws SQLException if dropping the database fails
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\memorydb\MogTest.java 196 205
+Drops the database used by the test
+Throws SQLException if dropping the database fails
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\memorydb\Derby6662Test.java 118 134
+Constructs the default URL for the in-memory test database
+Returns A database URL (without any connection attributes)
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\memorydb\MogTest.java 212 228
+Constructs the default URL for the in-memory test database
+Returns A database URL (without any connection attributes)
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\replicationTests\ReplicationRun_Local_1.java 58 127
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\replicationTests\ReplicationRun_Local_Derby4910.java 62 135
+Test that a slave can wait a while for the master to connect without timing out
+The startSlave command used to time out after one second before DERBY-4910
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\store\Derby4923Test.java 253 276
+call SYSCS_UTIL.SYSCS_INPLACE_COMPRESS_TABLE() system procedure
+Utility test function to call the system procedure
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\store\OnlineCompressTest.java 50 73
+call SYSCS_UTIL.SYSCS_INPLACE_COMPRESS_TABLE() system procedure
+Utility test function to call the system procedure
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\store\HoldCursorJDBC30Test.java 240 395
+The following tests that no matter where commit comes in the state of the scan that the scan will continue after the commit
+Tests various states of scan like: before first next, after first next, before close,after close
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\store\HoldCursorJDBC30Test.java 903 1062
+basic btree scan tests (multiple rows/read only/no group fetch) The following tests that no matter where commit comes in the state of the scan that the scan will continue after the commit
+Tests various states of scan like: before first next, after first next, before close, after close
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\store\IndexSplitDeadlockTest.java 816 820
+Create an AsyncThread object and starts a thread executing the task
+Also put the AsyncThread object in the list of threads in the parent object to make sure the thread is waited for and its errors detected in the tearDown() method
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\store\LockTableVtiTest.java 256 260
+Create an AsyncThread object and starts a thread executing the task
+Also put the AsyncThread object in the list of threads in the parent object to make sure the thread is waited for and its errors detected in the tearDown() method
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\store\IndexSplitDeadlockTest.java 827 838
+Open a database connection and perform the task
+Roll back the transaction when finished
+Any exception thrown will be caught and rethrown when the waitFor() method is called
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\store\LockTableVtiTest.java 267 278
+Open a database connection and perform the task
+Roll back the transaction when finished
+Any exception thrown will be caught and rethrown when the waitFor() method is called
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\store\IndexSplitDeadlockTest.java 845 850
+Wait for the thread to complete
+If an error was thrown during execution, rethrow the execption here
+Throws Exception if an error happened while performing the task
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\store\LockTableVtiTest.java 285 290
+Wait for the thread to complete
+If an error was thrown during execution, rethrow the execption here
+Throws Exception if an error happened while performing the task
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\store\OnlineBackupTest1.java 188 199
+Shutdown the datbase
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\tests\store\OnlineBackupTest3.java 104 115
+Shutdown the datbase
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\util\BigDecimalHandler.java 94 113
+Returns String value of getXXX(columnIndex)method on the ResultSet
+Throws SQLException
+#
+apachedb\java\testing\org\apache\derbyTesting\junit\BigDecimalHandler.java 94 113
+Returns String value of getXXX(columnIndex)method on the ResultSet
+Throws SQLException
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\util\BigDecimalHandler.java 123 143
+Returns String value of getXXX(columnName)method on the ResultSet
+Throws SQLException
+#
+apachedb\java\testing\org\apache\derbyTesting\junit\BigDecimalHandler.java 123 143
+Returns String value of getXXX(columnName)method on the ResultSet
+Throws SQLException
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\util\BigDecimalHandler.java 152 175
+Returns String value of getXXX(columnIndex) method on the ResultSet
+Throws SQLException
+#
+apachedb\java\testing\org\apache\derbyTesting\junit\BigDecimalHandler.java 152 175
+Returns String value of getXXX(columnIndex) method on the ResultSet
+Throws SQLException
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\util\BigDecimalHandler.java 184 207
+Returns String value of getXXX(columnName) method on the ResultSet
+Throws SQLException
+#
+apachedb\java\testing\org\apache\derbyTesting\junit\BigDecimalHandler.java 184 207
+Returns String value of getXXX(columnName) method on the ResultSet
+Throws SQLException
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\util\BigDecimalHandler.java 216 229
+Throws SQLException
+#
+apachedb\java\testing\org\apache\derbyTesting\junit\BigDecimalHandler.java 216 229
+Throws SQLException
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\util\BigDecimalHandler.java 238 251
+Throws SQLException
+#
+apachedb\java\testing\org\apache\derbyTesting\junit\BigDecimalHandler.java 238 251
+Throws SQLException
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\util\BigDecimalHandler.java 262 280
+Returns String value of getXXX(parameterIndex)method on the CallableStatement
+Throws SQLException
+#
+apachedb\java\testing\org\apache\derbyTesting\junit\BigDecimalHandler.java 262 280
+Returns String value of getXXX(parameterIndex)method on the CallableStatement
+Throws SQLException
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\util\BigDecimalHandler.java 289 305
+Throws SQLException
+#
+apachedb\java\testing\org\apache\derbyTesting\junit\BigDecimalHandler.java 289 305
+Throws SQLException
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\util\BigDecimalHandler.java 314 327
+Throws SQLException
+#
+apachedb\java\testing\org\apache\derbyTesting\junit\BigDecimalHandler.java 314 327
+Throws SQLException
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\util\BigDecimalHandler.java 335 346
+Returns true if the SQL type is convertible to DECIMAL, false otherwise
+Throws SQLException
+#
+apachedb\java\testing\org\apache\derbyTesting\junit\BigDecimalHandler.java 335 346
+Returns true if the SQL type is convertible to DECIMAL, false otherwise
+Throws SQLException
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\util\TestUtil.java 493 527
+#
+apachedb\java\testing\org\apache\derbyTesting\junit\JDBC.java 1848 1882
+Return Type name from jdbc type
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\util\streams\LoopingAlphabetReader.java 225 236
+Fill array with blanks (SPACE)
+#
+apachedb\java\testing\org\apache\derbyTesting\functionTests\util\streams\LoopingAlphabetStream.java 188 199
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\junit\BaseTestCase.java 494 503
+Assert the equivalence of two byte arrays
+#
+apachedb\java\testing\org\apache\derbyTesting\junit\BaseTestCase.java 528 537
+Assert the equivalence of two int arrays
+#
+apachedb\java\testing\org\apache\derbyTesting\junit\BaseTestCase.java 544 553
+Assert the equivalence of two long arrays
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\junit\EnvTest.java 70 78
+Get the system properties in a privileged block
+Returns the system properties
+#
+apachedb\java\testing\org\apache\derbyTesting\junit\TestConfiguration.java 1356 1364
+Get the system properties in a privileged block
+Returns the system properties
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\junit\NetworkServerTestSetup.java 313 324
+#
+apachedb\java\testing\org\apache\derbyTesting\junit\TestConfiguration.java 1863 1874
+starts the Networs server for this configuration
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\perf\basic\jdbc\CountTest.java 99 103
+Cleanup - close resources opened in this test
+#
+apachedb\java\testing\org\apache\derbyTesting\perf\basic\jdbc\SortTest.java 144 149
+Cleanup - close resources opened in this test
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\perf\clients\BackToBackLoadGenerator.java 86 90
+Start warmup
+#
+apachedb\java\testing\org\apache\derbyTesting\perf\clients\PoissonLoadGenerator.java 144 148
+Start warmup phase
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\perf\clients\BackToBackLoadGenerator.java 103 114
+Stop the load generator
+#
+apachedb\java\testing\org\apache\derbyTesting\perf\clients\PoissonLoadGenerator.java 161 173
+Stop the load generator
+*
+#
+apachedb\java\testing\org\apache\derbyTesting\perf\clients\SingleRecordSelectClient.java 73 85
+Construct a new single-record select client
+#
+apachedb\java\testing\org\apache\derbyTesting\perf\clients\SingleRecordUpdateClient.java 66 78
+Construct a new single-record update client
+*
+#
+apachedb\java\tools\org\apache\derby\impl\tools\dblook\DB_GrantRevoke.java 333 361
+* Generate udt privilege statements
+#
+apachedb\java\tools\org\apache\derby\impl\tools\dblook\DB_GrantRevoke.java 401 429
+* Generate aggregate privilege statements
+*
+#
+apachedb\java\tools\org\apache\derby\tools\JDBCDisplayUtil.java 132 147
+Print information about the SQL warnings for the connection to the given PrintWriter
+Walks the list of exceptions, if any
+#
+apachedb\java\tools\org\apache\derby\tools\JDBCDisplayUtil.java 819 834
+*
+#
+apachedb\java\tools\org\apache\derby\tools\JDBCDisplayUtil.java 170 185
+Print information about the SQL warnings for the ResultSet to the given PrintWriter
+Walk the list of exceptions, if any
+#
+apachedb\java\tools\org\apache\derby\tools\JDBCDisplayUtil.java 845 860
+*
+#
+apachedb\java\tools\org\apache\derby\tools\JDBCDisplayUtil.java 195 211
+Print information about the SQL warnings for the Statement to the given PrintWriter
+Walks the list of exceptions, if any
+#
+apachedb\java\tools\org\apache\derby\tools\JDBCDisplayUtil.java 862 878
+*
+#
+apachedb\java\tools\org\apache\derby\tools\JDBCDisplayUtil.java 663 726
+Print one row of a result set, padding each field to the display width and separating them with '|'s
+Throws SQLException thrown on JDBC access failure
+#
+apachedb\java\tools\org\apache\derby\tools\JDBCDisplayUtil.java 1173 1237
+-

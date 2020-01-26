@@ -1,0 +1,126 @@
+*
+#
+guava\src\com\google\common\collect\Sets.java 831 846
+Returns an unmodifiable view of the intersection of two sets
+The returned set contains all elements that are contained by both backing sets
+Results are undefined if set1 and set2 are sets based on different equivalence relations (as HashSet , TreeSet , and the keySet of an IdentityHashMap all are)
+#
+guava\src\com\google\common\collect\Sets.java 902 917
+Returns an unmodifiable view of the difference of two sets
+The returned set contains all elements that are contained by set1 and not contained by set2
+Results are undefined if set1 and set2 are sets based on different equivalence relations (as HashSet , TreeSet , and the keySet of an IdentityHashMap all are)
+*
+#
+guava\src\com\google\common\collect\Streams.java 470 476
+Returns a stream consisting of the results of applying the given function to the elements of stream and their indexes in the stream
+#
+guava\src\com\google\common\collect\Streams.java 627 633
+Returns a stream consisting of the results of applying the given function to the elements of stream and their indexes in the stream
+#
+guava\src\com\google\common\collect\Streams.java 548 554
+Returns a stream consisting of the results of applying the given function to the elements of stream and their indexes in the stream
+*
+#
+guava\src\com\google\common\primitives\Booleans.java 185 202
+Returns the start position of the first occurrence of the specified target within array , or -1 if there is no such occurrence
+More formally, returns the lowest index i such that Arrays.copyOfRange(array, i, i + target.length) contains exactly the same elements as target
+#
+guava\src\com\google\common\primitives\Floats.java 156 173
+Returns the start position of the first occurrence of the specified target within array , or -1 if there is no such occurrence
+More formally, returns the lowest index i such that Arrays.copyOfRange(array, i, i + target.length) contains exactly the same elements as target
+#
+guava\src\com\google\common\primitives\Longs.java 146 163
+Returns the start position of the first occurrence of the specified target within array , or -1 if there is no such occurrence
+More formally, returns the lowest index i such that Arrays.copyOfRange(array, i, i + target.length) contains exactly the same elements as target
+#
+guava\src\com\google\common\primitives\Shorts.java 172 189
+Returns the start position of the first occurrence of the specified target within array , or -1 if there is no such occurrence
+More formally, returns the lowest index i such that Arrays.copyOfRange(array, i, i + target.length) contains exactly the same elements as target
+#
+guava\src\com\google\common\primitives\Ints.java 174 191
+Returns the start position of the first occurrence of the specified target within array , or -1 if there is no such occurrence
+More formally, returns the lowest index i such that Arrays.copyOfRange(array, i, i + target.length) contains exactly the same elements as target
+#
+guava\src\com\google\common\primitives\Chars.java 168 185
+Returns the start position of the first occurrence of the specified target within array , or -1 if there is no such occurrence
+More formally, returns the lowest index i such that Arrays.copyOfRange(array, i, i + target.length) contains exactly the same elements as target
+#
+guava\src\com\google\common\primitives\Doubles.java 161 178
+Returns the start position of the first occurrence of the specified target within array , or -1 if there is no such occurrence
+More formally, returns the lowest index i such that Arrays.copyOfRange(array, i, i + target.length) contains exactly the same elements as target
+Note that this always returns -1 when target contains NaN
+#
+guava\src\com\google\common\primitives\Bytes.java 111 128
+Returns the start position of the first occurrence of the specified target within array , or -1 if there is no such occurrence
+More formally, returns the lowest index i such that Arrays.copyOfRange(array, i, i + target.length) contains exactly the same elements as target
+*
+#
+guava\src\com\google\common\primitives\Doubles.java 348 361
+Returns a string containing the supplied double values, converted to strings as specified by toString , and separated by separator
+#
+guava\src\com\google\common\primitives\Floats.java 343 356
+Returns a string containing the supplied float values, converted to strings as specified by toString , and separated by separator
+*
+#
+guava\src\com\google\common\primitives\ImmutableDoubleArray.java 595 607
+Returns a string representation of this array in the same form as toString , for example "[1, 2, 3]"
+#
+guava\src\com\google\common\primitives\ImmutableIntArray.java 585 597
+Returns a string representation of this array in the same form as toString , for example "[1, 2, 3]"
+#
+guava\src\com\google\common\primitives\ImmutableLongArray.java 587 599
+Returns a string representation of this array in the same form as toString , for example "[1, 2, 3]"
+*
+#
+guava\src\com\google\common\primitives\ImmutableIntArray.java 550 567
+Returns true if object is an ImmutableIntArray containing the same values as this one, in the same order
+#
+guava\src\com\google\common\primitives\ImmutableLongArray.java 552 569
+Returns true if object is an ImmutableLongArray containing the same values as this one, in the same order
+*
+#
+guava\src\com\google\common\primitives\Ints.java 403 416
+Returns a string containing the supplied int values separated by separator
+#
+guava\src\com\google\common\primitives\SignedBytes.java 143 156
+Returns a string containing the supplied byte values separated by separator
+*
+#
+guava\src\com\google\common\primitives\UnsignedBytes.java 347 357
+Returns a sun.misc.Unsafe
+#
+guava\src\com\google\common\util\concurrent\AbstractFuture.java 1191 1201
+*
+#
+guava\src\com\google\common\primitives\UnsignedBytes.java 470 480
+Sorts the array between fromIndex inclusive and toIndex exclusive, treating its elements as unsigned bytes
+#
+guava\src\com\google\common\primitives\UnsignedInts.java 230 240
+Sorts the array between fromIndex inclusive and toIndex exclusive, treating its elements as unsigned 32-bit integers
+#
+guava\src\com\google\common\primitives\UnsignedLongs.java 196 206
+Sorts the array between fromIndex inclusive and toIndex exclusive, treating its elements as unsigned 64-bit integers
+*
+#
+guava\src\com\google\common\primitives\UnsignedInts.java 165 178
+Returns a string containing the supplied unsigned int values separated by separator
+#
+guava\src\com\google\common\primitives\UnsignedLongs.java 130 143
+Returns a string containing the supplied unsigned long values separated by separator
+*
+#
+guava\src\com\google\common\util\concurrent\AbstractFuture.java 906 921
+An inlined private copy of getUninterruptibly used to break an internal dependency on other /util/concurrent classes
+#
+guava\src\com\google\common\util\concurrent\Uninterruptibles.java 194 209
+Invokes future
+Throws ExecutionException if the computation threw an exception
+Throws CancellationException if the computation was cancelled
+*
+#
+guava\src\com\google\common\util\concurrent\AbstractFuture.java 1136 1148
+Submits the given runnable to the given Executor catching and logging all RuntimeException runtime exceptions thrown by the executor
+#
+guava\src\com\google\common\util\concurrent\ExecutionList.java 139 151
+Submits the given runnable to the given Executor catching and logging all RuntimeException runtime exceptions thrown by the executor
+-
