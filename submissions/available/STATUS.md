@@ -1,4 +1,4 @@
-# Smart Contract Analyzer -- Badge(s) Description
+# Solidity Smart Contract Analyzer -- Badge(s) Description
 
 We are applying for the available badges.
 
