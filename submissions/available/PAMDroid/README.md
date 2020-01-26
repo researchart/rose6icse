@@ -59,7 +59,7 @@ According to the invocation results, there are 120 apps having the misconfigurat
         
         * After you manually open the app, if the app does not need to login, you can just input 'y' to let Monkey to perform UI testing.  
 
-    5. After finishing UI testing, there will be a generated system log, in this example, will be "com.texty.sms.log",  search for the pre-defined flag "API invoke detection". 
+    5. After finishing UI testing, there will be a generated system log, in this example, it will be "com.texty.sms.log". In the log file, search for the pre-defined flag "API invoke detection" to identify our instrumentation. You will find several invocations and one of them is "Third-party API invoke detection:Print StackTrace with parameter: utsaresearch2018@gmail.com". This means the developer is using email address on the ASM. Right before this flag, a callStack is provided and the top level of this callStack indicates which ASM has been invoked. In this example, the top level is "com.crashlytics.android.Crashlytics.setUserEmail(SourceFile: 258)" which means the developer invoked the ASM "Crashlytics.setUserEmail" and the parameter is the user's email address. 
 
     6. Check each flag, if the logged parameter of ASM is a PII:  
         * Read the app's privacy policy, report if find  misalignment
