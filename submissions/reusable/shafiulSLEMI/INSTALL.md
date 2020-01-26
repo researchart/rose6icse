@@ -9,10 +9,10 @@ Please watch the 5-minute video demo from the [README.md](README.md) file before
 
 ## Pre-processing and Analyzing
 
-Here, we will pre-process some Simulink models as this is the first step before performing any actual EMI-based mutation. For convenience, we have provided a small corpus with some Simulink models.
+Here, we will pre-process some Simulink models as this is the first step before performing any actual EMI-based mutation. For convenience, we have provided a small corpus with some Simulink models (i.e. `seeds`) along with the pre-processed versions (which have `_pp` suffix) and cached analysis results.
 
 - Copy the `reproduce/samplecorpus` directory somewhere in your filesystem, and set this path to two environment variables: `COVEXPEXPLORE` and `SLSFCORPUS`. Models from this corpus will be used for pre-processing and eventually generating mutants.
-- **WARNING:** Environment variables must be changed before opening MATLAB. If MATLAB is already open before changing the environment variables, please restart MATLAB.
+- **WARNING:** Environment variables must be updated before opening MATLAB. If MATLAB is already open before changing the environment variables, please restart MATLAB.
 - Open MATLAB, navigate to the `installation path` and execute `covexp.covcollect()` in the MATLAB command-prompt.
 
 Your output will look like:
@@ -37,14 +37,16 @@ Once the script completes, you'll see overview of the experiment and a boxplot i
 ## Generating Mutants
 
 After running the pre-processing phase, execute `emi.go` in the MATLAB command prompt to generate some mutants!
+Currently the EMI-generation configuaration (`+emi/cfg.m`) would only create one mutant from a randomly chosen seed in our corpus. Check out the video demo and the configuration file to learn which mutation strategies would be applied and additional details.
 
 For complete documentation please check out:
 
 - The [+emi/cfg.m](https://github.com/shafiul/slemi/blob/master/%2Bemi/cfg.m) configuration file itself which is well documented.
-- The [+emi/Readme.md](https://github.com/shafiul/slemi/tree/master/%2Bemi) file .
+- The [+emi/Readme.md](https://github.com/shafiul/slemi/tree/master/%2Bemi) file.
 
 ### Reports
 
 - Upon completion, each of the commands introduced above will present an overview of the experiment (e.g., result of differential testing). You can also manually run `covexp.addpaths(); emi.report()` in the MATLAB command-prompt to get detailed report.
 
-- Where are my mutants? They are saved in the `emi_results` directory, go ahead and open a generated mutant in MATLAB! Mutants have `seedmodel_1_1` suffix (the numbers after the underscore are some unique identifiers). You can also open the seed model from the `sample corpus` to inspect manually. 
+- Where are my mutants? They are saved in the `emi_results` directory, go ahead and open a generated mutant in MATLAB! Mutants have `seedmodel_1_1` suffix (the numbers after the underscore are some unique identifiers). 
+- You can also open the seed model from the `sample corpus` to inspect manually. 
