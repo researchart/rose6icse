@@ -76,3 +76,24 @@ Other tables are not directly related to the artifact.
 This artifact is a prototype of the idea conveyed in the CPC paper. We propagate comments based on rules abstracted from the syntax of the Java programming language. This project implements Method-level propagation rules.
 
 We provide all the source code and a pre-configured Docker image with necessary scripts for reproducing the results presented in the paper. Besides that, even though the configuration is tedious, we'll still provide a brief instruction about how to configure it.
+
+## Configure the project manually
+
+1. `python2`, `tensorflow`, `keras`, `gensim`, `numpy`, `nltk`, `pandas`, `xlwt`, `jdk-8` and `maven` are required.
+
+2. Clone [wmd4j](https://github.com/crtomirmajer/wmd4j)
+3. `cd` to `wmd4j` and run `mvn install`
+4. run `getData.sh` to download other data and dependencies. (We tried to upload these but failed due to the file size limitation of Github).
+5. run the following commands in the `CPC` directory.
+
+    ```bash
+    cd CPC-what-property
+    ./run.sh
+    cd ..
+    cd how-it-is-done
+    ./propagate.sh
+    cd ..
+    mkdir -p result
+    cp CPC-what-property/n_distance_uniq.csv result/property-what.csv
+    cp how-it-is-done/*.xlsx result/
+    ```
