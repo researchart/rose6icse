@@ -40,7 +40,7 @@ The figure above shows TimeMachine's architecture. The whole system runs in a do
 * Docker API v1.13 or above 
 * Python 2.7.2
 
-## Setup ##
+## Install ##
 The following is required to set up TimeMachine:
 * at least 100 GB hard drive 
 * 8 GB memory
