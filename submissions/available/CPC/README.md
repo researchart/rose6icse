@@ -1,6 +1,6 @@
 # CPC
 
-## TL;DR
+## Start
 
 1. Use ubuntu 16.04, 64bit version or ubuntu 18.04, 64bit version
 2. Install [Docker](https://www.docker.com)
