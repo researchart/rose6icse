@@ -79,6 +79,7 @@ We provide all the source code and a pre-configured Docker image with necessary 
 
 ## Configure the project manually
 
+1. Clone our [code](https://github.com/XZ-X/CPC-artifact-release/tree/master/submissions/available/CPC)
 1. `python2`, `tensorflow`, `keras`, `gensim`, `numpy`, `nltk`, `pandas`, `xlwt`, `jdk-8` and `maven` are required.
 
 2. Clone [wmd4j](https://github.com/crtomirmajer/wmd4j)
