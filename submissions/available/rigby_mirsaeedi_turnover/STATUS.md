@@ -1,6 +1,6 @@
 # Available Badge
 
-We believe the provided package meets all the requirements of the Available badge.
+We believe the provided package meets all the conditions required for the badge.
 
 1. **Easy Installation**: External dependencies of the application are mentioned and a download link is provided for each. The [application](https://www.nuget.org/packages/RelationalGit/) itself is a _dotnet Global Tool_ which can be easily installed through command line.
 
@@ -11,7 +11,7 @@ dotnet tool install --global RelationalGit
 2. **Data**: The database backup file of all five examined projects is provided. In addition, if researchers want to evaluate other projects, [instructions](https://github.com/CESEL/RelationalGit) on using our tool for gathering data from git and GitHub and performing simulations are provided. 
 
 
-3. **Verification and Validation**: Using the provided raw data which includes information gathered from git and Github, researchers are able to use our tool to run recommendation simulation and [generate](https://github.com/CESEL/RelationalGit/tree/master/ReplicationPackage) the results. 
+3. **Verification and Validation**: Using the provided raw data which includes information gathered from git and Github, researchers are able to use our tool to run recommendation simulations and [generate](https://github.com/CESEL/RelationalGit/tree/master/ReplicationPackage) the results. 
 
 4. **DOI**: 
 
