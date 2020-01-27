@@ -91,4 +91,4 @@ online_questionnaire
 	    |--- repos_to_clone.csv                         TODO
 ```
 
-The steps for creating the list of contributors to contact for replicating this study are presented [here](./INSTALL.md). 
+The steps for contacting the list of contributors of the targeted GitHub repositories are presented [here](./INSTALL.md). 
