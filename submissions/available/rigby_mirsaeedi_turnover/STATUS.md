@@ -8,10 +8,10 @@ We believe the provided package meets all the requirements of the Available badg
 dotnet tool install --global RelationalGit
 ```
 
-2. **Data**: The database backup file of all five examined projects is provided. In addition, if researchers want to evaluate other projects, [instructions]() on using our tool for gathering data from git and GitHub and performing simulations are provided. 
+2. **Data**: The database backup file of all five examined projects is provided. In addition, if researchers want to evaluate other projects, [instructions](https://github.com/CESEL/RelationalGit) on using our tool for gathering data from git and GitHub and performing simulations are provided. 
 
 
-3. **Verification and Validation**: Using the provided raw data which includes information gathered from git and Github, researchers are able to use our tool to run recommendation simulation and [generate]() the results. 
+3. **Verification and Validation**: Using the provided raw data which includes information gathered from git and Github, researchers are able to use our tool to run recommendation simulation and [generate](https://github.com/CESEL/RelationalGit/tree/master/ReplicationPackage) the results. 
 
 4. **DOI**: 
 
