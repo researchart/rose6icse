@@ -13,7 +13,7 @@ This artifact contains everything necessary to reproduce the results of our ICSE
 - Documentation on how use our tools and re-run our experiments
 
 # Artifact Location
-We provide a VM with all of ReluDiff, ReluVal, and DeepPoly working out of the box [here](https://drive.google.com/file/d/1rKKUXIBTtHL4M_a8O2__uAJRveXtg4Cj/view?usp=sharing). In addition, we provide instructions for setting up each of the tools on a fresh Ubuntu 16.04 installation in the [INSTALL.md](INSTALL.md) file using our [artifact repo](https://github.com/pauls658/ReluDiff-ICSE2020-Artifact).
+We provide a VM with all of ReluDiff, ReluVal, and DeepPoly working out of the box [here](https://drive.google.com/file/d/1rKKUXIBTtHL4M_a8O2__uAJRveXtg4Cj/view?usp=sharing). The username and password are "reludiff" and " " (i.e. a single space character). In addition, we provide instructions for setting up each of the tools on a fresh Ubuntu 16.04 installation in the [INSTALL.md](INSTALL.md) file using our [artifact repo](https://github.com/pauls658/ReluDiff-ICSE2020-Artifact).
 
 # File Contents
 Here we document the contents of the files under ReluDiff-ICSE2020-Artifact in our VM (which is the same as the files found in our [artifact repo](https://github.com/pauls658/ReluDiff-ICSE2020-Artifact)). The documentation for running ReluDiff, ReluVal, DeepPoly, and our various utility scripts can be found in the [next section](#tool-usage-documentation).
