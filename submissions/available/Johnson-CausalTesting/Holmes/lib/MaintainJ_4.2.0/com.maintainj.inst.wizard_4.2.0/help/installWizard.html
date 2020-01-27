@@ -1,0 +1,196 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<script type="text/javascript">
+<!--
+var allDivs = new Array("serverType", "j2seLaunchType", "serverLaunchType",
+    "j2eeServerFeature", "j2eeGenericServer", 
+    "j2seEclipseLaunch", "j2seCommandLaunch",
+    "eclipseVersion", "junitEclipse32Launch", "junitEclipse33Launch",
+    "appletEclipseLaunch",
+    "plugin", "other");
+    
+
+function hideAllDivs(){
+    hideDivs(allDivs);
+}
+
+function hideDivs(divsArray){
+    for(i=0; i<divsArray.length; i++){
+        var ele = document.getElementById(divsArray[i]+"Div");
+        if(ele == null){
+            continue;
+        }
+        ele.style.display = 'none';
+        //Uncheck all elements in that div
+        var elementsInDiv = document.getElementsByName(divsArray[i]);
+        for(j=0; j<elementsInDiv.length; j++){
+            elementsInDiv[j].checked = false;
+        }                              
+    }       
+}
+
+function appTypeSelected(type){
+    if(type=='j2ee'){
+        hideAllDivs();
+        serverTypeDiv.style.display = '';     
+    } else if(type=='j2se'){
+        hideAllDivs();
+        j2seLaunchTypeDiv.style.display = '';
+    } else if(type=='applet'){
+        hideAllDivs();
+        appletEclipseLaunchDiv.style.display = '';            
+    } else if(type=='junit'){
+        hideAllDivs();
+        eclipseVersionDiv.style.display = '';            
+    } else if(type=='plugin'){
+        hideAllDivs();
+        pluginDiv.style.display = '';                        
+    } else if(type=='other'){
+        hideAllDivs();    
+        otherDiv.style.display = '';                                    
+    } else if(type=='eclipse32'){
+          hideDivs(new Array("junitEclipse32Launch","junitEclipse33Launch"));    
+        junitEclipse32LaunchDiv.style.display = '';
+    } else if(type=='eclipse33'){
+          hideDivs(new Array("junitEclipse32Launch","junitEclipse33Launch"));    
+        junitEclipse33LaunchDiv.style.display = '';
+    } else if(type=='tomcat' || type=='jboss'){            
+        hideDivs(new Array("j2seLaunchType", "serverLaunchType", "j2eeServerFeature", "j2eeGenericServer"));    
+        serverLaunchTypeDiv.style.display = '';
+    } else if(type=='tomcatJBoss'){
+          hideDivs(new Array("j2seLaunchType", "j2eeServerFeature", "j2eeGenericServer"));    
+        j2eeServerFeatureDiv.style.display = '';
+    } else if(type=='genericJ2EE'){       
+          hideDivs(new Array("j2seLaunchType", "j2eeServerFeature", "j2eeGenericServer"));    
+        j2eeGenericServerDiv.style.display = '';
+    } else if(type=='websphere' || type=='weblogic'){
+          hideDivs(new Array("j2seLaunchType", "j2eeServerFeature", "j2eeGenericServer", "serverLaunchType"));    
+        j2eeGenericServerDiv.style.display = '';
+    } else if(type=='j2seLaunchEclipse'){       
+         hideDivs(new Array("j2seCommandLaunch"));    
+        j2seEclipseLaunchDiv.style.display = '';
+    } else if(type=='j2seLaunchCommand'){       
+        hideDivs(new Array("j2seEclipseLaunch"));    
+        j2seCommandLaunchDiv.style.display = '';       
+    }       
+}
+
+function clearAppType(){
+		alert("aaa");
+        var elementsInDiv = document.getElementsByName("appType");
+        for(j=0; j<elementsInDiv.length; j++){
+        	alert(elementsInDiv[j].checked);			
+            elementsInDiv[j].checked = false;
+        }                              
+}
+
+//-->
+</script>
+</head>
+
+<body>
+The following wizard will present the download links and demo video relevant to your application. <br><br>
+What is the type of your application?&nbsp;&nbsp;
+<input type="radio" name="appType" value="j2ee" onClick="appTypeSelected('j2ee');"> J2EE
+<input type="radio" name="appType" value="j2se" onClick="appTypeSelected('j2se');"> J2SE
+<input type="radio" name="appType" value="applet" onClick="appTypeSelected('applet');">Applet
+<input type="radio" name="appType" value="junit" onClick="appTypeSelected('junit');">JUnit
+<input type="radio" name="appType" value="plugin" onClick="appTypeSelected('plugin');">Eclipse Plug-in 
+<input type="radio" name="appType" value="other" onClick="appTypeSelected('other');">None of these
+
+<div id="serverTypeDiv" style="display: none">
+  <br>
+  Which application server?&nbsp;&nbsp;
+  <input type="radio" name="serverType" value="tomcat" onClick="appTypeSelected('tomcat');">
+  Tomcat
+  <input type="radio" name="serverType" value="jboss" onClick="appTypeSelected('jboss');">
+  JBoss
+  <input type="radio" name="serverType" value="websphere" onClick="appTypeSelected('websphere');">
+  Websphere
+  <input type="radio" name="serverType" value="weblogic" onClick="appTypeSelected('weblogic');">
+  WebLogic
+</div>
+
+<div id="serverLaunchTypeDiv" style="display: none">
+  <br>How do you deploy the application and start the server?
+  <input type="radio" name="serverLaunchType" value="eclipse" onClick="appTypeSelected('tomcatJBoss');">
+  In Eclipse &#39;Servers&#39; view
+  <input type="radio" name="serverLaunchType" value="command" onClick="appTypeSelected('genericJ2EE');">
+  Otherwise
+</div>
+
+<div id="j2eeServerFeatureDiv" style="display: none"> 
+ <br>Install these two MaintainJ plug-in features using the given update urls.
+ <br>MaintainJ Feature: <font color="#0000FF">http://www.maintainj.com/updates/2.8</font>
+ <br>MaintainJ J2EE Server Feature: <font color="#0000FF">http://www.maintainj.com/server</font>
+ <br><br>
+ Watch this <a href="userGuide.jsp?param=j2eeLauncherDemo">demo video</a> to get 
+ an overview of how this works.
+</div>
+
+<div id="j2eeGenericServerDiv" style="display: none"> 
+ <br>Install MaintainJ plug-in feature using this update url: <font color="#0000FF">http://www.maintainj.com/updates/2.8</font>
+ <br>Download <a href="http://maintainj.com/samples/MaintainJ.war">MaintainJ.war</a>. 
+ Deploy this war to your application server to install and configure MaintainJ.
+
+ <br>Watch this <a href="userGuide.jsp?param=j2eeRuntimeDemo">demo video</a> to get an overview of how this works.
+</div>
+
+<div id="j2seLaunchTypeDiv" style="display: none">
+  <br>
+  How do you start your application?
+  <input type="radio" name="j2seLaunchType" value="j2seLaunchEclipse" onClick="appTypeSelected('j2seLaunchEclipse');">
+  Inside Eclipse
+  <input type="radio" name="j2seLaunchType" value="j2seLaunchCommand" onClick="appTypeSelected('j2seLaunchCommand');">
+  From command prompt
+</div>
+
+<div id="j2seEclipseLaunchDiv" style="display: none"> 
+ <br>Install MaintainJ plug-in feature using this update url: <font color="#0000FF">http://www.maintainj.com/updates/2.8</font>
+ <br>Watch this <a href="userGuide.jsp?param=j2seRuntimeDemo">demo video</a> to get an overview of how this works.
+</div>
+
+<div id="j2seCommandLaunchDiv" style="display: none"> 
+ <br>Install MaintainJ plug-in feature using this update url: <font color="#0000FF">http://www.maintainj.com/updates/2.8</font>
+ <br>Download <a href="samples/MaintainJSwingWizard.jar">MaintainJ Aspect Wizard</a>
+ <br>Watch this <a href="userGuide.jsp?param=swingCommandPromptDemo">demo video</a> to get an overview of how this works.
+</div>
+
+<div id="eclipseVersionDiv" style="display: none">
+  <br>What is your Eclipse version?
+  <input type="radio" name="eclipseVersion" value="eclipse32" onClick="appTypeSelected('eclipse32');">
+  Eclipse 3.2
+  <input type="radio" name="eclipseVersion" value="eclipse33" onClick="appTypeSelected('eclipse33');">
+  Eclipse 3.3 or above
+</div>
+
+<div id="junitEclipse32LaunchDiv" style="display: none"> 
+ <br>Install MaintainJ plug-in feature using this update url: <font color="#0000FF">http://www.maintainj.com/updates/2.8.32</font>
+ <br>Watch this <a href="userGuide.jsp?param=junitRuntimeDemo">demo video</a> to get an overview of how this works.
+</div>
+
+<div id="junitEclipse33LaunchDiv" style="display: none"> 
+ <br>Install MaintainJ plug-in feature using this update url: <font color="#0000FF">http://www.maintainj.com/updates/2.8</font>
+ <br>Watch this <a href="userGuide.jsp?param=junitRuntimeDemo">demo video</a> to get an overview of how this works.
+</div>
+
+<div id="appletEclipseLaunchDiv" style="display: none"> 
+ <br>Install MaintainJ plug-in feature using this update url: <font color="#0000FF">http://www.maintainj.com/updates/2.8</font>
+ <br>Watch this <a href="userGuide.jsp?param=appletRuntimeDemo">demo video</a> to get an overview of how this works.
+</div>
+
+<div id="pluginDiv" style="display: none"> 
+ <br>Install MaintainJ plug-in feature using this update url: <font color="#0000FF">http://www.maintainj.com/updates/2.8</font>
+ <br>Download <a href="samples/MaintainJSwingWizard.jar">MaintainJ Aspect Wizard</a>
+ <br>Watch this <a href="userGuide.jsp?param=pluginRuntimeDemo">demo video</a> to get an overview of how this works.
+</div>
+
+<div id="otherDiv" style="display: none"> 
+ <br>Describe the general instrumentation steps here
+</div>
+
+</body>
+</html>

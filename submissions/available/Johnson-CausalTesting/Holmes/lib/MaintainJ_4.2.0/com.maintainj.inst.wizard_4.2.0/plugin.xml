@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         id="create"
+         point="org.eclipse.ui.newWizards">
+      <!-- Defines a category MaintainJ -->
+      <category name="MaintainJ" 
+      		id="com.maintainj.wizard.category1" />
+      <category
+            id="com.maintainj.wizard.category2"
+            name="Get License"
+            parentCategory="com.maintainj.wizard.category1"/>      		
+      
+      <wizard
+            category="com.maintainj.wizard.category1"
+            class="com.maintainj.wizard.merge.MergeWizard"
+            icon="icons/mnj.gif"
+            id="com.maintainj.wizard.merge.MergeWizard"
+            name="Merge Trace Files"
+            project="false">
+      </wizard>
+      
+      <wizard
+            category="com.maintainj.wizard.category1/com.maintainj.wizard.category2"
+            class="com.maintainj.wizard.register.RegistrationWizard"
+            icon="icons/mnj.gif"
+            id="com.maintainj.wizard.merge.RegistrationWizard"
+            name="Evaluation License"
+            project="false">
+      </wizard>
+      
+      <wizard
+            category="com.maintainj.wizard.category1/com.maintainj.wizard.category2"
+            class="com.maintainj.wizard.register.FullLicenseWizard"
+            icon="icons/mnj.gif"
+            id="com.maintainj.wizard.merge.RegistrationWizard"
+            name="Full License"
+            project="false">
+      </wizard>
+      <wizard
+            category="com.maintainj.wizard.category1/com.maintainj.wizard.category2"
+            class="com.maintainj.wizard.license.prefs.FloatingLicenseWizard"
+            icon="icons/mnj.gif"
+            id="com.maintainj.wizard.license.prefs.FloatingLicenseWizard"
+            name="License Server Settings"
+            project="false">
+      </wizard>
+      
+      <!-- Defines 'MaintainJ Instrumentation Project' wizard under category MaintainJ -->
+      <wizard
+            category="com.maintainj.wizard.category1"
+            class="com.maintainj.wizard.traces.project.NewTracesProjectWizard"
+            icon="icons/mnj.gif"
+            id="com.maintainj.wizard.traces.project.NewTracesProjectWizard"
+            name="MaintainJ Trace Files Project"
+            project="true">
+      </wizard>
+   </extension>
+   
+   <!--Traces project nature START-->
+   <extension
+         id="tracesProjectNature"
+         point="org.eclipse.core.resources.natures">
+         <runtime>
+         	<run class="com.maintainj.wizard.traces.project.TracesProjectNature"/>
+         </runtime>
+   </extension>
+	<!--Traces project nature END-->
+
+   <extension point="org.eclipse.help.toc">
+      <toc file="toc.xml" primary="true"/>
+   </extension>
+</plugin>

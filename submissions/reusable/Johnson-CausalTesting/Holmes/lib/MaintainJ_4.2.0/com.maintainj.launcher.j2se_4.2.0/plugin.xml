@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="com.maintainj.launching.j2se.J2SELauncher"
+            id="com.maintainj.launching.j2se"
+            modes="run,debug"
+            name="Java Application with MaintainJ"/>
+            
+	<launchConfigurationType
+            delegate="com.maintainj.launching.applet.AppletLauncher"
+            id="com.maintainj.launching.applet"
+            modes="run,debug"
+            name="Java Applet with MaintainJ"/>
+            
+      <launchConfigurationType
+            delegate="com.maintainj.launching.junit.JUnitLauncher"
+            id="com.maintainj.launching.junit"
+            modes="run,debug"
+            name="JUnit with MaintainJ"
+            />		
+   </extension>
+
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="com.maintainj.launching.j2se.tabs.J2SETabGroup"
+            id="com.maintainj.launching.j2se.tabGroup"
+            type="com.maintainj.launching.j2se"/>
+
+      <launchConfigurationTabGroup
+            class="com.maintainj.launching.applet.tabs.AppletTabGroup"
+            id="com.maintainj.launching.applet.tabGroup"
+            type="com.maintainj.launching.applet"/>
+
+      <launchConfigurationTabGroup
+            type="com.maintainj.launching.junit"
+            class="com.maintainj.launching.junit.tabs.JUnitTabGroup"
+            id="org.eclipse.jdt.junit.launchConfigurationTabGroup.junit.mnj">
+         <launchMode
+               perspective="org.eclipse.debug.ui.DebugPerspective"
+               description="JUnit Debug"
+               mode="debug">
+         </launchMode>
+         <launchMode
+               description="JUnit Run"
+               mode="run">
+         </launchMode>
+      </launchConfigurationTabGroup>            
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            configTypeID="com.maintainj.launching.j2se"
+            icon="icons/mnj.gif"
+            id="com.maintainj.launching.j2se.image1"/>
+	  <launchConfigurationTypeImage
+            configTypeID="com.maintainj.launching.applet"
+            icon="icons/mnj.gif"
+            id="com.maintainj.launching.applet.image1"/>            
+      <launchConfigurationTypeImage
+            configTypeID="com.maintainj.launching.junit"
+            icon="icons/mnj.gif"
+            id="com.maintainj.launching.junit.image1"/>            
+   </extension>
+</plugin>

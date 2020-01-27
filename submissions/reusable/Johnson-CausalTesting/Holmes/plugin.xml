@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Holmes Commands"
+            id="org.holmes.plugin.commands.category">
+      </category>
+      <command
+            name="Run Holmes"
+            categoryId="org.holmes.plugin.commands.category"
+            id="org.holmes.plugin.commands.runHolmes">
+      </command>
+   </extension>
+   
+   <extension
+   		point="org.eclipse.ui.views">
+   		<view id="org.holmes.plugin.views.HolmesView"
+   			name="Holmes View"
+   			class="org.holmes.plugin.views.HolmesView"
+   			icon="icons/sample.png"/>
+   </extension>
+   
+   <extension point="org.eclipse.ui.popupMenus"> 
+	   	<viewerContribution 
+	      	id="org.eclipse.ui.articles.action.contribution.popup.navigator"
+	   		targetID="#CompilationUnitEditorContext"> 
+	      	<action
+	      		class="org.holmes.plugin.actions.RunHolmes"
+	      		id=""
+	      		label="Run Holmes"
+	      		icon="icons/holmes.png"
+	      		menubarPath="additions">
+	      	</action>
+	   	</viewerContribution>
+	</extension>
+</plugin>

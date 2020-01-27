@@ -1,0 +1,169 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>MaintainJ generates UML sequence and class diagram at runtime</title>
+</head>
+
+<body>
+
+<p><h1>1. MaintainJ Introduction</h1></p>
+
+<p><font face="Verdana" size="2">
+MaintainJ reduces the time needed to understand complex enterprise Java 
+applications from days to minutes. It also helps to document Java applications 
+using sequence and class diagrams. 
+<p>
+MaintainJ generates runtime sequence diagrams using the call 
+trace captured for a single use case while you run the application. 
+The captured information includes data at each method call, any sql calls to 
+the database and the response time of each call. You can trace 
+applications running on a single JVM or on multiple JVM's and view the 
+end-to-end call trace in a single sequence diagram.<br>
+<br>You may want to check the sample 
+<a href="userGuide.jsp?param=screenshots">screenshots</a> of 
+the generated sequence and class diagrams.<p>
+<p>
+The following are the three steps to generate the diagrams:  
+</font></p>
+
+<p><img border="0" src="images/mnjIntro.png" width="508" height="73"></p>
+
+<p><h2><a name="supportedConfigs"></a>1.1. Instrument Code</h2></p>
+<p><font face="Verdana" size="2">This step changes class files at runtime. 
+No changes are done to the source files nor any changes are
+persisted to file system. You can choose the packages to be instrumented.
+Instrumented applications are slow to service the first request but perform with
+little overhead later. <p>
+Below are the types of Java applications supported out-of-the box by 
+MaintainJ. In fact, any non-J2ME Java applications can use MaintainJ by 
+following these <a href="userGuide.jsp?param=runtime#howitworks">steps</a>. 
+The JRE versions currently supported are 1.4, 1.5, 1.6 and 1.7.
+</font></p>
+
+<font face="Verdana" size="2">
+<p><b>a) J2SE applications/Applets/JUnit</b> - Tracing J2SE applications (Swing or
+non-GUI), Applets and JUnit is supported. </p>
+</font>
+
+<p>
+<font face="Verdana" size="2">
+<b>b) J2EE applications - </b>The following J2EE application server are supported - 
+Tomcat 4, 5, 6 & 7, JBoss 3, 4, 5 & 6, WebLogic 8, 9 & 10, WebSphere 5, 6 & 7. 
+<a href="http://maintainj.com/blog/?p=5">Glassfish</a> and 
+<a href="http://maintainj.com/blog/index.php?paged=3">Jetty</a> servers are also supported. 
+If your server is not supported,
+follow these <a href="userGuide.jsp?param=runtime#howitworks">steps</a> to generate 
+the trace files. We would add support to your server on request.
+ </font>
+ 
+<p>
+<font face="Verdana" size="2">
+<b>c) Databases - </b>MaintainJ captures the actual runtime sql calls sent to the 
+database regardless of the JDBC frameworks used by the application. MaintainJ 
+supports Oracle, DB2, MySQL, PostgreSQL and Derby out of the box. Microsoft SQL 
+Server also is supported. Contact support if you are using MS SQL Server or any 
+other databases.
+ </font>
+ 
+ 
+<!--  
+<font face="Verdana" size="2">
+<p><b>c) Eclipse Plug-ins</b> - Instrumenting Eclipse Plug-ins is supported on all
+JREs of version 1.5 and above. </p>
+</font>
+-->
+<p><h2>1.2. Generate Trace Files</h2></p>
+<p><font face="Verdana" size="2">Next, run the instrumented application and
+demarcate the
+start and end points of a use case. Call trace for the use case will be logged
+to the given trace file (.ser file).</font></p>
+<p><font face="Verdana" size="2">a) <u>J2EE Applications</u> - A JSP is provided
+to demarcate the start and end points. You need to click a 'Start Tracing' button before a use
+case starts and click 'Stop Tracing' at the end of the use case. The call trace
+will be logged to the given file  when 'Stop Tracing' is clicked.</font></p>
+<p><font face="Verdana" size="2">b) <u>J2SE/Applet/JUnit<!-- and Eclipse Applications --></u> - A
+Swing window in which you can start and stop tracing opens when your instrumented
+application starts. Click 'Start Tracing' button before a use case starts and
+'Stop Tracing' at the end of the use case. The call trace will be logged to the
+given file  when 'Stop Tracing' is clicked. </font></p>
+<p><h2>1.3. View the Diagrams</h2></p>
+<p><font face="Verdana" size="2">Create a MaintainJ Trace Files Project by following 
+File->New->Project->MaintainJ->MaintainJ Trace Files Project. Copy the trace files to this 
+project and open to view the diagrams in
+<a href="userGuide.jsp?param=uml">MaintainJ UML Editor</a>.</font></p>
+
+<p><h2>1.4. How does MaintainJ help users?</h2></p>
+
+<p><font face="Verdana" size="2">
+1. Using MaintainJ, Java developers can quickly analyze, understand, document and 
+enhance large Java code bases. 
+The <a href="http://maintainj.com/userGuide.jsp?param=overviewDemo">MaintainJ demo video</a> 
+is recorded on a Java application 
+that has 8000+ classes, runs on Tomcat and MySQL and uses Spring and Hibernate frameworks.
+<br><br>
+2. MaintainJ generates detailed runtime sequence and class diagrams for a single use case. 
+The arguments and return value of the call are shown in the sequence diagram. The runtime 
+SQL calls made during a use case, regardless of the database frameworks used, are shown. 
+All these details help developers to quickly troubleshoot a problem or to analyze and 
+enhance the application.
+<br><br>
+3. MaintainJ supports 
+<a href="http://maintainj.com/userGuide.jsp?param=runtime#multivms">
+tracing applications deployed across multiple JVM's</a>. The call trace 
+captured on different JVM’s can be merged to view the end-to-end call flow across JVM’s. 
+For example, when an application calls a web service running in a different JVM, the call 
+flow across the JVMs is shown in a single sequence diagram. The calls in each JVM are 
+shown in a different color.
+<br><br>
+4. MaintainJ supports 
+<a href="http://maintainj.com/userGuide.jsp?param=uml#impactAnalysis">runtime impact analysis</a> - 
+Users can capture the runtime call 
+trace for all the use cases of the application and use that information to exactly 
+determine the use cases impacted by a change to a Java class, method or database 
+table or field.
+<br><br>
+5. Users can filter out the unwanted details from the MaintainJ generated diagrams 
+and then <a href="http://maintainj.com/userGuide.jsp?param=uml#uml2">export the diagrams as UML2</a> 
+model files. These models can be imported into 
+other UML2 compliant tools like Rational Software Architect (RSA) where they can 
+be edited for enhancing the application.
+<br><br>
+6. Any UML diagrams generated at runtime can be verbose and difficult to read. 
+MaintainJ provides simple user interface to dynamically explore the sequence 
+diagrams. Users can also search for a class, method or database table or field used in the use case.
+<br><br>
+7. MaintainJ offers various options to filter out unwanted details from the 
+generated diagrams and to view them at the level of abstraction that the user 
+wants. For example, a use case in a web application typically spans the 
+web tier, business tier and data access tier. Users can apply 
+<a href="http://maintainj.com/userGuide.jsp?param=uml#filters">predefined filters</a> 
+on the diagram to view just the business tier classes. In addition, 
+MaintainJ shows the interactions between the application classes 
+only (no framework or library classes are shown).
+<br><br>
+8. Users can easily troubleshoot multi-threaded applications using 
+MaintainJ - The sequence diagram shows the runtime interactions 
+between threads in different colors. This helps developers to quickly 
+troubleshoot a multi-threaded application, which would be hard to 
+do using a traditional debugger.
+<br><br>
+9. <a href="http://maintainj.com/userGuide.jsp?param=junitRuntimeDemo">MaintainJ integrates seamlessly with JUnit</a> 
+- Users can generate a 
+sequence diagram for every test case and check the sequence diagram 
+for any troubleshooting later.
+<br><br>
+10. MaintainJ saves lot of effort for teams that maintain large 
+Java applications - Different developers in a team repeatedly spend time 
+to understand the same use cases because there are no tools to quickly 
+document and share that knowledge. By facilitating documentation and 
+sharing of the "Maintenance Experience" within the team using the generated 
+UML diagrams, MaintainJ exponentially reduces the total maintenance effort.
+</p>
+
+</body>
+
+</html>

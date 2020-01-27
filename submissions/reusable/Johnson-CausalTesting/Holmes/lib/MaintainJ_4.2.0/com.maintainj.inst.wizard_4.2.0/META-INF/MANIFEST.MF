@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: MaintainJ Wizards
+Bundle-SymbolicName: com.maintainj.inst.wizard;singleton:=true
+Bundle-Version: 4.2.0
+Bundle-Activator: com.maintainj.wizard.MJWizardPlugin
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.ui.ide,
+ org.eclipse.core.resources,
+ org.eclipse.core.runtime,
+ org.eclipse.jdt.core,
+ org.eclipse.jdt.ui,
+ com.maintainj.core
+Eclipse-LazyStart: true
+Bundle-ClassPath: MaintainJWizard.jar
+Bundle-Vendor: MaintainJ Inc.

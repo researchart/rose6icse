@@ -1,0 +1,557 @@
+<HTML>
+<BODY> 
+<p><h1>4. MaintainJ UML Diagram Editor</h1></p> 
+<p><font size="-1" face="Verdana">  
+MaintainJ UML Diagram Editor renders sequence and class diagrams from 
+the call trace files. To view the UML diagrams, add the trace files to 
+a MaintainJ Trace Files Project in Eclipse and open. MaintainJ Trace Files Project 
+can be created by by following
+File->New->Project->MaintainJ->MaintainJ Trace Files Project.</font></p>
+
+<p><font size="-1" face="Verdana">
+All menu options in MaintainJ UML Diagram Editor are provided in context menus, 
+which can be seen by right clicking anywhere in the diagram or the Eclipse Outline View. Depending on the 
+selected figure, relevant options are displayed in the context menu. You can 'Undo' and 'Redo' 
+most of the operations in the editor.</font><font face="Verdana"> </font>
+
+<p>
+<br>
+<h2>4.1 Sequence Diagram Features</h2></p>
+            
+            <ul>
+              <li><font face="Verdana" size="2"><b><i>Color Coded Calls</i></b>: Calls are color  
+            coded. Public calls are shown in  
+              green, private calls are shown in red and protected calls are shown in yellow. </font></li>
+              <br>
+              <li><font face="Verdana" size="2"><b><i>Collapse/Expand Calls</i></b>:
+            <img border="0" src="images/collapsed.gif" width="16" height="16"> 
+              icon beside a call name indicates a collapsed call. 
+              <img border="0" src="images/expanded.gif" width="16" height="10"> 
+              icon 
+              beside a call name indicates an expanded call. All calls are 
+              collapsed initially to present an easy to read diagram. You can expand
+              and collapse the calls as you explore the diagram. Click on
+            <img border="0" src="images/collapsed.gif" width="16" height="16"> 
+              to expand a call and on 
+              <img border="0" src="images/expanded.gif" width="16" height="10"> 
+              to collapse a call.</font></li>
+              <br>
+              <li><font face="Verdana" size="2"><i><b>Collapse All Calls</b></i>: 
+              Collapses all calls in the diagram. </font></li>
+              <br>
+              <li><font size="2" face="Verdana"><i><b>Expand All Calls</b></i>: Expands  
+              all calls in the diagram. For trace files with thousands of calls, 
+              expanding all calls will make editing the diagram slow. You should either 
+              explore the diagram by expanding calls of interest or 
+              browse the diagram using the Eclipse 'Outline view'. </font></li>
+              
+              <br>
+              <a name="searchDiagram"></a>
+              <li><font face="Verdana" size="2"><i><b>Search Diagram</b></i>: 
+              This feature allows to quickly search the sequence digram for a class or method 
+              or database table. Partial names can be entered. Use * as a wild card. Wild card(*) 
+              is automatically added at the beginning and end of the search string. Wild card 
+              can be used in the middle of a string. To search BeanProxyFilter use search 
+              string bean*filter. When 'Table' is the search criteria, the entire SQL statement 
+              is searched for. So, this can be used to search for database tables, fields and 
+              runtime parameters too.
+              &nbsp; </font></li>
+                          
+              <br>
+              <li><font face="Verdana" size="2"><i><b>Call Response Time</b></i>: 
+              Sequence diagram shows the response time for each  call in milliseconds. 
+              You can see the response time beside the method call in parentheses. If you 
+              want to use the sequence diagram for finding the calls that are taking the 
+              maximum response time, use the 'Switch to Response Time View' feature 
+              described below. 
+              &nbsp; </font></li>
+              <br>
+              <a name="responseTimeView"></a>
+              <li><font face="Verdana" size="2"><i><b>Switch to Response Time View</b></i>: 
+              When this option is clicked, the sequence diagram and the 'Outline view' are 
+              refreshed to present them in a way to help you to quickly find the maximum time taking methods. 
+              In the sequence diagram, the response time is shown at the beginning of method 
+              name label. Usually the first level calls displayed when the diagram is 
+              opened take the maximum amount of time. User can drill down into the calls of 
+              interest to identify the calls that can be improved for a better response time. 
+              The 'Outline view' by default sorts the calls by response time in descending order. 
+              There may be some methods 
+              that are repeatedly called in a use case. Optimizing such methods could improve 
+              response time of the use case. In the 'Outline view', use the menu option 
+              'Sort Calls by Aggregate Response Time' to sort the calls by the aggregate 
+              response time. The Outline view also shows the total number of times a method 
+              is called in the use case.                
+              &nbsp; </font></li>
+               <br>
+              <li><font size="2" face="Verdana"><b><i>Switch to Normal View</i></b>: 
+              Use this option to switch back to the regular view from the Response Time view.</font></li>
+              <br>
+              <li><font size="2" face="Verdana"><b><i>Filter Calls By Response Time</i></b>: 
+              This feature allows you to filter out all the calls whose response time is less 
+              than the specified time.</font></li>
+              <br>
+              <a name="deleteAllExcept"></a>
+              <li><font size="2" face="Verdana"><b><i>Delete All Classes Except</i></b>: 
+              Use this feature to quickly delete all classes from the diagram except the 
+              ones that are important to you. You can specify multiple class names separated 
+              by comma and using * as a wild card. For example, to delete all classes 
+              except the 'Controller' and 'DAO' classes, enter the filter string as 
+              '*controller,*dao*'. The class names are case insensitive and you don't need 
+              to specify the package names. The above filter string will show how the Controller 
+              classes in the use case are calling the DAO classes.</font></li>
+              <br>
+              <li><font size="2" face="Verdana"><i><b>Delete getter/setter Calls</b></i>: 
+              Often  the simple get() and set() methods clutter the diagram. You can delete all 
+              of them in one go using this action.</font></li>
+              <br>
+              <li><font size="2" face="Verdana"><i><b>Delete Constructor Calls</b></i>: 
+              You can delete all the constructor calls using this option.
+              </font></li>
+              <br>
+              
+              <!-- 
+              <li><font face="Verdana" size="2"><i><b>Delete Duplicate Calls to a 
+              Method</b></i> : There can be a method in a particular class that 
+              is called multiple times in the sequence diagram but adds little 
+              to our understanding. To remove all but the selected method 
+              call, select a call and choose <i>Delete Duplicate Calls to this Method</i>. This action removes all 
+              but the selected method call in the diagram. This can be used to 
+              remove all unnecessary get/set methods, repeating calls to boolean equals(Object obj) 
+              method, etc.</font></li>
+              <br>
+              <li><font size="2" face="Verdana">
+              <i><b>Delete All Duplicate Calls</b></i>: Deletes all duplicate calls in the diagram. Use this feature to view a simplified diagram with all the methods and classes involved in the use case. 
+              This action leaves only one instance of each call in the diagram. This action should be 
+              used with discretion as this could cause some loss of useful information from 
+              the diagram.<br></font>
+ 			  -->
+ 			  
+              <li><font face="Verdana" size="2"><i><b>Keyboard Navigation</b></i>: 
+              Sequence diagram can be navigated using keyboard keys. Up and Down 
+              arrow keys move focus to previous and next method calls. Left arrow 
+              collapses an expanded call and right 
+              arrow expands a collapsed call. Delete button deletes a call.</font></li>
+              <br>
+              <li><font face="Verdana" size="2"><b><i>Show Activations</i></b>: Clicking this option  
+            draws an activation box for the duration a method is active. </font></li>
+            <br>
+            
+			<li><font face="Verdana" size="2"><b><i>Show Thread Information</i></b>: 
+              MaintainJ generates one trace file for each active thread while tracing is 
+              turned on. These trace files can be merged using Merge Trace Files wizard 
+              (at File->New->Other->MaintainJ->Merge Trace Files) to view them in a 
+              single sequence diagram. Clicking 'Show Thread Information' displays each 
+              thread in a different color. The thread name is also displayed before the 
+              method name. You can also merge trace files generated in different JVMs for a 
+              single use case and see different threads in different colors. 
+              <!-- 
+              The colors 
+              can be configured in 
+              eclipse/plugins/com.maintainj.umlDiagram_x.x.x/DiagramConfiguration.properties 
+              file by changing ThreadColors property. -->
+              </font></li>
+              
+              
+              <br>
+              <a name="noLoopCalls"></a>
+              <li><font size="2" face="Verdana"><b><i>No Loop or Recursive Calls</i></b>: 
+              If the same method is repeatedly called in a loop, only the first call is shown 
+              to avoid cluttered diagrams. Similarly, the recursive calls are also shown only once. 
+              But, the number of times the same method is called is displayed beside the method name. 
+              A loop icon is also displayed before the call label to highlight the fact that 
+              it is a loop or recursive call.</font></li>
+             
+              <br>	
+            <li><font face="Verdana" size="2"><b><i>No Immediate Return Calls</i></b>: Immediate 
+            return calls are deleted to avoid diagram clutter.</font></li>    
+              <br>	
+            <a name="wsd"></a>
+            <li><font face="Verdana" size="2"><b><i>Web Sequence Diagrams</i></b>: Use 
+            this option to export the current diagram as a web sequence diagram 
+            rendered by websequencediagrams.com. The call trace information is exported as 
+            a HTML file and a web service call to websequencediagrams.com displays the 
+            sequence diagram in a browser.
+            <br>
+            <u>Security Note</u>:This feature is disabled by default because of security concerns. 
+            By default, the call trace information in the sequence diagram is passed over the 
+            internet to the websequencediagrams.com web site to generate the diagram displayed 
+            in the browser. You will have to purchase the license from them to install the diagram 
+            rendering web service in your company. You can enable this feature  
+            by changing the 'EnableWebSequenceDiagrams' property to 'true' 
+            in plugins/com.maintainj.umlDiagram_x.x.x/DiagramConfiguration.properties file. 
+            After you have the diagram rendering web service installed in your intranet,   
+            you can change the url by changing the 'WSDLastLine' property in the same file.</font></li>    
+                                    
+            </ul>
+            
+            <br>
+            <p><h2>4.2 Class Diagram Features</h2></p>
+            <p><font face="Verdana" size="2">The class diagram is a class dependency 
+            diagram that shows the dependencies between 
+            the classes involved based on the call sequence.</font></p>
+            <ul>              
+              <li><font size="2" face="Verdana"><b><i>Show Class Hierarchy</i></b>: 
+              To view the hierarchy of a class, select a class, right click and  
+            choose 'Show Class Hierarchy'. For this feature to work, the  
+            hierarchy classes should be available in workspace when the diagram  
+              was opened.</font></li>                            
+              <br>
+              <li><font face="Verdana" size="2"><b>Classes can be resized and rearranged</b>: 
+              Classes can be resized if a long class name is not fully displayed in the 
+              box. Classes can be rearranged to make the diagram 
+              more readable. Class relations can be bent by selecting a relation 
+              and dragging the centre point.</font></li>
+              <br>
+			<li><font face="Verdana" size="2"><b>Shows class fields and methods in tool tip</b>: 
+              When you hover the mouse over a class, the class fields and methods are 
+              shown in the tool tip. For this feature to work, the class file should 
+              be present in the workspace either as a source file or .class file. 
+              </font></li>              
+            </ul>
+            
+<br>            
+<p><h2>4.3 Common Features in both Class and Sequence Diagrams</h2><p>
+<font face="Verdana" size="2">The following features are available to both 
+            class and sequence diagrams.</font></p>
+            <ul>
+              <li><font face="Verdana" size="2"><b><i>Both diagrams are in sync</i></b>:  
+              The class diagram always shows the classes currently shown  
+              in the sequence diagram. If a class is deleted from  sequence diagram, 
+              the same class is deleted from class diagram and vice versa.</font></li>
+              <br>
+              <li><font size="2" face="Verdana"><b><i>Runtime Classes</i></b>: All  
+              classes shown in the diagram are concrete runtime classes. No  
+              abstract base classes or interfaces are shown.</font></li>
+              <br>
+              <li>
+            <font face="Verdana" size="2"><b><i>Save and Save As</i></b>: Trace 
+            files are initially saved as *.ser files. These files  
+              hold the original call trace of the use case. The changes done to the  
+              diagram generated from a *.ser file cannot be saved back to the *.ser 
+              file. The changes have to  
+            be saved to a *.mnj file, which can also be opened in MaintainJ editor.  
+            Choose 'File--&gt;Save As' to save the  
+              diagram to a file with extension *.mnj. You can change the diagram generated from  
+            *.mnj  
+            file and save the changes back to the same file. </font></li>
+            <br>
+              <li><font face="Verdana" size="2"><i><b>Delete</b></i>: Calls and classes 
+              can be deleted with Delete key or 'Delete' option in the context menu. 
+              When a collapsed call is deleted, all hidden enclosed calls are deleted too. 
+              When an expanded call is deleted, only that call is deleted. When a class is 
+              deleted, all calls to that class and calls going out from that class are 
+              deleted. You might want to delete classes that do not make any further calls 
+              (like Value Objects with only get/set methods). You might also delete classes 
+              that you want to ignore for now, though they make further calls.                  
+              You can 'Undo' all the delete operations.</font></li>
+			<br>                            
+              
+              <li><font face="Verdana" size="2"><b><i>Outline View</i></b>:  Eclipse 'Outline 
+            View' lists all undeleted classes and calls whether they  
+            are shown or hidden in the diagram. You can right click a class/call 
+            and choose 'Select In Diagram' to select the corresponding figure. 
+            If the corresponding figure is not currently displayed, the sequence 
+            diagram will expanded minimally to open the breadcrumb trail of the 
+            selected call or class. Outline View serves two important 
+            purposes. <br>
+            i) For a large diagram, it gives an overview of all packages, 
+            classes and calls in the diagram without expanding all the calls in the diagram. <br>
+            ii) It helps to filter out unwanted packages/classes/calls without having to 
+            expand the calls to show those classes/calls. You can select all
+            unwanted packages/classes/calls and delete them in one go.                         
+            </font></li>
+            <br>
+            
+            <a name="excludeClass"></a>
+            <li><font face="Verdana" size="2"><i><b>Exclude Class</b></i>: 
+              This feature allows you to delete a class without deleting the calls  
+              this class is making on other classes (Deleting a class deletes all 
+              calls from and to that class).
+              Assume you have 3 classes - MyServlet, SessionFacade and MyDAO. Typically, in a 
+              J2EE application all calls to the DAO's are routed through a facade class 
+              (MyServlet calls SessionFacade, which in turn calls MyDAO). 
+              If you exclude the SessionFacade class from the diagram, this is what happens:<br> 
+              a) SessionFacade class is deleted from the diagram <br>
+              b) The calls from SessionFacade to MyDAO are rearranged to show as if 
+              MyServlet is calling MyDAO directly.<br><br>
+              This behavior is same as what happens when a class is excluded from the instrumentation 
+              scope in aop.xml. This feature is useful when you want to capture all calls 
+              in the trace file, but would like to exclude some class(es) or package(s) from 
+              the diagram. From the 'Outline View', you can select class(es) or package(s) and 
+              exclude all of them in one go.              
+              </font></li>
+              <br>
+              <a name="filters"></a>
+              <li><font face="Verdana" size="2"><b><i>Predefined filters</i></b>: 
+              <b><a href="userGuide.jsp?param=filtersDemo">Demo</a></b><br>
+              Using the 
+              predefined filters, you can filter out the unwanted details from the diagrams. The 
+              filters are defined in simple properties file format. These files can be shared among 
+              the developers. You can apply the filters defined in multiple filters files at the 
+              same time. For example, there can be a global filters file where you might delete 
+              all 'Logger' and such classes and another filters file that deletes all 'DAO' classes. 
+              <br><br>
+              
+              You can either hand code the filters files or let the tool create them for you. A sample 
+              filters file (sampleFilters.filter) is created when you create the 
+              'MaintainJ Trace Files Project'. You can either edit this file or create new filter 
+              files using this file as a sample.   
+              <br><br>
+              
+              Or you can create the filters files from the Outline view. In the Outline view context menu, 
+              you will find two options: 'Create Delete Classes/Packages Filter' and 
+              'Create Exclude Classes/Packages Filter'. Select the packages and/or classes that you 
+              want to delete or exclude and use one of the above menu options to create the filters 
+              file. 
+              <br><br>
+              The 'Delete' filter deletes all the calls to and from a class. When you add a package 
+              to the 'delete filter', all classes under that package will be deleted.
+              <br><br>
+              The 'Exclude' filter deletes all the calls to the excluded class, but retains the calls 
+              that the excluded class is making. This behavior is same as the 'Exclude Class' feature 
+              described above.
+              <br><br>
+              To apply the filters to the diagram, use the context menu 'Apply Predefined Filters'. 
+              This will prompt you to select one or more predefined filters files, which will be 
+              applied to the diagram. The 'delete' filters can be undone whereas the the 
+              'exclude' filters cannot be undone. To undo the exclude filters, do not save the 
+              diagram after the exclude filters are applied.             
+              <br><br>
+              Note: Because of a bug in the current implementation, the filter files must be 
+              present in the root folder of the Trace Files Project.
+              </font></li>
+              <br>
+              
+              <li><font face="Verdana" size="2"><b><i>Tooltips</i></b>: Tooltips 
+              for a class show the complete class name. Tooltips  for a method call show 
+              the values of parameters and return value if call context data was captured.
+              Method call tooltips always show the response time of the call and where 
+              this method is declared. If a method is defined in the superclass 
+              and is called on the subclass instance, the tooltip shows the superclass name.</font></li>
+              <br>
+              
+              <li><font face="Verdana" size="2"><b><i>Print</i></b>: 
+              'Print' option prints the active diagram.</font></li>
+              <br>
+              
+              <li><font face="Verdana" size="2"><b><i>Export As&nbsp; JPG/BMP Image</i></b>: This 
+              option is used to export the diagram as a jpg or bmp image. Large images 
+              take lot of system resources and cannot be exported. Use the filtering 
+              features to delete unimportant classes and calls. Try to reduce the 
+              diagram to about 400 calls before exporting as a diagram. BMP images 
+              take greater resources than a jpg image.</font></li>
+              <br>
+              
+              <li><font face="Verdana" size="2"><b><i>Double click to open source file</i></b>: 
+              Double clicking a call opens the source file where this 
+            call is defined. All Java projects in workspace are searched for the 
+            source file and the file is opened with the corresponding line is 
+            selected. Double clicking a Class figure opens the class file.</font></li>
+            </ul>
+
+<a name="impactAnalysis"></a>
+<br>
+<p><h2>4.4 To Perform Impact Analysis</h2>
+<p><font face="Verdana" size="2">
+<b><a href="userGuide.jsp?param=impactAnalysisDemo">Demo</a></b>
+<br><br>
+After changing the application to fix a defect or to add a new feature, you may want to 
+find all the existing use cases impacted by the change. It is necessary to find the 
+impacted use cases, so that proper regression testing can be conducted before 
+the new code is put into production. Static time source code searching does not 
+enable us to determine the use cases that depend on a class or database table. 
+
+<p>The 'MaintainJ Search' feature allows you find out all the use cases that 
+depend on a Java class or method or on a database table or field.
+
+<p> Click the menu option 'Search' (Control+H) in Eclipse. In the search dialog box 
+opened, you will notice a 'MaintainJ Search' tab, where you can search for a 
+trace file or class or a method across multiple trace file projects. 
+This gets even better by allowing you to search for a particular method parameter value.
+Let us explain these powerful capabilities using two concrete examples.
+
+<p>
+<b>1. Java class or method search</b>: Consider the simple code snippet below, 
+a very common pattern used in Java applications.
+<p>
+interface DataSource{<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;String loadData(); <br>
+}
+<p>
+class FileDataSource implements DataSource{<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;String loadData(){<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Read from file and return the data<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+<p>
+class NetworkDataSource implements DataSource{<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;String loadData(){<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Read from network and return the data<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+<p>
+class DataLoader{<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;private DataSource dataSource;<br><br>
+	
+    &nbsp;&nbsp;&nbsp;&nbsp;DataLoader(DataSource ds){<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataSource=ds;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;String loadData(){<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return dataSource.loadData();<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;}	<br>
+}
+<p>
+By analyzing the source code above, it is impossible to tell whether DataLoader 
+uses FileDataSource or NetworkDataSource at runtime when a use case is executed. 
+Using the static time source code analysis tools, it is impossible to 
+precisely tell if a use case depends on FileDataSource or NetworkDataSource. 
+<p>
+Because MaintainJ captures the classes, method calls and their parameters 
+as the use cases are executed, it can precisely identify whether a use case 
+calls FileDataSource or NetworkDataSource. 
+<p>
+Once the trace files are captured for all use cases in the application, 
+you simply need to search for FileDataSource to find out all the use cases 
+that depend on it. Armed with this information, you can conduct 
+focused and comprehensive regression testing and put the code 
+back into production with more confidence. 
+
+<p>
+
+<b>2. SQL Search</b>: Most Java applications use databases. Consider that we 
+need to identify all the test cases impacted by a change to a table structure.
+This is not an easy task in an enterprise setting where many applications 
+depend  on the same database.  There are many database frameworks for Java 
+and each of them embeds the SQL differently in XML or source code or both. 
+For code analysis tools, it is difficult to map a Java class to a 
+SQL statement and impossible to map a use case to a set of tables used. 
+<p>
+Because MaintainJ captures all the runtime SQL statements sent to database 
+when a use case is executed, it can precisely identify the use cases that 
+depend on a database table(s) or field(s). 
+<p>
+To find all the use cases that use a table, use the following search criteria 
+in the 'MaintainJ Search' tab:<p>
+Class name: '*Statement' (searches both Statement and PreparedStatement)<br>
+Method name: 'execute*'<br>
+Method parameter name: 'sqlStatment'<br>
+Method parameter value: &lt;&lt;Table name or field name as referred to in the SQL&gt;&gt;
+
+<p>
+The search results show all the use cases that depend on the table/field and 
+show the SQL statements using those tables/fields.     
+
+<p><h4>A Powerful Feature</h4>
+
+<p>This is a very powerful feature that no available static time dependency analysis 
+tools can offer. However, take note of the assumption and current limitations 
+of the feature:
+<p>The assumption is that you have already captured the trace files for all use cases of 
+the application. If this is a considerable effort during a release cycle, it can be 
+started on more important modules of the application and expanded to other modules later.
+<p>
+The limitations are: <br>
+a) Assume that class ConcreteUser extends AbstractUser. If you change AbstractUser, 
+there is a chance that use cases depending on ConcreteUser will be impacted though 
+you did not change ConcreteUser. 
+In the current release users will have to use their discretion when analyzing  
+the impact of changes to classes in a class hierarchy.<br>
+b) Only the impact of changes to Java classes, JSP's and database resources 
+can be identified currently. Impact of changes to HTML, CSS or Javascript cannot be 
+predicted.<br>
+         
+</font></p>  
+      
+<a name="uml2"></a>
+<br>
+<p><h2>4.5 Export the Diagrams to UML2 (and import into UML compliant tools like RSA)</h2>
+
+<p><font face="Verdana" size="2">
+<b><a href="userGuide.jsp?param=RSADemo">Demo</a></b>
+<br><br>
+You can export the MaintainJ sequence and class diagrams into UML2 model files 
+and then import those model files into other UML2 compliant tools like 
+Rational Software Architect(RSA) 8. Using these model files, RSA can display the 
+sequence and class diagrams. <br><br> 
+
+If the generated trace files are large, you can apply filters on the diagrams or 
+delete the unwanted packages/classes/methods from the 'Outline view' and save 
+the diagram as .mnj file. Open the .mnj file using the 
+'MaintainJ Editor to Save As UML2 Model' editor (select the .mnj file and right 
+click to see this editor in the context menu). When you click 'Save As' (File->Save As), 
+you will be prompted to enter the model file name. The UML2 model file will be saved in 
+the same folder as the .mnj file. 
+<br><br>
+You can choose if you want to export all class attributes, methods and/or class 
+hierarchy of the classes called in the sequence diagram. The source code of the 
+called classes must be in the workspace to export attributes/methods/hierarchy 
+to the UML2 model. By default only the methods called in a class are exported.    
+<br><br>
+The classes and calls currently 
+visible in the diagram will only be exported to the model file. In other words, if a call 
+is collapsed, just that call will be exported into the model file and none of the 
+nested calls will be exported. <br><br>
+
+If you are going to import the model files into RSA, name the model files  as .emx files. 
+You have two options to view the class and sequence diagrams in RSA.
+<br><br>
+1. Install the 'MaintainJ UML2 Diagram Creator For RSA' plug-in (download link provided below). 
+Copy the .emx file to any 
+project and from any view like the Navigator view where you can see the file 
+name with the .emx extension, right click the mouse.  In the context menu, 
+you will find 'Create MaintainJ UML2 Diagrams' option. 
+When you click this option, the sequence and class diagrams will be opened in RSA.
+<br><br>
+2. You do not really need the above MaintainJ plug-in to generate the UML diagrams 
+from the UML2 model file in RSA. Copy the .emx files into any project in RSA, open 
+the 'Modeling perspective' and then open the .emx file using the 'Rational Model Editor'. 
+<br><br>
+To open the model file  as a sequence diagram, expand the model (in Model perspective, 
+Project Explorer view) and follow 'Collaboration -> Interaction -> Right click 
+the mouse ->Add Diagram->Sequence Diagram'.<br>
+To create the class diagram, expand the model, select all domain classes (or the classes 
+you want to include in the class diagram), right click the mouse and follow 
+'Add to New Diagram File ->Class Diagram'. 
+<br><br>
+
+<b>Note when viewing the diagrams in RSA</b>: Sequence diagrams with more than 50 calls 
+take some time to open in RSA. Because it really depends on your computer's 
+processing power, start with less number of calls and increase the diagram size 
+depending on how it scales. You may use the '<a href="#filters">predefined filters</a>' to reduce the 
+MaintainJ diagram size by removing redundant calls. 
+<br><br>
+<b>Installation Links and Notes</b>:<br>
+The feature to export the diagrams as UML2 model files is implemented in a separate 
+Eclipse plug-in called 'MaintainJ UML2 Model Creator', which is not packaged in the 
+core 'MaintainJ Feature'. So, you need to install this  
+plug-in separately. Below are relevant url's to install this plugin.
+<br><br>
+<b>Eclipse Update url:</b> <font color="#0000FF">http://maintainj.com/updates/4.0.0/uml2</font>
+<br>
+<b>Zip file:</b> <a href="http://www.maintainj.com/updates/4.0.0/uml2/MaintainJ_UML2_Converter_4.0.0.zip">MaintainJ_UML2_Converter_4.0.0.zip</a> 
+The zip file contents should be placed in the 'eclipse/plugins' folder.
+<br><br>
+To install the 'MaintainJ UML2 Diagram Creator For RSA' plug-in (to follow the first 
+approach above to view the diagrams in RSA), download 
+<a href="http://www.maintainj.com/updates/4.0.0/uml2/MaintainJ_UML2_Diagram_Creator_4.0.0.zip">MaintainJ_UML2_Diagram_Creator_4.0.0.zip</a> 
+file and unzip to 'eclipse/plugins' folder. Please note that this plug-in works only in RSA.
+<br><br>
+This feature is tested in Eclipse 3.5 and above, RSA 8 and RAD 7.5 and above. 
+When installing in RSA or RAD, you can use either the 'update url' or the zip file. 
+But when installing in Eclipse, use the update url because Eclipse would automatically 
+fetch and install the other plug-ins that this plug-in depends on. If you cannot 
+use the update url, make sure that you have both 'UML2 Extender SDK' and  
+'EMF Model Transaction SDK' plug-ins installed before installing this plug-in. 
+In RSA and RAD these 2 plug-ins are pre-installed.
+<br><br>
+
+<b>License Note</b>: This feature is not included in the current licensing. Please contact us to 
+use this feature on your application. However, you can try this feature using the 
+sample trace file copied to the 'MaintainJ Trace Files Project'.
+
+</font>
+</p>
+ 
+</BODY>
+</HTML>

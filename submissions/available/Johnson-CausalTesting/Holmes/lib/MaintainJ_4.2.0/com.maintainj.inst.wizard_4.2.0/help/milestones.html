@@ -1,0 +1,187 @@
+<HTML>
+<HEAD>
+
+</HEAD>
+<BODY>
+April 07, 2012
+<br><h1>MaintainJ for Android applications</h1> 
+
+<p>The current release version of MaintainJ does not work for Android applications. This is because MaintainJ instruments the class files as they are loaded into the memory, but the Android VM does not allow this.</p>
+
+<p>To avoid this problem, the Android code needs to be instrumented at compile time rather than at load time. Following this method, MaintainJ can be used on Android apps to generate the runtime sequence and class diagrams.</p>
+
+<p>The instructions work for the Android apps developed in Eclipse. I assume that you are already familiar with the Android application development in Eclipse and MaintainJ plugins are already installed in your Eclipse.</p>
+
+<p>1. Install the correct version of AJDT from the <a href="http://www.eclipse.org/ajdt/downloads/">AJDT download page</a>.</p>
+
+<p>2.  In Eclipse, follow Window, Preferences, AspectJ Compiler, Possible Optimizations. Check 'No inline' option if it is not already selected.</p>
+
+<p>3. Under your Android app project, create 'libs' folder if it is not already created. Copy MaintainJAspect.jar and aspectjrt.jar files to this folder. Get MaintainJAspect.jar from eclipse\plugins\com.maintainj.launcher.core_3.6.x . Get aspectjrt.jar from eclipse\plugins\org.aspectj.runtime_1.6.12.20110613132200</p>
+
+<p>4.Take a backup of the .project file of your Android app project and do the following changes to add AspectJ builder to your project.<br />
+Add the following node in buildSpec node.</p>
+
+<p>
+
+    &lt;buildCommand&gt;<br>
+	&lt;name&gt;org.eclipse.ajdt.core.ajbuilder&lt;/name&gt;<br>
+	&lt;arguments&gt;&lt;/arguments&gt;<br>
+	&lt;/buildCommand&gt;<br>
+</p>
+
+<p>Remove the following node if it is already present.</p>
+
+<p>
+&lt;buildCommand&gt;<br>
+	&lt;name&gt;org.eclipse.jdt.core.javabuilder&lt;/name&gt;<br>
+	&lt;arguments&gt;&lt;/arguments&gt;<br>
+&lt;/buildCommand&gt;<br>
+</p>
+
+<p>5. Add both libs/MaintainJAspect.jar and libs/aspectjrt.jar to the project classpath. 
+The steps to add the jars to classpath are, right click the project, Properties, Java Build Path, Libraries, Add Jars, select libs/MaintainJAspect.jar</p>
+<p>After adding, your .classpath file should look like below:</p>
+<p>6. In your Android app project, create package com.maintainj.androidaspect . Copy <a href="http://maintainj.com/samples/android/MaintainJTracer.aj">MaintainJTracer.aj</a> to this  package.</p>
+<p>7. In the following line of MaintainJTracer.aj, change the com.msi to your package name.<br />
+public pointcut anyExecution(): execution(* com.msi..*(..)) || execution(com.msi..*.new(..));</p>
+<p>In the following line, change com.msi.manning.restaurant.RestaurantFinderApplication to your class name.<br />
+public pointcut beforeMain(): execution(public void com.msi.manning.restaurant.RestaurantFinderApplication.onCreate());</p>
+<p>8. Build the project and run it. It should run as it was running before the changes.<br />
+9.Download <a href="http://maintainj.com/samples/android/MaintainJAndroidTraceManager.zip">MaintainJAndroidTraceManager.zip</a> and import the project into your Eclipse workspace. Build and deply it to the emulator. This application helps you to start and stop tracing. You will see this app with the name 'MaintainJ Trace Controller'. When this app is launched, you should see 'Stop Tracing' button and a text box to enter the trace file name.<br />
+10.Run a use case in your android application.</p>
+<p>11. Go back to the 'MaintainJ Trace Controller' app, enter a trace file name like 'sampleTraceFile' and click 'Stop Tracing'. The trace file(s) will be written to sdcard/Download folder.</p>
+<p>12. Pull the trace files from that folder into your Eclipse project created by following File, New, Project, MaintainJ, MaintainJ Trace Files Project.</p>
+<p>13. Open the trace files to see the sequence and class diagrams.</p>
+<p>14. You might use the sample app <a href="http://maintainj.com/samples/android/RestaurantFinder.zip">RestaurantFinder.zip</a> to try this.</p>
+
+<hr>
+
+<p>
+September 07, 2010
+<br><h1>MaintainJ V3.0 Beta</h1> 
+
+<h3>1. New features</h3><p>
+The major enhancement in this milestone is to show the context of each method call. It shows the method 
+call arguments, return value, source&nbsp; instances of the call. These values are shown in the 
+properties view when the call is selected in the sequence diagram. 
+The values of basic data types like String, int are shown in tool tip when mouse 
+is hovered over a method call.<p>
+
+The other change in this version is that the trace file must be placed in a 
+special project created by the wizard at 
+File-&gt;New-&gt;Project-&gt;MaintainJ-&gt;MaintainJ Trace File Project. This project 
+creates an embedded derby database to store the trace file information. Having 
+the trace file data in database serves two purposes.
+
+<p>
+a) It reduces the memory usage as the entire trace file data need not be loaded 
+into memory.
+<br>
+b) It helps to search for a method or data like a specific value of a parameter. 
+This search can operate on a trace file or across trace files. The search 
+feature will be added in V3.1.<p>
+There is no need to manually change the aop.xml as in the first milestone 
+release.
+
+<h3>2. Screenshots</h3> 
+When an invocation line is selected, in the Properties view, the method call arguments, return value, 
+source&nbsp; instances of the call are displayed.
+<img border="0" src="images/milestones/methodProperties.png" width="580" height="250"><p>
+
+The values of basic data types like String, int are shown in tool tip when mouse 
+is hovered over a method call.<p>
+
+&nbsp;<img border="0" src="images/milestones/tooltipProperties.png" width="419" height="126">
+
+
+<h3>&nbsp;</h3>
+
+<h3>3.The download links</h3>
+<p>The installation procedure is same as it is for the release version. Check the 
+<a href="userGuide.jsp?param=install">quick start</a> guide for detailed installation instructions.
+</p>
+<p>MaintainJ Feature Update url for Eclipse 3.3 and above:<font color="#0000FF"> http://www.maintainj.com/updates/3.0.1</font>
+<br>MaintainJ Feature Update url for Eclipse 3.2:<font color="#0000FF"> http://www.maintainj.com/updates/3.0.1/3.2</font>
+
+<br>MaintainJ J2EE Server Feature Update url:<font color="#0000FF"> http://www.maintainj.com/updates/3.0.1/server</font>
+<p>MaintainJ Feature Zip (for Eclipse 3.3 and above): <a href="http://www.maintainj.com/updates/3.0.1/MaintainJ_3.0.1.zip">MaintainJ_3.0.1.zip</a>
+<br>MaintainJ Feature Zip (for Eclipse 3.2): <a href="http://www.maintainj.com/updates/3.0.1/3.2/MaintainJ_3.0.1_ForEclipse_3.2.zip">MaintainJ_3.0.1_ForEclipse_3.2.zip</a>
+
+<br>MaintainJ J2EE Server Feature: <a href="http://maintainj.com/updates/3.0.1/server/MaintainJ_J2EE_Launcher_3.0.1.zip">MaintainJ_J2EE_Launcher_3.0.1.zip</a>
+<p>MaintainJ.war to instrument J2EE applications: <a href="http://www.maintainj.com/updates/3.0.1/MaintainJ.war">MaintainJ.war</a>
+<p>&nbsp;<hr>
+<p>November 4, 2009
+<h1>MaintainJ V3.0 Milestone 1</h1>
+
+<h3>1. New features</h3><p>
+The major enhancement in this milestone is to show the context of each method call. It shows the method call arguments, return value, source and target instances of the call. These values are shown in the properties view when the call is selected in the sequence diagram.
+
+<h3>2. Screenshot</h3><p>
+If the data is primitive, String or single dimension arrays of primitive or String, they are displayed. If the data is an object, only the first level primitive 
+attributes of that object are shown. <p>
+<img border="0" src="images/milestones/seqDiagWithData.png" width="550" height="667">
+
+<br>
+
+<h3>3. How it works</h3><p>
+This version works the same as the release version in every other way except showing the context data. By default it does not log the context of a calls to the trace file. 
+You need to do a small change to the generated aop.xml to log context data. The location of the aop.xml can be found <a href="http://maintainj.com/blog/?p=17">here</a>. 
+Remember to select the 'Do not regerate aop.xml' checkbox at the bottom of the Aspect tab not to overwrite your changes. <p>
+
+<b>3.1 For J2SE applications</b> or any application that you start with main() method, the third line in the generated aop.xml looks as below.<br>
+&lt;concrete-aspect name="com.maintainj.inst.J2SEAspect" extends="com.maintainj.aspect.J2SEExecutionAspect"&gt;<p>
+You need to change the super aspect name to J2SEExecutionDataAspect as below.<br>
+&lt;concrete-aspect name="com.maintainj.inst.J2SEAspect" extends="com.maintainj.aspect.<font color="#0000FF">J2SEExecutionDataAspect</font>"&gt;<p>
+
+<b>3.2 For J2EE applications, <br>
+</b>1. Change the super aspect name from ExecutionAspect to ServletDataAspect<br>
+2. Add -Xset:weaveJavaxPackages=true to 'weaver options'<br>
+3. Include 'javax.servlet.http.HttpServlet' to instrumentation scope. <p>
+Here is a sample aop.xml after the change:
+
+<p>
+&lt;aspectj&gt;<br>
+&nbsp;
+&lt;aspects&gt;<br>
+		&nbsp;&nbsp;&nbsp;
+		&lt;concrete-aspect name="com.maintainj.inst.J2EEAspect" extends="com.maintainj.aspect.<font color="#0000FF">ServletDataAspect</font>"&gt;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;pointcut name="anyExecution" expression="execution( * *.*(..)) || execution( *.new(..))"/&gt;<br>
+		&nbsp;&nbsp;&nbsp;
+		&lt;/concrete-aspect&gt;<br>
+	&nbsp;
+	&lt;/aspects&gt;<br>
+&nbsp;
+&lt;weaver options=&quot;-proceedOnError <font color="#0000FF">-Xset:weaveJavaxPackages=true</font>&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;include within=&quot;org.jfree.chart..*&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp; <font color="#0000FF">&lt;include within=&quot;javax.servlet.http.HttpServlet&quot;/&gt;</font><br>
+&nbsp;&nbsp;&nbsp; &lt;include within=&quot;com.maintainj..*&quot;/&gt;<br>
+&nbsp;
+&lt;/weaver&gt;<br>
+&lt;/aspectj&gt;
+
+<p>For J2EE applications, the HttpServletRequest parameter of the service method shows the request parameters. 
+
+<h3>4.The download links</h3>
+The installation procedure is same as it is for the release version. Check the user guide for detailed installation instructions.
+<p>MaintainJ Feature Update url:<font color="#0000FF"> http://www.maintainj.com/updates/3.0</font><br>
+MaintainJ J2EE Server Feature Update url:<font color="#0000FF"> http://www.maintainj.com/updates/3.0/server</font><br>
+MaintainJ Feature Zip: <a href="http://www.maintainj.com/updates/3.0/MaintainJ_3.0.0.zip">MaintainJ_3.0.0.zip</a><br>
+MaintainJ J2EE Server Feature: <a href="http://maintainj.com/updates/3.0/server/MaintainJ_J2EE_Launcher_3.0.0.zip">MaintainJ_J2EE_Launcher_3.0.0.zip</a><br>
+MaintainJ.war to instrument J2EE applications: <a href="http://www.maintainj.com/updates/3.0/MaintainJ.war">MaintainJ.war</a><br>
+
+<h3>5. What's coming?</h3>
+
+Below is a summary of enhancements you can expect in near future.<p>
+
+1.In this release context data is shown in the properties view. This will also be shown in the diagram itself - either below the call or in the tooltip popup.<br>
+2. For large diagrams of say 6000 calls, lot of memory is taken up because all 
+context data is loaded into memory when the diagram is rendered. This has to be better managed.<br>
+3. The data for JDBC calls - the sql statement itself and the data will be added. 
+The HttpServletRequest parameters in the service() method are shown in this 
+release.<br>
+4. The other major enhancement for V3 is search capability.<br>
+5. And finally the important impact analysis capability will be added.<p>
+
+Keep checking for these exciting new features of MaintainJ!
+
+</BODY></HTML>

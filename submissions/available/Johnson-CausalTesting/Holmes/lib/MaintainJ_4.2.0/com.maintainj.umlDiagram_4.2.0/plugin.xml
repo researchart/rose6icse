@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="UMLDiagramEditor"
+            contributorClass="UMLDiagramEditorContributor"
+            extensions="ser"
+            icon="icons/mnj.gif"
+            id="com.maintainj.diagram.UMLEditor"
+            name="MaintainJ UML Diagram Editor">
+      </editor>
+      <editor
+			class="SavedUMLDiagramEditor"
+			contributorClass="UMLDiagramEditorContributor"
+	  		default="true"
+	  		extensions="mnj"
+	  		icon="icons/mnj.gif"
+	  		id="com.maintainj.diagram.SavedUMLEditor"
+	  		name="MaintainJ UML Diagram Editor(.mnj file)">
+      </editor>
+      
+   </extension>
+   
+	<extension
+       id="com.maintainj.diagram.SearchPages"
+       name="MaintainJ Searches"
+       point="org.eclipse.search.searchPages">
+	   	<page id="com.maintainj.search.SearchPage"
+			icon="icons/mnj.gif"
+			label="MaintainJ Search"
+			sizeHint="460,160"
+			extensions="*"
+			showScopeSection="false"
+			class="MaintainJSearchPage">
+		</page>
+	</extension>
+	
+	<extension
+        id="com.maintainj.search.SearchResultsPage"
+        point="org.eclipse.search.searchResultViewPages">
+     <viewPage
+           class="MaintainJSearchResultPage"
+           id="com.maintainj.search.page.SearchResultsPage"
+           searchResultClass="MaintainJSearchResult"/>
+	</extension>
+</plugin>

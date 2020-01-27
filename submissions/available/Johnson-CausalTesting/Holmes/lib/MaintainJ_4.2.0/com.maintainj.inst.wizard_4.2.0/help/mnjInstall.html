@@ -1,0 +1,643 @@
+<HTML>
+<HEAD>
+<script type="text/javascript">
+<!--
+onload=function(){
+	var e=document.getElementById("refreshed");
+	if(e.value=="no"){
+		e.value="yes";
+	} else {
+		e.value="no";location.reload();
+	}
+}
+
+var allDivs = new Array("serverType", "j2seLaunchType", "serverLaunchType",
+    "j2eeServerFeature", "j2eeGenericServer",
+    "j2seEclipseLaunch", "j2seCommandLaunch",
+    "eclipseVersion", "junitEclipse32Launch", "junitEclipse33Launch",
+    "appletEclipseLaunch",
+    "plugin", "other", "j2eeWeblogicServer");
+
+
+function hideAllDivs(){
+    hideDivs(allDivs);
+}
+
+function hideDivs(divsArray){
+    for(i=0; i<divsArray.length; i++){
+        var ele = document.getElementById(divsArray[i]+"Div");
+        if(ele == null){
+            continue;
+        }
+        ele.style.display = 'none';
+        //Uncheck all elements in that div
+        var elementsInDiv = document.getElementsByName(divsArray[i]);
+        for(j=0; j<elementsInDiv.length; j++){
+            elementsInDiv[j].checked = false;
+        }
+    }
+}
+
+function appTypeSelected(type){
+    if(type=='j2ee'){
+        hideAllDivs();
+        serverTypeDiv.style.display = '';
+    } else if(type=='j2se'){
+        hideAllDivs();
+        j2seLaunchTypeDiv.style.display = '';
+    } else if(type=='applet'){
+        hideAllDivs();
+        appletEclipseLaunchDiv.style.display = '';
+    } else if(type=='junit'){
+        hideAllDivs();
+        eclipseVersionDiv.style.display = '';
+    } else if(type=='plugin'){
+        hideAllDivs();
+        pluginDiv.style.display = '';
+    } else if(type=='other'){
+        hideAllDivs();
+        otherDiv.style.display = '';
+    } else if(type=='eclipse32'){
+        hideDivs(new Array("junitEclipse32Launch","junitEclipse33Launch"));
+        junitEclipse32LaunchDiv.style.display = '';
+    } else if(type=='eclipse33'){
+        hideDivs(new Array("junitEclipse32Launch","junitEclipse33Launch"));
+        junitEclipse33LaunchDiv.style.display = '';
+    } else if(type=='tomcat' || type=='jboss'){
+        hideDivs(new Array("j2seLaunchType", "serverLaunchType", "j2eeServerFeature", "j2eeGenericServer", "j2eeWeblogicServer"));
+        serverLaunchTypeDiv.style.display = '';
+    } else if(type=='tomcatJBoss'){
+        hideDivs(new Array("j2seLaunchType", "j2eeServerFeature", "j2eeGenericServer", "j2eeWeblogicServer"));
+        j2eeServerFeatureDiv.style.display = '';
+    } else if(type=='genericJ2EE'){
+        hideDivs(new Array("j2seLaunchType", "j2eeServerFeature", "j2eeGenericServer", "j2eeWeblogicServer"));
+        j2eeGenericServerDiv.style.display = '';
+    } else if(type=='websphere'){
+        hideDivs(new Array("j2seLaunchType", "j2eeServerFeature", "j2eeGenericServer", "serverLaunchType", "j2eeWeblogicServer"));
+        j2eeGenericServerDiv.style.display = '';
+    } else if(type=='weblogic'){
+		hideDivs(new Array("j2seLaunchType", "j2eeServerFeature", "j2eeGenericServer", "serverLaunchType", "j2eeWeblogicServer"));
+        j2eeWeblogicServerDiv.style.display = '';
+    } else if(type=='j2seLaunchEclipse'){
+        hideDivs(new Array("j2seCommandLaunch"));
+        j2seEclipseLaunchDiv.style.display = '';
+    } else if(type=='j2seLaunchCommand'){
+        hideDivs(new Array("j2seEclipseLaunch"));
+        j2seCommandLaunchDiv.style.display = '';
+    }
+}
+
+function clearAppType(){
+		alert("aaa");
+        var elementsInDiv = document.getElementsByName("appType");
+        for(j=0; j<elementsInDiv.length; j++){
+        	alert(elementsInDiv[j].checked);
+            elementsInDiv[j].checked = false;
+        }
+}
+
+//-->
+</script>
+
+</HEAD>
+<BODY>
+<input type="hidden" id="refreshed" value="no">
+
+<p><h1>3. MaintainJ Quick Start</h1></p>
+<font face="Verdana" size="2">
+We strongly suggest you to watch this
+<a href="userGuide.jsp?param=overviewDemo"><b>demo video</b></a> first to understand MaintainJ's potential.
+<p>For detailed installation instructions, check the following sections. This 
+wizard shows the download links and demo video relevant to your application. </p>
+
+What is the type of your application?
+<input type="radio" name="appType" value="j2ee" onClick="appTypeSelected('j2ee');">Web App
+<input type="radio" name="appType" value="j2se" onClick="appTypeSelected('j2se');">Core Java App 
+<input type="radio" name="appType" value="applet" onClick="appTypeSelected('applet');">Applet
+<input type="radio" name="appType" value="junit" onClick="appTypeSelected('junit');">JUnit
+<!--
+<input type="radio" name="appType" value="plugin" onClick="appTypeSelected('plugin');">Eclipse Plug-in
+-->
+<input type="radio" name="appType" value="other" onClick="appTypeSelected('other');">None of these
+<div id="serverTypeDiv" style="display: none">
+  <br>
+  Which application server?&nbsp;&nbsp;
+  <input type="radio" name="serverType" value="tomcat" onClick="appTypeSelected('tomcat');">
+  Tomcat
+  <input type="radio" name="serverType" value="jboss" onClick="appTypeSelected('jboss');">
+  JBoss
+  <input type="radio" name="serverType" value="websphere" onClick="appTypeSelected('websphere');">
+  Websphere
+  <input type="radio" name="serverType" value="weblogic" onClick="appTypeSelected('weblogic');">
+  WebLogic
+</div>
+
+<div id="serverLaunchTypeDiv" style="display: none">
+  <br>How do you deploy the application and start the server?
+  <input type="radio" name="serverLaunchType" value="eclipse" onClick="appTypeSelected('tomcatJBoss');">
+  In Eclipse &#39;Servers&#39; view
+  <input type="radio" name="serverLaunchType" value="command" onClick="appTypeSelected('genericJ2EE');">
+  Otherwise
+</div>
+
+<div id="j2eeServerFeatureDiv" style="display: none">
+ <br>Install these two MaintainJ plug-in features using the given update urls.
+ <br>MaintainJ Feature: <font color="#0000FF">http://www.maintainj.com/updates/4.1.0</font>
+ <br>MaintainJ J2EE Server Feature: <font color="#0000FF">
+ http://www.maintainj.com/updates/4.1.0/server</font>
+ <p>Download <a href="http://maintainj.com/updates/4.1.0/MaintainJ.war">MaintainJ.war</a>.
+ Import this war into the Eclipse workspace and deploy to the server. <br>
+ Watch this <a href="userGuide.jsp?param=j2eeLauncherDemo">demo video</a> to get
+ an overview of how this works.
+</div>
+
+<div id="j2eeGenericServerDiv" style="display: none">
+ <br>Install MaintainJ plug-in feature using this update url: <font color="#0000FF">http://www.maintainj.com/updates/4.1.0</font>
+ <br>Download <a href="http://maintainj.com/updates/4.1.0/MaintainJ.war">MaintainJ.war</a>.
+ Deploy this war to your application server to install and configure MaintainJ.
+
+ <br>Watch this <a href="userGuide.jsp?param=j2eeRuntimeDemo">demo video</a> to get an overview of how this works.
+</div>
+
+<div id="j2eeWeblogicServerDiv" style="display: none">
+ <br>Install MaintainJ plug-in feature using this update url: <font color="#0000FF">http://www.maintainj.com/updates/4.1.0</font>
+ <br>Download <a href="http://maintainj.com/updates/4.1.0/MaintainJ.war">MaintainJ.war</a>.
+ Deploy MaintainJ.war to WebLogic server directly using the WebLogic admin console. 
+ Do not deploy MaintainJ.war to WebLogic server from Eclipse. 
+ Follow these <a href="http://maintainj.com/blog/?p=11">instructions</a> to generate the call trace files.
+</div>
+
+<div id="j2seLaunchTypeDiv" style="display: none">
+  <br>
+  How do you start the application?
+  <input type="radio" name="j2seLaunchType" value="j2seLaunchEclipse" onClick="appTypeSelected('j2seLaunchEclipse');">
+  Inside Eclipse
+  <input type="radio" name="j2seLaunchType" value="j2seLaunchCommand" onClick="appTypeSelected('j2seLaunchCommand');">
+  From command prompt
+</div>
+
+<div id="j2seEclipseLaunchDiv" style="display: none">
+ <br>Install MaintainJ plug-in feature using this update url: <font color="#0000FF">http://www.maintainj.com/updates/4.1.0</font>
+ <br>Watch this <a href="userGuide.jsp?param=j2seRuntimeDemo">demo video</a> to get an overview of how this works.
+</div>
+
+<div id="j2seCommandLaunchDiv" style="display: none">
+ <br>Install MaintainJ plug-in feature using this update url: <font color="#0000FF">http://www.maintainj.com/updates/4.1.0</font>
+ <br>Download <a href="http://www.maintainj.com/updates/4.1.0/MaintainJSwingWizard.jar">MaintainJ Aspect Wizard</a>
+ <br>Watch this <a href="userGuide.jsp?param=swingCommandPromptDemo">demo video</a> to get an overview of how this works.
+</div>
+
+<div id="eclipseVersionDiv" style="display: none">
+  <br>What is your Eclipse version?
+  <input type="radio" name="eclipseVersion" value="eclipse33" onClick="appTypeSelected('eclipse33');">
+  Eclipse 3.3 or above
+</div>
+
+<div id="junitEclipse33LaunchDiv" style="display: none">
+ <br>Install MaintainJ plug-in feature using this update url: <font color="#0000FF">http://www.maintainj.com/updates/4.1.0</font>
+ <br>Watch this <a href="userGuide.jsp?param=junitRuntimeDemo">demo video</a> to get an overview of how this works.
+</div>
+
+<div id="appletEclipseLaunchDiv" style="display: none">
+ <br>Install MaintainJ plug-in feature using this update url: <font color="#0000FF">http://www.maintainj.com/updates/4.1.0</font>
+ <br>Watch this <a href="userGuide.jsp?param=appletRuntimeDemo">demo video</a> to get an overview of how this works.
+</div>
+
+<div id="pluginDiv" style="display: none">
+ <br>Install MaintainJ plug-in feature using this update url: <font color="#0000FF">http://www.maintainj.com/updates/4.1.0</font>
+ <br>Download <a href="http://www.maintainj.com/updates/4.1.0/MaintainJSwingWizard.jar">MaintainJ Aspect Wizard</a>
+ <br>Watch this <a href="userGuide.jsp?param=pluginRuntimeDemo">demo video</a> to get an overview of how this works.
+</div>
+
+<div id="otherDiv" style="display: none">
+
+ <br>Install MaintainJ plug-in feature using this update url: <font color="#0000FF">http://www.maintainj.com/updates/4.1.0</font>
+ <br><br>
+ MaintainJ comes with various wizards to generate the call trace files.
+ If none of the wizards are suitable for your application, you can still generate the trace files by
+ following these <a href="userGuide.jsp?param=runtime#howitworks">steps</a>. Once the trace files are generated,
+ copy them to the 'MaintainJ Trace Files Project' and open. This project can be created by following
+File->New->Project->MaintainJ->MaintainJ Trace Files Project.
+</div>
+</font>
+<br>&nbsp;
+<p><h2>3.1 MaintainJ Eclipse Plug-ins Installation</h2></p>
+<p><font face="Verdana" size="2">
+MaintainJ has two Eclipse features:  <br>
+a) MaintainJ Feature (always required) <br> 
+b) MaintainJ J2EE Server Feature (required only for Tomcat and JBoss applications).
+<p> MaintainJ requires Eclipse 3.2 or newer versions. The following sections help you to install the plug-ins.
+</font>
+
+<!-- 
+<p><font face="Verdana" size="2">
+
+<p>3.2.1. <a href="#updateSite">Update URLs</a> 
+3.2.2. <a href="#justPlugins">As Zip files</a> 
+3.2.3. <a href="#verification">Verify Installation</a>
+3.2.4. <a href="/license/register.jsp">Download License</a>
+</font>
+-->
+
+
+<p><h4>3.1.1. <a name="updateSite"></a>MaintainJ Update URL's</h4></p>
+  
+<p><font face="Verdana" size="2"><b>MaintainJ Feature:</b> <font color="#0000FF">http://www.maintainj.com/updates/4.1.0</font></font><br>
+<font face="Verdana" size="2"><b>MaintainJ J2EE Server Feature: </b> <font color="#0000FF">http://www.maintainj.com/updates/4.1.0/server</font></font></p>
+
+<p>
+<font face="Verdana" size="2">
+Follow these steps to install using the update URL's:
+<ul>
+  <li>In Eclipse, click 'Help--&gt;Install New Software'.</li>
+  <li>Click 'Add' and in the dialog box opened, enter one of the URL's above.</li>
+  <li>Select the just added site in the 'Available Software Sites'
+  dropdown list and follow the wizard steps. </li>
+</ul>
+</font>
+
+<p><h4>3.1.2. <a name="justPlugins"></a>MaintainJ Plug-in Zip Files</h4>
+<font face="Verdana" size="2">
+We strongly recommend you to use the Update URL's to install, but 
+if you cannot for any reason, you may install using the following zip files.
+<p><b>MaintainJ Feature:</b>
+<a href="http://www.maintainj.com/updates/4.1.0/MaintainJ_4.1.0.zip">MaintainJ_4.1.0.zip</a><br>
+<b>MaintainJ J2EE Server Feature: </b>
+<a href="http://maintainj.com/updates/4.1.0/server/MaintainJ_J2EE_Launcher_4.1.0.zip">MaintainJ_J2EE_Launcher_4.1.0.zip</a>
+<p>
+Unzip the zip files to <i>&lt;EclipseRoot&gt;&gt;/eclipse/plugins</i> folder and restart Eclipse. 
+</font>
+<br>
+<a href="http://eclipse.org/gef/">GEF (Graphical Editing Framework)</a> plug-in 
+is required for MaintainJ. Install it if you do not already have it installed. 
+Ensure that you install the GEF version that works with your Eclipse version.
+
+<p><h4>3.1.3. <a name="verification"></a>Verify Installation</h4>
+<p><font face="Verdana" size="2">
+<u>MaintainJ UML Diagram and MaintainJ Wizards</u><b>: </b> 
+Create a MaintainJ Trace Files Project by following 
+File--&gt;New--&gt;Project--&gt;MaintainJ--&gt;MaintainJ Trace Files Project. You should 
+see a sample trace file Alfresco_Login.ser in the project.
+When you open the trace file,  sequence and class diagrams should show.
+
+<p><u>MaintainJ Run Configurations</u><b> : </b> Click
+'Run--&gt;Run Configurations' in Eclipse to open the run configurations dialog. 
+On the left hand side, you should see <i>Java Application with MaintainJ</i> 
+</p>
+
+<p><u>Tomcat/JBoss Server Configurations</u>: Open 'Servers' view in Eclipse and create a 
+new Server (right click, <span style="white-space: nowrap;">New-&gt;Server</span>). Under Apache and JBoss, you
+should see 'Tomcat with MaintainJ' and 'JBoss with MaintainJ'.
+
+</font></p>
+
+<p><h4>3.1.4. <a name="installLicense"></a>Get Evaluation License </h4></p>
+Get the <a href="/license/register.jsp">free evaluation license</a>.
+
+
+<br>&nbsp;
+<p><h2>3.2 MaintainJ.war - To generate call trace files for Web Applications</h2></p>
+<p><font face="Verdana" size="2">
+<a href="http://www.maintainj.com/updates/4.1.0/MaintainJ.war">MaintainJ.war</a> 
+web application is the wizard to install and configure MaintainJ on application servers. 
+Deploy MaintainJ.war directly to the application server or from an Eclipse based IDE 
+(after importing the war as a project).
+Open <i>http://server/MaintainJ/index.jsp</i> and follow the instructions.</font></p>
+
+<p>Check the <a href="userGuide.jsp?param=j2eeRuntimeDemo">demo video</a>.
+
+<br>&nbsp;
+<p>
+<h2>3.3 MaintainJ Aspect Wizard</h2><p><font face="Verdana" size="2">
+<a href="updates/4.1.0/MaintainJSwingWizard.jar">MaintainJSwingWizard.jar</a>&nbsp; -
+Start as '<b>java -jar MaintainJSwingWizard.jar</b>'</font></p>
+<p><font face="Verdana" size="2">Use this wizard for core Java applications launched
+from outside Eclipse. Check the <a href="userGuide.jsp?param=swingCommandPromptDemo">demo video</a>. 
+If you are launching your application from inside Eclipse,
+use <a href="userGuide.jsp?param=runtime#j2se">MaintainJ Launcher</a> plug-in.</font>
+<!--
+<p><font face="Verdana" size="2">You can use this wizard to instrument in two scenarios:</font>
+<br><font face="Verdana" size="2">a) You have a J2SE application that is launched
+from outside Eclipse. If you are launching your application from inside Eclipse,
+use <a href="userGuide.jsp?param=runtime#j2se">MaintainJ Launcher</a> plug-in.</font>
+<br><font face="Verdana" size="2">b) You want to reverse engineer an Eclipse
+plug-in and generate the UML diagrams.</font></p>
+-->
+<br>&nbsp;
+<h2><a name="releaseNotes"></a>3.4 Release Notes</h2></p>
+
+<p>
+
+<b>MaintainJ 4.1.0 </b>
+<i>(September 1, 2014)</i></p>
+This release contains several enhancements as below:
+<ol>
+  <li><a href="userGuide.jsp?param=uml#searchDiagram">Search Diagram</a> - 
+	Using this feature, the sequence diagram can be searched for a class or method or 
+	any text (like tables or fields) in database SQL calls.
+  </li>
+  <li>
+	AspectJ library used is upgraded to the latest 1.8.2 from the older 1.6.11
+  </li>
+  <li>
+	In MaintainJ Server feature, support is added for Tomcat 8.
+  </li>
+</ol>
+<p>
+
+<b>MaintainJ 4.0.0 </b>
+<i>(April 30, 2013)</i></p>
+This release adds the response time tuning capability in a single user environment.
+<ol>
+  <li><a href="userGuide.jsp?param=uml#responseTimeView">Response Time View</a> - 
+	The sequence diagram and the corresponding 'Outline view' are 
+	redesigned to allow the user to quickly find the methods that are taking the 
+	maximum response time in a use case.	
+  </li>
+  <li><a href="userGuide.jsp?param=uml#responseTimeView">Filter Calls by Response Time</a> - 
+	This feature allows the user to filter out all the calls whose response time is less 
+	than the specified time.	
+  </li>
+  <li><a href="userGuide.jsp?param=uml#deleteAllExcept">Delete All Classes Except</a> - 
+	This feature can be used to quickly see the interactions between the important 
+	classes in the use case.	
+  </li>
+  
+  <li><a href="userGuide.jsp?param=uml#noLoopCalls">Shows the number of times a method is called in a loop</a> - 
+	MaintainJ always removed the loop and recursive calls to avoid cluttered sequence 
+	diagrams. This version adds the feature to show the number of times a method is 
+	called in a loop. 	
+  </li>
+  
+   <li>Opening trace files generated using older versions - To open the trace files 
+   generated using the older versions of MaintainJ, copy them to the  
+   'MaintainJ Trace Files Project' created using this release. 
+   This project can be created by following File->New->Project->MaintainJ->MaintainJ Trace Files Project.
+	Please note that the trace files from older verisons do not have information 
+	about the number of times a method is called in a loop.
+  </li>
+  
+</ol>
+<p>
+
+<b>MaintainJ 3.6.1 </b>
+<i>(March 12, 2013)</i></p>
+This is mainly a minor enhancement and bug fix release.
+<ol>
+  <li><a href="userGuide.jsp?param=uml#uml2">Export the diagrams to UML2</a> - 
+	The package name of the return type of a call was not shown in the last release. 
+	This release fixes the issue. If the method parameters (or the return type) are 
+	of an array type, they were not shown properly in the last release. This issue is fixed as well.	
+  </li>
+  <li> When call context is captured, the previous release did not generate a merged 
+  trace file of all the threads. This release generates the merged trace file for all threads.
+  </li>
+  
+  <li>MaintainJ removes the loop and recursive calls by default. A system property is 
+  introduced to turn this off if necessary.
+  </li>
+</ol>
+
+
+<p>
+<b>MaintainJ 3.6.0 </b>
+<i>(February 16, 2013)</i></p>
+<ol>
+  <li><a href="userGuide.jsp?param=uml#uml2">Export the diagrams to UML2</a> - 
+  This feature is enhanced to export the UML 2 model with the class hierarchy, 
+  class methods and attributes. Before exporting the UML 2 model, user can choose 
+  to export one or all of these options.
+  </li>
+  <li> A new plugin is created to render the class and sequence diagrams in RSA 
+  from the UML 2 model exported using the above feature.
+  </li>
+  
+  <li> <a href="userGuide.jsp?param=uml#wsd">Web Sequence Diagrams</a> - This 
+  feature allows to generate the web sequence diagrams as at websequencediagrams.com.
+  </li>
+  <li> Response times for each call is displayed in the Outline view.
+  </li>
+  <li> Support is added for JRE 1.7 and Tomcat 7.
+  </li>  
+</ol>
+
+<p><b>MaintainJ 3.5.0 </b>
+<i>(January 27, 2013)</i></p>
+<ol>
+  <li><a href="userGuide.jsp?param=uml#uml2">Export the diagrams to UML2</a> - 
+  Now you can export the MaintainJ generated class and 
+  sequence diagrams into a UML2 model file. This UML2 model file can be imported into any 
+  UML2 compliant tool like Rational Software Architect (RSA) to view the UML2 class and sequence diagrams. 
+  </li>
+  <li> <a href="userGuide.jsp?param=uml#filters">Predefined Filters</a> - The prior releases of MaintainJ allow defining class and/or package 
+  filters <i>before</i> generating the trace files. Now, similar filters can be applied 
+  on the diagrams <i>after</i> generating the trace files. You can capture the trace 
+  files with all the classes and then apply different filters to the diagram to 
+  view the diagrams at different levels of abstraction.
+  </li>
+  <li> Delete Constructor Calls - All constructor calls can be deleted at once using this 
+  option in the sequence diagram. 
+  </li>
+</ol>
+
+<p><b>MaintainJ 3.3.0 </b>
+<i>(October 26, 2012)</i></p>
+<ol>
+  <li>Introduces Impact Analysis capability - User can search for trace files, classes, 
+  methods, SQL statements in multiple trace files across many 'MaintainJ Trace File Projects'.
+  Check the section on <a href="userGuide.jsp?param=uml#impactAnalysis">Impact Analysis</a> 
+  in the user guide for more details.
+  </li>
+  <li> The class diagram is improved to show the fields and methods in a class when 
+  the mouse is hovered over a class.</li>
+</ol>
+<p><b>MaintainJ 3.2.0 </b>
+<i>(September 7, 2012)</i></p>
+<ol>
+  <li>Major release with multiple enhancements to the product.</li>
+  <li>Shows call context - The context of each call is shown in the sequence diagram.
+  The context includes the call parameters, return value and the state of the called object.</li>
+  <li>Displays runtime SQL - The actual runtime SQL statements (with populated parameters)
+  going to the database regardless of the JDBC frameworks used are shown in the sequence diagram.</li>
+  <li>JSP calls - The calls to JSP(s) in a use case are shown in the sequence
+  diagrams. If one JSP includes multiple JSPs, the runtime calls to the inner JSPs are
+  displayed as well.</li>
+  <li>
+  Supports multi-JVM applications - Users can trace applications running on multiple
+  JVMs and see the end-to-end call flow in a single sequence diagram. For example,
+  when an application calls a web service running in a different JVM, the call flow
+  across JVMs is shown in a single sequence diagram. The calls in each JVM can be seen
+  in a different color on the same diagram.
+  </li>
+  <li>Enhanced Outline View - The sequence diagram's 'Outline View' shows all the
+  classes and calls in the use case. It is enhanced to select and delete multiple
+  packages, classes or calls at one go. An option to filter out all getter and
+  setter methods has been added to the sequence diagram.
+  </li>
+  <li>By using 'Select In Diagram' feature in 'Outline View',
+  the breadcrumb trail of the call can be seen in sequence diagram. This feature helps to
+  quickly browse the diagram without expanding all calls.</li>
+  <li>The new 'Exclude Class' feature allows to exclude some
+  classes or packages from the diagram. This is similar
+  to excluding classes or packages from instrumentation scope so that those classes
+  or packages will not be captured in the trace file. This new feature
+  allows us to first capture all calls and then exclude those we do not want from the diagram. </li>
+</ol>
+
+
+<p><font size="2" face="Verdana"><b>MaintainJ 2.9.0 </b>
+<i>(March 29, 2011)</i></font></p>
+<ol>
+  <li><font face="Verdana" size="2">Major revamp of UML Diagram Editor to
+  increase the performance.</font></li>
+  <li><font face="Verdana" size="2">The tooltips for calls and classes are
+  enhanced. The call tooltip shows the javadoc information if the source file is
+  available in the workspace. In the class diagram the class tooltip shows all
+  the methods of that class called in the use case. The tooltips behave exactly
+  as they do in java source editor.</font></li>
+  <li><font face="Verdana" size="2">The sequence and class diagrams are always
+  in sync now. In the previous releases, when a class is deleted in the sequence
+  diagram, it is deleted in class diagram but when a class is deleted from class
+  diagram, it is not deleted in sequence diagram. In this release they are
+  always in sync.</font></li>
+  <li><font face="Verdana" size="2">When a class or call is selected in the
+  Outline view, the corresponding class or call is not automatically selected in
+  the diagram. User needs to right click and choose 'Select In Diagram' to
+  select the corresponding class or call in the diagram. This change is to avoid
+  unnecessary scrolling of the diagram, which is very slow in large diagrams.</font></li>
+  <li><font face="Verdana" size="2">For Tomcat and JBoss applications deployed
+  in Eclipse using MaintainJ J2EE server feature, the JSPs are automatically
+  added to the instrumentation scope and are shown in the diagrams.</font></li>
+  <li><font face="Verdana" size="2">The trace files saved as .mnj files in
+  previous releases cannot be opened in this release. A conversion tool for this
+  purpose will be released soon.</font></li>
+</ol>
+<p><font size="2" face="Verdana"><b>MaintainJ 2.8.0 </b>
+<i>(September 10, 2009)</i></font></p>
+<ol>
+  <li><font face="Verdana" size="2">MaintainJ J2EE Server Plug-in is released.
+  This plug-in is used to instrument applications running on Tomcat or JBoss.</font></li>
+  <li><font face="Verdana" size="2">MaintainJ Launcher plug-in is enhanced to
+  seamlessly support JUnit and
+  Applets.</font></li>
+  <li><font face="Verdana" size="2">'MaintainJ Start and Stop Tracing' Swing
+  window is updated with more information.</font></li>
+  <li><font face="Verdana" size="2">AspectJ weaver used is upgraded to more
+  efficient version 1.6.4.</font></li>
+</ol>
+<p><font face="Verdana"><font size="2"><b>MaintainJ 2.5.3 </b></font>
+<i><font size="2">(January 17, 2009)</font></i></font></p>
+<ol>
+  <li><font face="Verdana" size="2">Added floating license option.</font></li>
+  <li><font face="Verdana" size="2">Classes in class diagrams can be resized now.</font></li>
+  <li><font face="Verdana" size="2">In
+  <a href="userGuide.jsp?param=runtime#j2se">MaintainJ Launcher</a> plug-in,
+  stopping users from selecting <i>com</i> package as it includes packages like
+  <i>com.sun</i> into the instrumentation scope. </font></li>
+</ol>
+<p><font face="Verdana"><font size="2"><b>MaintainJ 2.5.1 </b></font>
+<i><font size="2">(October 27, 2008)</font></i></font></p>
+<ol>
+  <li><font face="Verdana" size="2">Bug fix release. Fixed a defect in MaintainJ
+  Launcher plug-in. </font></li>
+</ol>
+<p><font face="Verdana"><font size="2"><b>MaintainJ 2.5 </b></font>
+<i><font size="2">(July 07, 2008)</font></i></font></p>
+<ol>
+  <li><font face="Verdana" size="2">Dependency on AJDT plug-in is removed. Now
+  GEF is the only required plug-in.</font></li>
+  <li><font face="Verdana" size="2">Build-time instrumentation wizard is
+  retired. </font></li>
+</ol>
+<p><font face="Verdana"><font size="2"><b>MaintainJ 2.4 </b></font>
+<i><font size="2">(July 01, 2008)</font></i></font></p>
+<ol>
+  <li><font face="Verdana" size="2">UML class diagrams show methods called in
+  each class in a scenario.</font></li>
+  <li><font face="Verdana" size="2">In UML sequence diagrams, 'Delete Duplicate
+  Calls to a Method' menu option deletes all calls expect the selected call.</font></li>
+</ol>
+<p><font face="Verdana"><font size="2"><b>MaintainJ 2.1 </b></font>
+<i><font size="2">(December 08, 2007)</font></i></font></p>
+<ol>
+  <li><font face="Verdana" size="2">MaintainJ.war updates - Updated to work on
+  UNIX. Updated to work with J2EE applications deployed from Eclipse.</font></li>
+  <li><font face="Verdana" size="2">MaintainJ Launcher is supported on all
+  flavors of JREs of version 1.4 and above.</font></li>
+  <li><font face="Verdana" size="2">UML sequence diagrams show the response time
+  for every method call. Select a call and open the Eclipse properties view to
+  view the response time.</font></li>
+</ol>
+<p><font face="Verdana"><font size="2"><b>MaintainJ 2.0 </b></font>
+<i><font size="2">(October 24, 2007)</font></i></font></p>
+<ol>
+  <li><font face="Verdana" size="2">Runtime instrumentation support is added for
+  J2SE and J2EE applications. Applications running on supported configurations
+  are instrumented at runtime to generate the call trace files. No changes done
+  to the source code. No need to build the source code using AspectJ; the
+  deployed application is instrumented at runtime to generate the call trace
+  files. UML diagrams are generated from trace files.</font></li>
+  <li><font face="Verdana" size="2">A new Eclipse plug-in, MaintainJ Launcher, is
+  added. This plug-in instruments J2SE applications at runtime and generates
+  call trace files when the application is launched from Eclipse. </font></li>
+  <li><font face="Verdana" size="2">A new web application MaintainJ.war is
+  developed for runtime instrumenting J2EE applications. MaintainJ.war installs MaintainJ related jars on the server,
+  generates the aspect and prepares the application for runtime instrumentation. </font></li>
+  <li><font face="Verdana" size="2">UML diagrams can also be exported as BMP
+  images. BMP images offer better quality.</font></li>
+</ol>
+<p><font face="Verdana"><font size="2"><b>MaintainJ 1.3 </b></font>
+<i><font size="2">(September 1, 2007)</font></i></font></p>
+<ol>
+  <li><font face="Verdana" size="2">UML Editor's performance has been increased
+  drastically. Now large diagrams can be opened and edited much faster than
+  before. While in the last release a sequence diagram with 6000 calls took
+  around 75 seconds to open, it now takes about 13 seconds.</font></li>
+  <li><font face="Verdana" size="2">More features to better understand
+  multi-threaded applications. In this release trace files of different threads
+  can be merged using a wizard. Follow File--&gt;New--&gt;Other--&gt;MaintainJ--&gt;Merge
+  Trace Files to access the wizard. When the trace file logging is stopped, a
+  trace file that contains joinpoints of all threads is written with name &lt;&lt;TraceFileName&gt;&gt;_AllThreads.ser
+  . However, if this file is too large (say 20,000+ calls), it may take a while
+  to render the diagram. In such a case, it is better to work with trace files
+  of each thread separately and merge them as necessary.</font></li>
+  <li><font face="Verdana" size="2">Instrumentation Wizard enhanced to work on
+  Solaris. The browser widget, which was giving problems on Solaris is not used
+  on platforms that do not support browser.</font></li>
+  <li><font face="Verdana" size="2">License is locked to the computer name. Users
+  need to supply the Host Key (encoded computer name + user name for evaluation
+  and just machine name when bought) to get the license file.</font></li>
+  <li><font face="Verdana" size="2">Bug fixes. When a trace file outside the
+  workspace is opened, a message is shown to add to add the trace file to a
+  project in workspace.</font></li>
+</ol>
+<p><font face="Verdana" size="2"><b>MaintainJ 1.2.2 </b><i>(July 19, 2007)</i></font></p>
+<ol>
+  <li><font face="Verdana" size="2">Bug fixes to work with Eclipse 3.3.</font></li>
+</ol>
+<p><b><font size="2" face="Verdana">MaintainJ 1.2.1 </font></b><font face="Verdana"><i><font size="2">(July 13, 2007)</font></i></font></p>
+<ol>
+  <li><font face="Verdana" size="2">The downloaded version of the plug-in works in
+    a limited evaluation mode, in which&nbsp; one can expand or collapse calls
+    in the sequence diagrams for a limited number of times. Users need to
+    install the license file to get the full evaluation license.</font></li>
+</ol>
+<p><b><font size="2" face="Verdana">MaintainJ 1.2 </font></b><font face="Verdana"><i><font size="2">(June 26, 2007)</font></i></font></p>
+<p><font face="Verdana" size="2">The following is a list of the major changes in
+this version:</font></p>
+<ol>
+  <li><font face="Verdana" size="2">Support for Eclipse plug-ins is added. Now,
+  Eclipse plug-ins can be instrumented using Instrumentation Wizard and diagrams
+  can be generated in a couple of minutes.</font></li>
+  <li><font face="Verdana" size="2">Support for pure web applications is added. In
+  the previous version, the Instrumentation Wizard did not support pure web
+  applications that don't have an EAR file. Now users can instrument such
+  applications and deploy to servers like Tomcat to generate UML diagrams.</font></li>
+  <li><font face="Verdana" size="2">Support for non-GUI J2SE applications is
+  added. Instrumentation Wizard can instrument any Java code. Once the code is
+  instrumented, user can add a few lines of code to log the trace files.&nbsp;</font></li>
+  <li><font face="Verdana" size="2">Demos are added for J2SE and Plug-in
+  instrumentation.</font></li>
+  <li><font face="Verdana" size="2">Bug fixes.</font></li>
+</ol>
+  </BODY></HTML>

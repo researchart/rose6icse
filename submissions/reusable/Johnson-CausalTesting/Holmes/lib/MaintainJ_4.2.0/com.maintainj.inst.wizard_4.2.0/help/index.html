@@ -1,0 +1,425 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>MaintainJ - Reverse Engineer Java Like Never Before</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+
+<meta name="KEYWORDS" content="Automatic Sequence Diagram, Eclipse plugin, Generate Eclipse UML Diagram, Generate Eclipse Sequence Diagram, Debug Java, Reverse Engineer Sequence Diagram,Class Diagrams, Debug Sequence Diagram, Reverse Engineering" />
+<meta name="description" content="MaintainJ, an Eclipse plug-in, generates UML sequence and class diagrams for a given use case, helping users to quickly understand a complex Java/J2EE application. MaintainJ logs runtime method execution trace and uses that to render sequence and class diagrams">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Expires" CONTENT="-1">
+
+<script language="JavaScript" type="text/JavaScript" src="swap.js"></script>
+
+<!-- Start of Zopim Live Chat Script -->
+<script type="text/javascript">
+window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=
+z.s=d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o
+){z.set._.push(o)};$.setAttribute('charset','utf-8');$.async=!0;z.set.
+_=[];$.src=('https:'==d.location.protocol?'https://ssl':'http://cdn')+
+'.zopim.com/?xuMENPY9Z3dp1vfmkq03zrPwBtEwYVJY';$.type='text/java'+s;z.
+t=+new Date;z._=[];e.parentNode.insertBefore($,e)})(document,'script')
+</script>
+<!-- End of Zopim Live Chat Script -->
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1439226-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body onload="MM_preloadImages('images/about-on.gif','images/demos-on.gif','images/try-on.gif','images/user-on.gif','images/support-on.gif','images/testimonials-on.gif','images/licence-on.gif')">
+
+<table width="780" border="0" align="center" cellpadding="0" cellspacing="0">
+
+  <tr>
+    <td colspan="2" align="left" valign="top">
+      <table width="780" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td height="50" align="left" valign="middle">
+          <table width="780" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="22" align="left" valign="middle"><a href="index.html"></a></td>
+            <td width="607" align="left" valign="bottom"><a href="index.html"><img src="images/logo.gif" alt="MaintainJ" width="167" height="30" border="0" /></a></td>
+            <td width="151" align="center" valign="top"><span class="Btext">Product Downloads: </span><span class="Bbold1"><br />
+              117,600 </span></td>
+          </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" valign="top"><table width="780" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="93" align="left" valign="top"><a href="index.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image331','','images/home-on.gif',1)"><img src="images/home-off.gif" alt="Home" name="Image331" width="90" height="34" border="0" id="Image331" /></a></td>
+            <td width="93" align="left" valign="top"><a href="userGuide.jsp?param=demos" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image4','','images/demos-on.gif',1)"><img src="images/demos-off.gif" alt="Demos" name="Image4" width="93" height="34" border="0" id="Image4" /></a></td>
+            <td width="93" align="left" valign="top"><a href="userGuide.jsp?param=install" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image5','','images/try-on.gif',1)"><img src="images/try-off.gif" alt="download.html" name="Image5" width="93" height="34" border="0" id="Image5" /></a></td>
+            <td width="93" align="left" valign="top"><a href="userGuide.jsp?param=intro" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('Image6','','images/user-on.gif',1);"><img src="images/user-off.gif" alt="User Guide" name="Image6" width="93" height="34" border="0" id="Image6" /></a></td>
+            <td width="93" align="left" valign="top"><a href="userGuide.jsp?param=support" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image7','','images/support-on.gif',1)"><img src="images/support-off.gif" alt="Support" name="Image7" width="93" height="34" border="0" id="Image7" /></a></td>
+            <td width="102" align="left" valign="top"><a href="userGuide.jsp?param=testimonials" onmouseover="MM_swapImage('Image8','','images/testimonials-on.gif',1)" onmouseout="MM_swapImgRestore()"><img src="images/testimonials-off.gif" alt="Testimonials" name="Image8" width="102" height="34" border="0" id="Image8" /></a></td>
+            <td width="93" align="left" valign="top"><a href="userGuide.jsp?param=buy" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image33','','images/licence-on.gif',1)"><img src="images/licence-off.gif" alt="Buy License" name="Image33" width="107" height="34" border="0" id="Image33" /></a></td>            
+            <td width="93" align="left" valign="top"><a href="userGuide.jsp?param=aboutUs" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image3','','images/about-on.gif',1)"><img src="images/about-off.gif" alt="About Us" name="Image3" width="109" height="34" border="0" id="Image3" /></a></td>
+          </tr>
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+
+  <tr>
+    <td align="left" valign="top">
+    <table width="780" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+            <td width="26" align="left" valign="top"><img src="images/left-box.jpg" alt="" width="45" height="195" /></td>
+            <td width="690" align="left" valign="top" class="H-bg"><table width="690" border="0" cellspacing="0" cellpadding="0">
+
+                <tr>
+                  <td height="19" align="left" valign="top">&nbsp;</td>
+                  <td width="25" rowspan="4" align="center" valign="top"><img src="images/sepa.jpg" alt="" width="4" height="173" /></td>
+                  <td height="19" align="left" valign="top">&nbsp;</td>
+                </tr>
+
+                <tr>
+                  <td width="511" rowspan="3" align="left" valign="top"><table width="98%" border="0" cellspacing="0" cellpadding="1">
+                      <tr>
+                        <td height="33" colspan="3" align="left" valign="top" class="Head1">Reverse Engineer Java Like Never Before </td>
+                      </tr>
+                      <tr>
+                        <td colspan="3" width="480" align="left" valign="top" class="Bbold1" height="23">MaintainJ is the tool to
+                        turn to when you want to:</td>
+                      </tr>
+                      
+                      <tr>
+                        <td width="17" align="right" valign="top"><img src="images/dot.gif" alt="MaintainJ" width="11" height="13" /></td>
+                        <td align="left" valign="top" class="Bbold1" height="20" colspan="2">
+                        Find out what exactly happens when you run a use case
+                        </td>
+                      </tr>
+
+					  <tr>
+                        <td width="17" align="right" valign="top"><img src="images/dot.gif" alt="" width="11" height="13" /></td>
+                        <td align="left" valign="top" class="Bbold1" height="20" colspan="2">
+                        Generate interactive sequence diagram from call trace
+                         </td>
+                      </tr>
+					  <tr>
+                        <td width="17" align="right" valign="top"><img src="images/dot.gif" alt="" width="11" height="13" /></td>
+                        <td width="480" align="left" valign="top" class="Bbold1" height="20" colspan="2">
+                        Reduce the bug fix and release cycle time of your applications
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td width="17" align="right" valign="top"><img src="images/dot.gif" alt="MaintainJ" width="11" height="13" /></td>
+                        <td align="left" valign="top" class="Bbold1" height="20">
+                        Document your applications in minutes
+						</td>
+                        <td align="right" valign="bottom" class="Bbold" >
+                        <a href="userGuide.jsp?param=intro">Read More...</a></td>
+
+                      </tr>
+
+
+                  </table></td>
+                  <td width="154" height="23" align="left" valign="top">&nbsp;</td>
+                </tr>
+				<tr>
+					<td height="41" align="center" valign="top">
+	                  <a href="userGuide.jsp?param=install"><img src="images/download.gif" alt="Download" width="129" height="28" border="0" /></a></td>
+	                </tr>
+	                <tr>
+					<td height="102" align="center" valign="top" class="video">	                  
+	                  <!--
+	                  <a href="userGuide.jsp?param=buy"><img src="images/buy-licence.gif" alt="Buy License" width="144" height="28" border="0" /></a>
+	                  -->
+						<a href="userGuide.jsp?param=overviewDemo">View Demo<img src="images/twister.png" border="0"/></a>
+	                </td>
+	            </tr>                
+            </table></td>
+            <td width="26" align="right" valign="top"><img src="images/right-box.jpg" alt="" width="45" height="195" /></td>
+          </tr>
+    </table>
+    </td>
+
+    </tr>
+
+    </table>
+  
+
+	<table width="780" border="0" align="center" cellpadding="0" cellspacing="0">
+	
+
+  <tr align="center">
+    <td align="center" valign="top"><table width="760" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+
+        <td width="236" align="left" valign="top"><table width="236" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td height="28" colspan="2" align="left" valign="top" class="Head">Testimonials</td>
+            </tr>
+            <tr>
+              <td height="1" colspan="2" align="left" valign="top" bgcolor="#dbe4e9"></td>
+            </tr>
+
+            <tr>
+              <td height="6" align="left" valign="top"></td>
+            </tr>
+
+            <tr>
+              <td colspan="2" align="left">
+              <a href="userGuide.jsp?param=testimonials">
+              <span class="BItext1">
+              <b>Awesome Tool</b> : This tool came as a blessing!! It
+              gives immense pleasure to see the sequence diagram for a
+              use case at click of a button...
+              </span>
+              </a>
+              </td>
+            </tr>
+            <tr>
+              <td height="6" align="left" valign="top"><img src="images/spacer.gif" width="1" height="1" /></td>
+            </tr>
+            <tr>
+              <td colspan="2" align="left" valign="bottom" class="Btext"><b>Satish Rao, EDS</b></td>
+            </tr>
+
+            <tr>
+              <td height="6" align="left" valign="top"><img src="images/spacer.gif" width="1" height="1" /></td>
+            </tr>
+
+            <tr>
+              <td height="1" colspan="2" align="left" valign="top" bgcolor="#dbe4e9"><img src="images/spacer.gif" width="1" height="1" /></td>
+            </tr>
+
+            <tr>
+              <td height="6" align="left" valign="top"><img src="images/spacer.gif" width="1" height="1" /></td>
+            </tr>
+
+			<tr>
+              <td colspan="2" align="left">
+              <a href="userGuide.jsp?param=testimonials">
+              <span class="BItext1">
+              <b>A Must Tool To Have :</b>&nbsp;
+              ...creates sequence and class
+              diagrams at runtime. Makes debugging really easy...
+              </a>
+              </span>
+              </td>
+            </tr>
+            <tr>
+              <td height="6" align="left" valign="top"><img src="images/spacer.gif" width="1" height="1" /></td>
+            </tr>
+            <tr>
+              <td colspan="2" align="left" valign="bottom" class="Btext"><b>Nasser Alizadeh,&nbsp; Ericsson</b></td>
+            </tr>
+
+            <tr>
+              <td height="10" align="right" valign="bottom" class="Btext"><a href="userGuide.jsp?param=testimonials"><img src="images/readmore.gif" alt="MaintainJ" width="61" height="10" border="0" /></a></td>
+            </tr>
+
+        </table></td>
+
+		
+		<td width="26" align="left" valign="top">&nbsp;</td>
+
+		
+		
+		<td width="236" align="left" valign="top">
+		<table width="236" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td height="28" align="left" valign="top" class="Head">Latest News</td>
+            </tr>
+            <tr>
+              <td height="1" colspan="2" align="left" valign="top" bgcolor="#dbe4e9"></td>
+            </tr>
+
+            <tr>
+              <td height="6" align="left" valign="top"></td>
+            </tr>
+
+
+
+			<tr>
+            <td align="center" valign="center">
+            	<a href="http://maintainj.com/blog/?p=45">
+          		<img  src= "images/EclipseAwardsLogo.png" style="border-style: none"/>
+          		</a>
+        	</td>
+            </tr>  
+
+            <tr>
+			  <td height="1" align="left" valign="top" bgcolor="#dbe4e9"></td>
+			</tr>
+
+
+			<tr>
+              <td align="left" valign="top" class="Btext"><div>
+                  <a href="userGuide.jsp?param=install#releaseNotes">
+                  <span class="Btext1">April 30, 2013 - MaintainJ V4 released!</span><br />
+                  <span class="Btext1">
+                  This release adds the response time tuning capability in a single 
+                  user environment.</span></a>
+              </div></td>
+            </tr>  
+
+
+            <tr>
+              <td height="12" align="left" valign="top"><img src="images/spacer.gif" width="1" height="1" /></td>
+            </tr>
+			                        			
+         </table>
+        </td>
+
+
+        <td width="26" align="left" valign="top">&nbsp;</td>
+
+		<td width="236" align="left" valign="top"><table width="236" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td height="28" colspan="2" align="left" valign="top" class="Head">Clients</td>
+            </tr>
+            <tr>
+              <td height="1" colspan="2" align="left" valign="top" bgcolor="#dbe4e9"></td>
+            </tr>
+            <tr>
+              <td height="6" align="left" valign="top"></td>
+            </tr>
+            <tr>
+              <td colspan="2" align="left">
+
+              <span class="Btext">
+              <b>Governments :
+              <a href="http://www.army.mil/">USA</a>,
+              <a href="http://www.cse-cst.gc.ca/">Canada</a>,
+              <a href="http://www.acma.gov.au/">Australia</a>
+              </b>
+              </span>
+
+              </td>
+            </tr>
+
+			<tr>
+			  <td height="6" align="left" valign="top">
+				<img src="images/spacer.gif" width="1" height="1" /></td>
+            </tr>
+
+            <tr>
+			  <td height="1" colspan="2" align="left" valign="top" bgcolor="#dbe4e9">
+			  </td>
+			</tr>
+			<tr>
+			  <td height="6" align="left" valign="top">
+				<img src="images/spacer.gif" width="1" height="1" /></td>
+            </tr>
+
+
+			<tr>
+              <td colspan="2" align="left">
+
+              <span class="Btext">
+              <b>Corporations :
+				<a href="http://www.ibm.com">IBM</a>,
+				<a href="http://www.hp.com">HP</a>,
+				<a href="http://www.verizonwireless.com">Verizon</a>,
+				<a href="http://www.vmware.com">VMware</a>,
+				<a href="http://www.infosys.com">Infosys</a>,
+				<a href="http://www.informatica.com">Informatica</a>,
+				<a href="http://www.cisco.com">Cisco</a>,
+				<a href="https://www.wellsfargo.com/">Wells Fargo</a>,
+				<a href="http://disney.go.com/">Disney</a>,
+				<a href="http://www.t-systems.com/">T-Systems</a>,				
+				<a href="http://www.bt.com">British Telecom</a>,				
+				<a href="http://www.ge.com">GE</a>,
+				<a href="http://www.ebay.com/">eBay</a>,
+				<a href="http://www.hcl.in/">HCL</a>,
+				<a href="http://www.digitalriver.com/">Digital River</a>,				
+				<a href="http://www.tietoenator.com">TietoEnator</a>,
+				<a href="http://www.saic.com/">SAIC</a>,
+				<a href="http://www.quartetfs.com/">QFS</a>,
+				<a href="http://www.verient.com/">Verient</a>,
+				<a href="http://fnis.com">FIS</a>,
+				<a href="http://nimbus.ch/">Nimbus</a>,
+				<a href="http://rossgroupinc.com/">Ross</a>,
+				<a href="http://www.logica.com">Logica</a>,
+				<a href="http://www.boozallen.com/">Booz Allen</a>,
+				<a href="http://www.tracfone.com">TracFone</a>,
+				<a href="http://www.newpark.com/">Newpark</a>,
+				<a href="http://www.cashedge.com">Cash Edge</a>,
+				<a href="http://www.confirma.com">Confirma</a>,
+				<a href="http://www.zinc-solutions.com/">Zinc</a>,
+				<a href="http://www.cclgroup.com/">CCL</a>			
+              </b>and many more...
+              </span>
+
+              </td>
+            </tr>
+
+
+			<tr>
+			  <td height="6" align="left" valign="top">
+				<img src="images/spacer.gif" width="1" height="1" /></td>
+            </tr>
+
+            <tr>
+			  <td height="1" colspan="2" align="left" valign="top" bgcolor="#dbe4e9"></td>
+			</tr>
+			<tr>
+			  <td height="6" align="left" valign="top">
+				<img src="images/spacer.gif" width="1" height="1" /></td>
+            </tr>
+
+
+			<tr>
+              <td colspan="2" align="left">
+
+              <span class="Btext">
+              <b>Universities :
+              <a href="http://www.tamu.edu/">Texas A & M</a>,
+              <a href="http://www.sdu.dk">University of Southern Denmark</a>
+
+
+              </b>
+              </span>
+
+              </td>
+            </tr>
+        </table></td>
+
+
+
+
+
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td height="5" align="left" valign="top"><img src="images/spacer.gif" width="1" height="1" /></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">
+    <table width="780" border="0" cellspacing="0" cellpadding="0" >
+      <tr>
+        <td height="2" align="left" valign="top" bgcolor="#409de3" colspan="11"><img src="images/spacer.gif" width="1" height="1" /></td>
+      </tr>
+      <tr>
+        <td height="20" align="center" valign="bottom" class="footer-links" colspan="11"><span class="footer-links1">Copyright &copy; 2012 MaintainJ Inc. Canada. All rights reserved.</span></td>
+      </tr>
+      <tr>
+        <td height="1 align="left" valign="top" colspan="11"><img src="images/spacer.gif" width="1" height="1" /></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+
+
+<HEAD>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Expires" CONTENT="-1">
+</HEAD>
+
+</body>
+</html>

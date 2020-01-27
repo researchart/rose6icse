@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="lib" path="lib/aspectjweaver.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/MaintainJAspect.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/commons-io-2.6.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/roaster-api-2.20.8.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.eclipse.ui.workbench.texteditor-3.3.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/commons-text-1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.eclipse.jdt.ui_3.5.2.r352_v20100106-0800.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/google-collect-0.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/commons-exec-1.3/commons-exec-1.3.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="/Users/bjohnson/eclipse-workspace/org.fuzzydriver.plugin/lib/commons-exec-1.3/commons-exec-1.3.jar"/>
+	<classpathentry kind="lib" path="/Users/bjohnson/eclipse-workspace/org.fuzzydriver.plugin/lib/string-similarity-1.0.0.jar"/>
+	<classpathentry kind="lib" path="/Users/bjohnson/eclipse-workspace/org.fuzzydriver.plugin/lib/commons-text-1.0.jar"/>
+	<classpathentry kind="lib" path="/Users/bjohnson/eclipse-workspace/org.fuzzydriver.plugin/lib/google-collect-0.5.jar"/>
+	<classpathentry kind="lib" path="/Users/bjohnson/eclipse-workspace/org.fuzzydriver.plugin/lib/org.eclipse.jdt.ui_3.5.2.r352_v20100106-0800.jar"/>
+	<classpathentry kind="lib" path="/Users/bjohnson/eclipse-workspace/org.fuzzydriver.plugin/lib/intrace-agent.jar"/>
+	<classpathentry kind="lib" path="/Users/bjohnson/eclipse-workspace/org.fuzzydriver.plugin/lib/org.eclipse.ui.workbench.texteditor-3.3.2.jar"/>
+	<classpathentry kind="lib" path="/Users/bjohnson/Documents/oxy-workspace/lib/roaster-api-2.20.8.Final.jar"/>
+	<classpathentry kind="lib" path="/Users/bjohnson/Documents/oxy-workspace/lib/commons-io-2.6.jar"/>
+	<classpathentry kind="lib" path="/Users/bjohnson/Documents/oxy-workspace/lib/intrace-agent.jar"/>
+	<classpathentry kind="lib" path="/Users/bjohnson/Documents/oxy-workspace/FuzzyDriverPlugin/lib/aspectjweaver.jar"/>
+	<classpathentry kind="lib" path="/Users/bjohnson/Documents/oxy-workspace/FuzzyDriverPlugin/lib/MaintainJAspect.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

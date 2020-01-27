@@ -1,0 +1,279 @@
+<HTML>
+<BODY>
+<p><h1>6. Frequently Asked Questions</h1></p>
+
+<font face="Verdana" size="2">
+1. <a href="#eclipseNeeded">Do I need Eclipse to use MaintainJ?</a>
+<br><br>2. <a href="#scale">How does MaintainJ scale?</a>
+<br><br>3. <a href="#cnfe">I get a ClassNotfoundException for com.maintainj.inst.J2EEAspect. Where is that class?</a>
+<br><br>4. <a href="#traceFile">Trace file is not generated</a>
+<br><br>5. <a href="#aoplocation">Where is the aop.xml file (the trace configuration file)? How can I edit it?</a>
+<br><br>6. <a href="#noDiagram">I do not see the UML diagrams when I open the trace file</a>
+<br><br>7. <a href="#filtergetset">My diagrams are too big and cluttered. How can I filter out the unnecessary classes and calls?</a>
+<br><br>8. <a href="#permgen">I get java.lang.OutOfMemoryError:PermGen space</a>
+<br><br>9. <a href="#rose">Can I import the diagrams into Rational tools like RAD or RSA?</a>
+<br><br>10. <a href="#documentation">How can I use MaintainJ for documentation and share the MaintainJ diagrams with others?</a>
+<br><br>11. <a href="#license">What are the license terms?</a>
+
+</font>
+
+</p>
+</p>
+</p>
+
+<font face="Verdana" size="-1">
+
+<p><b><a name="eclipseNeeded"></a>1. Do I need Eclipse to use MaintainJ?</b></p>
+<p>MaintainJ needs Eclipse to view the diagrams. As Eclipse and GEF (API used to render the diagrams) 
+are open source projects, you can use them for free.</p>
+
+<p>You don't need Eclipse to generate the trace files. While some wizards are provided in 
+Eclipse to generate the trace files, one can do the same outside Eclipse. 
+
+<p>For example, MaintainJ.war can be used outside Eclipse to generate the trace files 
+for J2EE applications. You can also follow these 
+<a href="userGuide.jsp?param=runtime#howitworks">steps</a> to manually 
+generate the trace files. 
+ 
+</p>
+
+<p><b><a name="scale"></a>2. How does MaintainJ scale?</b></p>
+<p>
+  MaintainJ scales very well for large scale applications. Large applications can
+  potentially slow down MaintainJ at two stages : a) during instrumentation and
+  b) during diagram rendering.&nbsp;
+<p>Instrumented applications take longer time to service the first 
+request. Just like JSPs that get compiled at the first request, the classes get 
+runtime instrumented at the first request. For subsequent&nbsp; requests, there 
+is little overhead. Capturing call context also adds some overhead. </p>
+
+<p>Rendering the diagram is typically very quick and does not take much memory.
+As loop calls and return calls are not logged to the trace files, number of
+calls to render are kept low. That said, users should  limit the trace file
+to a single user action to make the diagrams focused and easier to understand. 
+Also, avoid using 'Expand All' to expand all calls in the diagram as a large 
+diagram of 5,000+ calls will make navigating the diagram slow. You should either 
+explore the diagram or use the 'Select In Diagram' feature in Outline view to 
+open the call trail to a particular call.  
+</p>
+<p><b><a name="cnfe"></a></b>
+
+<b>3. I get a ClassNotfoundException for com.maintainj.inst.J2EEAspect. Where is that class?</b></p>
+
+<p>com.maintainj.inst.J2EEAspect is not a class file. It is specified in META-INF/aop.xml. 
+The aop.xml file is generated in 'Step 2' of MaintainJ.war installation (or if the Tomcat/JBoss 
+servers are started using MaintainJ J2EE Server plug-in, the aop.xml file is generated 
+when the server is started). The J2EEAspect class is generated at runtime by AspectJ. 
+For this to work, the META-INF/aop.xml should be in application server classpath. 
+For example, if the path of aop.xml is c:\maintainj\META-INF\aop.xml, <font color="#0d6af0">c:\maintainj</font> 
+should be added to the classpath.
+<p>
+META-INF/aop.xml is automatically added to the server classpath in the MaintainJ generated 
+startup scripts. However, if you are seeing the ClassNotfoundException, there may be a 
+problem with your server classpath. Check the classpath setting with which your 
+server was started.</p>
+
+<p><b><a name="traceFile"></a>
+4. Trace file is not generated</b></p>  
+<p>The use case that you ran may not have called any of the instrumented 
+classes. If this is not the case, ensure that the instrumentation scope is 
+properly defined.
+
+<p><a name="aoplocation"></a>
+<b>5. Where is the aop.xml file (the trace configuration file)? How can I edit it?</b></p>  
+<p>
+The details like the Java packages that you want to capture, whether you want to capture 
+the call context, etc. are stored in aop.xml file. This is a special file used by 
+AspectJ Load Time Weaving mechanism that is used to capture the call trace. 
+This file is always created under META-INF folder and META-INF/aop.xml should 
+be added to the JVM classpath. The out of the box MaintainJ wizards 
+create this file for you and add it to the JVM classpath.
+
+<p><u>5.1 Where is the aop.xml file located?</u>
+<p>Different MaintainJ wizards place this file under different folders.
+
+<br>a) The J2SE, JUnit, Applet applications launched from Eclipse using the 
+MaintainJ run configurations create a 'maintainj' folder under the main project and 
+place META-INF/aop.xml under that folder.<br>
+b) The MaintainJ J2EE Server plugin for Tomcat and JBoss puts the file under 
+&lt;TomcatRoot&gt;/maintainj and &lt;JBossRoot&gt;/bin/maintainj folders respectively.<br>
+c) The MaintainJ.war shows the location of this file after Step 2: Configure Instrumentation Scope.<br>
+d) The MaintainJSwingWizard.jar also shows the location of this file after the second step.
+
+<p><u>5.2 How can I edit the aop.xml file?</u>
+<p> You may edit it manually to define more fine-grained configuration.
+Change the weaver options section to include or 
+exclude more packages. There can be any number of includes or excludes. This 
+sample below includes all classes and sub-packages under 
+<font color="#0d6af0">org.jfree.chart</font> and excludes sub-packages and classes under 
+<font color="#0d6af0">org.jfree.chart.ui</font> package. 
+It also excludes <font color="#0d6af0">org.jfree.chart.JFreeChart</font> 
+class. Note the difference in syntax when excluding a class.</p>
+
+<font size="2" face="Verdana">
+<p>&lt;weaver options=&quot;-proceedOnError -nowarn -XaddSerialVersionUID&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;include within=&quot;org.jfree.chart..*&quot;/&gt;<br>
+<font color="#0d6af0">
+&nbsp;&nbsp;&nbsp; &lt;exclude within=&quot;org.jfree.chart.ui..*&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;exclude within=&quot;org.jfree.chart.JFreeChart&quot;/&gt;</font><br>
+&lt;/weaver&gt;</p>
+
+<p><u>5.3 After editing the file make sure that it is not overwritten by the wizards</u>
+<p>If you are using any of the Eclipse launch configurations, the aop.xml is 
+regenerated every time the application or server is launched. Select the 
+'Do not regenerate aop.xml' checkbox at the bottom of the 
+MaintainJ tab to not overwrite your changes. If you are using MaintainJ.war 
+or MaintainJSwingWizard.jar, the aop.xml is regenerated only if you 
+repeat Step 2 to configure the instrumentation scope.
+
+<p><a name="noDiagram"></a>
+<b>6. I do not see the UML diagrams when I open the trace file</b></p>
+<p>The MaintainJ UML Diagram Editor plug-in is not installed properly. If it is 
+installed correctly, you should see MaintainJ icon 
+<img border="0" src="images/mnj.gif" width="16" height="14" > beside the trace file 
+in Eclipse.&nbsp;
+
+</font>
+
+<p><a name="filtergetset"></a>
+<b>7. My diagrams are too big and cluttered. How can I filter out the unnecessary classes and calls?</b></p>
+<p><font face="Verdana" size="2">MaintainJ offers two options to 
+get  focused diagrams by removing the unimportant calls that clutter the diagrams. 
+The first option is not capturing unimportant calls while tracing the application. 
+The second option is to remove the unimportant calls from the diagram 
+after the diagram is rendered.</font></p>
+<p><u>7.1 Do not capture the unimportant calls</u></p>
+<p>MaintainJ has a number of options to follow this 
+approach.&nbsp;</p>
+<p>7.1.1 MaintainJ automatically removes all 
+repeating calls in a loop except the first call. If a method is called 100 times 
+in a loop, only the first call is shown in the diagram. Recursive calls are also 
+removed in a similar manner.</p>
+<p>7.1.2 You can limit the packages and projects 
+that will be instrumented. As only the instrumented classes and methods are 
+logged to the trace file, this is another way to avoid unwanted packages or 
+projects from the diagrams.</p>
+
+<a name="aopfile"></a>
+<p>7.1.3 You can also limit the scope of instrumentation at a finer level by 
+editing the generated <i>META-INF/aop.xml</i> file. Check the above 
+faq entry 
+'<a href="#aoplocation">Where is the aop.xml file (the trace configuration file)? How can I edit it?</a>' 
+for details.
+</p>
+
+<p><u>7.2 To remove unnecessary calls from the 
+diagrams</font></u><p><font face="Verdana" size="2">Besides loop and recursive 
+calls, there may be number of calls that just clutter the sequence diagram and 
+add little to our understanding. Often, it is hard to know such unnecessary 
+calls before hand. MaintainJ UML Editor plug-in offers a number of options to 
+remove them from diagrams.
+
+<p>
+7.2.1 <a href="userGuide.jsp?param=uml#filters">Predefined Filters</a> 
+is the first thing you should check to filter out unwanted details from the 
+diagrams.
+</p>
+
+<p>7.2.2 You can simply delete the unnecessary classes or packages (from Outline view). 
+The deleted class and all the calls to and from that class will be deleted. 
+</p>
+
+<p>
+7.2.3 <a href="userGuide.jsp?param=uml#excludeClass">Excluding a class</a> 
+or classes is another great way to get focused diagrams. 
+</p>
+
+<p>
+7.2.4 You can also use the Outline view to select and delete 
+multiple packages, classes or calls at once. 
+</p>
+
+<p>
+7.2.5 You can use 'Delete getter/setter Calls' in the 
+sequence diagram to delete the simple get/set method calls. 
+</p>
+
+<p>
+7.2.6 You can use 'Delete Constructor Calls' in the 
+sequence diagram to delete all constructor calls. 
+</p>
+
+<p>
+7.2.7 
+There can be a method in a particular class that is called multiple times in the 
+sequence diagram but adds little to our understanding. To remove all repeating 
+calls except the selected call, select a call in the Outline view and 
+choose <i>Delete Duplicate Calls to this Method</i>. This can be used to remove 
+all unnecessary get/set methods, repeating calls to boolean equals(Object obj) method, etc.</p>
+
+
+
+
+<p><u>7.3 
+Use 'Save As' feature to split the diagrams</font></u><p>
+<font face="Verdana" size="2">When the trace file is opened, all calls are 
+initially collapsed into a few top level calls. If you delete a top level call, 
+it will delete all the calls inside that call as well. Then, the 'Save As' 
+feature can be used to save the smaller diagram. This way a trace file of 5000 
+calls can be split into two trace files of 2000 and 3000 calls, for example.
+
+<p><a name="permgen"></a>
+<b>8. I get java.lang.OutOfMemoryError:PermGen space</b></p>
+<p>MaintainJ changes the instrumented class files while they are loaded into the memory. 
+If you are instrumenting thousands of classes, the default memory size allocated for 
+class definition may not be sufficient. You need to add '-XX:MaxPermSize=256m' 
+to the JVM arguments to set the maximum memory available for class definition to 256MB. 
+You may search the web to find more about this error.</p>
+
+<p><a name="rose"></a>
+<b>9. Can I import the diagrams into Rational tools like RAD and RSA?</b></p>
+<p>Yes, you can starting from MaintainJ V3.5! MaintainJ generated diagrams 
+can be exported as UML2 models. These models can be imported into any UML2 
+compliant tools like RSA to view the UML2 class and sequence diagrams.
+<!--
+Having said that, we ask you to 
+consider the points below that highlight the advantages of viewing the diagrams in 
+MaintainJ itself than importing them into Rose.<br><br>
+
+1. The Rose diagrams are static, which will make sense for a small sequence diagram 
+of about 20 calls.  You can get the similar static diagram by filtering out 
+unwanted calls from MaintainJ generated diagrams and exporting the diagrams as images.<br> 
+ 
+2. The diagrams can be explored in MaintainJ, which is not possible in Rose. 
+You have the end-to-end call trace (either on a single JVM or multiple JVMs) 
+information of the use case and you can explore the diagram for areas of interest.<br>
+
+3. Using MaintainJ, the thread interactions at runtime can be seen in a single diagram. 
+You will lose this information once you import the diagram into Rose.<br>       
+
+4. Using MaintainJ you can see the response time, runtime context at each call 
+and the sql calls sent to the database, which is not be possible in Rose.<br>       
+-->
+</p>
+
+
+<p>
+<a name="documentation"></a>
+<b>10. How can I use MaintainJ for documentation and share 
+the MaintainJ diagrams with others?</b></p>
+<p>
+You can use MaintainJ for documenting and sharing the application knowledge with your team members.<p>  
+1. You can export the sequence and class diagrams as bmp or jpg images after 
+filtering out the unimportant calls in the diagram. You can also export the 
+diagrams as UML2 models and import into UML2 compliant tools like RSA.<br> 
+2. After filtering out the unimportant calls, you can save the original .ser files  
+as .mnj files and open them in the same exact state they were in when the 
+diagrams were saved. To share the mnj files with others, you need to provide the 
+entire MaintainJ Trace Files project that contains the ser and mnj files.p
+</p>
+
+
+<p><a name="license"></a>
+<b>11. What are the license terms?</b></p>
+<p>MaintainJ is a free to use software during the evaluation period. Once the 
+evaluation period ends, users need to buy the license to use MaintainJ. Read the complete
+<a href="userGuide.jsp?param=license">License Agreement</a>.</p>
+</font>
+</BODY>
+</HTML>

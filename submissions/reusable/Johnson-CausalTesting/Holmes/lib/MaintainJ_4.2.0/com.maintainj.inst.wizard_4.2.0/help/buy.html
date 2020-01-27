@@ -1,0 +1,91 @@
+<HTML>
+<HEAD>
+<script language = "Javascript">
+
+function isNumeric(answerText){
+   	var validChars = "0123456789";
+   	var isNumber = true;
+   	var chara;
+   	for (i = 0; i < answerText.length && isNumber == true; i++) {
+		chara = answerText.charAt(i);
+      	if (validChars.indexOf(chara) == -1) {
+         	isNumber = false;
+      	}
+   	}
+   	return isNumber;
+}
+
+function buyMaintainj(duration){
+	if(duration == 1){
+		var qty=document.buyForm.oneYearQty;
+		if(!isNumeric(qty.value)){
+			alert("Number of licenses must be a number.");
+			qty.focus();
+			return false;
+		} else {
+			document.buyForm.p.value='471011';
+			document.buyForm.v.value=0;
+   		   	document.buyForm.q.value=qty.value;
+			document.buyForm.lang.value='';
+		}
+	} else {
+		document.buyForm.p.value='47101-2';
+		document.buyForm.lang.value='fl';		
+	   	document.buyForm.q.value=qty.value;
+	   	document.buyForm.v.value=1;
+	}
+	document.buyForm.action="https://usd.swreg.org/cgi-bin/s.cgi";
+	document.buyForm.submit();
+	return true;
+}
+</script>
+</HEAD>
+
+<BODY>
+<form name="buyForm" method="POST" action="" >
+
+       <input type="hidden" name="s" value="47101">
+       <input type="hidden" name="p" value="471011">
+       <input type="hidden" name="v" value="0">
+       <input type="hidden" name="d" value="0">
+       <input type="hidden" name="q" value="1">
+       <input type="hidden" name="lang" value="">
+
+<p><h1>Buy MaintainJ License</h1>
+<font face="Verdana" size="-1">
+<p>There are two  types of licensing for MaintainJ - floating and node locked. 
+Both types of licenses are valid for all future updates of MaintainJ. The licenses include email support. 
+Support questions from customers will be answered in under 12 hours. </p>
+
+<p><b>1. Floating license</b>: This type of license is suitable for development teams. 
+Floating license is not locked to a computer. The license can be 
+reassigned among developers as needed. Anyone in the network can use MaintainJ. Floating license is valid forever.</p>
+<b>Cost of floating license: US $299/user</b><br>
+Contact us at support@maintainj.com to purchase
+<p><b>2. Node locked license</b>: Node locked license is tied to a single computer and is valid for one year. It can be
+used in multiple Eclipse installations as long as they are running on the same
+computer. This is suitable for individual users.</p>
+  <table border="0" cellpadding="4" cellspacing="1" bordercolor="#C0C0C0" width="100%" class="Tbg">
+  <tr>
+
+    <td width="15%" align="center" bgcolor="#0b7ab2" class="Bbold2">Number of Licenses</td>
+    <td width="15%" align="center" bgcolor="#0b7ab2" class="Bbold2">Price</td>
+    <td width="5%" bgcolor="#0b7ab2" class="Bbold2">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="15%" bgcolor="#FFFFFF" class="Btext" align="center"><input type="text" name="oneYearQty" size="4" maxlength="4" value="1"></td>
+    <td width="15%" bgcolor="#FFFFFF"  align="center"><b>US $99/user/year</b></td>
+    <td width="5%" bgcolor="#FFFFFF" class="Bbold" align="center"><a href="javascript:if(buyMaintainj('1')==true);">Buy</a></td>
+  </tr>
+</table>
+<p>The <b>Buy </b>link leads to SWREG.org (our payment
+gateway), where you can complete the transaction. After payment, you will
+receive a MaintainJ Key and instructions to install the license.</p>
+ 
+<p><b>Evaluation License</b>: You can get a 7 day evaluation license
+<a href="/license/register.jsp">here</a>. 
+
+</font>
+</form>
+</BODY>
+</HTML>

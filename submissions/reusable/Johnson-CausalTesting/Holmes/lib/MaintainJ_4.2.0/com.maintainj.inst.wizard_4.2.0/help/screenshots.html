@@ -1,0 +1,47 @@
+<HTML>
+<head>
+<title>MaintainJ Inc.</title>
+<link rel="stylesheet" href="css/main.css" />
+<meta name="KEYWORDS" content="Debug Java,Sequence Diagrams,Class Diagrams" />
+<meta name="DESCRIPTION" content="MaintainJ- Eclipse plugin" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+
+<BODY> 
+<p><h1>MaintainJ Screenshots</h1>
+<b>
+<ol>
+  <li><a href="#sequence">Sequence Diagram Screenshots</a></li>
+  <li><a href="#class">Class Diagram Screenshot</a></li>
+</ol>
+</b>
+<p><b><a name="sequence"></a>1. Sequence Diagram Screenshot 1</b></p>
+<p>The screenshot below shows the following features of the sequence diagram:<br><br>
+
+1. The runtime interactions between the concrete Java classes for a login use case.<br> 
+2. That you can explore the sequence diagram by expanding and collapsing the calls.<br> 
+3. The 'Properties view' below the sequence diagram showing the context of the selected call. 
+The call context includes: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;a) The call parameters and return value.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;b) The state of the called object when the method is invoked.<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;c) The response time of the call in milliseconds.<br>
+<br><img border="0" src="samples/sampleSequence1.png"></p>
+
+<p><b>Sequence Diagram Screenshot 2</b></p>
+<p>The screenshot below shows the following features of the sequence diagram:<br><br>
+1. The sequence diagram 'Outline View' shows all packages, classes and calls in the use case.<br>
+2. When mouse is hovered over a call, the call context shows in a popup.<br>
+3. MaintainJ captures the actual runtime SQL sent to the database regardless 
+of the JDBC framework used by the application.<br>
+<br><img border="0" src="samples/sampleSequence2.png"></p>
+ 
+
+<p><b><a name="class"></a>2. Class Diagram</b></p>
+The class diagram shows the same classes currently shown in the sequence diagram and 
+their dependencies based on their runtime interactions. For example, based on the class 
+diagram below, one can quickly infer that in this use case AuthenticationComponentImpl 
+class calls RepositoryAuthenticationDao.
+<p><img border="0" src="samples/sampleClass1.png"></p>
+                        
+      </BODY>
+</HTML>

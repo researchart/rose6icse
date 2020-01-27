@@ -1,0 +1,3 @@
+# Available and Reusuable Badges
+
+We are applying for the *available* and *reusable* artifact badges. We believe our artifact deserves the available badge because we make available all the materials used to complete our user study, including the questionnaires used for data collection. We also make available the source code for Holmes, our prototype implementation. We believe our artifact deserves the reusable badge because the materials we make available in our artifact can be reused by researchers and practitioners in various ways -- either to replicate our study on different populations or to augment or improve their own studies and technologies.
