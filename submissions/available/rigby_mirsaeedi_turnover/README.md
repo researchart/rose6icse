@@ -139,7 +139,7 @@ dotnet-rgit --cmd analyze-simulations --analyze-result-path "path_to_result" --n
 
 ```PowerShell
 
-dotnet-rgit --cmd analyze-simulations --analyze-result-path "path_to_result" --recommender-simulation rec_sim_id1 rec_sim_id2 rec_sim_id3 --reality-simulation reality_sim_id  --conf-path "PATH_TO_CONF_CoreFX"
+dotnet-rgit --cmd analyze-simulations --analyze-result-path "path_to_result" --recommender-simulation {rec_sim_id1} {rec_sim_id2} {rec_sim_id3} --reality-simulation {reality_sim_id}  --conf-path "PATH_TO_CONF_CoreFX"
 ```
 
 **Note** 1) Replace _reality_sim_id_ parameter with the id of the Reality simulation. 2) replace _rec_sim_idX_ parameters with the id of other simulations. These ids are separated by a space. in these samples we have three ids for other simulation. 3) replace _path_to_result_ parameter with the path of a folder you want to store the result.
