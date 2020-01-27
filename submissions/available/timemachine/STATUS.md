@@ -3,8 +3,8 @@
 Our artifact is applicable for the `Reusable` and `Available` badge. TimeMachine is a fully automated testing tool for Android apps and find crashes in Android apps.
 
 Our artifact is applicable for the `Resuable` badge because:
-- TimeMachine is funtional and has been used to test hundreds of Android apps including  closed source apps, open source apps, as well as commercial apps (Miscrosoft Word).
-- Documentation on how to install and required packages are well structured.
+- TimeMachine is funtional and has been used to test hundreds of Android apps including  closed source apps, open source apps, as well as commercial apps (such as Miscrosoft Word).
+- Documentation on how to install and required packages is well structured.
 - TimeMachine is deployed as a docker image and can be simply installed and used.
 
 Our artifact is applicable for the `Available` badge because:
