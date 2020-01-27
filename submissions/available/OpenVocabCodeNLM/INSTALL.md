@@ -4,7 +4,7 @@ Since installation on the user's machine might potentially be difficult and runn
 requires a lot of computational resources (including GPUs) and days to run, 
 we provide a docker image to briefly show the functioning artefacts. 
 
-See next sections for installation on the local machine and original study replication.
+See the next sections for installation on the local machine and original study replication.
 
 The docker image contains: 
 - pre-installed [codeprep](https://github.com/giganticode/codeprep) and [OpenVocabCodeNLM](https://github.com/mast-group/OpenVocabCodeNLM) libraries and their dependencies;
@@ -28,13 +28,13 @@ For more details and for other operating systems, please refer to Docker documen
 docker run -it hlib/open-vocab-code-nlm
 ```
 
-##### (Inside docker continer) Running vocab-study on a tiny subset of projects:
+##### (Inside the docker container) Running vocab-study on a tiny subset of projects
 
 ```shell script
 scripts/vocab_study.sh
 ```
 
-##### (Inside docker container) Running testing of the pre-trained NLM:
+##### (Inside the docker container) Running testing of the pre-trained NLM
 
 ```shell script
 scripts/nlm.sh
@@ -66,10 +66,10 @@ Please see https://github.com/mast-group/OpenVocabCodeNLM for usage options or a
 
 ### C. Pretrained NLMs:
 
-Pretrained language models can be downloaded form Zenodo:
+Pretrained language models can be downloaded from Zenodo:
 https://zenodeo.org/...<TODO>
 
-The structure of the archive can be seen below. The names of the sub-directories are correspond to the rows of the tables 2 and 3 of the paper:
+The structure of the archive can be seen below. The names of the sub-directories correspond to the rows of the tables 2 and 3 of the paper:
 
 + java
 + c 
@@ -90,7 +90,7 @@ The structure of the archive can be seen below. The names of the sub-directories
 Each sub-directory contains neural netwok weigths (lm.ckpt.\<id\>.data-00000-of-00001), vocabulary file (vocab.txt) and files with metadata.
 
 
-To run inference on these models, you can use OpenVocabCodeNLMS scripts (See the previous section).
+To run inference on these models, you can use the OpenVocabCodeNLMS library (See the previous section).
 
 
 ## Full study replication.
