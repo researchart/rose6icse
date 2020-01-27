@@ -4,15 +4,12 @@
 
 1) Install [RelationalGit](https://github.com/CESEL/RelationalGit) along with all the required dependencies.
 
-## Prepare Data 
+## Preparation 
 
 1) [Restore](https://www.janbasktraining.com/blog/restore-a-database-backup-from-sql/) the [backup of data](https://drive.google.com/drive/folders/1nc7Hu7kbPpavYrCMmCU5SEBlLlZTo5Fv) into Sql Server. For each studied project there is a separate database. 
 2) Copy the **configuration files** and **simulation.ps1** which are provided in the [replication package](https://github.com/CESEL/RelationalGit/tree/master/ReplicationPackage).
 3) Open and modify each configuration file to set the connection string. You need to provide the server address along with the credentials.
-
-## Run Simulations
-
-1) Open **simulations.ps1** using an editor and make sure the config variables defined at the top of the file are reffering to the correct location of the downloaded config files. 
+4) Open **simulations.ps1** using an editor and make sure the config variables defined at the top of the file are reffering to the correct location of the downloaded config files. 
 
 ```powershell
 # Each of the following variables contains the absolute path of the corresponding configuation file.
@@ -23,6 +20,18 @@ $roslyn_conf = "absolute/path/to/roslyn_conf.json"
 $rust_conf = "absolute/path/to/rust_conf.json"
 $kubernetes_conf = "absolute/path/to/kubernetes_conf.json"
 ```
+
+## Run Simulations
+
+1) Run the **simulations.ps1** script. Open PowerShell and run the following command in the directory of the file
+
+``` powershell
+
+./simulations.ps1
+
+```
+
+**Note**: Make sure you have set the PowerShell [execution policy](https://superuser.com/questions/106360/how-to-enable-execution-of-powershell-scripts) to **Unrestricted** or **RemoteAssigned**.
 
 ## Research Questions
 
