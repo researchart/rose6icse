@@ -21,7 +21,14 @@ describe how to reproduce results. Before going further, first, check
 installation page (i.e. INSTALL.md). 
 
 ### Reproducing Results
+Clone the repository via terminal command `git clone https://github.com/DeepImportance/deepimportance_code_release.git`
+
 #### RQ 1
+
+Reproducing results in Table 3 and Figure 6 in paper:
+
+cd deepimportance_code_release/reproduce/
+python confusion_bugs.py
 
 
 
