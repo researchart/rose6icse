@@ -19,3 +19,11 @@ After installing Microsoft SQL Server, you need to install [Sql Server Managemen
 ## 3) PowerShell Core
 
 You need to get the latest version of [PowerShell Core](https://github.com/PowerShell/PowerShell/releases). RelationalGit uses PowerShell for extracting git blame information.
+
+# Install
+
+RelationalGit is a [dotnet Global tool](https://www.nuget.org/packages/RelationalGit). You can use it seamlessly with your favorite command-line application. The following line installs our tool in your system. After installation, all interactions will be from the command-line interface.
+
+```PowerShell
+dotnet tool install --global RelationalGit
+```
