@@ -18,7 +18,7 @@ We provide 3 artefacts:
 
 ##### [Pre-trained neural language models (NLMs) for code]()
 
- [![DOI](https://zenodo.org/badge/999.svg)](https://zenodo.org/badge/latestdoi/179685171)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3628628.svg)](https://doi.org/10.5281/zenodo.3628628)
 
 ###### The pre-trained models can be downloaded and used as they are (e.g. for code completion) or for further training or fine-tuning.
 

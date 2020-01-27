@@ -81,32 +81,65 @@ Please see https://github.com/mast-group/OpenVocabCodeNLM for usage options or a
 
 ### C. Pretrained NLMs:
 
-Pretrained language models can be downloaded from Zenodo:
-https://zenodeo.org/...<TODO>
+Pretrained language models can be downloaded from (TODO):
+https://zenodo.org/...
 
-The structure of the archive can be seen below. The names of the sub-directories correspond to the rows of the tables 2 and 3 of the paper:
+The structure of the archives can be seen below (all three archives for java, c and python models are identical). 
+The names of the sub-directories correspond to the rows of the tables 2 and 3 of the paper:
 
-+ java
-+ c 
-+ python
-  + token (Closed NLM)
-  + sub (Heuristic NLM)
-  + bpe_2000
-     + small
-     + large
-  + bpe_5000
-     + small
-     + large
-  + bpe_10000
-     + small
-     + large
-        + 2048feats
+```
 
-Each sub-directory contains neural netwok weigths (lm.ckpt.\<id\>.data-00000-of-00001), vocabulary file (vocab.txt) and files with metadata.
 
+java
+ └───token        # Closed NLM
+ └───sub          # Heuristic NLM 
+ └───bpe_10000             # Open vocab models (BPE with 10k merges)
+ │   └───small                 # Trained on the small training set
+ │   │   └───2048feats               #  NLMS with 2048 hidden layers
+ │   │   │ ...                       #  NLMs with 512 hidden layers
+ │   │   
+ │   └───large                 # Trained on the large training set
+ │       └───2048feats               #  NLMS with 2048 hidden layers
+ │       │ ...                       #  NLMS with 512 hidden layers 
+ │   
+ └───bpe_5000              # Open vocab models (BPE with 5k merges) 
+ │   └───small                 # Trained on the small training set
+ │   └───large                 # Trained on the large training set
+ │       
+ └───bpe_2000              # Open vocab models (BPE with 2k merges)
+     │   ...
+ 
+```
+
+
+
+
+Each sub-directory contains neural network weigths (lm.ckpt.\<id\>.data-00000-of-00001), vocabulary file (vocab.txt) and files with metadata.
 
 To run inference on these models, you can use the OpenVocabCodeNLMS library (See the previous section).
 
 
-## Full study replication.
+## Full study replication
  
+#### Vocabulary study
+
+Download the Java corpus from (TODO)
+
+##### Download and run the script
+
+Run the script
+```shell script
+curl -L https://raw.githubusercontent.com/giganticode/icse-2020/master/scripts/vocab_study.sh > vocab_study.sh
+chmod +x vocab_study.sh
+./vocab_study $PATH_TO_DATASET   
+```
+
+#### NLMs training
+
+##### Download the pre-processed datasets from
+
+Java: https://zenodo.org/record/3628665
+C:
+Python:
+
+For each training scenario change the path to the training file and test files (TODO add details)
