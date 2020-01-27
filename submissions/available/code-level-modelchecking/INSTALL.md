@@ -1,12 +1,19 @@
+# Installation instructions
 
+## Install CBMC and related tools - Prebuilt binaries
+For the convenience of the reviwers, prebuilt binaries are available at https://github.com/danielsn/rose6icse/tree/padstone_with_binaries/submissions/available/code-level-modelchecking/binaries
 
-## Install CBMC
+To use them, add the appropiate directory (i.e.) macOS, ubuntu18, or windows, to your PATH.
+
+## Install CBMC and related tools - Install from source
+
+### Install CBMC
 - CBMC is available at https://github.com/diffblue/cbmc
 - As of the time of this artifact, it was at commit 2400d104aff652d2c83aacd80fbed54387b3ad59
 - It can be built and installed by following the instructions at https://github.com/diffblue/cbmc/blob/develop/COMPILING.md
 - Make sure to add it to your path
 
-## Install CBMC-Viewer
+### Install CBMC-Viewer
 - CBMC viewer is available at https://github.com/markrtuttle/cbmc/tree/cbmc-viewer
 branch: cbmc-viewer
 - As of the time of this artifact, the commit was be88c82850952e057b56e03ba8c013415357a5cc
