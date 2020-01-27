@@ -45,24 +45,24 @@ The data in the CSV files has been manually, collaboratively, and iteratively ex
 ```
 dataset
     .
-    |--- Repos                                              TODO
-	|--- manual_selection_gitlab.pdf                    TODO
-	|--- repos_dataset_all.csv                          TODO
-	|--- repos_dataset_selected.csv                     TODO
-	|--- repos_dataset_selected_sadoc.csv               TODO
-	|--- repos_filtering_intermediate_numbers.pdf       TODO
-	|--- repos_filtering_statistics.pdf                 TODO
-	|--- repos_golden_set.pdf                           TODO
-	|--- repos_mining_data                              TODO
-	│   |--- Archive.zip                                TODO
-	|--- repos_mining_scripts                           TODO    
-	    |--- cloner.py                                  TODO
-	    |--- detector.py                                TODO
-	    |--- explorer.py                                TODO
-	    |--- ghtorrent_queries.sql                      TODO
-	    |--- merge_counter.py                           TODO
-	    |--- metrics_manager.py                         TODO
-	    |--- visit_website.scpt                         TODO
+    |--- Repos                                          TODO
+    |--- manual_selection_gitlab.pdf                    TODO
+    |--- repos_dataset_all.csv                          TODO
+    |--- repos_dataset_selected.csv                     TODO
+    |--- repos_dataset_selected_sadoc.csv               TODO
+    |--- repos_filtering_intermediate_numbers.pdf       TODO
+    |--- repos_filtering_statistics.pdf                 TODO
+    |--- repos_golden_set.pdf                           TODO
+    |--- repos_mining_data                              TODO
+    │   |--- Archive.zip                                TODO
+    |--- repos_mining_scripts                           TODO    
+	|--- cloner.py                                  TODO
+	|--- detector.py                                TODO
+	|--- explorer.py                                TODO
+	|--- ghtorrent_queries.sql                      TODO
+	|--- merge_counter.py                           TODO
+	|--- metrics_manager.py                         TODO
+	|--- visit_website.scpt                         TODO
 ```
 
 Interested researchers can fully rebuild/update the whole dataset by following the steps presented [here](./INSTALL.md).
@@ -72,20 +72,20 @@ Interested researchers can fully rebuild/update the whole dataset by following t
 ```
 online_questionnaire
     .
-    |--- online_questionnaire.pdf                           TODO
-	|--- online_questionnaire_invitation_email.txt      TODO
-	|--- online_questionnaire_responses.csv             TODO
-	|--- online_questionnaire_responses_raw.csv         TODO
-	|--- online_questionnaire_scripts                   TODO
-	    |--- Mail Sender                                TODO
-	    │   |--- README.md                              TODO
-	    │   |--- emails.csv                             TODO
-	    │   |--- mailSender.py                          TODO
-	    |--- cloned_repos                               TODO
-	    |--- cloned_repos.csv                           TODO
-	    |--- cloner.py                                  TODO
-	    |--- people_12_months.csv                       TODO
-	    |--- repos_to_clone.csv                         TODO
+    |--- online_questionnaire.pdf                       TODO
+    |--- online_questionnaire_invitation_email.txt      TODO
+    |--- online_questionnaire_responses.csv             TODO
+    |--- online_questionnaire_responses_raw.csv         TODO
+    |--- online_questionnaire_scripts                   TODO
+	|--- Mail Sender                                TODO
+	│   |--- README.md                              TODO
+	│   |--- emails.csv                             TODO
+	│   |--- mailSender.py                          TODO
+	|--- cloned_repos                               TODO
+	|--- cloned_repos.csv                           TODO
+	|--- cloner.py                                  TODO
+	|--- people_12_months.csv                       TODO
+	|--- repos_to_clone.csv                         TODO
 ```
 
 The steps for contacting the list of contributors of the targeted GitHub repositories are presented [here](./INSTALL.md). 
