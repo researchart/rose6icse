@@ -22,7 +22,7 @@ You need to get the latest version of [PowerShell Core](https://github.com/Power
 
 # Install
 
-RelationalGit is a [dotnet Global tool](https://www.nuget.org/packages/RelationalGit). You can use it seamlessly with your favorite command-line application. The following line installs our tool in your system. After installation, all interactions will be from the command-line interface.
+RelationalGit is a [dotnet Global tool](https://www.nuget.org/packages/RelationalGit). You can use it seamlessly with your favorite command-line application. The following line installs our tool on your system. After installation, all interactions will be go through the command-line interface.
 
 ```PowerShell
 dotnet tool install --global RelationalGit
