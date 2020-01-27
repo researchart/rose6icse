@@ -41,6 +41,7 @@ data_analysis
     |--- documentation_fragments.csv            TODO
     |--- guidelines_definitions.csv             TODO
 ```
+The data in the CSV files has been manually, collaboratively, and iteratively extracted by the authors of the paper. The steps for recreating the plots presented in the paper the list of contributors to contact for replicating this study are presented [here](./INSTALL.md). 
 
 ### Dataset
 ---
@@ -67,6 +68,8 @@ dataset
 	    |--- visit_website.scpt                         TODO
 ```
 
+Interested researchers can fully rebuild/update the whole dataset by following the steps presented [here](./INSTALL.md).
+
 ### Online questionnaire
 ---
 ```
@@ -87,3 +90,5 @@ online_questionnaire
 	    |--- people_12_months.csv                       TODO
 	    |--- repos_to_clone.csv                         TODO
 ```
+
+The steps for creating the list of contributors to contact for replicating this study are presented [here](./INSTALL.md). 
