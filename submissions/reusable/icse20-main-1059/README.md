@@ -15,8 +15,7 @@ The basic usage of our program is shown below.
 ### Usage
 
 #### Replicate the results from the paper
-Note: The results depend heavily on the test system - the system itself, the programs running in the background, etc.
-The full test run of all 50 files takes a very long time, depending on the test system.
+Note: The results depend heavily on the test system - the system itself, the programs running in the background, etc. - The full test run of all 50 files takes a very long time.
 
 The test directory (named `testfiles`) is expected to be located inside the working directory and expects the following folder structure:
 
@@ -42,7 +41,7 @@ working directory
 1. `cd` into the directory of the artifact that contains the jar file (`debug-inputs.jar`), which must also contain a folder named `testfiles` that contains the mutated files and the working original files. An appropriate folder containing test files from the evaluation is provided in the artifact. On the provided VM, this folder is `~/Artifact/`.
 4. Run the program using the following command line arguments:
 `java -jar debug-inputs.jar -R <n>`, replacing `<n>` with the number of test files that you want to run consecutively. If you run the program multiple times, the test results are merged automatically.
-5. To generate the results files, i.e. the CSV files and GNU Plot files from the paper's evaluation, run `java -jar debug-inputs.jar -S`. This will create the test results inside the `results` folder.
+5. To generate the results files, i.e. the CSV files and GNU Plot files from the paper evaluation, run `java -jar debug-inputs.jar -S`. This will create the test results inside the `results` folder.
 
 The program includes a command-line switch to filter out corrupted files in a directory of crawled files.
 To run this filter, use `java -jar debug-inputs.jar -F -i <crawled-files-directory> -o <copy-to>`.
@@ -114,7 +113,7 @@ Argument               | Description                           | Alternative
 For a list of all available algorithms and subjects, read the help page of the program.
 
 ## Subject Programs
-The subject programs may be included inside the following folders inside the working directory of the program:
+Some subject programs are included inside the following folders inside the working directory of the program:
 
 Path | Program
 :----|:--------

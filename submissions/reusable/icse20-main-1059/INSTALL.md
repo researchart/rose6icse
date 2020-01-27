@@ -60,7 +60,7 @@ To run DDMax on this file, we run the program with the following command-line ar
 java -jar debug-inputs.jar -r -a ddmax -i testfiles/json-invalid-realworld/6048.json -o /tmp/o -T 300000
 ```
 
-On our test system, this took about 1 minute and 46 seconds (for our three files for *JQ*, *Minimal-JSON* and *JSON-Simple*) and produced the three output files (one for each subject) in `/tmp/o/JSONDDMax/`.
+On our test system, this took about 1 minute and 46 seconds (for our three subject programs *JQ*, *Minimal-JSON* and *JSON-Simple*) and produced the three output files (one for each subject) in `/tmp/o/JSONDDMax/`.
 To examine the repair quality, we use the `diff` tool and run the following command:
 
 ```bash
@@ -78,7 +78,7 @@ which gives us the following `diff` output:
 ```
 
 As we can see, there was one line of code in the JSON file that had an additional comma which made the file invalid.
-Lexical DDMax removed the line break of the faulty line and a quote from the next line which fixes the JSON file while recovering as much data as possible.
+Lexical DDMax removed the additional comma which fixes the JSON file while recovering as much data as possible.
 
 ### Example: Running syntactic DDMax on an artificially corrupted JSON file
 Following the above example, we can run syntactic DDMax on a simple artificially mutated JSON file:
