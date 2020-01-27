@@ -50,4 +50,7 @@ pages={1-12}}
 ## Badge Application ##
 The badge we appply for as well as the reasons why our artifact may deserve this badge can be found [here](STATUS.md) 
 
+## Contacts ##
+Zhen Dong (zhendng@gmail.com)
+
 
