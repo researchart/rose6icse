@@ -21,7 +21,10 @@ describe how to reproduce results. Before going further, first, check
 installation page (i.e. INSTALL.md). 
 
 ### Reproducing Results
-Clone the repository via terminal command `git clone https://github.com/DeepImportance/deepimportance_code_release.git`
+Clone the repository via terminal command 
+    git clone https://github.com/DeepImportance/deepimportance_code_release.git
+    
+Some of the data (e.g. adversarial inputs etc.) is already provided in repository since it takes too much time to generate.
 
 ##### Reproducing results in Table 2 and Figure 4 in paper:
     cd deepimportance_code_release/reproduce/
