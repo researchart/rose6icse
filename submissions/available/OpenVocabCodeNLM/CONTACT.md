@@ -1,8 +1,12 @@
 # Contact List
 
-- Hlib Babii
+- Hlib Babii (corresponding)
   - email: hlibbabii@gmail.com
   - github id: [hlibbabii](https://github.com/hlibbabii)
+
+- Rafael-Michael Karampatsis
+  - email: mpatsis13@gmail.com
+  - github id: [mpatsis](https://github.com/mpatsis)
 
 # Author
 
