@@ -18,15 +18,15 @@ The full dataset including raw data, mining scripts, and analysis scripts produc
 This replication package is structured as follows:
 
 ```
-    malavolta
-     .
-     |--- data_analysis/       		The R script for analysing the mined data (see below) and the data that has been coded during the iterative content analysis and the thematic analysis phases.
-     |
-     |--- dataset/             		The full dataset of ROS-based systems mined from GitHub, including also the Python scripts for rebuilding/updating the dataset and the raw data produced in all intermediate steps.
-     |
-     |--- online_questionnaire/   	List of contacted participants, script for contacting all participants via email, raw data of the responses, transcript of the on-line questionnaire.
-     |
-     |--- ICSE_SEIP_2020.pdf        A copy of the paper in pdf format
+malavolta
+    .
+    |--- data_analysis/       		The data that has been extracted during the iterative content analysis and the thematic analysis phases, and the R script for plotting the extracted data (see below).
+    |
+    |--- dataset/             		The full dataset of ROS-based systems mined from GitHub, including also the Python scripts for rebuilding/updating the dataset and the raw data produced in all intermediate steps.
+    |
+    |--- online_questionnaire/   	List of contacted participants, script for contacting all participants via email, raw data of the responses, transcript of the on-line questionnaire.
+    |
+    |--- ICSE_SEIP_2020.pdf        A copy of the paper in pdf format
 ```
 
 Each of the folders listed above are described in details in the remaining of this readme.
@@ -34,14 +34,56 @@ Each of the folders listed above are described in details in the remaining of th
 ### Data analysis
 ---
 ```
+data_analysis
+    .
+    |--- RQ1_codes_and_selection_criteria.pdf   TODO    
+    |--- analysis.r                             TODO
+    |--- documentation_fragments.csv            TODO
+    |--- guidelines_definitions.csv             TODO
 ```
 
 ### Dataset
 ---
 ```
+dataset
+    .
+    |--- Repos                                          TODO
+	|--- manual_selection_gitlab.pdf                    TODO
+	|--- repos_dataset_all.csv                          TODO
+	|--- repos_dataset_selected.csv                     TODO
+	|--- repos_dataset_selected_sadoc.csv               TODO
+	|--- repos_filtering_intermediate_numbers.pdf       TODO
+	|--- repos_filtering_statistics.pdf                 TODO
+	|--- repos_golden_set.pdf                           TODO
+	|--- repos_mining_data                              TODO
+	│   |--- Archive.zip                                TODO
+	|--- repos_mining_scripts                           TODO    
+	    |--- cloner.py                                  TODO
+	    |--- detector.py                                TODO
+	    |--- explorer.py                                TODO
+	    |--- ghtorrent_queries.sql                      TODO
+	    |--- merge_counter.py                           TODO
+	    |--- metrics_manager.py                         TODO
+	    |--- visit_website.scpt                         TODO
 ```
 
 ### Online questionnaire
 ---
 ```
+online_questionnaire
+    .
+    |--- online_questionnaire.pdf                       TODO
+	|--- online_questionnaire_invitation_email.txt      TODO
+	|--- online_questionnaire_responses.csv             TODO
+	|--- online_questionnaire_responses_raw.csv         TODO
+	|--- online_questionnaire_scripts                   TODO
+	    |--- Mail Sender                                TODO
+	    │   |--- README.md                              TODO
+	    │   |--- emails.csv                             TODO
+	    │   |--- mailSender.py                          TODO
+	    |--- cloned_repos                               TODO
+	    |--- cloned_repos.csv                           TODO
+	    |--- cloner.py                                  TODO
+	    |--- people_12_months.csv                       TODO
+	    |--- repos_to_clone.csv                         TODO
 ```
