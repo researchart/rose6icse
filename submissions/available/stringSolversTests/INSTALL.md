@@ -1,5 +1,4 @@
-This document provides detailed instructions on how to install our artifact and how to test if the installation was successful.
-They are also publically available as part of our [repository](https://github.com/alebugariu/StringSolversTests/blob/master/README.md).
+This document provides detailed instructions on how to install our artifact and how to test if the installation was successful. This information is also publicly available as part of our [repository](https://github.com/alebugariu/StringSolversTests/blob/master/README.md).
 
 # Requirements 
 The tool has been tested on Ubuntu 16.04 with Java 8. Building [Z3](https://github.com/Z3Prover/z3) version 4.7.1 requires Python 2.7 and building [ABC](https://github.com/vlab-cs-ucsb/ABC) requires autotools, [Flex](https://github.com/westes/flex) and [Bison](https://www.gnu.org/software/bison/). To install the prerequisites:
