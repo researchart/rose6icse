@@ -156,3 +156,39 @@ Wavelet Toolbox                                       Version 5.0         (R2018
 ```
 
 ### Ubuntu 18.04.3  and MATLAB R2019a
+
+
+
+#### Machine details
+
+- Ubuntu 18.04.3 LTS
+- RAM: 16 GB
+- Processor: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz
+
+#### MATLAB/Simulink details
+
+
+```
+>> ver
+-----------------------------------------------------------------------------------------------------
+MATLAB Version: 9.6.0.1072779 (R2019a)
+Operating System: Linux 4.15.0-74-generic #84-Ubuntu SMP 
+Java Version: Java 1.8.0_181-b13 with Oracle Corporation Java HotSpot(TM) 64-Bit Server VM mixed mode
+-----------------------------------------------------------------------------------------------------
+MATLAB                                                Version 9.6         (R2019a)
+Simulink                                              Version 9.3         (R2019a)
+Control System Toolbox                                Version 10.6        (R2019a)
+DSP System Toolbox                                    Version 9.8         (R2019a)
+Image Processing Toolbox                              Version 10.4        (R2019a)
+Instrument Control Toolbox                            Version 4.0         (R2019a)
+Optimization Toolbox                                  Version 8.3         (R2019a)
+Parallel Computing Toolbox                            Version 7.0         (R2019a)
+Signal Processing Toolbox                             Version 8.2         (R2019a)
+Simulink Check                                        Version 4.3         (R2019a)
+Simulink Control Design                               Version 5.3         (R2019a)
+Simulink Coverage                                     Version 4.3         (R2019a)
+Statistics and Machine Learning Toolbox               Version 11.5        (R2019a)
+Symbolic Math Toolbox                                 Version 8.3         (R2019a)
+```
+
+
