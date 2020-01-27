@@ -47,12 +47,7 @@ year = {2020},
 pages={1-12}}
 
 ```
-
-## Contributors ##
-* Zhen Dong (zhendng@gmail.com)
-* Lucia Cojocaru
-* Xiao Liang Yu
-* Marcel Böhme
-* Abhik Roychoudhury
+## Badge Application ##
+The badge we appply for as well as the reasons why our artifact may deserve this badge can be found [here](STATUS.md) 
 
 
