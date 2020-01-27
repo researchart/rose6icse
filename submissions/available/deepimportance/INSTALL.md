@@ -22,7 +22,8 @@ or [here](https://pip.pypa.io/en/stable/installing/).
     pip install Tensorflow==1.10.0  
     pip install Keras==2.2.2  
     pip install numpy  
-    pip install sklearn  
+    pip install scikit-learn
+    pip install scikit-image  
     pip install matplotlib  
 
 Once all the packages are installed you are ready to run DeepImportance code.
