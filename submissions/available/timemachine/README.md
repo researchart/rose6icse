@@ -15,17 +15,7 @@ TimeMachine leverages virtualization technology such as emulator to save an app 
 The figure above demonstrates how it works. When execution keeps going through a loop state S2 -- S3 -- S4 -- S2 (see Figure (a)), TimeMachine terminates the current execution due to lack of progress, resumes the most progressive state S1 (assuming that S1 is the most progressive state among all discovered states),  and launches a new execution from state S1. When reaching state S6 via S5 (see Figure(b)), the execution gets stuck, i.e., unable to exit the state after executing a fixed amount of events. TimeMachine terminates current execution again and resumes the most progressive state S5 to launch a new execution. The whole process is automatically triggered during testing.
 --->
 
-## Publication ##
-```
-@InProceedings{zhendong:icse:2020,
-author = {Dong, Zhen and B{\"o}hme, Marcel and Cojocaru, Lucia and Roychoudhury, Abhik},
-title = {Time-travel Testing of Android Apps},
-booktitle = {Proceedings of the 42nd International Conference on Software Engineering},
-series = {ICSE '20},
-year = {2020},
-pages={1-12}}
 
-```
 
 ## Architecture ##
 <p align="center">
@@ -41,7 +31,22 @@ The figure above shows TimeMachine's architecture. The whole system runs in a do
 * Python 2.7.2
 
 ## Installation & Usage ##
-Instructions on how to install and use TimeMachine to test Android apps can be found in [INSTALL.md](https://github.com/zhendong2050/rose6icse/edit/master/submissions/available/timemachine/INSTALL.md)
+Instructions on how to install and use TimeMachine to test Android apps can be found in [INSTALL.md](INSTALL.md) (or on  TimeMachine Github repo [[link](https://github.com/DroidTest/TimeMachine)].
+
+## Tool ##
+TimeMachine has been released and maintained on Github: https://github.com/DroidTest/TimeMachine
+
+## Publication ##
+```
+@InProceedings{zhendong:icse:2020,
+author = {Dong, Zhen and B{\"o}hme, Marcel and Cojocaru, Lucia and Roychoudhury, Abhik},
+title = {Time-travel Testing of Android Apps},
+booktitle = {Proceedings of the 42nd International Conference on Software Engineering},
+series = {ICSE '20},
+year = {2020},
+pages={1-12}}
+
+```
 
 ## Contributors ##
 * Zhen Dong (zhendng@gmail.com)
