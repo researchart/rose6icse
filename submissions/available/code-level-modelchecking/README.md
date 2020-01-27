@@ -58,5 +58,9 @@ CBMC viewer is available at https://github.com/markrtuttle/cbmc/tree/cbmc-viewer
 branch: cbmc-viewer
 As of the time of this artifact, the commit was be88c82850952e057b56e03ba8c013415357a5cc
 
+For the reviewers' convenience, we have pre-built CBMC binaries for
+Windows 10, macOS, and Ubuntu 18. These binaries are located in the
+'binaries' directory.
+
 ## Verify the proof results locally on your machine
 Follow the instructions in INSTALL.md

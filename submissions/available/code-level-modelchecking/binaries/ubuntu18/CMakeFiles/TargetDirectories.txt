@@ -1,0 +1,8 @@
+/home/ubuntu/padstone-software/bin/CMakeFiles/rebuild_cache.dir
+/home/ubuntu/padstone-software/bin/CMakeFiles/build.dir
+/home/ubuntu/padstone-software/bin/CMakeFiles/edit_cache.dir
+/home/ubuntu/padstone-software/bin/CMakeFiles/default.dir
+/home/ubuntu/padstone-software/bin/CMakeFiles/refresh.dir
+/home/ubuntu/padstone-software/bin/CMakeFiles/freertos.dir
+/home/ubuntu/padstone-software/bin/CMakeFiles/test.dir
+/home/ubuntu/padstone-software/bin/CMakeFiles/freertos-clean.dir

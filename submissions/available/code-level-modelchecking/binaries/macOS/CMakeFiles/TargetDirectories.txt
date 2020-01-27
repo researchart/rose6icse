@@ -1,0 +1,4 @@
+/Users/karkhaz/code/padstone-software/bin/CMakeFiles/refresh.dir
+/Users/karkhaz/code/padstone-software/bin/CMakeFiles/rebuild_cache.dir
+/Users/karkhaz/code/padstone-software/bin/CMakeFiles/edit_cache.dir
+/Users/karkhaz/code/padstone-software/bin/CMakeFiles/build.dir
