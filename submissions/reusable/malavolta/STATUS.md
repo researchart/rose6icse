@@ -1,4 +1,4 @@
-This repository contains the replication package of the paper published at ICSE SEIP 2020 with the title *How do you Architect your Robots? State of the Practice and Guidelines for ROS-based Systems*.
+This folder contains the replication package of the paper published at ICSE SEIP 2020 with the title *How do you Architect your Robots? State of the Practice and Guidelines for ROS-based Systems*.
 
 We are applying for the **Reusable** and **Available** Badges because this repository contains, among others, the following artifacts:
 
