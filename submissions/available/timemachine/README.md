@@ -40,58 +40,9 @@ The figure above shows TimeMachine's architecture. The whole system runs in a do
 * Docker API v1.13 or above 
 * Python 2.7.2
 
-## Install ##
-The following is required to set up TimeMachine:
-* at least 100 GB hard drive 
-* 8 GB memory
-* Ububntu 16.04 64-bit
+## Installation & Usage ##
+Instructions on how to install and use TimeMachine to test Android apps can be found in [INSTALL.md](https://github.com/zhendong2050/rose6icse/edit/master/submissions/available/timemachine/INSTALL.md)
 
-### Step 1: clone repository ###
-```
-git clone https://github.com/DroidTest/TimeMachine.git
-```
-### Step 2: install dependencies ###
-
-install and configure docker 
-```
-sudo apt-get install docker.io
-sudo groupadd docker
-sudo usermod -aG docker $USER
-newgrp docker 
-```
-
-### step 3: build an docker image ###
-```
-docker build -t droidtest/timemachine:1.0 .
-```
-It takes serveral minutes.
-## Usage ##
-TimeMachine takes as input apks instrumented with [Emma](http://emma.sourceforge.net/) or [Ella](https://github.com/saswatanand/ella). Under folder two_apps_under_test are closed-source apks instrumented with Ella, i.e., Microsoft Word and Duolingo.  
-```
-cd fuzzingandroid
-```
-Test example apps in a container   
-```
-#USAGE: exec-single.bash APP_DIR OPEN_SOURCE DOCKER_IMAGE TIMEOUT [OUTPUT_PATH]
-
-./exec-single-app.bash ../two_apps_under_test/ms_word/ 0 droidtest/timemachine:1.0 1800 ../word_output
-./exec-single-app.bash ../two_apps_under_test/duolingo/ 0 droidtest/timemachine:1.0 1800 ../duolingo_output
-```  
-
-## Output ##
-check method coverage
-```
-./compute_cov_aver.bash ../word_output/ ../two_apps_under_test/ms_word/
-./compute_cov_aver.bash ../duolingo_output/ ../two_apps_under_test/duolingo/
-```
-check crashes
-```
-cat word_output/timemachine-output/crashes.log
-cat duolingo_output/timemachine-output/crashes.log 
-```
-## Need help? ##
-* If failed to connect VM, please check whether virtualbox is correctly installed. TimeMachine was tested on virtualbox 5.0.18 and virtualbox 5.1.38. 
-* Contact Zhen Dong for further issues.
 ## Contributors ##
 * Zhen Dong (zhendng@gmail.com)
 * Lucia Cojocaru
