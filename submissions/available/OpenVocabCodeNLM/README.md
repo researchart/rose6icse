@@ -24,6 +24,36 @@ We provide 3 artefacts:
 
 ###### We provide NLMs for Java, Python, and C which can be downloaded and used as they are (e.g. for code completion) or for further training or fine-tuning.
 
+
 ## Artifact reuse
 
 We provide [instructions](INSTALL.md) on how to download and install the libraries and the models, and list the steps needed to reproduce the study. Additionally, we provide a docker image which in a few minutes demonstrates the usage of the artifacts.
+
+## Arfifacts used in the study
+
+### 'Raw' corpora
+
+[Github Java Corpus](https://doi.org/10.7488/ds/1690)
+
+[C Corpus](https://doi.org/10.5281/zenodo.3628775)
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3628775.svg)](https://doi.org/10.5281/zenodo.3628775)
+
+[Python Corpus](https://doi.org/10.5281/zenodo.3628784)
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3628784.svg)](https://doi.org/10.5281/zenodo.3628784)
+
+### Pre-processed corpora
+
+[Pre-processed C Corpus](https://doi.org/10.5281/zenodo.3628638)
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3628638.svg)](https://doi.org/10.5281/zenodo.3628638)
+
+[Pre-processed Python Corpus](https://doi.org/10.5281/zenodo.3628636)
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3628636.svg)](https://doi.org/10.5281/zenodo.3628636)
+
+[Pre-processed Java Corpus](https://doi.org/10.5281/zenodo.3628665)
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3628665.svg)](https://doi.org/10.5281/zenodo.3628665)
+
