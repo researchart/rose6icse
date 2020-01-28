@@ -9,6 +9,18 @@
 1) [Restore](https://www.janbasktraining.com/blog/restore-a-database-backup-from-sql/) the [backup of data](https://drive.google.com/drive/folders/1nc7Hu7kbPpavYrCMmCU5SEBlLlZTo5Fv) into Sql Server. For each studied project there is a separate database. 
 2) Copy the **configuration files** and **simulation.ps1** which are provided in the [replication package](https://github.com/CESEL/RelationalGit/tree/master/ReplicationPackage).
 3) Open and modify each configuration file to set the connection string. You need to provide the server address along with the credentials.
+
+```json
+ {
+	"ConnectionStrings": {
+	  "RelationalGit": "Server=ip_db_server;User Id=user_name;Password=pass_word;Database=coreclr"
+	},
+	"Mining":{
+  ....
+  }
+ }
+```
+
 4) Open **simulations.ps1** using an editor and make sure the config variables defined at the top of the file are reffering to the correct location of the downloaded config files. 
 
 ```powershell
