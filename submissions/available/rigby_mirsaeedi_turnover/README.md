@@ -2,7 +2,7 @@
 
 ## Install The Tool
 
-1) Install [RelationalGit](https://github.com/CESEL/RelationalGit) along with all the required dependencies.
+1) Install [RelationalGit](https://github.com/CESEL/RelationalGit/blob/master/install.md) along with all the required dependencies.
 
 ## Preparation 
 
