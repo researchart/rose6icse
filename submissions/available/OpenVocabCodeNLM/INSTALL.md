@@ -156,7 +156,7 @@ C: https://doi.org/10.5281/zenodo.3628638
 
 Python: https://doi.org/10.5281/zenodo.3628636
 
-Please follow [the instructions](https://github.com/mast-group/OpenVocabCodeNLM) if you are interested in reproducing corpus pre-processing.
+Please follow [the instructions](https://github.com/mast-group/OpenVocabCodeNLM#preprocessing) if you are interested in reproducing corpus pre-processing.
 
 #### Set the paths and run the script
 
