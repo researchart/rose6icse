@@ -4,7 +4,7 @@ This is a submission of the artefacts for the paper accepted to ICSE 2020: **"Bi
 
 We provide 3 artefacts:
 
-##### [Codeprep](https://github.com/giganticode/codeprep) - a library for code pre-processing.
+##### [Codeprep](https://pypi.org/project/codeprep/) - a library for code pre-processing.
  
  [![DOI](https://zenodo.org/badge/179685171.svg)](https://zenodo.org/badge/latestdoi/179685171)
 
