@@ -1,6 +1,6 @@
 # ICSE SEIP 2020 – Replication package
 
-This folder contains the replication package of the paper published at ICSE SEIP 2020 with the title **How do you Architect your Robots? State of the Practice and Guidelines for ROS-based Systems**.
+This folder contains the artifacts submission for the paper published at ICSE SEIP 2020 with the title **How do you Architect your Robots? State of the Practice and Guidelines for ROS-based Systems**.
 
 This study has been designed, developed, and reported by the following investigators:
 
@@ -15,6 +15,8 @@ The full dataset including raw data, mining scripts, and analysis scripts produc
 
 ### Overview of the replication package
 ---
+The full replication package containing all the software artifacts mentioned below is available in the following GitHub repository: [https://github.com/S2-group/icse-seip-2020-replication-package](https://github.com/S2-group/icse-seip-2020-replication-package).
+
 This replication package is structured as follows:
 
 ```
