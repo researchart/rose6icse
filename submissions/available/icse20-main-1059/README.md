@@ -49,6 +49,17 @@ The program will automatically test every file in the `crawled-files-directory` 
 It also stores the reason why a file was rejected in `failinfo.json`.
 The mutated and real-world corrupted files used in the paper's evaluation are already included, so you do not need to run this.
 
+The execution of `-R` will take a very long time, so we recommend to use small values for `n`. On our test system, running the program with `-R 3` took about 1h30min in average.
+On the VM, the tests will take even longer.
+To speed things up, you might want to increase the CPU cores and speeds and the memory of the VM or run the tests on a physical machine.
+
+If you run `-R n` multiple times, the test results are automatically merged, so running `-R 10` should give you the same results as running `-R 1` 10 times.
+
+##### FAQ: I see "NaN" values in a table, what is wrong here?
+
+If you see "NaN" in the `diagnostic_quality.csv` table, you might need to run more tests using `-R n`. 
+Only real-world files are considered in the `disgnostic_quality.csv` table, so you need at least one real-world JSON file that passed `DDMax`.
+
 #### Repair a file using a specific algorithm
 
 To repair a single file using a single algorithm, you may run the following command line:
