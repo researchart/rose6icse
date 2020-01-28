@@ -114,26 +114,34 @@ Each sub-directory contains neural network weigths (lm.ckpt.\<id\>.data-00000-of
 To run inference on these models, you can use the OpenVocabCodeNLMS library (See the previous section).
 
 
-## Full study replication
+## Study replication
  
 #### Vocabulary study
 
-Please note that the replication of the full vocabulary study may take a few hours (depends on the number of CPUs available).
+Please note that the replication of the full vocabulary study may take a few hours, even days (depending on the number of CPUs available).
 
-Download the Java corpus from https://doi.org/10.7488/ds/1690 and distribute the projects between the train and test datasets
+Download the Java corpus from https://doi.org/10.7488/ds/1690 and distribute the projects between the train (on which vocabulary and corpus size were calculated) and test (for OOV-rate calculation) datasets.
 
-The following projects has to go to the test set: https://github.com/giganticode/icse-2020/blob/master/vocab-study-test-projects.txt others to the training set
+The following projects has to go to the test set: https://raw.githubusercontent.com/giganticode/icse-2020/master/vocab-study-test-projects.txt, others to the training set:
 
+```shell script
+mkdir -p $USER/vocab_study_dataset/train
+mkdir $USER/vocab_study_dataset/test
 
-C corpus & \url{https://doi.org/10.5281/zenodo.3628775} \\
-Python corpus & \url{https://doi.org/10.5281/zenodo.3628784} \\
+# move test projects:
+curl -L https://raw.githubusercontent.com/giganticode/icse-2020/master/vocab-study-test-projects.txt | xargs -I{} mv downloaded_projects/{} $USER/vocab_study_dataset/test
+
+# move the rest to train:
+mv downloaded-projects/* $USER/vocab_study_dataset/train
+```
+
 
 ##### Download and run the script
 
 ```shell script
 curl -L https://raw.githubusercontent.com/giganticode/icse-2020/master/scripts/vocab_study.sh > vocab_study.sh
 chmod +x vocab_study.sh
-./vocab_study $PATH_TO_DATASET   
+./vocab_study $USER/vocab_study_dataset   
 ```
 
 #### NLMs training
