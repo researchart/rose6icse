@@ -1,4 +1,4 @@
-# Available Badge
+# Reusable Badge
 
 We believe the provided package meets all the conditions required for the badge.
 
