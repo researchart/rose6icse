@@ -39,7 +39,9 @@ The whole dataset is available as a single CSV file called [repos_dataset_all.cs
 - **Notes**: additional notes taken during the data extraction process 
 
 The replication package contains also other two comma-separated files, which are proper subsets of the previous one, they are:
-- repos_dataset_selected.csv](./dataset/repos_dataset_selected.csv): it contains all 335 repositories passing the last filtering step related to the manually filtering of irrelevant repositories (filtering step 10 in the paper) 
-- repos_dataset_selected_sadoc.csv](./dataset/repos_dataset_selected_sadoc.csv): it contains the 115 repositories with either a fully or partially documented software architecture (i.e., those having a `YES` or `PARTIALLY` in the `SA documented` field) 
+- [repos_dataset_selected.csv](./dataset/repos_dataset_selected.csv): it contains all 335 repositories passing the last filtering step related to the manually filtering of irrelevant repositories (filtering step 10 in the paper) 
+- [repos_dataset_selected_sadoc.csv](./dataset/repos_dataset_selected_sadoc.csv): it contains the 115 repositories with either a fully or partially documented software architecture (i.e., those having a `YES` or `PARTIALLY` in the `SA documented` field) 
+
+Moreover, additional CSV and PDF files related to the dataset and the extracted guidelines are reported in the [dataset](.dataset) and [data_analysis](.data_analysis) folders, they are not meant for direct use by third-party researchers and are reported for transparency from a methodological perspective. 
 
 ### Full replication of the study  
