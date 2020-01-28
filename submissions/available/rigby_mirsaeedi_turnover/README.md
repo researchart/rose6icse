@@ -16,8 +16,8 @@
 	  "RelationalGit": "Server=ip_db_server;User Id=user_name;Password=pass_word;Database=coreclr"
 	},
 	"Mining":{
-  ....
-  }
+  		...
+  	}
  }
 ```
 
