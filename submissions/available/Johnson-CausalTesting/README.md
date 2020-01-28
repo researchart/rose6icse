@@ -5,7 +5,7 @@ Holmes is a prototype implementation of Causal Testing, a novel testing techniqu
 
 ## ICSE Artifact Evalution
 
-Required documents for ICSE 2020 artifact evaluation can be found in the [artifact_documentation](https://github.com/brittjay0104/rose6icse/tree/master/submissions/available/Johnson-CausalTesting/artifact_documentation) directory. The instructions that follow are for installing and using Holmes on your own machine and is not intended as part of the artifact evaluation.
+Required documents for ICSE 2020 artifact evaluation can be found in the [artifact_documentation](https://github.com/researchart/rose6icse/tree/master/submissions/available/Johnson-CausalTesting/artifact_documentation) directory. The instructions that follow are for installing and using Holmes on your own machine and is not intended as part of the artifact evaluation.
 
 ## Pre-requisites
 
