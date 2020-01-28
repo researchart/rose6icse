@@ -23,7 +23,7 @@ We provide 3 artefacts:
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3628628.svg)](https://doi.org/10.5281/zenodo.3628628)
 
-###### We provide NLMs for Java, Python, and C which can be downloaded and used as they are (e.g. for code completion) or for further training or fine-tuning.
+###### We provide NLMs for Java, Python, and C which can be downloaded and used as they are (e.g. for code completion), for further training on a specific corpus or project, or fine-tuning on additional tasks.
 
 
 ## Artifact reuse
