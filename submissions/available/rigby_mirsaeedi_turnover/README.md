@@ -160,7 +160,7 @@ dotnet-rgit --cmd analyze-simulations --analyze-result-path "path_to_result" --r
 
 The tool creates three csv files, **expertise.csv**, **workload.csv** , and **far.csv** respectively. The first column always shows the project's periods (quarters). Each column corresponds to one of the simulations and each cell52 shows the difference percentage change between the actual outcome and the simulated outcome in that period. The last row of a column shows the median of its values.
 
-The following table illustrates how a csv file is formatted assuming that only cHRev, TurnoverRec, and Sofia got compared with reality.
+The following table illustrates how a csv file of a project with 5 periods is formatted, assuming that only cHRev, TurnoverRec, and Sofia got compared with reality.
 
 | Periods       | cHRev         | cHRev         | TurnoverRec   | Sofia         |
 | ------------- | ------------- | ------------- | ------------- |-------------- |
