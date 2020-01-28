@@ -33,9 +33,7 @@ We provide [instructions](INSTALL.md) on how to download and install the librari
 
 ### 'Raw' corpora
 
-[Github Java Corpus](https://doi.org/10.7488/ds/1690)
-
-DOI: https://doi.org/10.7488/ds/1690
+[Github Java Corpus](https://doi.org/10.7488/ds/1690) (DOI: https://doi.org/10.7488/ds/1690)
 
 [C Corpus](https://doi.org/10.5281/zenodo.3628775)
 
