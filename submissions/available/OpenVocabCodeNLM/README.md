@@ -35,6 +35,8 @@ We provide [instructions](INSTALL.md) on how to download and install the librari
 
 [Github Java Corpus](https://doi.org/10.7488/ds/1690)
 
+DOI: https://doi.org/10.7488/ds/1690
+
 [C Corpus](https://doi.org/10.5281/zenodo.3628775)
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3628775.svg)](https://doi.org/10.5281/zenodo.3628775)
