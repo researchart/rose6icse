@@ -45,3 +45,49 @@ The replication package contains also other two comma-separated files, which are
 Moreover, additional CSV and PDF files related to the dataset and the extracted guidelines are reported in the [dataset](.dataset) and [data_analysis](.data_analysis) folders, they are not meant for direct use by third-party researchers and are reported for transparency from a methodological perspective. 
 
 ### Full replication of the study  
+
+The steps for collecting the data on which the study is based are reported below. 
+
+#### Rebuilding the dataset of real-world open-source ROS systems
+
+The goal of the steps below is to build the dataset we provide in [repos_dataset_all.csv](./dataset/repos_dataset_all.csv). All the steps can executed on any UNIX-based machine and have been tested both on MacOS and Ubuntu. As a reference, in [dataset/repos_mining_data/Archive.zip](./dataset/repos_mining_data/Archive.zip) we provide a Zip archive containing all the intermediate artifacts generated along the steps below, so that the reader can double check what to expect at each step.
+
+- Install Python 3.7 (see [here](https://wiki.python.org/moin/BeginnersGuide/Download))
+- [optional] setup a Python virtual environment in order to keep all the modules always available and do not run into conflicts with other Python projects (see [here](https://virtualenv.pypa.io/en/latest/))
+- Install the following Python modules:
+  - git
+  - bs4
+  - ast
+  - urllib3
+  - certifi
+  - pickle
+- configure and run *rosmap* ([instructions](https://github.com/jr-robotics/rosmap)) and collect its results into the following files:
+  - `dataset/repos_mining_data/intermediateResults0_rosmap_github.json`
+  - `dataset/repos_mining_data/intermediateResults0_all_bitbucket.json`
+  - `dataset/repos_mining_data/intermediateResults0_all_gitlab.json`
+- Configure *GHTorrent* ([instructions](http://ghtorrent.org/)) as a MySQL database instance, run all the queries in [ghtorrent_queries.sql](./dataset/repos_mining_scripts/ghtorrent_queries.sql), and save the final result in `dataset/repos_mining_dataintermediateResults/2_ghtorrent_github.json`
+- run [merge_counter.py](./dataset/repos_mining_scripts/merge_counter.py)
+- run [explorer.py](./dataset/repos_mining_scripts/explorer.py)
+- run [cloner.py](./dataset/repos_mining_scripts/cloner.py)
+- run [detector.py](./dataset/repos_mining_scripts/detector.py)
+- run [metrics_manager.py](./dataset/repos_mining_scripts/metrics_manager.py)
+
+The execution of the steps above correspond to the first 9 steps reported in Figure 4 in the [paper](./ICSE_SEIP_2020.pdf). Then, in order to obtain the final list of repositories (i.e., the one equivalent to our 335 repositories), the final manual filtering step (step 10 in Figure 4 in the [paper](./ICSE_SEIP_2020.pdf)) must be performed.   
+
+#### Online questionnaire administration 
+
+- Install Python 3.7 (see [here](https://wiki.python.org/moin/BeginnersGuide/Download))
+- [optional] setup a Python virtual environment (see [here](https://virtualenv.pypa.io/en/latest/))
+- Install the following Python modules:
+  - pdb
+  - sendgrid
+- Move into `online_quesionnaire/online_questionnaire_scripts/repos_to_clone.csv` the ID column of the CSV file containing all the repositories to consider. In other words, the `repos_to_clone.csv` file should contain only one column named `ID` and have a row containing just the ID of the GitHub repository to clone. It is important to note that in this phase we obtained only GitHub repositories in the dataset, so this step assumes that the provided ID are about GitHub repositories only.
+- run [email_detector.py](./online_quesionnaire/online_questionnaire_scripts/email_detector.py); this will produce the list of all contributors to be targeted by the online questionnaire
+- move the contents of the [./online_quesionnaire/online_questionnaire_scripts/people_12_months.csv](./online_quesionnaire/online_questionnaire_scripts/people_12_months.csv) file into [./online_quesionnaire/online_questionnaire_scripts/Mail Sender/email.csv](./online_quesionnaire/online_questionnaire_scripts/Mail Sender/emails.csv); this step is done in order to avoid to accidentally send thousands of emails to third-party developers 
+- configure the [./online_quesionnaire/online_questionnaire_scripts/mailSender.py](./online_quesionnaire/online_questionnaire_scripts/mailSender.py) script according to its readme (in the same folder)
+- Prepare the questionnaire as a form in Google Drive and update the email template directly in the code of [./online_quesionnaire/online_questionnaire_scripts/mailSender.py](./online_quesionnaire/online_questionnaire_scripts/mailSender.py)   
+- run [./online_quesionnaire/online_questionnaire_scripts/mailSender.py](./online_quesionnaire/online_questionnaire_scripts/mailSender.py)
+- Wait for the first results of the questionnaire!
+
+It is important to note that in this study the data extraction and analysis are predominantly manual, so we refer the reader to the Study design section of the [paper](./ICSE_SEIP_2020.pdf) for knowing the methods we applied for those two phases.  
+
