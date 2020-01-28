@@ -1,0 +1,55 @@
+The software inherits the BSD License distributed with Facebook Infer, and all
+changes and additions made on top of Infer, e.g. SAVER itself, follows Samsung
+Proprietary License below. Only for academic purposes the software shall freely be
+used, and all other purposes should follow the licenses.
+
+------------------------------------------------------------------------------------------------
+BSD License
+
+For Infer software
+
+Copyright (c) 2013-present, Facebook, Inc. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.
+
+* Neither the name Facebook nor the names of its contributors may be used to
+endorse or promote products derived from this software without specific
+prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------
+
+Samsung Proprietary License
+Any software product designated as "Samsung Proprietary Software," including
+computer software and may include associated media, printed materials, and
+"online" or electronic documentation ("SOFTWARE PRODUCT") is a copyrighted and
+proprietary property of SAMSUNG ELECTRONICS CO., LTD ("Samsung"). The SOFTWARE
+PRODUCT must (i) be used for Samsung's approved business purposes only, (ii)
+not be contaminated by open source codes, (iii) must not be used in any ways
+that will require it to be disclosed or licensed freely to third parties or
+public, (vi) must not be subject to reverse engineering, decompiling or
+disassembling. Samsung does not grant the recipient any intellectual property
+rights, indemnities or warranties and takes on no obligations regarding the
+SOFTWARE PRODUCT except as otherwise agreed to under a separate written
+agreement with the recipient. 
+------------------------------------------------------------------------------------------------
