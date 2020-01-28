@@ -173,3 +173,5 @@ The following table illustrates how a csv file of a project with 5 periods is fo
 | 5  | 10.10  | 60  | 35  | 34.78  |
 | Median  | 25.10  | 40  | 25  | 25  |
 
+**Note**: During simulations, for each pull request, one reviewer is randomly selected to be replaced by the top recommended reviewer. Therefore, the results may vary by up to 2.5 percentage points (see details in thesis and paper per project and 215 simulation runs).
+
