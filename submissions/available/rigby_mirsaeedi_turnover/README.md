@@ -124,6 +124,10 @@ You need to produce the result per project. The tool provides a set of easy to u
 
 1) Open the database of a project that you want to see its results.
 2) Query the **LossSimulations** table. 
+
+```SQL
+select Id,RecommendationName,DateTime from LossSimulations
+```
 3) Note the id of the **Reality** simulation (reality_sim_id) and **NoReviews** simulations (no_reviews_sim_id). 
 4) run the following command to dump the results. Replace {reality_sim_id} and {no_reviews_sim_id} with corresponding ids.
 
