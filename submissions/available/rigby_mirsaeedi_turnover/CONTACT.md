@@ -1,9 +1,9 @@
 # Authors
 
-- Peter C. Rigby (Corresponding Author)
+- Peter C. Rigby 
   - Email: rigbypc@gmail.com
   - Github: [rigbypc](https://github.com/rigbypc)
   
-- Ehsan Mirsaeedi
+- Ehsan Mirsaeedi (Corresponding Author)
   - Email: mirsaeedi@outlook.com
   - Github: [mirsaeedi](https://github.com/mirsaeedi)
