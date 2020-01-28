@@ -67,7 +67,7 @@ The runtime for Holmes varies depending on a number of factors, such as input va
 
 <img src="images/Eclipse-TODOs.png" alt="Eclipse TODOs"/>
 
-2. Double-click the method call ```toBoolean``` so that it is highlighted, as show in the screenshot below.
+2. Double-click the method call ```toBoolean``` so that it is highlighted, as shown in the screenshot below.
 
 <img src="images/Method-Highlight.png" alt="Highlighting target method"/>
 
@@ -112,7 +112,7 @@ Now that we have the Causal Testing results, we can begin to debug the defect.
 
 First, we can see that Holmes has provided three similar passing tests and three similar failing tests. Just from looking at the inputs to the tests that pass and the tests that fail we can see that, like the original failing test, all the additional failing tests include the ```/``` character while the tests that pass do not. This suggests the defect has something to do with the presence of the ```/``` in the input string.
 
-Second, we can see that each generated test has a button under it labeled "See Execution Trace". Clicking this button opens a minimized trace of the execution; clicking the button again hides the trace.
+Second, we can see that each test that Holmes generated has a button under it labeled "See Execution Trace". Clicking this button opens a minimized trace of the execution; clicking the button again hides the trace.
 
 <img src="images/output-test02.png" alt="Test 02 Output"/>
 
@@ -120,7 +120,7 @@ Let's look at the trace for the most similar passing input, ```"String with a sl
 
 <img src="images/test02-passing.png" alt="Test 02 Trace"/>
 
-We can see that as expected, the final method call to ```escapeJavaStyleString``` returns the same string that was input, as the test expected (```assertEquals(expected,actual)```). When we look at the trace for the original failing test, we can see that this same method call adds an additional character to the input string (```String with a slash (\/) in it```), causing the test to fail.
+We can see that the final method call to ```escapeJavaStyleString``` returns the same string that was input, as the test expected (```assertEquals(expected,actual)```). When we look at the trace for the original failing test, we can see that this same method call adds an additional character to the input string (```String with a slash (\/) in it```), causing the test to fail.
 
 ### Repairing the defect
 
@@ -186,7 +186,7 @@ A dialog will pop up asking you to "Select a way to run 'StringEscapeUtilsTest.j
 
 **Success!** We can see in the JUnit view (shown below) that all tests passed, which means we have fixed the defect.
 
-<img src="images/test02-passing.png" alt="Tests passed!"/>
+<img src="images/fixed.png" alt="Tests passed!"/>
 
 
 Repeat this process with *Defects 2-6* to see how Causal Testing can help with debugging other defects. 
