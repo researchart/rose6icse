@@ -80,10 +80,10 @@ Space overhead: 0.399 (M)
 
 ### Table 5
 
-To reproduce the results presented in Table 5, please use the following command by providing corresponding `model_name`, `model_size` and `embed_name`:
+To reproduce the results presented in Table 5, please use the following command by providing corresponding `model_name`, `model_size`, `embed_name` and `method`:
 
    ```bash
-   python3 main.py --phase test --model_name [model_name] --model_size [model_size] --embed_name [embed_name]
+   python3 main.py --phase test --model_name [model_name] --model_size [model_size] --embed_name [embed_name] --method [method]
    ```
 
 Running the above command will give the prediction result of the corresponding model.
