@@ -167,7 +167,7 @@ The following table illustrates how a csv file of a project with 5 periods is fo
 
 **Note**: During simulations, for each pull request, one reviewer is randomly selected to be replaced by the top recommended reviewer. Therefore, the results may vary by up to 2.5 percentage points in our 215 simulations runs (see details in thesis and paper).
 
-**Note**: The results of cHRev, TurnoverRec, and Sofia can be found [here](https://drive.google.com/drive/folders/1nc7Hu7kbPpavYrCMmCU5SEBlLlZTo5Fv). (minimum 215 simulation)
+**Note**: The raw results of cHRev, TurnoverRec, and Sofia can be found [here](https://drive.google.com/drive/folders/1nc7Hu7kbPpavYrCMmCU5SEBlLlZTo5Fv). (minimum 215 simulation)
 
 ### Sofia
 
