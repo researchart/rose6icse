@@ -2,11 +2,11 @@
 
 - Cassandra Overney (*corresponding author*)
   - Email: coverney@olin.edu
-  - Github ids: [coverney](https://github.com/coverney)
+  - Github id: [coverney](https://github.com/coverney)
 
 - Bogdan Vasilescu
   - Email: vasilescu@cmu.edu
-  - Github ids: [bvasiles](https://github.com/bvasiles)
+  - Github id: [bvasiles](https://github.com/bvasiles)
 
 # Authors
 
