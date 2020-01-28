@@ -1,4 +1,4 @@
-## Quick Demonstration with Docker
+# Quick Demonstration with Docker
 
 Since installation on the user's machine might potentially be difficult and running the original experiment 
 requires a lot of computational resources (including GPUs) and days to run, 
@@ -54,7 +54,7 @@ scripts/vocab_study.sh
 scripts/nlm.sh
 ```
 
-## Installation of artifacts
+# Installation of artifacts
 
 This section describes the installation of the artefacts on the local machine.
 
@@ -114,15 +114,15 @@ Each sub-directory contains neural network weigths (lm.ckpt.\<id\>.data-00000-of
 To run inference on these models, you can use the OpenVocabCodeNLMS library (See the previous section).
 
 
-## Study replication
+# Study replication
  
-#### Vocabulary study
+### Vocabulary study
 
 Please note that the replication of the full vocabulary study may take a few hours, even days (depending on the number of CPUs available).
 
 Download the Java corpus from https://doi.org/10.7488/ds/1690 and distribute the projects between the train (on which vocabulary and corpus size were calculated) and test (for OOV-rate calculation) datasets.
 
-The following projects has to go to the test set: https://raw.githubusercontent.com/giganticode/icse-2020/master/vocab-study-test-projects.txt, others to the training set:
+This is the list of the projects that has to be in the test set: https://raw.githubusercontent.com/giganticode/icse-2020/master/vocab-study-test-projects.txt, others shoulkd be in the training set:
 
 ```shell script
 mkdir -p $USER/vocab_study_dataset/train
@@ -136,7 +136,7 @@ mv downloaded-projects/* $USER/vocab_study_dataset/train
 ```
 
 
-##### Download and run the script
+#### Download and run the script:
 
 ```shell script
 curl -L https://raw.githubusercontent.com/giganticode/icse-2020/master/scripts/vocab_study.sh > vocab_study.sh
@@ -144,20 +144,37 @@ chmod +x vocab_study.sh
 ./vocab_study $USER/vocab_study_dataset   
 ```
 
-#### NLMs training
+### NLMs training
 
-Please note that the replication of the full experiment might take up days to a few weeks depending on the available resources (GPUs).
+Please note that the replication of the full experiment might take a few weeks or even weeks depending on the available resources (GPUs).
 
-##### Download the pre-processed datasets from
+#### Download the pre-processed datasets from:
 
 Java: https://doi.org/10.5281/zenodo.3628665
+
 C: https://doi.org/10.5281/zenodo.3628638
+
 Python: https://doi.org/10.5281/zenodo.3628636
 
-PLease follow [the instructions]() TODO link if you are interested in the reproduction of corpus pre-processing.
+PLease follow [the instructions]() TODO link if you are interested in reproducing corpus pre-processing.
 
-##### Set the paths and run the script
+#### Set the paths and run the script
 
-Please download the script https://github.com/mast-group/OpenVocabCodeNLM/blob/master/example.sh
+Please download the script https://github.com/mast-group/OpenVocabCodeNLM/blob/master/example.sh . Each script run trains one model and evaluates it in different scenarios.
 
-For each training scenario change the path to the training file and test files (TODO add details)
+Before running the script,
+
+- Make sure `DATA_HOME` points to the downloaded pre-processed datasets
+
+- Change the following variables:
+
+```
+TRAIN_FILE=<lang>_training(_huge?)_pre<prep>
+VALIDATION_FILE=<lang>_validation_pre<prep>
+TEST_FILE=<lang>_test_pre<prep>
+```
+where: 
+
+`lang` is `c`, `java` or `python`
+
+`prep` is `_enc_bpe_10000`, `_enc_bpe_5000`, `_enc_bpe_10000` to train bpe models; `_sub` to train a subtoken (heuristic model); ` ` (no suffix) to train a full-token (closed vocab model).
