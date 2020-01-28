@@ -120,9 +120,9 @@ To run inference on these models, you can use the OpenVocabCodeNLMS library (See
 
 Please note that the replication of the full vocabulary study may take a few hours, even days (depending on the number of CPUs available).
 
-Download the Java corpus from https://doi.org/10.7488/ds/1690 and distribute the projects between the train (on which vocabulary and corpus size were calculated) and test (for OOV-rate calculation) datasets.
+Download the Java corpus from https://doi.org/10.7488/ds/1690 and distribute the projects between the train (on which vocabulary and corpus size were calculated) and the test (for OOV-rate calculation) datasets.
 
-This is the list of the projects that has to be in the test set: https://raw.githubusercontent.com/giganticode/icse-2020/master/vocab-study-test-projects.txt, others shoulkd be in the training set:
+This is the list of the projects that has to be in the test set: https://raw.githubusercontent.com/giganticode/icse-2020/master/vocab-study-test-projects.txt, others should be in the training set:
 
 ```shell script
 mkdir -p $USER/vocab_study_dataset/train
@@ -156,7 +156,7 @@ C: https://doi.org/10.5281/zenodo.3628638
 
 Python: https://doi.org/10.5281/zenodo.3628636
 
-PLease follow [the instructions]() TODO link if you are interested in reproducing corpus pre-processing.
+Please follow [the instructions](https://github.com/mast-group/OpenVocabCodeNLM) if you are interested in reproducing corpus pre-processing.
 
 #### Set the paths and run the script
 
@@ -169,7 +169,7 @@ Before running the script,
 - Change the following variables:
 
 ```
-TRAIN_FILE=<lang>_training(_huge?)_pre<prep>
+TRAIN_FILE=<lang>_training<huge?>_pre<prep>
 VALIDATION_FILE=<lang>_validation_pre<prep>
 TEST_FILE=<lang>_test_pre<prep>
 ```
@@ -178,3 +178,5 @@ where:
 `lang` is `c`, `java` or `python`
 
 `prep` is `_enc_bpe_10000`, `_enc_bpe_5000`, `_enc_bpe_10000` to train bpe models; `_sub` to train a subtoken (heuristic model); ` ` (no suffix) to train a full-token (closed vocab model).
+
+`huge?` is `_huge` if training on the large training set, ` ` (empty suffix) if training on the small training set.
