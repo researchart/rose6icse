@@ -1,0 +1,140 @@
+ Best input for simulation run # 1
+ Robustness: 1.894468, Runtime: 244.621492 seconds
+ Meal time announced: 40.000000, actual: 78.560093 
+ Meal duration announced: 30.000000, actual: 47.534298 
+ Meal carbohydrate announced: 200.000000, actual: 100.002552 
+ Meal GI announced: 40.000000, actual 69.934477 
+ Calibration Error: 0.246008 
+ Best input for simulation run # 2
+ Robustness: 1.887809, Runtime: 244.030857 seconds
+ Meal time announced: 40.000000, actual: 79.415397 
+ Meal duration announced: 30.000000, actual: 49.996979 
+ Meal carbohydrate announced: 200.000000, actual: 100.002470 
+ Meal GI announced: 40.000000, actual 69.999627 
+ Calibration Error: -0.043954 
+ Best input for simulation run # 3
+ Robustness: 1.948430, Runtime: 242.652578 seconds
+ Meal time announced: 40.000000, actual: 79.639713 
+ Meal duration announced: 30.000000, actual: 37.589386 
+ Meal carbohydrate announced: 200.000000, actual: 100.003003 
+ Meal GI announced: 40.000000, actual 69.999597 
+ Calibration Error: 0.265311 
+ Best input for simulation run # 4
+ Robustness: 1.705610, Runtime: 248.399502 seconds
+ Meal time announced: 40.000000, actual: 0.023909 
+ Meal duration announced: 30.000000, actual: 21.852066 
+ Meal carbohydrate announced: 200.000000, actual: 100.000575 
+ Meal GI announced: 40.000000, actual 20.000041 
+ Calibration Error: 0.125336 
+ Best input for simulation run # 5
+ Robustness: 1.778911, Runtime: 243.379314 seconds
+ Meal time announced: 40.000000, actual: 0.006309 
+ Meal duration announced: 30.000000, actual: 45.937571 
+ Meal carbohydrate announced: 200.000000, actual: 100.031809 
+ Meal GI announced: 40.000000, actual 20.003622 
+ Calibration Error: 0.297594 
+ Best input for simulation run # 6
+ Robustness: 1.739407, Runtime: 242.414943 seconds
+ Meal time announced: 40.000000, actual: 0.056924 
+ Meal duration announced: 30.000000, actual: 31.843776 
+ Meal carbohydrate announced: 200.000000, actual: 100.000075 
+ Meal GI announced: 40.000000, actual 20.000001 
+ Calibration Error: -0.287842 
+ Best input for simulation run # 7
+ Robustness: 1.896188, Runtime: 242.877353 seconds
+ Meal time announced: 40.000000, actual: 79.966633 
+ Meal duration announced: 30.000000, actual: 46.837940 
+ Meal carbohydrate announced: 200.000000, actual: 100.001344 
+ Meal GI announced: 40.000000, actual 69.997808 
+ Calibration Error: 0.152805 
+ Best input for simulation run # 8
+ Robustness: 1.887806, Runtime: 242.481992 seconds
+ Meal time announced: 40.000000, actual: 78.757662 
+ Meal duration announced: 30.000000, actual: 49.998831 
+ Meal carbohydrate announced: 200.000000, actual: 100.001698 
+ Meal GI announced: 40.000000, actual 69.999053 
+ Calibration Error: -0.176664 
+ Best input for simulation run # 9
+ Robustness: 1.763233, Runtime: 243.208278 seconds
+ Meal time announced: 40.000000, actual: 0.026618 
+ Meal duration announced: 30.000000, actual: 43.739205 
+ Meal carbohydrate announced: 200.000000, actual: 100.000514 
+ Meal GI announced: 40.000000, actual 20.000001 
+ Calibration Error: -0.244700 
+ Best input for simulation run # 10
+ Robustness: 1.949714, Runtime: 242.305064 seconds
+ Meal time announced: 40.000000, actual: 79.985810 
+ Meal duration announced: 30.000000, actual: 41.708048 
+ Meal carbohydrate announced: 200.000000, actual: 126.164511 
+ Meal GI announced: 40.000000, actual 69.998072 
+ Calibration Error: -0.299343 
+ Best input for simulation run # 11
+ Robustness: 1.906797, Runtime: 243.544101 seconds
+ Meal time announced: 40.000000, actual: 79.958410 
+ Meal duration announced: 30.000000, actual: 43.367908 
+ Meal carbohydrate announced: 200.000000, actual: 100.003389 
+ Meal GI announced: 40.000000, actual 69.997621 
+ Calibration Error: 0.087454 
+ Best input for simulation run # 12
+ Robustness: 1.957950, Runtime: 243.673696 seconds
+ Meal time announced: 40.000000, actual: 79.538835 
+ Meal duration announced: 30.000000, actual: 37.631086 
+ Meal carbohydrate announced: 200.000000, actual: 105.990633 
+ Meal GI announced: 40.000000, actual 69.975042 
+ Calibration Error: -0.167193 
+ Best input for simulation run # 13
+ Robustness: 1.951629, Runtime: 243.711406 seconds
+ Meal time announced: 40.000000, actual: 79.563523 
+ Meal duration announced: 30.000000, actual: 37.069768 
+ Meal carbohydrate announced: 200.000000, actual: 100.013388 
+ Meal GI announced: 40.000000, actual 69.881260 
+ Calibration Error: -0.233236 
+ Best input for simulation run # 14
+ Robustness: 1.713429, Runtime: 244.502565 seconds
+ Meal time announced: 40.000000, actual: 0.019707 
+ Meal duration announced: 30.000000, actual: 27.380436 
+ Meal carbohydrate announced: 200.000000, actual: 100.000000 
+ Meal GI announced: 40.000000, actual 20.000000 
+ Calibration Error: -0.073246 
+ Best input for simulation run # 15
+ Robustness: 1.698531, Runtime: 245.627192 seconds
+ Meal time announced: 40.000000, actual: 1.769755 
+ Meal duration announced: 30.000000, actual: 22.138650 
+ Meal carbohydrate announced: 200.000000, actual: 100.000091 
+ Meal GI announced: 40.000000, actual 20.000083 
+ Calibration Error: 0.145447 
+ Best input for simulation run # 16
+ Robustness: 1.887803, Runtime: 244.281864 seconds
+ Meal time announced: 40.000000, actual: 78.935370 
+ Meal duration announced: 30.000000, actual: 49.999391 
+ Meal carbohydrate announced: 200.000000, actual: 100.000749 
+ Meal GI announced: 40.000000, actual 69.999015 
+ Calibration Error: -0.245398 
+ Best input for simulation run # 17
+ Robustness: 1.840900, Runtime: 239.090163 seconds
+ Meal time announced: 40.000000, actual: 0.822469 
+ Meal duration announced: 30.000000, actual: 26.106999 
+ Meal carbohydrate announced: 200.000000, actual: 177.696425 
+ Meal GI announced: 40.000000, actual 20.000000 
+ Calibration Error: 0.020211 
+ Best input for simulation run # 18
+ Robustness: 1.888259, Runtime: 239.028191 seconds
+ Meal time announced: 40.000000, actual: 79.684576 
+ Meal duration announced: 30.000000, actual: 49.827694 
+ Meal carbohydrate announced: 200.000000, actual: 100.025920 
+ Meal GI announced: 40.000000, actual 69.999976 
+ Calibration Error: 0.136627 
+ Best input for simulation run # 19
+ Robustness: 1.698509, Runtime: 238.736128 seconds
+ Meal time announced: 40.000000, actual: 1.652728 
+ Meal duration announced: 30.000000, actual: 22.147257 
+ Meal carbohydrate announced: 200.000000, actual: 100.020914 
+ Meal GI announced: 40.000000, actual 20.000994 
+ Calibration Error: -0.093905 
+ Best input for simulation run # 20
+ Robustness: 1.716361, Runtime: 238.757381 seconds
+ Meal time announced: 40.000000, actual: 0.325662 
+ Meal duration announced: 30.000000, actual: 27.056122 
+ Meal carbohydrate announced: 200.000000, actual: 100.020307 
+ Meal GI announced: 40.000000, actual 20.000467 
+ Calibration Error: 0.124358 

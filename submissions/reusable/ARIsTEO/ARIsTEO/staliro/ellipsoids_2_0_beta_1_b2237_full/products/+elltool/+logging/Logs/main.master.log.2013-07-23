@@ -1,0 +1,23 @@
+2013-07-23 20:08:15,559 DEBUG gras.ellapx.smartdb.rels.EllTubeBasic.isEqualAdjustedInternal - Equal time knots count
+2013-07-23 20:08:24,323 DEBUG gras.ellapx.smartdb.rels.EllTubeBasic.isEqualAdjustedInternal - Equal time knots count
+2013-07-23 20:09:44,463  INFO gras.ellapx.lreachplain.GoodDirsContinuousGen.calcTransMatDynamics - calculating transition matrix spline at time 0, nodes = 2000, time elapsed = 1.1821 sec.
+2013-07-23 20:09:45,115 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0.577350269189626 0 -0.577350269189626 0.577350269189626]  defined at time 0.000000...
+2013-07-23 20:09:50,016 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0.577350269189626 0 -0.577350269189626 0.577350269189626]  defined at time 0.000000:done, 4.916 sec. elapsed
+2013-07-23 20:09:50,016 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0 -0.577350269189626 0.577350269189626 0.577350269189626]  defined at time 0.000000...
+2013-07-23 20:09:53,632 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0 -0.577350269189626 0.577350269189626 0.577350269189626]  defined at time 0.000000:done, 3.615 sec. elapsed
+2013-07-23 20:09:55,731  INFO gras.ellapx.gen.EllApxCollectionBuilder.getEllTubes - building approximation with types={ExternalQ}, schema={External}, #tubes=2, calc. precision=1.000000e-05: done, time elapsed =10.6533 sec.
+2013-07-23 20:09:57,494 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0.577350269189626 0 -0.577350269189626 0.577350269189626]  defined at time 0.000000...
+2013-07-23 20:09:59,962 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0.577350269189626 0 -0.577350269189626 0.577350269189626]  defined at time 0.000000:done, 2.468 sec. elapsed
+2013-07-23 20:09:59,963 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0 -0.577350269189626 0.577350269189626 0.577350269189626]  defined at time 0.000000...
+2013-07-23 20:10:01,623 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0 -0.577350269189626 0.577350269189626 0.577350269189626]  defined at time 0.000000:done, 1.660 sec. elapsed
+2013-07-23 20:10:03,506  INFO gras.ellapx.gen.EllApxCollectionBuilder.getEllTubes - building approximation with types={InternalSqrtQ}, schema={Internal}, #tubes=2, calc. precision=1.000000e-05: done, time elapsed =6.0169 sec.
+2013-07-23 20:13:09,718 DEBUG gras.ellapx.smartdb.rels.EllTubeBasic.isEqualAdjustedInternal - Equal time knots count
+2013-07-23 20:13:19,810 DEBUG gras.ellapx.smartdb.rels.EllTubeBasic.isEqualAdjustedInternal - Equal time knots count

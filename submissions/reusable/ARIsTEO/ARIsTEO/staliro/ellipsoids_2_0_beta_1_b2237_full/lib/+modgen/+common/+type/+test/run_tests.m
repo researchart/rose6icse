@@ -1,0 +1,19 @@
+% Copyright Claudio Menghi, University of Luxembourg, 2018-2019, claudio.menghi@uni.lu  
+function results=run_tests()
+import modgen.containers.*;
+import modgen.containers.test.*;
+%
+runner = mlunitext.text_test_runner(1, 1);
+loader = mlunitext.test_loader;
+suite = loader.load_tests_from_test_case(...
+    'modgen.common.type.test.mlunit.TestSuiteType');
+suiteCreateArray = loader.load_tests_from_test_case(...
+    'modgen.common.type.test.mlunit.CreateArraySuite');
+suiteSimpleType=loader.load_tests_from_test_case(...
+    'modgen.common.type.test.mlunit.TestSuiteSimpleType');
+suite = mlunitext.test_suite(horzcat(...
+    suite.tests,...
+    suiteCreateArray.tests,...
+    suiteSimpleType.tests));
+%
+results=runner.run(suite);

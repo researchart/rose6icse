@@ -1,0 +1,242 @@
+Best input for simulation run # 
+     1
+
+Meal time announced: 
+    40
+
+Meal time actual:
+   75.8864
+
+Meal carbohydrate announced:
+  231.7649
+
+Meal carbohydrate actual:
+  229.1679
+
+Meal GI announced: 
+    7.4870
+
+Meal GI actual: 
+   13.2245
+
+Calibration Error: 
+    0.0183
+
+Correct bolus administered at time
+  173.3413
+
+Best input for simulation run # 
+     2
+
+Meal time announced: 
+    40
+
+Meal time actual:
+   43.9996
+
+Meal carbohydrate announced:
+  178.3212
+
+Meal carbohydrate actual:
+  369.5304
+
+Meal GI announced: 
+   18.6361
+
+Meal GI actual: 
+   23.3856
+
+Calibration Error: 
+    0.1491
+
+Correct bolus administered at time
+  192.7700
+
+Best input for simulation run # 
+     3
+
+Meal time announced: 
+    40
+
+Meal time actual:
+   48.1550
+
+Meal carbohydrate announced:
+  230.7692
+
+Meal carbohydrate actual:
+  286.1534
+
+Meal GI announced: 
+   17.8979
+
+Meal GI actual: 
+   27.9664
+
+Calibration Error: 
+    0.2122
+
+Correct bolus administered at time
+  193.1415
+
+Best input for simulation run # 
+     4
+
+Meal time announced: 
+    40
+
+Meal time actual:
+   36.5910
+
+Meal carbohydrate announced:
+  249.9929
+
+Meal carbohydrate actual:
+   50.0124
+
+Meal GI announced: 
+   17.2498
+
+Meal GI actual: 
+    6.0449
+
+Calibration Error: 
+    0.2482
+
+Correct bolus administered at time
+  175.4550
+
+Best input for simulation run # 
+     5
+
+Meal time announced: 
+    40
+
+Meal time actual:
+   10.4536
+
+Meal carbohydrate announced:
+  248.6869
+
+Meal carbohydrate actual:
+  313.6867
+
+Meal GI announced: 
+   23.9355
+
+Meal GI actual: 
+   26.9564
+
+Calibration Error: 
+    0.0079
+
+Correct bolus administered at time
+  153.8629
+
+Best input for simulation run # 
+     6
+
+Meal time announced: 
+    40
+
+Meal time actual:
+    9.8465
+
+Meal carbohydrate announced:
+  180.8383
+
+Meal carbohydrate actual:
+  282.2150
+
+Meal GI announced: 
+   36.0523
+
+Meal GI actual: 
+   35.8979
+
+Calibration Error: 
+    0.2027
+
+Correct bolus administered at time
+  173.2492
+
+Best input for simulation run # 
+     7
+
+Meal time announced: 
+    40
+
+Meal time actual:
+    0.6944
+
+Meal carbohydrate announced:
+  235.2994
+
+Meal carbohydrate actual:
+  318.5981
+
+Meal GI announced: 
+   12.2521
+
+Meal GI actual: 
+   10.8733
+
+Calibration Error: 
+    0.2451
+
+Correct bolus administered at time
+  152.5588
+
+Best input for simulation run # 
+     8
+
+Meal time announced: 
+    40
+
+Meal time actual:
+   14.6417
+
+Meal carbohydrate announced:
+  165.6629
+
+Meal carbohydrate actual:
+  325.4604
+
+Meal GI announced: 
+   15.8789
+
+Meal GI actual: 
+   33.7792
+
+Calibration Error: 
+    0.1010
+
+Correct bolus administered at time
+  153.4864
+
+Best input for simulation run # 
+     9
+
+Meal time announced: 
+    40
+
+Meal time actual:
+   42.2199
+
+Meal carbohydrate announced:
+  179.1930
+
+Meal carbohydrate actual:
+  176.4479
+
+Meal GI announced: 
+   36.9483
+
+Meal GI actual: 
+   28.1300
+
+Calibration Error: 
+    0.2614
+
+Correct bolus administered at time
+  172.9590

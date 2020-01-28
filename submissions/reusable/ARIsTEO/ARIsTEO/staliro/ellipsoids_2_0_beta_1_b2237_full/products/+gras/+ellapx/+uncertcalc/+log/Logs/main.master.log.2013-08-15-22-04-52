@@ -1,0 +1,315 @@
+2013-08-15 22:04:52,659  INFO gras.ellapx.uncertcalc.log.Log4jConfigurator - Log4j is successfully configured
+2013-08-15 22:04:52,833  INFO gras.ellapx.uncertcalc.run - Loaded configuration for systemDefinition:    |    
+   |--- conf
+   |       |    
+   |       |--- initial_set
+   |       |       |    
+   |       |       |-- a : [0 0 0 0 0 0 0 0]
+   |       |       |       -----------------
+   |       |       |-- Q : |1|0|0|0|0|0|0|0|
+   |       |       |       |0|1|0|0|0|0|0|0|
+   |       |       |       |0|0|1|0|0|0|0|0|
+   |       |       |       |0|0|0|1|0|0|0|0|
+   |       |       |       |0|0|0|0|1|0|0|0|
+   |       |       |       |0|0|0|0|0|1|0|0|
+   |       |       |       |0|0|0|0|0|0|1|0|
+   |       |       |       |0|0|0|0|0|0|0|1|
+   |       |       |       -----------------
+   |       |       O
+   |       |    
+   |       |--- control_restriction
+   |       |       |    
+   |       |       |       ---------------------------------
+   |       |       |-- Q : |0.6|0  |0  |0  |0  |0  |0  |0  |
+   |       |       |       |0  |0.6|0  |0  |0  |0  |0  |0  |
+   |       |       |       |0  |0  |0.6|0  |0  |0  |0  |0  |
+   |       |       |       |0  |0  |0  |0.6|0  |0  |0  |0  |
+   |       |       |       |0  |0  |0  |0  |0.3|0  |0  |0  |
+   |       |       |       |0  |0  |0  |0  |0  |0.3|0  |0  |
+   |       |       |       |0  |0  |0  |0  |0  |0  |0.3|0  |
+   |       |       |       |0  |0  |0  |0  |0  |0  |0  |0.3|
+   |       |       |       ---------------------------------
+   |       |       |       --------------
+   |       |       |-- a : |2*sin(2*t)  |
+   |       |       |       |0.2*cos(3*t)|
+   |       |       |       |0           |
+   |       |       |       |0           |
+   |       |       |       |2*cos(2*t)  |
+   |       |       |       |0.2*sin(3*t)|
+   |       |       |       |0           |
+   |       |       |       |0           |
+   |       |       |       --------------
+   |       |       O
+   |       |    
+   |       |--- time_interval
+   |       |       |    
+   |       |       |-- t0 : 0
+   |       |       |-- t1 : 6
+   |       |       O
+   |       |    
+   |       |--- disturbance_restriction
+   |       |       |    
+   |       |       |       -----------------
+   |       |       |-- Q : |1|0|0|0|0|0|0|0|
+   |       |       |       |0|1|0|0|0|0|0|0|
+   |       |       |       |0|0|1|0|0|0|0|0|
+   |       |       |       |0|0|0|1|0|0|0|0|
+   |       |       |       |0|0|0|0|1|0|0|0|
+   |       |       |       |0|0|0|0|0|1|0|0|
+   |       |       |       |0|0|0|0|0|0|1|0|
+   |       |       |       |0|0|0|0|0|0|0|1|
+   |       |       |       -----------------
+   |       |       |       ---
+   |       |       |-- a : |0|
+   |       |       |       |0|
+   |       |       |       |0|
+   |       |       |       |0|
+   |       |       |       |0|
+   |       |       |       |0|
+   |       |       |       |0|
+   |       |       |       |0|
+   |       |       |       ---
+   |       |       O
+   |       |    
+   |       |-------------- description : ' '
+   |       |---------------------- dim : 8
+   |       |                             -------------------------
+   |       |----------------------- At : |0 |1 |0 |0 |0 |0 |0 |0 |
+   |       |                             |-1|0 |0 |0 |0 |0 |0 |0 |
+   |       |                             |0 |0 |0 |1 |0 |0 |0 |0 |
+   |       |                             |-1|0 |-9|0 |0 |0 |0 |0 |
+   |       |                             |0 |0 |0 |0 |0 |1 |0 |0 |
+   |       |                             |0 |0 |-1|0 |-3|0 |0 |0 |
+   |       |                             |0 |0 |0 |0 |0 |0 |0 |1 |
+   |       |                             |0 |0 |0 |0 |-1|0 |-2|0 |
+   |       |                             -------------------------
+   |       |                             -----------------
+   |       |----------------------- Bt : |1|0|0|0|0|0|0|0|
+   |       |                             |0|1|0|0|0|0|0|0|
+   |       |                             |0|0|1|0|0|0|0|0|
+   |       |                             |0|0|0|1|0|0|0|0|
+   |       |                             |0|0|0|0|1|0|0|0|
+   |       |                             |0|0|0|0|0|1|0|0|
+   |       |                             |0|0|0|0|0|0|1|0|
+   |       |                             |0|0|0|0|0|0|0|1|
+   |       |                             -----------------
+   |       |                             -----------------
+   |       |----------------------- Ct : |0|0|0|0|0|0|0|0|
+   |       |                             |0|0|0|0|0|0|0|0|
+   |       |                             |0|0|0|0|0|0|0|0|
+   |       |                             |0|0|0|0|0|0|0|0|
+   |       |                             |0|0|0|0|0|0|0|0|
+   |       |                             |0|0|0|0|0|0|0|0|
+   |       |                             |0|0|0|0|0|0|0|0|
+   |       |                             |0|0|0|0|0|0|0|0|
+   |       |                             -----------------
+   |       O
+   |    
+   |--- version
+   |       |    
+   |       |-- version : '2'
+   |       O
+   |    
+
+2013-08-15 22:04:52,934  INFO gras.ellapx.uncertcalc.run - Loaded configuration for genericProperties:    |    
+   |--- conf
+   |       |    
+   |       |--- genericProps
+   |       |       |    
+   |       |       |-- isSplineForMatrixCalcUsed : True
+   |       |       |-------------- calcPrecision : 0.0001
+   |       |       |------------- calcTimeLimVec : [0 6]
+   |       |       O
+   |       |    
+   |       |--- projectionProps
+   |       |       |    
+   |       |       |--- projSpaceSets
+   |       |       |       |    
+   |       |       |       |-- set1 : [1x2 Cell]
+   |       |       |       O
+   |       |       |    
+   |       |       |------ projSpaceSetName : 'set1'
+   |       |       |-- isDynamicProjEnabled : True
+   |       |       |--- isStaticProjEnabled : True
+   |       |       O
+   |       |    
+   |       |--- goodDirSelection
+   |       |       |    
+   |       |       |--- methodProps
+   |       |       |       |    
+   |       |       |       |--- manual
+   |       |       |       |       |    
+   |       |       |       |       |--- lsGoodDirSets
+   |       |       |       |       |       |    
+   |       |       |       |       |       |-- set1 : [1x3 Cell]
+   |       |       |       |       |       O
+   |       |       |       |       |    
+   |       |       |       |       |-- lsGoodDirSetName : 'set1'
+   |       |       |       |       O
+   |       |       |       |    
+   |       |       |       |--- auto
+   |       |       |       |       |    
+   |       |       |       |       |-- goodDirSpaceVec : [1x8 Logic array]
+   |       |       |       |       |-------- nGoodDirs : 1
+   |       |       |       |       O
+   |       |       |       |    
+   |       |       |       O
+   |       |       |    
+   |       |       |----- methodName : 'manual'
+   |       |       |-- selectionTime : 5.031
+   |       |       O
+   |       |    
+   |       |--- customResultDir
+   |       |       |    
+   |       |       |---- dirName : 'C:\Users\pgagarinov.ALLIEDTESTING\Documents\_EllTbx\TTD\88a31778075dabbe1408588507ae04aebcff1b6b'
+   |       |       |-- isEnabled : True
+   |       |       O
+   |       |    
+   |       |--- logging
+   |       |       |    
+   |       |       |-- log4jSettings : '
+                log4j.rootLogger=INFO, stdout, A1
+                #
+                log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+                log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+                #
+                log4j.appender.stdout.layout.ConversionPattern=%5p %c - %m\n
+                #
+                log4j.appender.A1=org.apache.log4j.DailyRollingFileAppender
+                #
+                #do not change - name of the main log file should have a 
+                #fixed pattern so that email logger can pick it up
+                log4j.appender.A1.File=${gras.ellapx.uncertcalc.log4j.logfile.dirwithsep}${gras.ellapx.uncertcalc.log4j.logfile.main.name}
+                #
+                log4j.appender.A1.layout=org.apache.log4j.PatternLayout
+                log4j.appender.A1.layout.ConversionPattern=%d %5p %c - %m%n
+                #
+                log4j.appender.A2=org.apache.log4j.DailyRollingFileAppender
+                #
+                log4j.appender.A2.File=${gras.ellapx.uncertcalc.log4j.logfile.dirwithsep}dbcomm.${gras.ellapx.uncertcalc.log4j.curProcessName}.${gras.ellapx.uncertcalc.log4j.logfile.ext}
+                #
+                log4j.appender.A2.layout=org.apache.log4j.PatternLayout
+                log4j.appender.A2.layout.ConversionPattern=%d %5p %c - %m%n
+                #
+                log4j.additivity.pqparamexec=false
+                #
+                log4j.logger.pqparamexec=INFO,A2
+            '
+   |       |       O
+   |       |    
+   |       |--- plottingProps
+   |       |       |    
+   |       |       |--------------- isEnabled : False
+   |       |       |-- isGoodCurvesSeparately : True
+   |       |       |------------ viewAngleVec : [-37.5 30]
+   |       |       O
+   |       |    
+   |       |--- ellipsoidalApxProps
+   |       |       |    
+   |       |       |--- internalApx
+   |       |       |       |    
+   |       |       |       |--- schemas
+   |       |       |       |       |    
+   |       |       |       |       |--- noUncertSqrtQ
+   |       |       |       |       |       |    
+   |       |       |       |       |       |--- props
+   |       |       |       |       |       |       |    
+   |       |       |       |       |       |       |-- selectionMethodForSMatrix : 'volume'
+   |       |       |       |       |       |       O
+   |       |       |       |       |       |    
+   |       |       |       |       |       |-- isEnabled : True
+   |       |       |       |       |       O
+   |       |       |       |       |    
+   |       |       |       |       |--- noUncertJustQ
+   |       |       |       |       |       |    
+   |       |       |       |       |       |--- props
+   |       |       |       |       |       |       |    
+   |       |       |       |       |       |       |-- selectionMethodForSMatrix : 'volume'
+   |       |       |       |       |       |       O
+   |       |       |       |       |       |    
+   |       |       |       |       |       |-- isEnabled : True
+   |       |       |       |       |       O
+   |       |       |       |       |    
+   |       |       |       |       O
+   |       |       |       |    
+   |       |       |       |-------- isEnabled : False
+   |       |       |       |-- dispScaleFactor : 0.98
+   |       |       |       O
+   |       |       |    
+   |       |       |--- externalApx
+   |       |       |       |    
+   |       |       |       |--- schemas
+   |       |       |       |       |    
+   |       |       |       |       |--- justQ
+   |       |       |       |       |       |    
+   |       |       |       |       |       |-- isEnabled : False
+   |       |       |       |       |       O
+   |       |       |       |       |    
+   |       |       |       |       O
+   |       |       |       |    
+   |       |       |       |-------- isEnabled : False
+   |       |       |       |-- dispScaleFactor : 1.02
+   |       |       |       O
+   |       |       |    
+   |       |       |--- extIntApx
+   |       |       |       |    
+   |       |       |       |--- schemas
+   |       |       |       |       |    
+   |       |       |       |       |--- uncert
+   |       |       |       |       |       |    
+   |       |       |       |       |       |--- props
+   |       |       |       |       |       |       |    
+   |       |       |       |       |       |       |-- selectionMethodForSMatrix : 'volume'
+   |       |       |       |       |       |       |------------- minQSqrtMatEig : 0.1
+   |       |       |       |       |       |       O
+   |       |       |       |       |       |    
+   |       |       |       |       |       |-- isEnabled : False
+   |       |       |       |       |       O
+   |       |       |       |       |    
+   |       |       |       |       O
+   |       |       |       |    
+   |       |       |       |-- isEnabled : False
+   |       |       |       O
+   |       |       |    
+   |       |       O
+   |       |    
+   |       |--- regularizationProps
+   |       |       |    
+   |       |       |---- isEnabled : False
+   |       |       |-- isJustCheck : False
+   |       |       |------- regTol : 1e-05
+   |       |       O
+   |       |    
+   |       |-- systemDefinitionConfName : 'basic'
+   |       O
+   |    
+   |--- version
+   |       |    
+   |       |-- version : '19'
+   |       O
+   |    
+
+2013-08-15 22:04:55,184  INFO gras.ellapx.uncertcalc.ApproxProblemPropertyBuilder.build - building interpolation of the problem definition, calc. precision=1.000000e-05, time elapsed =1.8031 sec.
+2013-08-15 22:04:56,904  INFO gras.ellapx.lreachplain.GoodDirsContinuousGen.calcTransMatDynamics - calculating transition matrix spline at time 5.031000e+00, nodes = 2001, time elapsed = 1.5693 sec.
+2013-08-15 22:04:57,505  INFO gras.ellapx.uncertcalc.ApproxProblemPropertyBuilder.build - Building good directions at time 5.031000e+00, calc. precision=1.000000e-05, time elapsed =2.3186 sec.
+2013-08-15 22:05:00,478  INFO mlunitext.logprintf - ======================================================================
+2013-08-15 22:05:00,481  INFO mlunitext.logprintf - ERROR: gras.ellapx.uncertcalc.test.regr.mlunit.SuiteSupportFunction[empty]('testSupportCompare')
+2013-08-15 22:05:00,481  INFO mlunitext.logprintf - ----------------------------------------------------------------------
+2013-08-15 22:05:00,482  INFO mlunitext.logprintf - Traceback (most recent call first): 
+<a href="error:C:\Users\pgagarinov.ALLIEDTESTING\Documents\_EllTbx\EllTbx\products\+gras\+ellapx\+proj\AEllTubePlainProjector.m,36,">in C:\Users\pgagarinov.ALLIEDTESTING\Documents\_EllTbx\EllTbx\products\+gras\+ellapx\+proj\AEllTubePlainProjector.m at line 36</a>
+<a href="error:C:\Users\pgagarinov.ALLIEDTESTING\Documents\_EllTbx\EllTbx\products\+gras\+ellapx\+uncertcalc\run.m,82,">in C:\Users\pgagarinov.ALLIEDTESTING\Documents\_EllTbx\EllTbx\products\+gras\+ellapx\+uncertcalc\run.m at line 82</a>
+<a href="error:C:\Users\pgagarinov.ALLIEDTESTING\Documents\_EllTbx\EllTbx\products\+gras\+ellapx\+uncertcalc\+test\+regr\+mlunit\SuiteSupportFunction.m,93,">in C:\Users\pgagarinov.ALLIEDTESTING\Documents\_EllTbx\EllTbx\products\+gras\+ellapx\+uncertcalc\+test\+regr\+mlunit\SuiteSupportFunction.m at line 93</a>
+<a href="error:C:\Users\pgagarinov.ALLIEDTESTING\Documents\_EllTbx\EllTbx\lib\mlunitext\+mlunitext\test_case.m,268,">in C:\Users\pgagarinov.ALLIEDTESTING\Documents\_EllTbx\EllTbx\lib\mlunitext\+mlunitext\test_case.m at line 268</a>
+<a href="error:C:\Users\pgagarinov.ALLIEDTESTING\Documents\_EllTbx\EllTbx\lib\mlunitext\+mlunitext\test_suite.m,447,">in C:\Users\pgagarinov.ALLIEDTESTING\Documents\_EllTbx\EllTbx\lib\mlunitext\+mlunitext\test_suite.m at line 447</a>
+<a href="error:C:\Users\pgagarinov.ALLIEDTESTING\Documents\_EllTbx\EllTbx\lib\+modgen\+pcalc\auxdfeval.m,223,">in C:\Users\pgagarinov.ALLIEDTESTING\Documents\_EllTbx\EllTbx\lib\+modgen\+pcalc\auxdfeval.m at line 223</a>
+<a href="error:C:\Users\pgagarinov.ALLIEDTESTING\Documents\_EllTbx\EllTbx\lib\mlunitext\+mlunitext\+pcalc\auxdfeval.m,12,">in C:\Users\pgagarinov.ALLIEDTESTING\Documents\_EllTbx\EllTbx\lib\mlunitext\+mlunitext\+pcalc\auxdfeval.m at line 12</a>
+<a href="error:C:\Users\pgagarinov.ALLIEDTESTING\Documents\_EllTbx\EllTbx\lib\mlunitext\+mlunitext\test_suite.m,415,">in C:\Users\pgagarinov.ALLIEDTESTING\Documents\_EllTbx\EllTbx\lib\mlunitext\+mlunitext\test_suite.m at line 415</a>
+<a href="error:C:\Users\pgagarinov.ALLIEDTESTING\Documents\_EllTbx\EllTbx\lib\mlunitext\+mlunitext\text_test_runner.m,76,">in C:\Users\pgagarinov.ALLIEDTESTING\Documents\_EllTbx\EllTbx\lib\mlunitext\+mlunitext\text_test_runner.m at line 76</a>
+<a href="error:C:\Users\pgagarinov.ALLIEDTESTING\Documents\_EllTbx\EllTbx\products\+gras\+ellapx\+uncertcalc\+test\+regr\run_support_function_tests.m,83,">in C:\Users\pgagarinov.ALLIEDTESTING\Documents\_EllTbx\EllTbx\products\+gras\+ellapx\+uncertcalc\+test\+regr\run_support_function_tests.m at line 83</a>
+
+Error: Output argument "indProj2OrigVec" (and maybe others) not assigned during call to "C:\Users\pgagarinov.ALLIEDTESTING\Documents\_EllTbx\EllTbx\products\+gras\+ellapx\+smartdb\+rels\EllUnionTube.m>EllUnionTube.project"., Identifier: MATLAB:unassignedOutputs
+2013-08-15 22:05:00,484  INFO mlunitext.logprintf - ----------------------------------------------------------------------
+2013-08-15 22:05:00,492  INFO mlunitext.logprintf - Test case(s):
+	gras.ellapx.uncertcalc.test.regr.mlunit.SuiteSupportFunction/testSupportCompare,
+ ran 1 test(s) in 8.999s(0.150m)
+2013-08-15 22:05:00,502  INFO mlunitext.logprintf - FAILED (errors=1, failures=0)

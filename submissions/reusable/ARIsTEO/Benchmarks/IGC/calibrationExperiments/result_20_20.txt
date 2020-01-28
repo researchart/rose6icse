@@ -1,0 +1,11 @@
+Duration: 20
+GI: 20
+Running time of run 1: 1355.5589 sec
+Robustness 
+    0.7114
+
+Input
+    icRatio:  0.1111  
+    iStartMid: 33.5991   
+    bWidthMid: 15.0182   
+    sensFactor:  40.5132

@@ -1,0 +1,1 @@
+This folder contains ARIsTEO and the software we had developed for this project

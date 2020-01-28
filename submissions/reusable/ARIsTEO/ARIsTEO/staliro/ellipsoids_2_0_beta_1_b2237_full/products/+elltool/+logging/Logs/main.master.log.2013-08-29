@@ -1,0 +1,121 @@
+2013-08-29 18:53:28,813  INFO gras.ellapx.lreachplain.GoodDirsContinuousLTI.calcTransMatDynamics - calculating transition matrix exponent at time 0, nodes = 2000, time elapsed = 0.56645 sec.
+2013-08-29 18:53:31,498 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [1 0]  defined at time 0.000000...
+2013-08-29 18:53:32,916 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [1 0]  defined at time 0.000000:done, 1.442 sec. elapsed
+2013-08-29 18:53:32,917 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0 1]  defined at time 0.000000...
+2013-08-29 18:53:34,162 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0 1]  defined at time 0.000000:done, 1.245 sec. elapsed
+2013-08-29 18:53:38,542  INFO gras.ellapx.gen.EllApxCollectionBuilder.getEllTubes - building approximation with types={ExternalQ}, schema={External}, #tubes=2, calc. precision=1.000000e-05: done, time elapsed =7.0945 sec.
+2013-08-29 18:53:38,735 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [1 0]  defined at time 0.000000...
+2013-08-29 18:53:40,561 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [1 0]  defined at time 0.000000:done, 1.827 sec. elapsed
+2013-08-29 18:53:40,562 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0 1]  defined at time 0.000000...
+2013-08-29 18:53:42,321 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0 1]  defined at time 0.000000:done, 1.759 sec. elapsed
+2013-08-29 18:53:44,134  INFO gras.ellapx.gen.EllApxCollectionBuilder.getEllTubes - building approximation with types={InternalSqrtQ}, schema={Internal}, #tubes=2, calc. precision=1.000000e-05: done, time elapsed =5.4066 sec.
+2013-08-29 19:05:10,000  INFO gras.ellapx.lreachplain.GoodDirsContinuousGen.calcTransMatDynamics - calculating transition matrix spline at time 0, nodes = 2000, time elapsed = 3.4875 sec.
+2013-08-29 19:05:10,609 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0.707106781186547 0 0.707106781186547 0]  defined at time 0.000000...
+2013-08-29 19:05:22,613 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0.707106781186547 0 0.707106781186547 0]  defined at time 0.000000:done, 12.012 sec. elapsed
+2013-08-29 19:05:22,613 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0.707106781186547 -0.707106781186547 0 0]  defined at time 0.000000...
+2013-08-29 19:05:31,067 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0.707106781186547 -0.707106781186547 0 0]  defined at time 0.000000:done, 8.453 sec. elapsed
+2013-08-29 19:05:31,067 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0 -0.707106781186547 0 0.707106781186547]  defined at time 0.000000...
+2013-08-29 19:05:44,262 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0 -0.707106781186547 0 0.707106781186547]  defined at time 0.000000:done, 13.194 sec. elapsed
+2013-08-29 19:05:44,262 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0.5 0.5 -0.5 0.5]  defined at time 0.000000...
+2013-08-29 19:05:57,022 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0.5 0.5 -0.5 0.5]  defined at time 0.000000:done, 12.759 sec. elapsed
+2013-08-29 19:05:57,023 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [-0.577350269189626 0.577350269189626 0.577350269189626 0]  defined at time 0.000000...
+2013-08-29 19:06:09,545 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [-0.577350269189626 0.577350269189626 0.577350269189626 0]  defined at time 0.000000:done, 12.522 sec. elapsed
+2013-08-29 19:06:09,545 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [-0.816496580927726 0 0.408248290463863 0.408248290463863]  defined at time 0.000000...
+2013-08-29 19:06:21,848 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [-0.816496580927726 0 0.408248290463863 0.408248290463863]  defined at time 0.000000:done, 12.302 sec. elapsed
+2013-08-29 19:06:25,292  INFO gras.ellapx.gen.EllApxCollectionBuilder.getEllTubes - building approximation with types={ExternalQ}, schema={External}, #tubes=6, calc. precision=1.000000e-05: done, time elapsed =74.6911 sec.
+2013-08-29 19:06:27,020 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0.707106781186547 0 0.707106781186547 0]  defined at time 0.000000...
+2013-08-29 19:06:28,933 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0.707106781186547 0 0.707106781186547 0]  defined at time 0.000000:done, 1.913 sec. elapsed
+2013-08-29 19:06:28,934 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0.707106781186547 -0.707106781186547 0 0]  defined at time 0.000000...
+2013-08-29 19:06:30,767 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0.707106781186547 -0.707106781186547 0 0]  defined at time 0.000000:done, 1.834 sec. elapsed
+2013-08-29 19:06:30,768 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0 -0.707106781186547 0 0.707106781186547]  defined at time 0.000000...
+2013-08-29 19:06:32,597 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0 -0.707106781186547 0 0.707106781186547]  defined at time 0.000000:done, 1.829 sec. elapsed
+2013-08-29 19:06:32,597 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0.5 0.5 -0.5 0.5]  defined at time 0.000000...
+2013-08-29 19:06:34,449 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0.5 0.5 -0.5 0.5]  defined at time 0.000000:done, 1.852 sec. elapsed
+2013-08-29 19:06:34,450 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [-0.577350269189626 0.577350269189626 0.577350269189626 0]  defined at time 0.000000...
+2013-08-29 19:06:36,266 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [-0.577350269189626 0.577350269189626 0.577350269189626 0]  defined at time 0.000000:done, 1.815 sec. elapsed
+2013-08-29 19:06:36,267 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [-0.816496580927726 0 0.408248290463863 0.408248290463863]  defined at time 0.000000...
+2013-08-29 19:06:38,129 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [-0.816496580927726 0 0.408248290463863 0.408248290463863]  defined at time 0.000000:done, 1.862 sec. elapsed
+2013-08-29 19:06:40,745  INFO gras.ellapx.gen.EllApxCollectionBuilder.getEllTubes - building approximation with types={InternalSqrtQ}, schema={Internal}, #tubes=6, calc. precision=1.000000e-05: done, time elapsed =13.7273 sec.
+2013-08-29 19:08:04,735  INFO gras.ellapx.lreachplain.GoodDirsContinuousGen.calcTransMatDynamics - calculating transition matrix spline at time 0, nodes = 2000, time elapsed = 3.5383 sec.
+2013-08-29 19:08:06,265 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0.707106781186547 0 0.707106781186547 0]  defined at time 0.000000...
+2013-08-29 19:08:18,758 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0.707106781186547 0 0.707106781186547 0]  defined at time 0.000000:done, 12.517 sec. elapsed
+2013-08-29 19:08:18,759 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0.707106781186547 -0.707106781186547 0 0]  defined at time 0.000000...
+2013-08-29 19:08:26,689 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0.707106781186547 -0.707106781186547 0 0]  defined at time 0.000000:done, 7.930 sec. elapsed
+2013-08-29 19:08:26,690 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0 -0.707106781186547 0 0.707106781186547]  defined at time 0.000000...
+2013-08-29 19:08:39,400 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0 -0.707106781186547 0 0.707106781186547]  defined at time 0.000000:done, 12.709 sec. elapsed
+2013-08-29 19:08:39,400 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0.5 0.5 -0.5 0.5]  defined at time 0.000000...
+2013-08-29 19:08:52,268 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0.5 0.5 -0.5 0.5]  defined at time 0.000000:done, 12.868 sec. elapsed
+2013-08-29 19:08:52,269 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [-0.577350269189626 0.577350269189626 0.577350269189626 0]  defined at time 0.000000...
+2013-08-29 19:09:03,897 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [-0.577350269189626 0.577350269189626 0.577350269189626 0]  defined at time 0.000000:done, 11.628 sec. elapsed
+2013-08-29 19:09:03,898 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [-0.816496580927726 0 0.408248290463863 0.408248290463863]  defined at time 0.000000...
+2013-08-29 19:09:15,675 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [-0.816496580927726 0 0.408248290463863 0.408248290463863]  defined at time 0.000000:done, 11.777 sec. elapsed
+2013-08-29 19:09:19,672  INFO gras.ellapx.gen.EllApxCollectionBuilder.getEllTubes - building approximation with types={ExternalQ}, schema={External}, #tubes=6, calc. precision=1.000000e-05: done, time elapsed =73.4538 sec.
+2013-08-29 19:09:21,395 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0.707106781186547 0 0.707106781186547 0]  defined at time 0.000000...
+2013-08-29 19:09:23,262 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0.707106781186547 0 0.707106781186547 0]  defined at time 0.000000:done, 1.868 sec. elapsed
+2013-08-29 19:09:23,262 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0.707106781186547 -0.707106781186547 0 0]  defined at time 0.000000...
+2013-08-29 19:09:25,147 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0.707106781186547 -0.707106781186547 0 0]  defined at time 0.000000:done, 1.884 sec. elapsed
+2013-08-29 19:09:25,147 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0 -0.707106781186547 0 0.707106781186547]  defined at time 0.000000...
+2013-08-29 19:09:26,966 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0 -0.707106781186547 0 0.707106781186547]  defined at time 0.000000:done, 1.818 sec. elapsed
+2013-08-29 19:09:26,966 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0.5 0.5 -0.5 0.5]  defined at time 0.000000...
+2013-08-29 19:09:28,805 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [0.5 0.5 -0.5 0.5]  defined at time 0.000000:done, 1.839 sec. elapsed
+2013-08-29 19:09:28,806 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [-0.577350269189626 0.577350269189626 0.577350269189626 0]  defined at time 0.000000...
+2013-08-29 19:09:30,631 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [-0.577350269189626 0.577350269189626 0.577350269189626 0]  defined at time 0.000000:done, 1.825 sec. elapsed
+2013-08-29 19:09:30,631 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [-0.816496580927726 0 0.408248290463863 0.408248290463863]  defined at time 0.000000...
+2013-08-29 19:09:32,397 DEBUG gras.ellapx.lreachplain.ATightEllApxBuilder.build - solving ode for direction 
+ [-0.816496580927726 0 0.408248290463863 0.408248290463863]  defined at time 0.000000:done, 1.766 sec. elapsed
+2013-08-29 19:09:34,915  INFO gras.ellapx.gen.EllApxCollectionBuilder.getEllTubes - building approximation with types={InternalSqrtQ}, schema={Internal}, #tubes=6, calc. precision=1.000000e-05: done, time elapsed =13.527 sec.

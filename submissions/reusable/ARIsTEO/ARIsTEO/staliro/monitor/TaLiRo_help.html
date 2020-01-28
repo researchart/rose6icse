@@ -1,0 +1,315 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>TaLiRo Monitor</title><meta name="generator" content="MATLAB 8.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-11-03"><meta name="DC.source" content="TaLiRo_help.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>TaLiRo Monitor</h1><!--introduction--><p>Computing the robustness estimate of timed state sequences of invariants expressed in Metric Temporal Logic. That is a monitor evaluates a given formula Phi at every point in time. The recommended use of monitoring block is checking invariants of reactive response requirements.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Compatibility</a></li><li><a href="#2">IMPORTANT NOTICE:</a></li><li><a href="#3">INPUTS</a></li><li><a href="#4">S-Function Parameters</a></li><li><a href="#5">PARAMETERS ( Define in Matlab Workspace )</a></li><li><a href="#6">OUTPUT</a></li><li><a href="#7">Model-Predictive Monitor</a></li></ul></div><h2>Compatibility<a name="1"></a></h2><p>Monitoring toolbox is compatible with Matlab version R2012a or later</p><h2>IMPORTANT NOTICE:<a name="2"></a></h2><p>Add a "Rate Transition" block before the input. Set the "Output port sample time options" parameter of "Rate Transition" to "Specify". Set the "Output port sample time" parameter of "Rate Transition" as the sample time of the TaLiRo_Monitor.</p><h2>INPUTS<a name="3"></a></h2><pre>The TaLiRo monitor has a single input port for the input signal. If the
+multi-dimensional input is required, then use a "Vector Concatenate" or
+a "Bus Creator" or a "Mux" block from the Simulink library.</pre><h2>S-Function Parameters<a name="4"></a></h2><pre>S-Function Parameters must be in the following order:
+SignalDimension, Phi, Preds
+1) SignalDimension is the size of the input signal to the monitoring
+   block, without prediction.</pre><pre>2) Phi is the name of the MTL formula in the Matlab Workspace.
+  Multiple monitors can evaluate Simulink signals with respect to
+  different formulas.</pre><pre>3) Preds is the name of the predicate map in the Matlab Workspace.
+  For multiple formulas and monitors, the same predicate map is required.</pre><h2>PARAMETERS ( Define in Matlab Workspace )<a name="5"></a></h2><pre>'Phi' and 'Preds' are default name of parameters that should be set
+ in Matlab workspace before simulation:
+ Formula  - Metric Temporal Logic formula
+            Any name can be used instead of "Formula" like "spec","phi"
+            as long as it is the name of a string in Matlab workspace.</pre><pre>  Syntax:
+    Phi := p | (phi) | !phi | phi \/ phi | phi /\ phi |
+               phi -&gt; phi | phi &lt;-&gt; phi |
+               X phi | phi U_[a,b] phi | phi R_[a,b] phi |
+               &lt;&gt;_[a,b] phi | []_[a,b] phi
+               P phi | phi S_[a,b} phi | phi T_[a,b} phi |
+               &lt;.&gt;_[a,b} phi | [.]_[a,b} phi
+      where:
+          p     is a predicate. Its first character must be a lowercase
+                letter and it may contain numeric digits.
+                Examples:
+                       pred1, isGateOpen2</pre><pre>          !     is not</pre><pre>          \/    is 'or'</pre><pre>          /\    is 'and'</pre><pre>          -&gt;    is 'implies'</pre><pre>          &lt;-&gt;   if 'if and only if'</pre><pre>          [a,b} where a and b are non-negative integer values and
+                } is ) when b is inf, and } is ] when b is an integer.
+                Values of a,b are lower/upper bounds not on simulation
+                time, but on the number of samples. The actual sample
+                time constraints can be derived from the sampling value
+                of the "Rate Transition" block.</pre><pre>          X     is the 'next' operator. It is equivalent to &lt;&gt;_[1,1].</pre><pre>          U_[a,b] is the 'until' operator with time bounds [a,b].</pre><pre>          R_[a,b] is the 'release' operator with time bounds [a,b].</pre><pre>          &lt;&gt;_[a,b] is the 'eventually' operator with time bounds [a,b].</pre><pre>          []_[a,b] is the 'always' operator with time bounds [a,b].</pre><pre>          P    is the 'previous' operator. It is equivalent to &lt;.&gt;_[1,1].</pre><pre>          S_[a,b} is the 'since' operator with time bounds [a,b}.
+                If no time bounds are required, then use S.</pre><pre>          T_[a,b} is the 'trigger' operator (past time version of
+                'release') with time bounds [a,b}. If no time bounds are
+                required, then use T.</pre><pre>          &lt;.&gt;_[a,b} is the 'eventually in past' operator with time bounds [a,b}.
+                If no timing constraints are required, then simply use &lt;.&gt;.</pre><pre>          [.]_[a,b} is the 'always in past' operator with time bounds [a,b}.
+                If no timing constraints are required, then simply use [.].</pre><pre>        Examples:
+           * Bounded Response:
+             Always between 3 to 5 samples in the past 'p1' implies
+                    eventually 'p2' within 1 sample.
+                 phi_1 = '[.]_[3,5](p1 -&gt; &lt;&gt;_[0,1] p2)';</pre><pre>           * Until:
+             'p1' is true until 'p2' becomes true after 4 and before 7
+             samples
+                 phi_2 = 'p1 U_[4,7] p2';
+           * Eventually:
+             'p1' eventually will become true between 1 and 6
+             samples
+                 phi_3 = '&lt;&gt;_[1,6] p1';
+           * Release:
+            'p2' must always be true between 2 and 9 samples
+             unless 'p1' becomes true before that
+                 phi_4 = 'p1 R_[2,9] p2';
+ Preds - The mapping of the predicates to their respective states.
+          Any name can be used instead of "Preds" like "predicate",
+          "predmap" as long as it is the name of the predicate map in
+          Matlab workspace.</pre><pre>        Preds(i).str : the predicate name as a string
+        Preds(i).A, Preds(i).b : a constraint of the form Ax&lt;=b
+            Setting A and b to [] implies no constraints. That is, the set
+            is R^n.</pre><pre>        Examples:
+           * 'p1' indicates that x&gt;=-2:
+              Preds(1).str = 'p1';
+              Preds(1).A = -1.0;
+              Preds(1).b = 2.0;</pre><pre>           * 'p2' indicates that x&lt;=2:
+              Preds(2).str = 'p2';
+              Preds(2).A = 1.0;
+              Preds(2).b = 2.0;</pre><h2>OUTPUT<a name="6"></a></h2><pre>The robustness estimate at each simulation step for the invariant formula.</pre><h2>Model-Predictive Monitor<a name="7"></a></h2><pre>Besides monitoring with the current samples, the on-line monitor can
+consider the future horizon (prediction).
+The prediction horizon is the number of future samples that is predicted
+for example by a predicting model. The prediction horizon must be less
+than or equal to the Phi's horizon:
+For computation of Phi's horizon refer RV 2014 paper:
+Adel Dokhanchi, Bardh Hoxha, and Georgios Fainekos,
+On-Line Monitoring for Temporal Logic Robustness,
+Runtime Verification, Toronto, Canada, September 2014</pre><pre>RV 2014 paper is available in the following Link:
+https://doi.org/10.1007/978-3-319-11164-3_19
+The proof of the RV 2014 is available in the following Link:
+http://arxiv.org/abs/1408.0045</pre><pre>The input signal size must be the multiplication of the SignalDimention
+parameter specified in the monitor block.
+The prediction horizon is computed as follows:</pre><pre>Prediction Horizon = ( Input Signal Size / SignalDimension ) - 1</pre><pre>For more information about Model-Predictive Monitor, email:
+fainekos@asu.edu</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2015a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% TaLiRo Monitor
+% Computing the robustness estimate of timed state sequences of invariants 
+% expressed in Metric Temporal Logic. That is a monitor evaluates a given
+% formula Phi at every point in time. The recommended use of monitoring
+% block is checking invariants of reactive response requirements.
+%
+%% Compatibility
+% Monitoring toolbox is compatible with Matlab version R2012a or later 
+%
+%% IMPORTANT NOTICE:
+% Add a "Rate Transition" block before the input. Set the "Output port
+% sample time options" parameter of "Rate Transition" to "Specify". Set the
+% "Output port sample time" parameter of "Rate Transition" as the sample
+% time of the TaLiRo_Monitor.
+%
+%% INPUTS
+%  The TaLiRo monitor has a single input port for the input signal. If the
+%  multi-dimensional input is required, then use a "Vector Concatenate" or
+%  a "Bus Creator" or a "Mux" block from the Simulink library.
+%  
+%% S-Function Parameters 
+%  S-Function Parameters must be in the following order:
+%  SignalDimension, Phi, Preds
+%  1) SignalDimension is the size of the input signal to the monitoring     
+%     block, without prediction.
+%
+%  2) Phi is the name of the MTL formula in the Matlab Workspace.
+%    Multiple monitors can evaluate Simulink signals with respect to
+%    different formulas.
+%
+%  3) Preds is the name of the predicate map in the Matlab Workspace.
+%    For multiple formulas and monitors, the same predicate map is required.
+%
+%% PARAMETERS ( Define in Matlab Workspace )
+%
+%
+%  'Phi' and 'Preds' are default name of parameters that should be set 
+%   in Matlab workspace before simulation:
+%   Formula  - Metric Temporal Logic formula
+%              Any name can be used instead of "Formula" like "spec","phi"
+%              as long as it is the name of a string in Matlab workspace.
+%
+%    Syntax: 
+%      Phi := p | (phi) | !phi | phi \/ phi | phi /\ phi |
+%                 phi -> phi | phi <-> phi | 
+%                 X phi | phi U_[a,b] phi | phi R_[a,b] phi | 
+%                 <>_[a,b] phi | []_[a,b] phi
+%                 P phi | phi S_[a,b} phi | phi T_[a,b} phi | 
+%                 <.>_[a,b} phi | [.]_[a,b} phi
+%        where:  
+%            p     is a predicate. Its first character must be a lowercase 
+%                  letter and it may contain numeric digits.
+%                  Examples: 
+%                         pred1, isGateOpen2  
+%
+%            !     is not 
+%
+%            \/    is 'or'
+%
+%            /\    is 'and'
+%
+%            ->    is 'implies'
+%
+%            <->   if 'if and only if'
+%
+%            [a,b} where a and b are non-negative integer values and
+%                  } is ) when b is inf, and } is ] when b is an integer. 
+%                  Values of a,b are lower/upper bounds not on simulation  
+%                  time, but on the number of samples. The actual sample  
+%                  time constraints can be derived from the sampling value  
+%                  of the "Rate Transition" block.
+%
+%            X     is the 'next' operator. It is equivalent to <>_[1,1].
+%
+%            U_[a,b] is the 'until' operator with time bounds [a,b]. 
+%
+%            R_[a,b] is the 'release' operator with time bounds [a,b].
+%
+%            <>_[a,b] is the 'eventually' operator with time bounds [a,b].
+%
+%            []_[a,b] is the 'always' operator with time bounds [a,b].   
+%
+%            P    is the 'previous' operator. It is equivalent to <.>_[1,1].
+%
+%            S_[a,b} is the 'since' operator with time bounds [a,b}. 
+%                  If no time bounds are required, then use S.
+%
+%            T_[a,b} is the 'trigger' operator (past time version of 
+%                  'release') with time bounds [a,b}. If no time bounds are
+%                  required, then use T.
+%
+%            <.>_[a,b} is the 'eventually in past' operator with time bounds [a,b}.
+%                  If no timing constraints are required, then simply use <.>.
+%
+%            [.]_[a,b} is the 'always in past' operator with time bounds [a,b}.  
+%                  If no timing constraints are required, then simply use [.].
+%
+%          Examples:
+%             * Bounded Response:
+%               Always between 3 to 5 samples in the past 'p1' implies 
+%                      eventually 'p2' within 1 sample.
+%                   phi_1 = '[.]_[3,5](p1 -> <>_[0,1] p2)';
+%               
+%             * Until:
+%               'p1' is true until 'p2' becomes true after 4 and before 7  
+%               samples
+%                   phi_2 = 'p1 U_[4,7] p2';
+%             * Eventually:
+%               'p1' eventually will become true between 1 and 6 
+%               samples 
+%                   phi_3 = '<>_[1,6] p1';
+%             * Release:
+%              'p2' must always be true between 2 and 9 samples 
+%               unless 'p1' becomes true before that
+%                   phi_4 = 'p1 R_[2,9] p2';
+%   Preds - The mapping of the predicates to their respective states.
+%            Any name can be used instead of "Preds" like "predicate",
+%            "predmap" as long as it is the name of the predicate map in 
+%            Matlab workspace.
+%
+%          Preds(i).str : the predicate name as a string 
+%          Preds(i).A, Preds(i).b : a constraint of the form Ax<=b
+%              Setting A and b to [] implies no constraints. That is, the set
+%              is R^n.
+%
+%          Examples:
+%             * 'p1' indicates that x>=-2:
+%                Preds(1).str = 'p1';
+%                Preds(1).A = -1.0;
+%                Preds(1).b = 2.0;
+%             
+%             * 'p2' indicates that x<=2:
+%                Preds(2).str = 'p2';
+%                Preds(2).A = 1.0;
+%                Preds(2).b = 2.0;
+%
+%
+%% OUTPUT
+%
+%
+%  The robustness estimate at each simulation step for the invariant formula.
+%
+%% Model-Predictive Monitor
+%  Besides monitoring with the current samples, the on-line monitor can
+%  consider the future horizon (prediction).
+%  The prediction horizon is the number of future samples that is predicted
+%  for example by a predicting model. The prediction horizon must be less 
+%  than or equal to the Phi's horizon: 
+%  For computation of Phi's horizon refer RV 2014 paper:
+%  Adel Dokhanchi, Bardh Hoxha, and Georgios Fainekos, 
+%  On-Line Monitoring for Temporal Logic Robustness, 
+%  Runtime Verification, Toronto, Canada, September 2014 
+% 
+%  RV 2014 paper is available in the following Link:
+%  https://doi.org/10.1007/978-3-319-11164-3_19
+%  The proof of the RV 2014 is available in the following Link: 
+%  http://arxiv.org/abs/1408.0045
+%
+%  The input signal size must be the multiplication of the SignalDimention
+%  parameter specified in the monitor block.
+%  The prediction horizon is computed as follows: 
+%
+%  Prediction Horizon = ( Input Signal Size / SignalDimension ) - 1
+%
+%  For more information about Model-Predictive Monitor, email: 
+%  fainekos@asu.edu 
+
+##### SOURCE END #####
+--></body></html>

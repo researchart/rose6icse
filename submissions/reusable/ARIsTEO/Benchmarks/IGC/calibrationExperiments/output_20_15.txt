@@ -1,0 +1,114 @@
+meal GI: 20.000000 meal Duration: 15.000000
+Run number 1
+Robustness Value: 2.168136 
+Run time: 931.914056 
+Parameters: 
+	 icRatio: 0.063145 
+	 Insulin Sensitivity Factor for correction bolus: 23.806790 
+	 Insulin Start Time ( GI  (10,20] ) : 28.087320 
+	 Bolus Width (GI (10,20] ): 6.493730 
+Run number 2
+Robustness Value: 2.249178 
+Run time: 964.728791 
+Parameters: 
+	 icRatio: 0.108454 
+	 Insulin Sensitivity Factor for correction bolus: 21.459579 
+	 Insulin Start Time ( GI  (10,20] ) : 39.317779 
+	 Bolus Width (GI (10,20] ): 29.562207 
+Run number 3
+Robustness Value: 2.162353 
+Run time: 987.037200 
+Parameters: 
+	 icRatio: 0.129029 
+	 Insulin Sensitivity Factor for correction bolus: 15.349698 
+	 Insulin Start Time ( GI  (10,20] ) : 37.868839 
+	 Bolus Width (GI (10,20] ): 14.915063 
+Run number 4
+Robustness Value: 1.956259 
+Run time: 940.103153 
+Parameters: 
+	 icRatio: 0.077084 
+	 Insulin Sensitivity Factor for correction bolus: 28.031354 
+	 Insulin Start Time ( GI  (10,20] ) : 39.686427 
+	 Bolus Width (GI (10,20] ): 9.513116 
+meal GI: 20.000000 meal Duration: 15.000000
+Run number 1
+Robustness Value: 7.087146 
+Run time: 247.605770 
+Parameters: 
+	 icRatio: 0.035280 
+	 Insulin Sensitivity Factor for correction bolus: 30.260893 
+	 Insulin Start Time ( GI  (10,20] ) : 39.013387 
+	 Bolus Width (GI (10,20] ): 30.674800 
+Run number 2
+Robustness Value: 7.343088 
+Run time: 247.008610 
+Parameters: 
+	 icRatio: 0.037919 
+	 Insulin Sensitivity Factor for correction bolus: 18.472053 
+	 Insulin Start Time ( GI  (10,20] ) : 39.449556 
+	 Bolus Width (GI (10,20] ): 33.675269 
+Run number 3
+Robustness Value: 7.075426 
+Run time: 247.398885 
+Parameters: 
+	 icRatio: 0.102374 
+	 Insulin Sensitivity Factor for correction bolus: 16.572935 
+	 Insulin Start Time ( GI  (10,20] ) : 33.844184 
+	 Bolus Width (GI (10,20] ): 7.166628 
+Run number 4
+Robustness Value: 6.547007 
+Run time: 246.853348 
+Parameters: 
+	 icRatio: 0.043306 
+	 Insulin Sensitivity Factor for correction bolus: 46.501981 
+	 Insulin Start Time ( GI  (10,20] ) : 37.011999 
+	 Bolus Width (GI (10,20] ): 12.510757 
+Run number 5
+Robustness Value: 6.907111 
+Run time: 246.970060 
+Parameters: 
+	 icRatio: 0.034007 
+	 Insulin Sensitivity Factor for correction bolus: 47.786029 
+	 Insulin Start Time ( GI  (10,20] ) : 30.219761 
+	 Bolus Width (GI (10,20] ): 7.826428 
+Run number 1
+Robustness Value: 6.400526 
+Run time: 491.389538 
+Parameters: 
+	 icRatio: 0.037103 
+	 Insulin Sensitivity Factor for correction bolus: 40.314463 
+	 Insulin Start Time ( GI  (10,20] ) : 39.039725 
+	 Bolus Width (GI (10,20] ): 9.328448 
+Run number 2
+Robustness Value: 6.293151 
+Run time: 492.009107 
+Parameters: 
+	 icRatio: 0.035185 
+	 Insulin Sensitivity Factor for correction bolus: 41.259086 
+	 Insulin Start Time ( GI  (10,20] ) : 38.334625 
+	 Bolus Width (GI (10,20] ): 6.719059 
+Run number 3
+Robustness Value: 6.314952 
+Run time: 491.914207 
+Parameters: 
+	 icRatio: 0.045944 
+	 Insulin Sensitivity Factor for correction bolus: 44.472264 
+	 Insulin Start Time ( GI  (10,20] ) : 39.028114 
+	 Bolus Width (GI (10,20] ): 5.404537 
+Run number 4
+Robustness Value: 6.422361 
+Run time: 490.882990 
+Parameters: 
+	 icRatio: 0.030013 
+	 Insulin Sensitivity Factor for correction bolus: 46.356747 
+	 Insulin Start Time ( GI  (10,20] ) : 38.903318 
+	 Bolus Width (GI (10,20] ): 12.125619 
+Run number 5
+Robustness Value: 6.443009 
+Run time: 492.733784 
+Parameters: 
+	 icRatio: 0.032196 
+	 Insulin Sensitivity Factor for correction bolus: 43.796739 
+	 Insulin Start Time ( GI  (10,20] ) : 39.241866 
+	 Bolus Width (GI (10,20] ): 13.081626 

@@ -1,0 +1,23 @@
+% Copyright Claudio Menghi, University of Luxembourg, 2018-2019, claudio.menghi@uni.lu  
+function y=horzcat(varargin)
+%
+% avoids concatenation into matrices
+%
+
+% check for empty arguments
+e = cellfun(@(x)builtin('isempty',x),varargin,'UniformOutput',false);
+
+% delete empty entries
+varargin(cell2mat(e))=[];
+
+% check if the sets are the same
+s = cellfun(@class,varargin,'UniformOutput',false);
+if length(unique(s))~=1
+   error('Only the same objects can be concatenated.');
+end
+
+for i=1:length(varargin)
+    varargin{i} = transpose(varargin{i}(:));
+end
+
+y = builtin('horzcat',varargin{:});

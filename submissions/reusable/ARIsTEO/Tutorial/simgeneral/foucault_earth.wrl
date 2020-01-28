@@ -1,0 +1,218 @@
+#VRML V2.0 utf8
+
+# VRML model of the Earth and Foucault Pendulum 
+# Texture images used are from the NASA Visible Earth catalog:
+# http://visibleearth.nasa.gov                               
+
+WorldInfo {
+ title "The Earth with Foucault Pendulum Location Marker"
+ info [
+  "Copyright 1998-2008 HUMUSOFT s.r.o. and The MathWorks, Inc.",
+  "",
+  "",
+  "" 
+ ]
+}
+
+NavigationInfo {
+ type "EXAMINE"
+ headlight TRUE
+}
+
+Background {
+ frontUrl "texture/foucault_backg2.png"
+ backUrl "texture/foucault_backg2.png"
+ leftUrl "texture/foucault_backg1.png"
+ rightUrl "texture/foucault_backg1.png"
+ topUrl "texture/foucault_backg1.png"
+ bottomUrl "texture/foucault_backg2.png"
+}
+
+DirectionalLight {
+ direction 1 -2 1
+ intensity 0.8
+}
+
+DirectionalLight {
+ direction -1 -2 -1
+ intensity 0.8
+}
+
+DEF View_Long_0 Transform {
+ translation 0 0 12
+ children Viewpoint {
+  description "View at 0E 0N"
+ }
+}
+
+DEF Camera_NorthPole Transform {
+ translation 0 12 0
+ rotation -1 0 0  1.5708
+ children Viewpoint {
+  fieldOfView 0.785398
+  jump TRUE
+  description "View at the North Pole"
+ }
+}
+
+DEF Earth Transform {
+ translation 0 0 0
+ rotation 0 1 0 0
+ children [ 
+  DEF E_scale Transform {
+   scale 6.371 6.371 6.371
+   children [
+    Inline {
+     url ["foucault_earth_36.wrl"] 
+    }
+   ]
+  }
+
+  DEF Pendulum_Marker_Switch Switch {
+   whichChoice 0
+   choice [
+    DEF Marker_Rot_Long Transform {
+     # positive Longitude to the East
+     # Default: Paris Longitude 2.20E
+     rotation 0 1 0 0.0407
+     children [
+      DEF Marker_Rot_Lat Transform {
+       # positive Latitude to the North, thus -1 next to x
+       # Default: Paris Latitude 48.50N
+       rotation -1 0 0 0.8523
+       children [
+        DEF Pendulum_Marker Transform {
+         # rotated to 0E 0N
+         translation 0 0 6.371 
+         rotation 1 0 0 1.5707963268
+         children [
+          Transform {
+           translation 0 1.5 0
+           children [
+            Shape {
+             appearance Appearance {
+              material Material {
+               diffuseColor 0.8 0 0
+               emissiveColor 0.8 0 0 
+               transparency 0
+              }
+             }
+             geometry Cylinder {
+              height 1
+              radius 0.2
+             }
+            }
+           ]
+          },
+          Transform {
+           rotation 1 0 0 3.1415926
+           translation 0 0.5 0
+           children [
+            Shape {
+             appearance Appearance {
+              material Material {
+               diffuseColor 0.8 0 0
+               emissiveColor 0.8 0 0 
+               transparency 0
+              }
+             }
+             geometry Cone {
+              height 1
+              bottomRadius 0.5
+             }
+            }
+           ]
+          },
+
+          DEF Camera_Marker Transform {
+           translation 0 0.5 1
+           rotation 1 0 0  -0.4
+           children Viewpoint {
+            fieldOfView 0.785398
+            jump TRUE
+            position 0 0 0
+            description "View at the Pendulum Location"
+           }
+          }
+
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+
+ ]
+}
+
+DEF Pendulum_Shadow_Switch Switch {
+ whichChoice 0
+ choice [
+  DEF Shadow_Rot_Long Transform {
+   # positive Longitude to the East
+   # Default: Paris Longitude 2.20E
+   rotation 0 1 0 0.0407
+   children [
+    DEF Shadow_Rot_Lat Transform {
+     # positive Latitude to the North, thus -1 next to x
+     # Default: Paris Latitude 48.50N
+     rotation -1 0 0 0.8523
+     children [
+      DEF Pendulum_Shadow Transform {
+       # rotated to 0E 0N
+       translation 0 0 6.371 
+       rotation 1 0 0 1.5707963268
+       children [
+        Transform {
+         translation 0 1.5 0
+         children [
+          Shape {
+           appearance Appearance {
+            material Material {
+             diffuseColor 0 0 0.8
+             emissiveColor 0 0 0.8 
+             transparency 0.5
+            }
+           }
+           geometry Cylinder {
+            height 1
+            radius 0.2
+           }
+          }
+         ]
+        },
+        Transform {
+         rotation 1 0 0 3.1415926
+         translation 0 0.5 0
+         children [
+          Shape {
+           appearance Appearance {
+            material Material {
+             diffuseColor 0 0 0.8
+             emissiveColor 0 0 0.8 
+             transparency 0.5
+            }
+           }
+           geometry Cone {
+            height 1
+            bottomRadius 0.5
+           }
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
+
+# Routing of Marker location to it's shadow.
+# The Marker is inside the Earth hierarchy, while the Shadow is independent.
+# The Marker moves with the Earth, while the Shadow stays at the original position.
+ROUTE Marker_Rot_Lat.rotation TO Shadow_Rot_Lat.rotation
+ROUTE Marker_Rot_Long.rotation TO Shadow_Rot_Long.rotation

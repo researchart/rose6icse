@@ -1,0 +1,9 @@
+mpt:3.2.1:all
+mptdoc:3.0.4:all
+cddmex:1.0.1:maci64
+fourier:1.0:maci64
+glpkmex:1.0:maci64
+hysdel:2.0.6:maci64
+lcp:1.0.3:maci64
+sedumi:1.3:maci64
+yalmip:R20181012:all

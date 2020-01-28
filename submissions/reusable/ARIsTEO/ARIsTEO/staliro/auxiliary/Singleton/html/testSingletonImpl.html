@@ -1,0 +1,319 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Test Script for Class SingletonImpl</title>
+      <meta name="generator" content="MATLAB 7.8">
+      <meta name="date" content="2009-08-03">
+      <meta name="m-file" content="testSingletonImpl"><style type="text/css">
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Test Script for Class SingletonImpl</h1>
+         <!--introduction-->
+         <p>Step through and execute this script cell-by-cell to verify the Singleton Desgin Pattern implementation in MATLAB.</p>
+         <p>Written by Bobby Nedelkovski<br>The MathWorks Australia Pty Ltd<br>Copyright 2009, The MathWorks, Inc.</p>
+         <!--/introduction-->
+         <h2>Contents</h2>
+         <div>
+            <ul>
+               <li><a href="#1">Clean Up</a></li>
+               <li><a href="#2">Try Create Instance with Constructor</a></li>
+               <li><a href="#3">Create Instance 'a' Using instance() Method</a></li>
+               <li><a href="#4">Check Protected Property</a></li>
+               <li><a href="#5">Query Protected Property</a></li>
+               <li><a href="#6">Modify Protected Property</a></li>
+               <li><a href="#7">Query Protected Property</a></li>
+               <li><a href="#8">Use Custom Method</a></li>
+               <li><a href="#9">Check Custom Method</a></li>
+               <li><a href="#10">Modify Custom Attribute Using 'a'</a></li>
+               <li><a href="#11">Create Another Reference 'b' to the Same Singleton</a></li>
+               <li><a href="#12">Modify Custom Attribute Using 'b'</a></li>
+               <li><a href="#13">Clear Variable 'a' From Workspace</a></li>
+               <li><a href="#14">Create Another Reference 'c' to the Same Singleton</a></li>
+               <li><a href="#15">Modify Custom Attribute Using 'c'</a></li>
+               <li><a href="#16">Clear Variables</a></li>
+               <li><a href="#17">Create Another Reference 'd' to the Same Singleton</a></li>
+               <li><a href="#18">Destroy Singleton in Memory</a></li>
+               <li><a href="#19">Create New Instance 'e'</a></li>
+            </ul>
+         </div>
+         <h2>Clean Up<a name="1"></a></h2><pre class="codeinput">clear <span class="string">classes</span>
+clc
+</pre><pre class="codeoutput">Warning: Objects of 'onCleanup' class exist.  Cannot clear this class or any of its super-classes. 
+</pre><h2>Try Create Instance with Constructor<a name="2"></a></h2>
+         <p>This yields an error as expected since we are guarding the constructor from user access.</p><pre class="codeinput"><span class="comment">%a = SingletonImpl();</span>
+</pre><h2>Create Instance 'a' Using instance() Method<a name="3"></a></h2><pre class="codeinput">a = SingletonImpl.instance()
+</pre><pre class="codeoutput">a = 
+  SingletonImpl handle
+
+  Properties:
+    myData: []
+</pre><h2>Check Protected Property<a name="4"></a></h2>
+         <p>This yields an error as singletonData is private to the abstract class Singleton.</p><pre class="codeinput"><span class="comment">%a.singletonData</span>
+</pre><h2>Query Protected Property<a name="5"></a></h2><pre class="codeinput">data = a.getSingletonData()
+</pre><pre class="codeoutput">data =
+     []
+</pre><h2>Modify Protected Property<a name="6"></a></h2><pre class="codeinput">a.setSingletonData(0);
+</pre><h2>Query Protected Property<a name="7"></a></h2>
+         <p>Verify that singletonData has changed -&gt; singletonData = 0.</p><pre class="codeinput">data = a.getSingletonData()
+</pre><pre class="codeoutput">data =
+     0
+</pre><h2>Use Custom Method<a name="8"></a></h2>
+         <p>This method internally modifies singletonData.</p><pre class="codeinput">a.myOperation(9);
+</pre><h2>Check Custom Method<a name="9"></a></h2>
+         <p>Check that singletonData has changed -&gt; singletonData = 9.</p><pre class="codeinput">data = a.getSingletonData()
+</pre><pre class="codeoutput">data =
+     9
+</pre><h2>Modify Custom Attribute Using 'a'<a name="10"></a></h2><pre class="codeinput">a.myData = 1
+</pre><pre class="codeoutput">a = 
+  SingletonImpl handle
+
+  Properties:
+    myData: 1
+</pre><h2>Create Another Reference 'b' to the Same Singleton<a name="11"></a></h2>
+         <p>Notice that 'a' and 'b' refer to the same object in memory -&gt; singletonData = 1 for both.</p><pre class="codeinput">b = SingletonImpl.instance()
+</pre><pre class="codeoutput">b = 
+  SingletonImpl handle
+
+  Properties:
+    myData: 1
+</pre><h2>Modify Custom Attribute Using 'b'<a name="12"></a></h2>
+         <p>Both 'a' and 'b' reflect the change in value.</p><pre class="codeinput">b.myData = 3;
+a
+b
+</pre><pre class="codeoutput">a = 
+  SingletonImpl handle
+
+  Properties:
+    myData: 3
+b = 
+  SingletonImpl handle
+
+  Properties:
+    myData: 3
+</pre><h2>Clear Variable 'a' From Workspace<a name="13"></a></h2><pre class="codeinput">clear <span class="string">a</span>
+b
+</pre><pre class="codeoutput">b = 
+  SingletonImpl handle
+
+  Properties:
+    myData: 3
+</pre><h2>Create Another Reference 'c' to the Same Singleton<a name="14"></a></h2>
+         <p>Notice that 'b' and 'c' refer to the same object in memory -&gt; myData = 3 for both</p><pre class="codeinput">c = SingletonImpl.instance()
+</pre><pre class="codeoutput">c = 
+  SingletonImpl handle
+
+  Properties:
+    myData: 3
+</pre><h2>Modify Custom Attribute Using 'c'<a name="15"></a></h2>
+         <p>Both 'b' and 'c' reflect the change in value.</p><pre class="codeinput">c.myData = 5;
+b
+c
+</pre><pre class="codeoutput">b = 
+  SingletonImpl handle
+
+  Properties:
+    myData: 5
+c = 
+  SingletonImpl handle
+
+  Properties:
+    myData: 5
+</pre><h2>Clear Variables<a name="16"></a></h2>
+         <p>No variables</p><pre class="codeinput">clear <span class="string">b</span> <span class="string">c</span> <span class="string">data</span>
+</pre><h2>Create Another Reference 'd' to the Same Singleton<a name="17"></a></h2>
+         <p>Notice that 'd' refers to the same object in memory as did 'a', 'b' and 'c' earlier -&gt; myData = 5</p><pre class="codeinput">d = SingletonImpl.instance()
+</pre><pre class="codeoutput">d = 
+  SingletonImpl handle
+
+  Properties:
+    myData: 5
+</pre><h2>Destroy Singleton in Memory<a name="18"></a></h2><pre class="codeinput">clear <span class="string">all</span>
+</pre><h2>Create New Instance 'e'<a name="19"></a></h2>
+         <p>The myData property is empty.</p><pre class="codeinput">e = SingletonImpl.instance()
+</pre><pre class="codeoutput">e = 
+  SingletonImpl handle
+
+  Properties:
+    myData: []
+</pre><p class="footer"><br>
+            Published with MATLAB&reg; 7.8<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Test Script for Class SingletonImpl
+% Step through and execute this script cell-by-cell to verify the Singleton
+% Desgin Pattern implementation in MATLAB. 
+%
+% Written by Bobby Nedelkovski
+% The MathWorks Australia Pty Ltd
+% Copyright 2009
+
+
+%% Clean Up
+clear classes
+clc
+
+
+%% Try Create Instance with Constructor
+% This yields an error as expected since we are guarding the constructor
+% from user access.
+
+%a = SingletonImpl();
+
+
+%% Create Instance 'a' Using instance() Method
+a = SingletonImpl.instance()
+
+
+%% Check Protected Property
+% This yields an error as singletonData is private to the abstract class
+% Singleton.
+
+%a.singletonData
+
+
+%% Query Protected Property
+data = a.getSingletonData()
+
+
+%% Modify Protected Property
+a.setSingletonData(0);
+
+
+%% Query Protected Property
+% Verify that singletonData has changed -> singletonData = 0.
+data = a.getSingletonData()
+
+
+%% Use Custom Method
+% This method internally modifies singletonData. 
+a.myOperation(9);
+
+
+%% Check Custom Method
+% Check that singletonData has changed -> singletonData = 9.
+data = a.getSingletonData()
+
+
+%% Modify Custom Attribute Using 'a'
+a.myData = 1
+
+
+%% Create Another Reference 'b' to the Same Singleton
+% Notice that 'a' and 'b' refer to the same object in memory ->
+% singletonData = 1 for both.
+b = SingletonImpl.instance()
+
+
+%% Modify Custom Attribute Using 'b'
+% Both 'a' and 'b' reflect the change in value.
+b.myData = 3;
+a
+b
+
+%% Clear Variable 'a' From Workspace
+clear a
+b
+
+
+%% Create Another Reference 'c' to the Same Singleton
+% Notice that 'b' and 'c' refer to the same object in memory ->
+% myData = 3 for both
+c = SingletonImpl.instance()
+
+
+%% Modify Custom Attribute Using 'c'
+% Both 'b' and 'c' reflect the change in value.
+c.myData = 5;
+b
+c
+
+
+%% Clear Variables
+% No variables 
+clear b c data
+
+
+%% Create Another Reference 'd' to the Same Singleton
+% Notice that 'd' refers to the same object in memory as did 'a', 'b' and
+% 'c' earlier -> myData = 5 
+d = SingletonImpl.instance()
+
+
+%% Destroy Singleton in Memory
+clear all
+
+
+%% Create New Instance 'e'
+% The myData property is empty.
+e = SingletonImpl.instance()
+
+
+##### SOURCE END #####
+-->
+   </body>
+</html>

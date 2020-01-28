@@ -1,0 +1,7 @@
+ Best input for simulation run # 1
+ Robustness: 0.331941, Runtime: 246.661862 seconds
+ Meal time announced: 40.000000, actual: 0.395475 
+ Meal duration announced: 30.000000, actual: 42.639786 
+ Meal carbohydrate announced: 200.000000, actual: 217.196153 
+ Meal GI announced: 40.000000, actual 20.010716 
+ Calibration Error: -0.137985 
