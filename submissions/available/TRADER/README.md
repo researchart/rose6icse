@@ -88,4 +88,11 @@ To reproduce the results presented in Table 5, please use the following command 
 
 Running the above command will give the prediction result of the corresponding model.
 
+##### Output sample
+
+```
+Testing ../models/AppReviews_rnn_64_glove_original.ckpt
+Test accuracy: 67.65
+```
+
 Other tables are not directly related to the artifact.
