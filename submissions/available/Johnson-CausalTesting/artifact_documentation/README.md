@@ -20,8 +20,8 @@ All the above listed artifacts, with the exception of the virtual machine file, 
 ## Setting up the virtual machine
 *Copied from INSTALL.md*
 
-1. Download [VirtualBox](https://www.virtualbox.org).
-2. Download virtual machine file [CausalTesting_Artifact.ova](https://drive.google.com/open?id=1hyzHYCQEkOzYiLGldkBVxNvQt0Phb-th).
+1. Download <a href="https://www.virtualbox.org" target="_blank">VirtualBox</a>.
+2. Download virtual machine file <a href="https://drive.google.com/open?id=1hyzHYCQEkOzYiLGldkBVxNvQt0Phb-th" target="_blank">CausalTesting_Artifact.ova</a>.
 <br> **Please note this is a large file (5BG) and may take some time to download.**
 3. Open VirtualBox.
 4. Go to **File > Import Appliance...**
@@ -50,7 +50,7 @@ If you leave the virtual machine and return to a black screen or screen saver, p
 
 ## Loading and navigating Eclipse
 
-Once the virtual machine loads, Eclipse will open. In Eclipse, there will be 8 projects loaded on the left side in the Project Explorer. Seven of the projects are from the [Defects4J](https://github.com/rjust/defects4j) defect benchmark; these projects are labeled *Defect_0_Training*, *Defect_1*, *Defect_2*, *Defect_3*, *Defect_4*, *Defect_5*, and *Defect_6*. The eighth project is *Holmes*. 
+Once the virtual machine loads, Eclipse will open. In Eclipse, there will be 8 projects loaded on the left side in the Project Explorer. Seven of the projects are from the <a href="https://github.com/rjust/defects4j" target="_blank">Defects4J</a> defect benchmark; these projects are labeled *Defect_0_Training*, *Defect_1*, *Defect_2*, *Defect_3*, *Defect_4*, *Defect_5*, and *Defect_6*. The eighth project is *Holmes*. 
 
 <img src="images/eclipse.png" alt="Eclipse"/>
 
