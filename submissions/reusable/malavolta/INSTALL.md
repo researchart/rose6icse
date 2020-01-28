@@ -44,6 +44,8 @@ The replication package contains also other two comma-separated files, which are
 
 Moreover, additional CSV and PDF files related to the dataset and the extracted guidelines are reported in the [dataset](.dataset) and [data_analysis](.data_analysis) folders, they are not meant for direct use by third-party researchers and are reported for transparency from a methodological perspective. 
 
+---
+
 ### Full replication of the study  
 
 The steps for collecting the data on which the study is based are reported below. 
