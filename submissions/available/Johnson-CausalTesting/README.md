@@ -27,4 +27,4 @@ If you want to run or use Holmes on your own machine, you will need to do the fo
 
 ## How to use Holmes
 
-Please reference the [README.md](https://github.com/LASER-UMASS/CausalTesting-Artifact_ICSE20/tree/master/artifact_documentation) inside the artifact_documentation directory for more details on using Holmes for debugging.
+Please reference the [README.md](https://github.com/researchart/rose6icse/tree/master/submissions/available/Johnson-CausalTesting/artifact_documentation/README.md) inside the artifact_documentation directory for more details on using Holmes for debugging.
