@@ -13,6 +13,4 @@ dotnet tool install --global RelationalGit
 
 3. **Verification and Validation**: Using the provided raw data which includes information gathered from git and Github, researchers are able to use our tool to run recommendation simulations and [generate](https://github.com/CESEL/RelationalGit/tree/master/ReplicationPackage) the results. 
 
-4. **DOI**: 
-
-5. **Open Souce**: We have released our source code on [GitHub](https://github.com/CESEL/RelationalGit) to make it possible for the future works to leverage and expand our tool without difficulty.
+4. **Open Souce**: We have released our source code on [GitHub](https://github.com/CESEL/RelationalGit) to make it possible for the future works to leverage and expand our tool without difficulty.
