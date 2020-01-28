@@ -186,7 +186,7 @@ A dialog will pop up asking you to "Select a way to run 'StringEscapeUtilsTest.j
 
 **Success!** We can see in the JUnit view (shown below) that all tests passed, which means we have fixed the defect.
 
-<img src="test02-passing.png" alt="Tests passed!"/>
+<img src="images/test02-passing.png" alt="Tests passed!"/>
 
 
 Repeat this process with *Defects 2-6* to see how Causal Testing can help with debugging other defects. 
