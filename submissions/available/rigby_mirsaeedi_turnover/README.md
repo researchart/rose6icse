@@ -6,7 +6,7 @@
 
 ## Preparation 
 
-1) [Restore](https://www.janbasktraining.com/blog/restore-a-database-backup-from-sql/) the [backup of data](https://drive.google.com/drive/folders/1nc7Hu7kbPpavYrCMmCU5SEBlLlZTo5Fv) into Sql Server. For each studied project there is a separate database. 
+1) Restore the [backup of data](https://drive.google.com/drive/folders/1nc7Hu7kbPpavYrCMmCU5SEBlLlZTo5Fv) into MS Sql Server. For each studied project there is a separate database. 
 2) Copy the **configuration files** and **simulation.ps1** which are provided in the [replication package](https://github.com/CESEL/RelationalGit/tree/master/ReplicationPackage).
 3) Open and modify each configuration file to set the connection string. You need to provide the server address along with the credentials. Following snippet shows a sample of how connection string should be set.
 
@@ -53,35 +53,28 @@ In following sections, we show which simulations are used for which research que
 
 ### RQ1, Review and Turnover: What is the reduction in files at risk to turnover when both authors and reviewers are considered knowledgeable?
 
-**Generate Data**: The following commands run two simulations on the CoreFX project. First, without considering reviewers. Second, with considering reviews that have happened in reality.
 
 ```PowerShell
 
-# Using the NoReviews parameter for recommendation-strategy, we perform a simulation in which no review will be conducted in the project.
+# committers only
+dotnet-rgit --cmd simulate-recommender --recommendation-strategy NoReviews --conf-path <path_to_config_file>
 
-# simulations without considering reviewers
-dotnet-rgit --cmd simulate-recommender --recommendation-strategy NoReviews --conf-path $corefx_conf
-
-# Using the Reality parameter for recommendation-strategy, we perform a simulation which reflects exactly what has been happened in reallity during code reviews.
-
-# simulations of reality
-dotnet-rgit --cmd simulate-recommender --recommendation-strategy Reality --conf-path $corefx_conf
+# committers + reviewers = what happended in "Reality"
+dotnet-rgit --cmd simulate-recommender --recommendation-strategy Reality --conf-path <path_to_config_file>
 ```
 
 ---
 
 ### RQ2, Ownership: Does recommending reviewers based on code ownership reduce the number of files at risk to turnover?
 
-**Generate Data**: Following commands are samples to show how AuthorshipRec and RevOwnRec affect Expertise, CoreWorkload, and FaR of CoreFX. See the full list of simulations in [simulations.ps1](https://github.com/CESEL/RelationalGit/blob/master/ReplicationPackage/simulations.ps1).
-
 ```PowerShell
 
-# AuthorshipRec
-dotnet-rgit --cmd simulate-recommender --recommendation-strategy AuthorshipRec --conf-path $corefx_conf
+# AuthorshipRec Recommender
+dotnet-rgit --cmd simulate-recommender --recommendation-strategy AuthorshipRec --conf-path <path_to_config_file>
 
 
-# RevOwnRec
-dotnet-rgit --cmd simulate-recommender --recommendation-strategy RecOwnRec  --conf-path $corefx_conf
+# RevOwnRec Recommender
+dotnet-rgit --cmd simulate-recommender --recommendation-strategy RecOwnRec  --conf-path <path_to_config_file>
 
 ```
 
@@ -89,42 +82,37 @@ dotnet-rgit --cmd simulate-recommender --recommendation-strategy RecOwnRec  --co
 
 ### RQ3, cHRev: Does a state-of-the-art recommender reduce the number of files at risk to turnover?
 
-**Generate Data**: Following commands are samples to show how cHRev affects Expertise, CoreWorkload, and FaR of CoreFX on CoreFX. See the full list of simulations in [simulations.ps1](https://github.com/CESEL/RelationalGit/blob/master/ReplicationPackage/simulations.ps1).
 
 ```PowerShell
 
-# cHRev
-dotnet-rgit --cmd simulate-recommender --recommendation-strategy cHRev --conf-path $corefx_conf
+# cHRev Recommender
+dotnet-rgit --cmd simulate-recommender --recommendation-strategy cHRev --conf-path <path_to_config_file>
 ```
 
 ---
 
 ### RQ4, Learning and Retention: Can we reduce the number of files at risk to turnover by developing learning and retention aware review recommenders?
 
-**Generate Data**: Following commands are samples to show how LearnRec, RetentionRec, TurnoverRec affect Expertise, CoreWorkload, and FaR of CoreFX. See the full list of simulations in [simulations.ps1](https://github.com/CESEL/RelationalGit/blob/master/ReplicationPackage/simulations.ps1).
-
 ```PowerShell
 
-# LearnRec
-dotnet-rgit --cmd simulate-recommender --recommendation-strategy LearnRec  --conf-path $corefx_conf
+# LearnRec Recommender
+dotnet-rgit --cmd simulate-recommender --recommendation-strategy LearnRec  --conf-path <path_to_config_file>
 
-# RetentionRec
-dotnet-rgit --cmd simulate-recommender --recommendation-strategy RetentionRec  --conf-path $corefx_conf
+# RetentionRec Recommender
+dotnet-rgit --cmd simulate-recommender --recommendation-strategy RetentionRec  --conf-path <path_to_config_file>
 
-# TurnoverRec
-dotnet-rgit --cmd simulate-recommender --recommendation-strategy TurnoverRec --conf-path $corefx_conf
+# TurnoverRec Recommender
+dotnet-rgit --cmd simulate-recommender --recommendation-strategy TurnoverRec --conf-path <path_to_config_file>
 ```
 
 ---
 
 ### RQ5, Sofia: Can we combine recommenders to balance Expertise, CoreWorkload, and FaR? 
 
-**Generate Data**: Following commands are samples to show how Sofia affects Expertise, CoreWorkload, and FaR of CoreFX. See the full list of simulations in [simulations.ps1](https://github.com/CESEL/RelationalGit/blob/master/ReplicationPackage/simulations.ps1).
-
 ```PowerShell
 
-# Sofia
-dotnet-rgit --cmd simulate-recommender --recommendation-strategy sofia  --conf-path $corefx_conf
+# Sofia Recommender
+dotnet-rgit --cmd simulate-recommender --recommendation-strategy sofia  --conf-path <path_to_config_file>
 
 ```
 
