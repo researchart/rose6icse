@@ -155,3 +155,19 @@ dotnet-rgit --cmd analyze-simulations --analyze-result-path "path_to_result" --r
 ```
 
 **Note** 1) Replace _reality_sim_id_ parameter with the id of the Reality simulation. 2) replace _rec_sim_idX_ parameters with the id of other simulations. These ids are separated by a space. in these samples we have three ids for other simulation. 3) replace _path_to_result_ parameter with the path of a folder you want to store the result.
+
+### Interpretation of Results
+
+The tool creates three csv files, **expertise.csv**, **workload.csv** , and **far.csv** respectively. The first column always shows the project's periods (quarters). Each column corresponds to one of the simulations and each cell52 shows the difference percentage change between the actual outcome and the simulated outcome in that period. The last row of a column shows the median of its values.
+
+The following table illustrates how a csv file is formatted assuming that only cHRev, TurnoverRec, and Sofia got compared with reality.
+
+| Periods       | cHRev         | cHRev         | TurnoverRec   | Sofia         |
+| ------------- | ------------- | ------------- | ------------- |-------------- |
+| 1  | 9.12  | 20 | 15  | 10  |
+| 2  | 45.87  | 30  | 20  | 25  |
+| 3  | 25.10  | 40  | 25  | 42  |
+| 4  | 32.10  | 50  | 30  | 90  |
+| 5  | 10.10  | 60  | 35  | 34.78  |
+| Median  | 25.10  | 40  | 25  | 25  |
+
