@@ -116,7 +116,7 @@ To run inference on these models, you can use the OpenVocabCodeNLMS library (See
 
 # Study replication
  
-### Vocabulary study
+## Vocabulary study
 
 Please note that the replication of the full vocabulary study may take a few hours, even days (depending on the number of CPUs available).
 
@@ -144,7 +144,7 @@ chmod +x vocab_study.sh
 ./vocab_study $USER/vocab_study_dataset   
 ```
 
-### NLMs training
+## Training of Neural Language Models
 
 Please note that the replication of the full experiment might take a few weeks or even weeks depending on the available resources (GPUs).
 
