@@ -69,15 +69,14 @@ Log into the database and run
 ```SQL
 
 -- Get the Id of the simulation 
-select Id, RecommendationName, DateTime from LossSimulations
-
+select Id, KnowledgeShareStrategyType, StartDateTime from LossSimulations
 ```
 
 Using the Id returned from above, compare the knowlege loss with and without considering reviewers knowledgable run the following: 
 
 ```PowerShell
 
-dotnet-rgit --cmd analyze-simulations --analyze-result-path "path_to_result" --no-reviews-simulation {no_reviews_sim_id} --reality-simulation {reality_sim_id}  --conf-path "PATH_TO_CONF"
+dotnet-rgit --cmd analyze-simulations --analyze-result-path "path_to_result" --no-reviews-simulation <no_reviews_sim_id> --reality-simulation <reality_sim_id>  --conf-path <path_to_config_file>
 ```
 
 ---
@@ -140,15 +139,14 @@ Log into the database and run
 ```SQL
 
 -- Get the Id of the simulation 
-select Id, RecommendationName, DateTime from LossSimulations
-
+select Id, KnowledgeShareStrategyType, StartDateTime from LossSimulations
 ```
 
 Using the Id returned above, compare the recommenders with the actual values, ie "reality id"
 
 ```PowerShell
 
-dotnet-rgit --cmd analyze-simulations --analyze-result-path "path_to_result" --recommender-simulation {rec_sim_id} --reality-simulation {reality_id}  --conf-path "PATH_TO_CONF"
+dotnet-rgit --cmd analyze-simulations --analyze-result-path "path_to_result" --recommender-simulation <rec_sim_id> --reality-simulation <reality_id>  --conf-path <path_to_config_file>
 ```
 
 
