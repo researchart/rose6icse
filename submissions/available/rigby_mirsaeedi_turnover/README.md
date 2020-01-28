@@ -43,6 +43,8 @@ $kubernetes_conf = "absolute/path/to/kubernetes_conf.json"
 
 ```
 
+This scripts runs all the defined reviewer recommendation algorithms accross all projects. Each run is called a simulation because for each pull request one of the actual reviewers is randomly selected to be replaced by the top recommended reviewer.
+
 **Note**: Make sure you have set the PowerShell [execution policy](https://superuser.com/questions/106360/how-to-enable-execution-of-powershell-scripts) to **Unrestricted** or **RemoteAssigned**.
 
 ## Research Questions
