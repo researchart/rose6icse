@@ -65,7 +65,7 @@ This section describes the installation of the artefacts on the local machine.
 - Make sure **pip**, **setuptools**, **wheel** are up-to-date: `pip install --upgrade pip setuptools wheel`
 - Run `pip3 install codeprep==1.0.0`
 
-Please see https://github.com/giganticode/codeprep for usage examples or run `codeprep --help` to see available pre-processing options.
+Please see https://pypi.org/project/codeprep/ for usage examples or run `codeprep --help` to see available pre-processing options.
 Alternatively, you may want to check the carefully documented [CLI](https://github.com/giganticode/codeprep/blob/v1.0.0/codeprep/cli/spec.py) and [Python API](https://github.com/giganticode/codeprep/blob/v1.0.0/codeprep/api/text.py).
 
 ### B. OpenVocabCodeNLM library:
