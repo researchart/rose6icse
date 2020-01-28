@@ -61,6 +61,23 @@ dotnet-rgit --cmd simulate-recommender --recommendation-strategy NoReviews --con
 
 # committers + reviewers = what happended in "Reality"
 dotnet-rgit --cmd simulate-recommender --recommendation-strategy Reality --conf-path <path_to_config_file>
+
+```
+
+Log into the database and run
+
+```SQL
+
+-- Get the Id of the simulation 
+select Id, RecommendationName, DateTime from LossSimulations
+
+```
+
+Using the Id returned from above, compare the knowlege loss with and without considering reviewers knowledgable run the following: 
+
+```PowerShell
+
+dotnet-rgit --cmd analyze-simulations --analyze-result-path "path_to_result" --no-reviews-simulation {no_reviews_sim_id} --reality-simulation {reality_sim_id}  --conf-path "PATH_TO_CONF"
 ```
 
 ---
@@ -118,37 +135,22 @@ dotnet-rgit --cmd simulate-recommender --recommendation-strategy sofia  --conf-p
 
 # Results
 
-You need to produce the result per project. The tool provides a set of easy to use commands for generating the results based on the simulations.
-
-## Results RQ1
-
-1) Open the database of a project that you want to see its results.
-2) Query the **LossSimulations** table. 
+Log into the database and run
 
 ```SQL
-select Id,RecommendationName,DateTime from LossSimulations
+
+-- Get the Id of the simulation 
+select Id, RecommendationName, DateTime from LossSimulations
+
 ```
-3) Note the id of the **Reality** simulation (reality_sim_id) and **NoReviews** simulations (no_reviews_sim_id). 
-4) run the following command to dump the results. Replace {reality_sim_id} and {no_reviews_sim_id} with corresponding ids.
+
+Using the Id returned above, compare the recommenders with the actual values, ie "reality id"
 
 ```PowerShell
 
-dotnet-rgit --cmd analyze-simulations --analyze-result-path "path_to_result" --no-reviews-simulation {no_reviews_sim_id} --reality-simulation {reality_sim_id}  --conf-path "PATH_TO_CONF_CoreFX"
+dotnet-rgit --cmd analyze-simulations --analyze-result-path "path_to_result" --recommender-simulation {rec_sim_id} --reality-simulation {reality_id}  --conf-path "PATH_TO_CONF"
 ```
 
-## Results RQ2, RQ3, RQ4, and RQ5
-
-1) Open the database of a project that you want to see its results.
-2) Query the **LossSimulations** table. 
-3) Note the id of the **Reality** simulation and all other simulations. 
-4) run the following command to dump the result of quartely percentage change of Expertise, CoreWorkload, and Files at Risk. Replace {reality_sim_id} and {rec_sim_idX} with corresponding ids.
-
-```PowerShell
-
-dotnet-rgit --cmd analyze-simulations --analyze-result-path "path_to_result" --recommender-simulation {rec_sim_id1} {rec_sim_id2} {rec_sim_id3} --reality-simulation {reality_sim_id}  --conf-path "PATH_TO_CONF_CoreFX"
-```
-
-**Note** 1) Replace _reality_sim_id_ parameter with the id of the Reality simulation. 2) replace _rec_sim_idX_ parameters with the id of other simulations. These ids are separated by a space. in these samples we have three ids for other simulation. 3) replace _path_to_result_ parameter with the path of a folder you want to store the result.
 
 ### Interpretation of Results
 
@@ -165,5 +167,5 @@ The following table illustrates how a csv file of a project with 5 periods is fo
 | 5  | 10.10  | 60  | 35  | 34.78  |
 | Median  | 25.10  | 40  | 25  | 25  |
 
-**Note**: During simulations, for each pull request, one reviewer is randomly selected to be replaced by the top recommended reviewer. Therefore, the results may vary by up to 2.5 percentage points (see details in thesis and paper per project and 215 simulation runs).
+**Note**: During simulations, for each pull request, one reviewer is randomly selected to be replaced by the top recommended reviewer. Therefore, the results may vary by up to 2.5 percentage points in our 215 simulations runs (see details in thesis and paper).
 
