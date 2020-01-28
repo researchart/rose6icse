@@ -14,7 +14,7 @@
 3. Pull our image
 
    ```bash
-   docker push xiangzhex/cpc:release
+   docker pull xiangzhex/cpc:release
    ```
 
 4. start the container
