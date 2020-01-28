@@ -18,7 +18,7 @@ We provide 3 artefacts:
 ###### We use OpenVocabCodeNLM to train a whole range of different NLMs: closed-vocabulary (token, subtoken) ones, open-vocabulary ones (using bpe with different number of merges) on multiple datasets and evaluate them in different scenarios (see tables 2 and 3 of the paper). 
 ###### Researchers can use **OpenVocabCodeNLM** to train their own models using other datasets or further train or fine-tune the models we provide (see the next section).  
 
-##### [Pre-trained neural language models (NLMs) for code]()
+##### [Pre-trained neural language models (NLMs) for code](https://zenodo.org/record/3628628)
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3628628.svg)](https://doi.org/10.5281/zenodo.3628628)
 
