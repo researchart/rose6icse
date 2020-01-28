@@ -160,9 +160,9 @@ Please follow [the instructions](https://github.com/mast-group/OpenVocabCodeNLM)
 
 #### Set the paths and run the script
 
-Please download the script https://github.com/mast-group/OpenVocabCodeNLM/blob/master/example.sh . Each script run trains one model and evaluates it in different scenarios.
+Please download the script https://github.com/mast-group/OpenVocabCodeNLM/blob/master/example.sh . Each script run trains one model depending on the values of the shell variables set and evaluates it in different scenarios.
 
-Before running the script,
+Before running the script:
 
 - Make sure `DATA_HOME` points to the downloaded pre-processed datasets
 
