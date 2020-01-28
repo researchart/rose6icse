@@ -1,6 +1,6 @@
 # Quick Demonstration with Docker
 
-Since installation on the user's machine might potentially be difficult and running the original experiment 
+Since installation on the user's machine requires multiple steps, and running the original experiment 
 requires a lot of computational resources (including GPUs) and days to run, 
 we provide a docker image to briefly demonstrate the usage of the artefacts. 
 
@@ -56,7 +56,7 @@ scripts/nlm.sh
 
 # Installation of artifacts
 
-This section describes the installation of the artefacts on the local machine.
+In addition to the docker demonstration, this section describes how to manually install the artefacts on the local machine.
 
 ### A. Codeprep library:
 
@@ -79,7 +79,7 @@ Please see https://github.com/mast-group/OpenVocabCodeNLM for usage options or a
 
 ### C. Pretrained NLMs:
 
-Pretrained language models can be downloaded from (TODO) https://doi.org/10.5281/zenodo.3628628
+Pretrained language models can be downloaded from https://doi.org/10.5281/zenodo.3628628
 
 The structure of the archives can be seen below (identical for Java, C and Python archives). 
 The names of the sub-directories correspond to the rows of the tables 2 and 3 of the paper:
@@ -146,7 +146,7 @@ chmod +x vocab_study.sh
 
 ## Training of Neural Language Models
 
-Please note that the replication of the full experiment might take a few weeks or even weeks depending on the available resources (GPUs).
+Please note that the replication of the full experiment might take a few days, or even weeks depending on the available resources (GPUs).
 
 #### Download the pre-processed datasets from:
 
