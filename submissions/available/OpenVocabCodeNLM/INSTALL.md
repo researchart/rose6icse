@@ -7,7 +7,7 @@ we provide a docker image to briefly demonstrate the usage of the artefacts.
 See the sections below for installation on the local machine and the original study replication.
 
 The docker image contains: 
-- pre-installed [codeprep](https://github.com/giganticode/codeprep) and [OpenVocabCodeNLM](https://github.com/mast-group/OpenVocabCodeNLM) libraries and their dependencies;
+- pre-installed [codeprep](https://pypi.org/project/codeprep/) and [OpenVocabCodeNLM](https://github.com/mast-group/OpenVocabCodeNLM) libraries and their dependencies;
 - a small fraction of the dataset on which the study was conducted;
 - one of the pre-trained NLMs (Neural Language Models);
 - scripts to run demonstrations.
