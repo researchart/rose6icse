@@ -4,8 +4,8 @@ Logs (i.e., [Execution logs](https://github.com/ShangwenWang/rose6icse/tree/mast
 
 
 In the directories of [Execution logs](https://github.com/ShangwenWang/rose6icse/tree/master/submissions/reusable/shangwen/Execution%20logs) and  [Patches](https://github.com/ShangwenWang/rose6icse/tree/master/submissions/reusable/shangwen/Patches), there are two sub-directories: ***NFL*** and ***PFL***.
- - ***NFL*** means the normal fault localization setting with GZoltar-v1.2.0.
- - ***PFL*** means that the fault localization setting is provided with the ground-t	ruth bug positions.
+ - ***NFL*** means the normal fault localization setting with GZoltar-v1.7.2.
+ - ***PFL*** means that the fault localization setting is provided with the ground-truth bug positions.
 
 
 ### Patches
