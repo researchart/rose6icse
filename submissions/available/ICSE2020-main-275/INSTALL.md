@@ -11,9 +11,9 @@ Rscript install.R
 
 The most important dependencies used are:
 
-- [ggplot2 ] (https://cran.r-project.org/web/packages/ggplot2/index.html)
-- [lme4] (https://cran.r-project.org/web/packages/lme4/index.html)
-- [caret] (https://cran.r-project.org/web/packages/caret/index.html)
+- [ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html)
+- [lme4](https://cran.r-project.org/web/packages/lme4/index.html)
+- [caret](https://cran.r-project.org/web/packages/caret/index.html)
 
 
 In the following, we provided a description of the folders contained in the replication package, as well as the instructions to run the scripts and replicate the results we reported in the study.
