@@ -9,22 +9,22 @@ To use them, add the appropriate directory (i.e., macOS, ubuntu18, or windows) t
 
 ### Install CBMC
 - CBMC is available at https://github.com/diffblue/cbmc
-- As of the time of this artifact, it was at commit 2400d104aff652d2c83aacd80fbed54387b3ad59
+- As of the time of this artifact, it was at commit `2400d104aff652d2c83aacd80fbed54387b3ad59`
 - It can be built and installed by following the instructions at https://github.com/diffblue/cbmc/blob/develop/COMPILING.md
 - Make sure to add it to your path
 
 ### Install CBMC-viewer
 - CBMC viewer is available at https://github.com/markrtuttle/cbmc/tree/cbmc-viewer
 branch: cbmc-viewer
-- As of the time of this artifact, the commit was be88c82850952e057b56e03ba8c013415357a5cc
-- Assuming you've cloned to <CBMC_VIEWER_REPO>, add the directory `$CBMC_VIEWER_REPO/scripts/cbmc-viewer` to your path
+- As of the time of this artifact, the commit was `be88c82850952e057b56e03ba8c013415357a5cc`
+- Assuming you've cloned to `<CBMC_VIEWER_REPO>`, add the directory `$CBMC_VIEWER_REPO/scripts/cbmc-viewer` to your path
 
 ## Clone the aws-c-common Repository
 ```
 git clone https://github.com/awslabs/aws-c-common.git
 ```
 
-Then, pick a proof to run. Try the `aws_array_list_get_at_ptr()` function from the paper
+Then, pick a proof to run. Try the `aws_array_list_get_at_ptr()` function from the paper.
 
 ```
 cd .cbmc-batch/jobs/aws_array_list_get_at_ptr

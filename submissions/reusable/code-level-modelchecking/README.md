@@ -15,7 +15,7 @@ All proofs discussed in this paper are publicly available on GitHub.
 ## Code-Level Proofs and Specifications Available on GitHub
 All proofs and specifications described in the paper are available, under the Apache 2.0 license, on the GitHub repository located at https://github.com/awslabs/aws-c-common/
 This is the master repository for AWS C Common library, and is in active use by the AWS C Common development team.
-The description of the contents of this repository are based off commit b0ea9f35df8934f9e03fc3bab3919d55efd69b88, although they are not expected to change significantly in the future.
+The description of the contents of this repository are based off commit `b0ea9f35df8934f9e03fc3bab3919d55efd69b88`, although they are not expected to change significantly in the future.
 
 ### Code-Level Specifications
 As discussed in the paper, all specifications we developed have been merged into the public GitHub repo.
@@ -59,4 +59,4 @@ branch: cbmc-viewer
 As of the time of this artifact, the commit was be88c82850952e057b56e03ba8c013415357a5cc.
 
 ## Verify the Proof Results Locally on your Machine
-Follow the instructions in INSTALL.md.
+Follow the instructions in `INSTALL.md`.
