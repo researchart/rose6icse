@@ -1,5 +1,5 @@
 
-# A Partial Replication Study: Does chronology matter in JIT defect prediction? (<a href="https://dl.acm.org/doi/abs/10.1145/3345629.3351449"><b> link</b></a>)
+# A Partial Replication Study: Does chronology matter in JIT defect prediction? (<a href="https://dl.acm.org/doi/abs/10.1145/3345629.3351449"><b>link</b></a>)
 Hadi Jahanshahi 	 Dhanya Jothimani	Ayşe Başar 	Mucahit Cevik
 
 hadi.jahanshahi@ryerson.ca	dhanya@ryerson.ca	ayse.bener@ryerson.ca  	mcevik@ryerson.ca 
@@ -8,7 +8,7 @@ corresponding author, GitHub ID: @HadiJahanshahi;
 GitHub page of the replication study: https://github.com/HadiJahanshahi/JITChronology
 
 Original Paper:
-# Are Fix-Inducing Changes a Moving Target? A Longitudinal Case Study of Just-In-Time Defect Prediction (<a href="https://ieeexplore.ieee.org/abstract/document/7898457/"><b> link</b></a>)
+# Are Fix-Inducing Changes a Moving Target? A Longitudinal Case Study of Just-In-Time Defect Prediction (<a href="https://ieeexplore.ieee.org/abstract/document/7898457/"><b>link</b></a>)
 Shane McIntosh and Yasutaka Kamei
 
 **WHAT**:	In this work, we aim to investigate the effect of code change properties on JIT models over time. We also study the impact of using recent data as well as all available data on the performance of JIT models. Further, we analyze the effect of weighted sampling on the performance of fix-inducing properties of JIT models. For this purpose, we used datasets from four open-source projects, namely Eclipse JDT, Mozilla, Eclipse Platform, and PostgreSQL.
