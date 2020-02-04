@@ -25,5 +25,7 @@ or [here](https://pip.pypa.io/en/stable/installing/).
     pip install scikit-learn
     pip install scikit-image  
     pip install matplotlib  
+    pip install cleverhans
+    pip install pillow
 
 Once all the packages are installed you are ready to run DeepImportance code.
