@@ -12,7 +12,7 @@ containing all the dependencies, etc., already set up. The home directory of
 that virtual machine contains a copy of these instructions. The virtual machine
 was created using Oracle VirtualBox Version 5.2.34 r133893.
 
-You can find the VM at ~~(10.17632/3ycxw469p8.1)[http://dx.doi.org/10.17632/3ycxw469p8.1]~~ [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3634993.svg)](https://doi.org/10.5281/zenodo.3634993).
+You can find the VM at ~~[10.17632/3ycxw469p8.1](http://dx.doi.org/10.17632/3ycxw469p8.1)~~ [10.5281/zenodo.3634993](https://doi.org/10.5281/zenodo.3634993).
 
 The username and password for the virtual machine are 'icse2020' (without the quotes).
 
