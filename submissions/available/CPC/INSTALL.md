@@ -31,6 +31,7 @@
 
 The script will run for around 2 hours. If everything goes well, the results are stored in the directory `~/result`.
 
+During the running of the script, there'll be output in the stdout. These output are for debugging usage. Please feel free to ingnore them. ALL the result will be stored in the directory `~/result`.
 
 ## how to interpret the results
 
