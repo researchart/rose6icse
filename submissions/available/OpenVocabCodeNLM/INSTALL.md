@@ -42,6 +42,18 @@ For more details and for other operating systems, please refer to Docker documen
 docker run -it hlib/open-vocab-code-nlm
 ```
 
+> If on OSx you are getting error that your docker client can not connect to the docker daemon, try running:
+>```
+>$ eval "$(docker-machine env default)" 
+>```
+>Or if that does not help, remove and recreate the default docker machine:
+>```
+> $ docker-machine rm default
+>$ docker-machine create default --driver virtualbox
+>$ docker-machine env default
+>$ eval "$(docker-machine env default)" 
+>```
+
 ##### (Inside the docker container) Running vocab-study on a tiny subset of projects
 
 ```shell script
