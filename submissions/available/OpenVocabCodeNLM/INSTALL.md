@@ -39,7 +39,7 @@ For more details and for other operating systems, please refer to Docker documen
 ##### Pulling the docker image and running a docker container
 
 ```shell script
-docker run -it hlib/open-vocab-code-nlm
+docker run -it hlib/open-vocab-code-nlm:v2
 ```
 
 > If on OSx you are getting error that your docker client can not connect to the docker daemon, try running:
