@@ -1,5 +1,7 @@
 # CPC
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3660028.svg)](https://doi.org/10.5281/zenodo.3660028)
+
 ## Start
 
 1. Use ubuntu 16.04, 64bit version or ubuntu 18.04, 64bit version
