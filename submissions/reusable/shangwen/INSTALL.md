@@ -1,4 +1,6 @@
-To facilitate future research, we post the links to open-source repositories of the APR tools in our study. Researchers with interests can install the exeperiment environment through the instructions in these repositories.
+**Attention Please:** There are no installs required for this dataset since we only provide the patches and execution logs obtained during our experiment.
+
+To facilitate future research, we post the links to open-source repositories of the APR tools we used in our study. Researchers with interests can install the experiment environment through the instructions in these repositories.
 
 | APR tool | URL |
 |:-:|:-:|
