@@ -20,3 +20,6 @@ For more information, please see [Contact.md](./CONTACT.md)
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE.md) file for details.
+
+## DOI
+[![DOI](https://zenodo.org/badge/235641090.svg)](https://zenodo.org/badge/latestdoi/235641090)
