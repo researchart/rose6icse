@@ -7,7 +7,7 @@ We suppose that **the host OS** is **Linux** or **Mac OS X** on which docker can
 # Download MPI-SV's docker image
 
 ```
-docker pull mpisv/mpi-sv
+docker pull mpisv/mpi-sv:latest
 ```
 
 If the image downloading succeeds, you can use the following command to have a check.
@@ -128,7 +128,7 @@ So, we can see that the first process blocks at the Recv operation and the other
 Then, we enable the model checking-based boosting in **mpisv** to verify the program also in 4 processes.
 
 ```
-mpisv 4 -wild-opt -use-directeddfs-search demo.bc
+mpisv 4 -wild-opt -use-directeddfs-search test.bc
 ```
 
 The last three output messages should be as follows.
