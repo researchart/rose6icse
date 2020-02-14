@@ -127,6 +127,7 @@ Inputs of Watchman
   For instance, please press the &quot;***Pagage Name/Version***&quot; button on the &quot;***DIAGNOSIS***&quot; page. Then, you can input the project name and version number to be analysed.
   
   ![](https://github.com/NeolithEra/Figures/blob/master/Input1.png)
+  
   Figure 1(a) Inputing the project name with hints
   
   
