@@ -127,18 +127,18 @@ Inputs of Watchman
   For instance, please press the &quot;***Pagage Name/Version***&quot; button on the &quot;***DIAGNOSIS***&quot; page. Then, you can input the project name and version number to be analysed.
   
   ![](https://github.com/NeolithEra/Figures/blob/master/Input1.png)
-  
   Figure 1(a) Inputing the project name with hints
   
-  
+  ![](https://github.com/NeolithEra/Figures/blob/master/Input2.png)
   Figure 1(b) Inputing the project version number with hints
   
-  
+
   If the Python project to be analysed is not released on PyPI, then you can upload its _requirement.txt_ file.
   
-  
+  ![](https://github.com/NeolithEra/Figures/blob/master/Input3.png)
   Figure 2(a) Uploading the _requirement.txt_ file of a Python project be analysed
   
+  ![](https://github.com/NeolithEra/Figures/blob/master/Input4.png)
   Figure 2(b) An illustrative example of _requirement.txt_ file and its corresponding diagnosis results
 
 </span>
