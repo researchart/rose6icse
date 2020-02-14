@@ -119,7 +119,7 @@ For example, the outputted files could be:</br>
 Verifying the experiment results reported in Section 5.2
 ====
 
-For replication, we release the the daily library update information on PyPI captured by Watchman during two time periods (from 1 July, 2019 to 10 August, 2019, and 1 December, 2019 to 31 December, 2019), and the corresponding downstream projects affected by the library updates identified by Watchman. To ease evaluation, we organize the data into an online searchable table on the ***"UPDATE"*** page of Watchman. Besides, we provide the diagnosis information and the statuses of the 279 real issues reported by Watchman to the open-source projects, during the two time periods, on ***"ISSUE REPORT"*** page of Watchman (Watchman found and reported 162 more issues since our paper submission). Then, the confirmation rate and fixing rate of these issues can be calculated easily.
+For replication, we release the the daily library update information on PyPI captured by Watchman during two time periods (from 1 July, 2019 to 10 August, 2019, and 1 December, 2019 to 31 December, 2019), and the corresponding downstream projects affected by the library updates identified by Watchman. To ease evaluation, we organize the data into an online searchable table on the ***"UPDATE"*** page of Watchman. Besides, we provide the diagnosis information and the statuses of the 279 real issues reported by Watchman to the open-source projects, during the two time periods, on ***"ISSUE REPORT"*** page of Watchman ***(Watchman found and reported 162 more issues since our paper submission)***. Then, the confirmation rate and fixing rate of these issues can be calculated easily.
 
 Showing the real issues reported by Watchman
 ---
