@@ -10,7 +10,7 @@ In this artifact, we release the metadata repository of all the library versions
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <span>
   
-Inside the package `Watchman.zip` (for its download link, please refer to [README.md](https://github.com/NeolithEra/rose6icse/blob/master/submissions/reproduced/Watchman/README.md)), we provide the materials used to reproduce the results of Section 5.1 in package `Replaying evolution history.zip`.
+Inside the package `Watchman.zip` (for its download link, please refer to [README.md](https://github.com/NeolithEra/rose6icse/blob/master/submissions/reproduced/Watchman/README.md)), we provide `Replaying evolution history.zip`, which contains the materials used to reproduce the results of Section 5.1.
 </span>
 
 
