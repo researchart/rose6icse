@@ -22,7 +22,7 @@ ProvBuild obtains provenance using noWorkflow, a Python-based provenance capture
 ProvBuild is built on top of noWorkflow (Version 1.11.2). Check out [noWorkflow's Github](https://github.com/gems-uff/noworkflow) for more information details.
 
 ### Prerequisites
-This version of ProvBuild only support **Python 2.7**.
+This version of ProvBuild only support **Python 2.7**. ProvBuild and all tests are developed under Linux and macOS. Windows may not be supported by this tool.
 
 To install ProvBuild, you should follow these basic instructions:
 
@@ -43,7 +43,7 @@ If you have python `pip`, install the following packages:
 - Step 1: The user runs `python app.py` and it will start a webpage as shown below:
 ![StartPage](img/0.png)
 
-- Step 2: The user selects ProvBuild mode and upload demo script `./example/Demo.py`:
+- Step 2: The user selects ProvBuild mode and upload demo script `./example/Demo.py` (Note: We designed _User_ _name_ for user study in our paper (Study 1). It is not required for daily use.):
 ![](img/1.png)
 
 - Step 3: After script submission, the webpage will be updated:
