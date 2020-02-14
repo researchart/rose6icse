@@ -1,6 +1,6 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](https://github.com/NeolithEra/Figures/blob/master/Watchman_logo.png)
 
-Replaying the evolution history of the projects on PyPI
+Replaying the evolution history of the projects on PyPI (Verifying the experiment results reported in Section 5.1)
 ====
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -113,3 +113,31 @@ For example, the outputted files could be:</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ***NOTE:***  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; As replaying library evolution and diagnosing DC issues should be performed based on a holistic analysis of the entire PyPI ecosystem on daily basis, which is time-consuming. For a time period (180/181 days), the above process would take around **3~4** days, and the actual execution time may depend on the quality of network communication, since it works via visiting the data sheets in the server-side.
+
+
+
+Verifying the experiment results reported in Section 5.2
+====
+
+For replication, we release the the daily library update information on PyPI captured by Watchman during two time periods (from 1 July, 2019 to 10 August, 2019, and 1 December, 2019 to 31 December, 2019), and the corresponding downstream projects affected by the library updates identified by Watchman. To ease evaluation, we organize the data into an online searchable table on the ***"UPDATE"*** page of Watchman. Besides, we provide the diagnosis information and the statuses of the 279 real issues reported by Watchman to the open-source projects, during the two time periods, on **"ISSUE REPORT"*** page of Watchman (Watchman found and reported 162 more issues since our paper submission). Then, the confirmation rate and fixing rate of these issues can be calculated easily.
+
+Showing the real issues reported by Watchman
+---
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The &quot;***ISSUE REPORT***&quot; page of Watchman, lists the diagnosis information and the statuses of the 279 real issues ***(Watchman found and reported 162 more issues since our paper submission)*** reported by Watchman to the open-source projects, during the two time periods (from 1 July, 2019 to 10 August, 2019, and 1 December, 2019 to 31 December, 2019) **.**
+
+
+![](https://github.com/NeolithEra/Figures/blob/master/Figure5.png)
+Figure 1 Online searchable table listing the diagnosis information of the 279 reported real issues
+
+Showing the daily update information captured by Watchman (an online searchable table)
+---
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style="">
+The &quot;***UPDATE***&quot; page of Watchman, provides the daily library update information on PyPI captured by Watchman during two time periods, and the corresponding downstream projects affected by the library updates identified by Watchman.
+</span>
+
+![](https://github.com/NeolithEra/Figures/blob/master/Figure6.png)
+Figure 2 Online searchable table listing the daily library update information on PyPI captured by Watchman
