@@ -5,11 +5,12 @@ Replaying the evolution history of the projects on PyPI
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <span style="">
-In this artifact, we release the metadata repository of all the library versions on the PyPI ecosystem from 6 Nov, 2002 (the date of PyPI being founded) to 31 Dec, 2020, under the MIT License. To reproduce the evaluation results in Section 5.1 of this paper, we also release a series of scripts, which help to replay the evolution history of the 16,421 releases of 2,067 projects on PyPI from 1 Jan, 2017 to 30 Jun, 2019. To ease evaluation, we divided the whole period into five sub-periods, including: (1) _Period 1_ : 1 Jan 2017 – 30 Jun 2017, (2) _Period 2_ : 1 Jul 2017 – 31 Dec 2017, (3) _Period 3_ : 1 Jan 2018 – 30 Jun 2018, (4) _Period 4_ : 1 Jul 2018 – 31 Dec 2018, (5) _Period 5_ : 1 Jan 2019 – 30 Jun 2019.
+In this artifact, we release the metadata repository of all the library versions on the PyPI ecosystem from 6 Nov, 2002 (the date of PyPI being founded) to 31 Dec, 2019, under the MIT License. To reproduce the evaluation results in Section 5.1 of this paper, we also release a series of scripts, which help to replay the evolution history of the 16,421 releases of 2,067 projects on PyPI from 1 Jan, 2017 to 30 Jun, 2019. To ease evaluation, we divided the whole period into five sub-periods, including: (1) _Period 1_ : 1 Jan 2017 – 30 Jun 2017, (2) _Period 2_ : 1 Jul 2017 – 31 Dec 2017, (3) _Period 3_ : 1 Jan 2018 – 30 Jun 2018, (4) _Period 4_ : 1 Jul 2018 – 31 Dec 2018, (5) _Period 5_ : 1 Jan 2019 – 30 Jun 2019.
 </span></br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <span>
-Please first download the package `Replaying evolution history.zip` from Watchman&#39;s homepage ([http://www.watchman-pypi.com/history](http://www.watchman-pypi.com/history)), to reproduce the results.
+Please first download the artifact package `Watchman.zip` from Watchman&#39;s homepage ([http://www.watchman-pypi.com/artifacts](http://www.watchman-pypi.com/artifacts)). 
+Inside the package `Watchman.zip`, we provide the materials used to reproduce the results in Section 5.1 in package `Replaying evolution history.zip`.
 </span>
 
 
@@ -36,7 +37,7 @@ Running above scripts can play back the evolution history of the collected proje
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 The major components included in the package `pypi_validity_evaluationSQL.zip` are:
 
-- `pypi_validity_evaluationSQL\pypi_info.sql` is a data sheet, which records the metadata repository of all the library versions on PyPI from 6 Nov, 2002 to 31 Dec, 2020.
+- `pypi_validity_evaluationSQL\pypi_info.sql` is a data sheet, which records the metadata repository of all the library versions on PyPI from 6 Nov, 2002 to 31 Dec, 2019.
 - `pypi_validity_evaluationSQL\pypi_info_version_all.sql` is a data sheet recording the detailed information of all the library releases on PyPI, including version numbers, updated dates, etc.
 - `pypi_validity_evaluationSQL\evaluation_info.sql` contain the historical fixing records of the DC issues in the collected projects, which are mined by us from their corresponding issue tracking systems.
 
@@ -48,6 +49,7 @@ Running Environment
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 This artifact is developed based on Python language, and has been tested on Window 10 operating system (64 bit) with [**python-3.7.4-amd64**](https://www.python.org/ftp/python/3.7.4/python-3.7.4-amd64.exe) installed. You are recommended to run the artifact under the same or similar environment.
+Note that, the scripts require Python dependencies **pymysql** , **DBUtils** , **requests** and **BeautifulSoup4** , there may be the runtime prompts for installation, please import them using **pip**.
 
 **How to run the artifact**
 ----
@@ -110,5 +112,4 @@ For example, the outputted files could be:</br>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ***NOTE:***  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. The scripts require Python dependencies **pymysql** , **DBUtils** , **requests** and **BeautifulSoup4** , there may be the runtime prompts for installation, please import them using **pip**.</span>  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. As replaying library evolution and diagnosing DC issues should be performed based on a holistic analysis of the entire PyPI ecosystem on daily basis, which is time-consuming. For a time period (180/181 days), the above process would take around **3~4** days, and the actual execution time may depend on the quality of network communication, since it works via visiting the data sheets in the server-side.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; As replaying library evolution and diagnosing DC issues should be performed based on a holistic analysis of the entire PyPI ecosystem on daily basis, which is time-consuming. For a time period (180/181 days), the above process would take around **3~4** days, and the actual execution time may depend on the quality of network communication, since it works via visiting the data sheets in the server-side.
