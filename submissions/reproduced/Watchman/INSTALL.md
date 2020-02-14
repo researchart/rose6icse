@@ -1,6 +1,6 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](https://github.com/NeolithEra/Figures/blob/master/Watchman_logo.png)
 
-Replaying the evolution history of the projects on PyPI (Verifying the experiment results reported in Section 5.1)
+Verifying the experiment results reported in Section 5.1
 ====
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -51,7 +51,7 @@ Running Environment
 This artifact is developed based on Python language, and has been tested on Window 10 operating system (64 bit) with [**python-3.7.4-amd64**](https://www.python.org/ftp/python/3.7.4/python-3.7.4-amd64.exe) installed. You are recommended to run the artifact under the same or similar environment.
 Note that, the scripts require Python dependencies **pymysql** , **DBUtils** , **requests** and **BeautifulSoup4** , there may be the runtime prompts for installation, please import them using **pip**.
 
-**How to run the artifact**
+**Replaying the evolution history of the projects on PyPI**
 ----
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
