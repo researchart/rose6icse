@@ -126,6 +126,7 @@ Inputs of Watchman
   Watchman supports two typs of inputs to diagnose their DC issues: 1) the name and version number of a Python project released on PyPI; and 2) uploads a project&#39;s dependency configuration file (i.e., _requirement.txt_).
   For instance, please press the &quot;***Pagage Name/Version***&quot; button on the &quot;***DIAGNOSIS***&quot; page. Then, you can input the project name and version number to be analysed.
   
+  ![](https://github.com/NeolithEra/Figures/blob/master/Input1.png)
   Figure 1(a) Inputing the project name with hints
   
   
