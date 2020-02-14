@@ -49,6 +49,7 @@ Running Environment
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 This artifact is developed based on Python language, and has been tested on Window 10 operating system (64 bit) with [**python-3.7.4-amd64**](https://www.python.org/ftp/python/3.7.4/python-3.7.4-amd64.exe) installed. You are recommended to run the artifact under the same or similar environment.
+Note that, the scripts require Python dependencies **pymysql** , **DBUtils** , **requests** and **BeautifulSoup4** , there may be the runtime prompts for installation, please import them using **pip**.
 
 **How to run the artifact**
 ----
@@ -111,5 +112,4 @@ For example, the outputted files could be:</br>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ***NOTE:***  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. The scripts require Python dependencies **pymysql** , **DBUtils** , **requests** and **BeautifulSoup4** , there may be the runtime prompts for installation, please import them using **pip**.</span>  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. As replaying library evolution and diagnosing DC issues should be performed based on a holistic analysis of the entire PyPI ecosystem on daily basis, which is time-consuming. For a time period (180/181 days), the above process would take around **3~4** days, and the actual execution time may depend on the quality of network communication, since it works via visiting the data sheets in the server-side.
