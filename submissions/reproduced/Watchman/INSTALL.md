@@ -9,8 +9,8 @@ In this artifact, we release the metadata repository of all the library versions
 </span></br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <span>
-Please first download the artifact package `Watchman.zip` from Watchman&#39;s homepage ([http://www.watchman-pypi.com/artifacts](http://www.watchman-pypi.com/artifacts)). 
-Inside the package `Watchman.zip`, we provide the materials used to reproduce the results of Section 5.1 in package `Replaying evolution history.zip`.
+  
+Inside the package `Watchman.zip` (for the download link, please refer to [README.md](https://github.com/NeolithEra/rose6icse/blob/master/submissions/reproduced/Watchman/README.md)), we provide the materials used to reproduce the results of Section 5.1 in package `Replaying evolution history.zip`.
 </span>
 
 
