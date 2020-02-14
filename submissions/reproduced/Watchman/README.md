@@ -118,6 +118,16 @@ First, please go to the online Watchman tool via the link ([**http://www.watchma
 The main function is provided on the &quot;***DIAGNOSIS***&quot; page.
 </span>
 
+Inputs of Watchman
+---
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style="">
+  Watchman supports two typs of inputs to diagnose their DC issues: 1) the name and version number of a Python project released on PyPI; and 2) uploads a project&#39;s dependency configuration file (i.e., requirement.txt).
+  For instance,
+  
+</span>
+
 Displaying full dependency graph
 ---
 
