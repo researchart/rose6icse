@@ -123,9 +123,22 @@ Inputs of Watchman
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <span style="">
-  Watchman supports two typs of inputs to diagnose their DC issues: 1) the name and version number of a Python project released on PyPI; and 2) uploads a project&#39;s dependency configuration file (i.e., requirement.txt).
-  For instance,
+  Watchman supports two typs of inputs to diagnose their DC issues: 1) the name and version number of a Python project released on PyPI; and 2) uploads a project&#39;s dependency configuration file (i.e., _requirement.txt_).
+  For instance, please press the &quot;***Pagage Name/Version***&quot; button on the &quot;***DIAGNOSIS***&quot; page. Then, you can input the project name and version number to be analysed.
   
+  Figure 1(a) Inputing the project name with hints
+  
+  
+  Figure 1(b) Inputing the project version number with hints
+  
+  
+  If the Python project to be analysed is not released on PyPI, then you can upload its _requirement.txt_ file.
+  
+  
+  Figure 2(a) Uploading the _requirement.txt_ file of a Python project be analysed
+  
+  Figure 2(b) An illustrative example of _requirement.txt_ file and its corresponding diagnosis results
+
 </span>
 
 Displaying full dependency graph
@@ -133,7 +146,7 @@ Displaying full dependency graph
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <span style="">
-On the &quot;***DIAGNOSIS***&quot; page, when a user inputs the name and version number of a Python project released on PyPI, or uploads a project&#39;s dependency configuration file (i.e., requirement.txt), and presses the &quot;***Graph***&quot; button, watchman provides the full dependency graph (FDG) of the project under analysis. The FDG simulates process of installing the required dependencies. Users can also save the generated FDG in an image or a text file, for further analysis, when pressing &quot;***Save***&quot; button. In addition, all of its downstream projects can also be listed on this page.
+On the &quot;***DIAGNOSIS***&quot; page, when a user inputs the name and version number of a Python project released on PyPI, or uploads a project&#39;s dependency configuration file (i.e., _requirement.txt_), and presses the &quot;***Graph***&quot; button, watchman provides the full dependency graph (FDG) of the project under analysis. The FDG simulates process of installing the required dependencies. Users can also save the generated FDG in an image or a text file, for further analysis, when pressing &quot;***Save***&quot; button. In addition, all of its downstream projects can also be listed on this page.
 </span>
 
 ![](https://github.com/NeolithEra/Figures/blob/master/Figure2.png)
