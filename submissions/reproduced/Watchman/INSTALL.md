@@ -125,6 +125,7 @@ Showing the real issues reported by Watchman
 ---
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+First, please go to the online Watchman tool via the link ([**http://www.watchman-pypi.com/**](http://www.watchman-pypi.com/)). 
 The ***"ISSUE REPORT"*** page of Watchman, lists the diagnosis information and the statuses of the 279 real issues reported by Watchman to the open-source projects, during the two time periods (from 1 July, 2019 to 10 August, 2019, and 1 December, 2019 to 31 December, 2019). ***Note that Watchman found and reported 162 more issues since our paper submission***.
 
 
