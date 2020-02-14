@@ -139,7 +139,7 @@ Showing the daily update information captured by Watchman (an online searchable 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <span style="">
 The &quot;***UPDATE***&quot; page of Watchman, provides the daily library update information on PyPI captured by Watchman during two time periods, and the corresponding downstream projects affected by the library updates identified by Watchman.
-One can sample several the listed library update information and then verify their corresponding release records on PyPI. Besides, one can download their downstream projects’ _requirement.txt_ files and check whether these downstream projects could be affected (i.e., directly or indirectly depending on the updated libraries).
+One can sample several the listed library update information and then verify their corresponding release records on PyPI. Besides, one can download their downstream projects’ _requirement.txt_ files to check whether these downstream projects could be affected by the updated libraries (i.e., directly or indirectly depending on the updated libraries).
 </span>
 
 ![](https://github.com/NeolithEra/Figures/blob/master/Figure6.png)
