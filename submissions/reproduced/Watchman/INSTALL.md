@@ -112,4 +112,4 @@ For example, the outputted files could be:</br>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ***NOTE:***  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. As replaying library evolution and diagnosing DC issues should be performed based on a holistic analysis of the entire PyPI ecosystem on daily basis, which is time-consuming. For a time period (180/181 days), the above process would take around **3~4** days, and the actual execution time may depend on the quality of network communication, since it works via visiting the data sheets in the server-side.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; As replaying library evolution and diagnosing DC issues should be performed based on a holistic analysis of the entire PyPI ecosystem on daily basis, which is time-consuming. For a time period (180/181 days), the above process would take around **3~4** days, and the actual execution time may depend on the quality of network communication, since it works via visiting the data sheets in the server-side.
