@@ -1,14 +1,26 @@
 This document provides detailed instructions on how to install our artifact and how to test if the installation was successful. This information is also publicly available as part of our [repository](https://github.com/alebugariu/StringSolversTests/blob/master/README.md).
 
-# Requirements 
+# Setup
+We provide a [Docker](https://www.docker.com/) image, as well as step by step instructions on how to install the dependencies and build our tool. 
+
+## Using Docker
+Download our Docker image:
+```
+docker pull alebugariu/string_solvers_tests:1.0
+```
+Start the container:
+```
+docker run -it alebugariu/string_solvers_tests:1.0
+```
+
+## Without Docker
+
 The tool has been tested on Ubuntu 16.04 with Java 8. Building [Z3](https://github.com/Z3Prover/z3) version 4.7.1 requires Python 2.7 and building [ABC](https://github.com/vlab-cs-ucsb/ABC) requires autotools, [Flex](https://github.com/westes/flex) and [Bison](https://www.gnu.org/software/bison/). To install the prerequisites:
 
 ```
 sudo apt-get install -y openjdk-8-jdk python build-essential autoconf automake libtool intltool flex bison
 ```
 
-
-# Setup
 Clone our repository:
 
 ```
@@ -46,6 +58,7 @@ This command will list the available options.
 
 To run our tool:
 ```
+cd StringSolversTests
 chmod +x run.sh
 ./run.sh -help
 ```
