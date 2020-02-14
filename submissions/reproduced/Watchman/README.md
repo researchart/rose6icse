@@ -22,7 +22,7 @@ Figure 1 The overview of Watchman&#39;s architecture
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <span style="">
-This artifact contains the metadata repository of all the library versions and the dependency relationships between them on PyPI from 6 Nov, 2002 (the date of PyPI being founded) to 31 Dec, 2020, and the scripts that help to play back the evolution history of the libraries released on the PyPI ecosystem.
+This artifact contains the metadata repository of all the library versions and the dependency relationships between them on PyPI from 6 Nov, 2002 (the date of PyPI being founded) to 31 Dec, 2019, and the scripts that help to play back the evolution history of the libraries released on the PyPI ecosystem.
 </span>
 
 
@@ -80,7 +80,7 @@ The major components in the package `Watchman.zip` are described as follows:
 - `empirical_study_dataset.xlsx` : The empirical study dataset, contains 235 collected DC issues;
 - `Replaying evolution history.zip` : The artifact helps to replay the evolution history of the libraries on PyPI. The package contains the following two packages:
 
-1. `pypi_validity_evaluationSQL.zip` : The date set recording the metadata repository of all the library versions on PyPI from 6 Nov, 2002 (the date of PyPI being founded) to 31 Dec, 2020.
+1. `pypi_validity_evaluationSQL.zip` : The date set recording the metadata repository of all the library versions on PyPI from 6 Nov, 2002 (the date of PyPI being founded) to 31 Dec, 2019.
 2. `Watchman_Artifacts.zip` : A series of script files helps to automatically play back the evolution history of the libraries and output the diagnosis results.
 
 An introduction to the evaluation of Watchman
