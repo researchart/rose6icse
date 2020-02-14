@@ -9,7 +9,8 @@ In this artifact, we release the metadata repository of all the library versions
 </span></br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <span>
-Please first download the package `Replaying evolution history.zip` from Watchman&#39;s homepage ([http://www.watchman-pypi.com/history](http://www.watchman-pypi.com/history)), to reproduce the results.
+Please first download the artifact package `Watchman.zip` from Watchman&#39;s homepage ([http://www.watchman-pypi.com/artifacts](http://www.watchman-pypi.com/artifacts)). 
+Inside the package `Watchman.zip`, we provide the materials used to reproduce the results in Section 5.1 in package `Replaying evolution history.zip`.
 </span>
 
 
