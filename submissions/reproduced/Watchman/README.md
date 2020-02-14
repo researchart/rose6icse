@@ -14,7 +14,7 @@ Watchman is an online tool ([**http://www.watchman-pypi.com/**](http://www.watch
 </span></br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <span style="">
-Its main features are: 1) monitoring the library updates on PyPI and identifying the affected projects; 2) building a full dependency graph (FDG) for a Python project under analysis; 3) providing the self-diagnosis service for users to analyze the dependency conflicts in their projects; and 4) submitting the issue reports and pull requests automatically to warn the projects against dependency conflicts in their projects. For more detailed information, please refer to the **&quot;About&quot;** page of Watchman.
+Its main features are: 1) monitoring the library updates on PyPI and identifying the affected projects; 2) building a full dependency graph (FDG) for a Python project under analysis; 3) providing the self-diagnosis service for users to analyze the dependency conflicts in their projects; and 4) submitting the issue reports and pull requests automatically to warn the projects against dependency conflict issues. For more detailed information, please refer to the **&quot;About&quot;** page of Watchman.
 </span>
 
 ![](https://github.com/NeolithEra/Figures/blob/master/Figure1.png)
