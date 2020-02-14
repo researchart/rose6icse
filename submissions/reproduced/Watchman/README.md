@@ -112,6 +112,7 @@ Three example Python projects with three types of (potential) DC issues, are pro
 2. **Type1** : `ldapdomaindump` `0.9.1`
 3. **Type2** : `bcdata` `0.3.5`
 
+
 Displaying full dependency graph
 ---
 
@@ -131,8 +132,6 @@ Diagnosing DC issues
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <span style="">
-First, please go to the online Watchman too1 via the link ([**http://www.watchman-pypi.com/**](http://www.watchman-pypi.com/)). 
-The main function is provided on the &quot;***DIAGNOSIS***&quot; page.
 On the &quot;***DIAGNOSIS***&quot; page, when pressing the &quot;***Start***&quot; button, Watchman will help you diagnose the DC issues in the project under analysis and provide the detailed root causes and suggested fixing solutions.
 </span>
 
