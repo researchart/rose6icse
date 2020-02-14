@@ -48,7 +48,7 @@ Watchman can provide diagnosis information for the following three types of (pot
 - **Pattern A** : _Conflicts caused by the library updates on PyPI_. If the updated library version could be installed in a client project, which violates the certain version constraints specified by this project on the library, then a build failure will occur.</br>
 We refer to the conflicts between direct and transitive dependencies as **Pattern A.a** issues, and the conflicts between transitive dependencies as **Pattern A.b** issues.
 
-- **Type 1** : _Potential conflicts caused by restricting a dependency to a specific version_. If a project restricts a dependency to a specific version, its downstream projects may suffer from DC issues.
+- **Type 1** : _Potential conflicts caused by restricting a dependency to a specific version_. If a project restricts a dependency to a specific version, its downstream projects may easily suffer from DC issues.
 - **Type 2:** _Potential conflicts caused by the case that the installed version of a library is close to the upper bound specified in the version constraint_. If the installed version of a library satisfies the concerned version constraint but is close to the upper bound specified in the constraint, build failures can easily occur when the library evolves.
 
 Recommended browser
