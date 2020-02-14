@@ -123,23 +123,23 @@ Inputs of Watchman
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <span style="">
-  Watchman supports two typs of inputs to diagnose their DC issues: 1) the name and version number of a Python project released on PyPI; and 2) uploads a project&#39;s dependency configuration file (i.e., _requirement.txt_).
+  Watchman supports two types of inputs to diagnose their DC issues: 1) the name and version number of a Python project to be analysed released on PyPI; and 2) a dependency configuration file (i.e., _requirement.txt_) of a Python project to be analysed.
   For instance, please press the &quot;***Pagage Name/Version***&quot; button on the &quot;***DIAGNOSIS***&quot; page. Then, you can input the project name and version number to be analysed.
   
   ![](https://github.com/NeolithEra/Figures/blob/master/Input1.png)
-  Figure 1(a) Inputing the project name with hints
+  Figure 2(a) Inputing the project name with prompt messages
   
   ![](https://github.com/NeolithEra/Figures/blob/master/Input2.png)
-  Figure 1(b) Inputing the project version number with hints
+  Figure 2(b) Inputing the project version number with prompt messages
   
 
-  If the Python project to be analysed is not released on PyPI, then you can upload its _requirement.txt_ file.
+  If the Python project to be analysed is not released on PyPI, then you can press the &quot;***Import File***&quot; button and then upload its _requirement.txt_ file.
   
   ![](https://github.com/NeolithEra/Figures/blob/master/Input3.png)
-  Figure 2(a) Uploading the _requirement.txt_ file of a Python project be analysed
+  Figure 3(a) Uploading the _requirement.txt_ file of a Python project be analysed
   
   ![](https://github.com/NeolithEra/Figures/blob/master/Input4.png)
-  Figure 2(b) An illustrative example of _requirement.txt_ file and its corresponding diagnosis results
+  Figure 3(b) An illustrative example of a Python project's _requirement.txt_ file and its corresponding diagnosis results
 
 </span>
 
@@ -152,10 +152,10 @@ On the &quot;***DIAGNOSIS***&quot; page, when a user inputs the name and version
 </span>
 
 ![](https://github.com/NeolithEra/Figures/blob/master/Figure2.png)
-Figure 2 Displaying full dependency graph of a give Python project
+Figure 4 Displaying full dependency graph of a give Python project
 
 ![](https://github.com/NeolithEra/Figures/blob/master/Figure3.png)
-Figure 3 Saving the generated full dependency graph for further analysis
+Figure 5 Saving the generated full dependency graph for further analysis
 
 Diagnosing DC issues
 ---
@@ -166,7 +166,7 @@ On the &quot;***DIAGNOSIS***&quot; page, when pressing the &quot;***Start***&quo
 </span>
 
 ![](https://github.com/NeolithEra/Figures/blob/master/Figure4.png)
-Figure 4 Generating diagnosis information for a Python project under analysis
+Figure 6 Generating diagnosis information for a Python project under analysis
 
 
 An overview of the topological structure of the PyPI ecosystem
@@ -178,10 +178,10 @@ Press the &quot;***Go***&quot; button, users can have an overview of the topolog
 </span>
 
 ![](https://github.com/NeolithEra/Figures/blob/master/Figure7.png)
-Figure 5 An overview of the topological structure of the PyPI ecosystem
+Figure 7 An overview of the topological structure of the PyPI ecosystem
 
 ![](https://github.com/NeolithEra/Figures/blob/master/Figure8.png)
-Figure 6 The details of any Python project on PyPI
+Figure 8 The details of any Python project on PyPI
 
 License
 ===
