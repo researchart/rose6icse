@@ -112,13 +112,6 @@ Three example Python projects with three types of (potential) DC issues, are pro
 2. **Type1** : `ldapdomaindump` `0.9.1`
 3. **Type2** : `bcdata` `0.3.5`
 
-<<<<<<< HEAD
-
-Displaying full dependency graph
----
-
-=======
->>>>>>> 6d961cb40ceeda145075edc968e2115c4e934c31
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <span style="">
 First, please go to the online Watchman tool via its link ([**http://www.watchman-pypi.com/**](http://www.watchman-pypi.com/)). 
@@ -130,17 +123,8 @@ Inputs of Watchman
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <span style="">
-<<<<<<< HEAD
-<<<<<<< HEAD
-On the &quot;***DIAGNOSIS***&quot; page, when pressing the &quot;***Start***&quot; button, Watchman will help you diagnose the DC issues in the project under analysis and provide the detailed root causes and suggested fixing solutions.
-</span>
-=======
-  Watchman supports two types of inputs to diagnose their DC issues: 1) the name and version number of a Python project to be analysed released on PyPI; and 2) a dependency configuration file (i.e., _requirement.txt_) of a Python project to be analysed.
-  For instance, please press the &quot;***Pagage Name/Version***&quot; button on the &quot;***DIAGNOSIS***&quot; page. Then, you can input the project name and version number to be analysed.
-=======
   Watchman supports two types of inputs to diagnose their DC issues: 1) the name and version number of a Python project to be analyzed released on PyPI; and 2) a dependency configuration file (i.e., _requirement.txt_) of a Python project to be analyzed.
   For instance, please press the &quot;***Pagage Name/Version***&quot; button on the &quot;***DIAGNOSIS***&quot; page. Then, you can input the project name and version number to be analyzed.
->>>>>>> f43a36a7ba024b91e6ad9cca2995f826041fbebb
   
   ![](https://github.com/NeolithEra/Figures/blob/master/Input1.png)
   Figure 2(a) Inputing the project name with prompt messages
@@ -153,7 +137,6 @@ On the &quot;***DIAGNOSIS***&quot; page, when pressing the &quot;***Start***&quo
   
   ![](https://github.com/NeolithEra/Figures/blob/master/Input4.png)
   Figure 3 Uploading the _requirement.txt_ file of a Python project be analysed
->>>>>>> 6d961cb40ceeda145075edc968e2115c4e934c31
 
 
 </span>
