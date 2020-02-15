@@ -9,8 +9,8 @@ In this artifact, we release the metadata repository of all the library versions
 </span></br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <span>
-Please first download the artifact package `Watchman.zip` from Watchman&#39;s homepage ([http://www.watchman-pypi.com/artifacts](http://www.watchman-pypi.com/artifacts)). 
-Inside the package `Watchman.zip`, we provide the materials used to reproduce the results of Section 5.1 in package `Replaying evolution history.zip`.
+  
+Inside the package `Watchman.zip` (for its download link, please refer to [README.md](https://github.com/NeolithEra/rose6icse/blob/master/submissions/reproduced/Watchman/README.md)), we provide `Replaying evolution history.zip`, which contains all necessary materials for reproducing the results of Section 5.1.
 </span>
 
 
@@ -70,7 +70,7 @@ For instance, if you unzipped the package `Watchman_Artifacts.zip` to the direct
 `python D:\Watchman_Artifacts\validity_evaluation_period1.py`
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-Note that, if your local environment already has other versions of Python installed (such as Python 2.*), please make sure that the command "`python`" runs python version 3.7.4. If you see the following evolution information of the libraries (on daily basis) is printed in your console, the artifact is successfully executed：
+Note that, if your local environment already has other versions of Python installed (such as Python 2.*), it is fine but please make sure that the command "`python`" would run python version 3.7.4. If you see the following evolution information of the libraries (on daily basis) is printed in your console, the artifact is successfully executed：
 
 ```
 Detecting Project:  universal-notifications  Version No:  0.4.0 Last update date: 2017-01-02 17:57:32  Detection date: 2017-01-03
@@ -127,7 +127,7 @@ Showing the real issues reported by Watchman
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 First, please go to the online Watchman tool via the link ([**http://www.watchman-pypi.com/**](http://www.watchman-pypi.com/)). 
 The ***"ISSUE REPORT"*** page of Watchman, lists the diagnosis information and the statuses of the 279 real issues reported by Watchman to the open-source projects, during the two time periods (from 1 July, 2019 to 10 August, 2019, and 1 December, 2019 to 31 December, 2019). ***Note that Watchman found and reported 162 more issues since our paper submission***.
-One can verify the results of Section 5.2 in this paper.
+One can verify the results of reported DC issues in Section 5.2 of this paper.
 
 
 ![](https://github.com/NeolithEra/Figures/blob/master/Figure5.png)
@@ -139,7 +139,7 @@ Showing the daily update information captured by Watchman (an online searchable 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <span style="">
 The &quot;***UPDATE***&quot; page of Watchman, provides the daily library update information on PyPI captured by Watchman during two time periods, and the corresponding downstream projects affected by the library updates identified by Watchman.
-One can sample several the listed library update information and then verify their corresponding release records on PyPI. Besides, one can download their downstream projects’ _requirement.txt_ files and check whether these downstream projects could be affected (i.e., directly or indirectly depending on the updated libraries).
+One can sample several the listed library update information and then verify their corresponding release records on PyPI. Besides, one can download their downstream projects’ _requirement.txt_ files to check whether these downstream projects could be affected by the updated libraries (i.e., directly or indirectly depending on the updated libraries).
 </span>
 
 ![](https://github.com/NeolithEra/Figures/blob/master/Figure6.png)
