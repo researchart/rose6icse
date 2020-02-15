@@ -1,0 +1,36 @@
+<HTML>
+<BODY>
+<p><b><font face="Arial" size="4">Instructions to obtain and install floating
+license</font></b></p>
+<font face="Arial" size="-1"><p>
+
+<p>1. Download <a href="http://www.maintainj.com/samples/FloatingServer.jar">
+FloatingServer.jar</a> <br>
+2. Copy the file to the computer where you intend to run MaintainJ floating license
+server. This computer should be accessible to the computers running MaintainJ
+Eclipse plug-in. Please choose the server computer carefully because the license
+will be locked to this computer (more precisely, to its host name).<br>
+3. Run <b>java -jar FloatingServer.jar -HostKey</b> . This will generate the
+License Server Host Key and print to console. <br>
+4. Go to
+<a href="http://www.maintainj.com/license/getLicense.jsp?licenseType=floating">download
+license page</a>. Enter the MaintainJ Key you received earlier and Host Key and
+click 'Download License'. You can save the license file to your computer. The
+license is emailed to you as well.<br>
+5. Type <b>java -jar FloatingServer.jar 7773 &lt;&lt;AbsolutePathToLicenseFile&gt;&gt;</b> to start the server. 7773 is
+the port number, which you may change. Provide the absolute path to the license.lic file as the second argument. (Ex: c:\maintainj\license.lic)<br>
+6. The license server starts with the following messages to console:<br>
+MaintainJ floating license server starting on port:7773<br>
+Number of licenses allowed: &lt;&lt;Number of Licenses Purchased&gt;&gt;<br>
+7. Enter the license server name and port number in Eclipse following
+File-&gt;New-&gt;Other-&gt;MaintainJ-&gt;Get License-&gt;License Server Settings.
+Repeat this on each computer using MaintainJ plug-in.<br>
+</p>
+
+<p><img border="0" src="images/fl1.png" width="498" height="495">  <img border="0" src="images/fl2.png" width="497" height="496"></p>
+
+<p><br>
+&nbsp; </p>
+</font>
+</BODY>
+</HTML>

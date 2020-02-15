@@ -1,0 +1,335 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>/* <a name="line.1"></a>
+<span class="sourceLineNo">002</span> * Licensed to the Apache Software Foundation (ASF) under one or more<a name="line.2"></a>
+<span class="sourceLineNo">003</span> *  contributor license agreements.  See the NOTICE file distributed with<a name="line.3"></a>
+<span class="sourceLineNo">004</span> *  this work for additional information regarding copyright ownership.<a name="line.4"></a>
+<span class="sourceLineNo">005</span> *  The ASF licenses this file to You under the Apache License, Version 2.0<a name="line.5"></a>
+<span class="sourceLineNo">006</span> *  (the "License"); you may not use this file except in compliance with<a name="line.6"></a>
+<span class="sourceLineNo">007</span> *  the License.  You may obtain a copy of the License at<a name="line.7"></a>
+<span class="sourceLineNo">008</span> *<a name="line.8"></a>
+<span class="sourceLineNo">009</span> *      http://www.apache.org/licenses/LICENSE-2.0<a name="line.9"></a>
+<span class="sourceLineNo">010</span> *<a name="line.10"></a>
+<span class="sourceLineNo">011</span> *  Unless required by applicable law or agreed to in writing, software<a name="line.11"></a>
+<span class="sourceLineNo">012</span> *  distributed under the License is distributed on an "AS IS" BASIS,<a name="line.12"></a>
+<span class="sourceLineNo">013</span> *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.<a name="line.13"></a>
+<span class="sourceLineNo">014</span> *  See the License for the specific language governing permissions and<a name="line.14"></a>
+<span class="sourceLineNo">015</span> *  limitations under the License.<a name="line.15"></a>
+<span class="sourceLineNo">016</span> *<a name="line.16"></a>
+<span class="sourceLineNo">017</span> */<a name="line.17"></a>
+<span class="sourceLineNo">018</span><a name="line.18"></a>
+<span class="sourceLineNo">019</span>package org.apache.commons.exec.util;<a name="line.19"></a>
+<span class="sourceLineNo">020</span><a name="line.20"></a>
+<span class="sourceLineNo">021</span><a name="line.21"></a>
+<span class="sourceLineNo">022</span>import java.io.File;<a name="line.22"></a>
+<span class="sourceLineNo">023</span>import java.util.ArrayList;<a name="line.23"></a>
+<span class="sourceLineNo">024</span>import java.util.List;<a name="line.24"></a>
+<span class="sourceLineNo">025</span>import java.util.Map;<a name="line.25"></a>
+<span class="sourceLineNo">026</span>import java.util.StringTokenizer;<a name="line.26"></a>
+<span class="sourceLineNo">027</span><a name="line.27"></a>
+<span class="sourceLineNo">028</span>/**<a name="line.28"></a>
+<span class="sourceLineNo">029</span> * Supplement of commons-lang, the stringSubstitution() was in a simpler<a name="line.29"></a>
+<span class="sourceLineNo">030</span> * implementation available in an older commons-lang implementation.<a name="line.30"></a>
+<span class="sourceLineNo">031</span> *<a name="line.31"></a>
+<span class="sourceLineNo">032</span> * This class is not part of the public API and could change without<a name="line.32"></a>
+<span class="sourceLineNo">033</span> * warning.<a name="line.33"></a>
+<span class="sourceLineNo">034</span> *<a name="line.34"></a>
+<span class="sourceLineNo">035</span> * @version $Id: StringUtils.java 1636204 2014-11-02 22:30:31Z ggregory $<a name="line.35"></a>
+<span class="sourceLineNo">036</span> */<a name="line.36"></a>
+<span class="sourceLineNo">037</span>public class StringUtils {<a name="line.37"></a>
+<span class="sourceLineNo">038</span><a name="line.38"></a>
+<span class="sourceLineNo">039</span>    private static final String SINGLE_QUOTE = "\'";<a name="line.39"></a>
+<span class="sourceLineNo">040</span>    private static final String DOUBLE_QUOTE = "\"";<a name="line.40"></a>
+<span class="sourceLineNo">041</span>    private static final char SLASH_CHAR = '/';<a name="line.41"></a>
+<span class="sourceLineNo">042</span>    private static final char BACKSLASH_CHAR = '\\';<a name="line.42"></a>
+<span class="sourceLineNo">043</span><a name="line.43"></a>
+<span class="sourceLineNo">044</span>    /**<a name="line.44"></a>
+<span class="sourceLineNo">045</span>     * Perform a series of substitutions.<a name="line.45"></a>
+<span class="sourceLineNo">046</span>     * &lt;p&gt;<a name="line.46"></a>
+<span class="sourceLineNo">047</span>     * The substitutions are performed by replacing ${variable} in the target string with the value of provided by the<a name="line.47"></a>
+<span class="sourceLineNo">048</span>     * key "variable" in the provided hash table.<a name="line.48"></a>
+<span class="sourceLineNo">049</span>     * &lt;/p&gt;<a name="line.49"></a>
+<span class="sourceLineNo">050</span>     * &lt;p&gt;<a name="line.50"></a>
+<span class="sourceLineNo">051</span>     * A key consists of the following characters:<a name="line.51"></a>
+<span class="sourceLineNo">052</span>     * &lt;/p&gt;<a name="line.52"></a>
+<span class="sourceLineNo">053</span>     * &lt;ul&gt;<a name="line.53"></a>
+<span class="sourceLineNo">054</span>     * &lt;li&gt;letter<a name="line.54"></a>
+<span class="sourceLineNo">055</span>     * &lt;li&gt;digit<a name="line.55"></a>
+<span class="sourceLineNo">056</span>     * &lt;li&gt;dot character<a name="line.56"></a>
+<span class="sourceLineNo">057</span>     * &lt;li&gt;hyphen character<a name="line.57"></a>
+<span class="sourceLineNo">058</span>     * &lt;li&gt;plus character<a name="line.58"></a>
+<span class="sourceLineNo">059</span>     * &lt;li&gt;underscore character<a name="line.59"></a>
+<span class="sourceLineNo">060</span>     * &lt;/ul&gt;<a name="line.60"></a>
+<span class="sourceLineNo">061</span>     *<a name="line.61"></a>
+<span class="sourceLineNo">062</span>     * @param argStr<a name="line.62"></a>
+<span class="sourceLineNo">063</span>     *            the argument string to be processed<a name="line.63"></a>
+<span class="sourceLineNo">064</span>     * @param vars<a name="line.64"></a>
+<span class="sourceLineNo">065</span>     *            name/value pairs used for substitution<a name="line.65"></a>
+<span class="sourceLineNo">066</span>     * @param isLenient<a name="line.66"></a>
+<span class="sourceLineNo">067</span>     *            ignore a key not found in vars or throw a RuntimeException?<a name="line.67"></a>
+<span class="sourceLineNo">068</span>     * @return String target string with replacements.<a name="line.68"></a>
+<span class="sourceLineNo">069</span>     */<a name="line.69"></a>
+<span class="sourceLineNo">070</span>    public static StringBuffer stringSubstitution(final String argStr, final Map&lt;? super String, ?&gt; vars, final boolean isLenient) {<a name="line.70"></a>
+<span class="sourceLineNo">071</span><a name="line.71"></a>
+<span class="sourceLineNo">072</span>        final StringBuffer argBuf = new StringBuffer();<a name="line.72"></a>
+<span class="sourceLineNo">073</span><a name="line.73"></a>
+<span class="sourceLineNo">074</span>        if (argStr == null || argStr.length() == 0) {<a name="line.74"></a>
+<span class="sourceLineNo">075</span>            return argBuf;<a name="line.75"></a>
+<span class="sourceLineNo">076</span>        }<a name="line.76"></a>
+<span class="sourceLineNo">077</span><a name="line.77"></a>
+<span class="sourceLineNo">078</span>        if (vars == null || vars.size() == 0) {<a name="line.78"></a>
+<span class="sourceLineNo">079</span>            return argBuf.append(argStr);<a name="line.79"></a>
+<span class="sourceLineNo">080</span>        }<a name="line.80"></a>
+<span class="sourceLineNo">081</span><a name="line.81"></a>
+<span class="sourceLineNo">082</span>        final int argStrLength = argStr.length();<a name="line.82"></a>
+<span class="sourceLineNo">083</span><a name="line.83"></a>
+<span class="sourceLineNo">084</span>        for (int cIdx = 0; cIdx &lt; argStrLength;) {<a name="line.84"></a>
+<span class="sourceLineNo">085</span><a name="line.85"></a>
+<span class="sourceLineNo">086</span>            char ch = argStr.charAt(cIdx);<a name="line.86"></a>
+<span class="sourceLineNo">087</span>            char del = ' ';<a name="line.87"></a>
+<span class="sourceLineNo">088</span><a name="line.88"></a>
+<span class="sourceLineNo">089</span>            switch (ch) {<a name="line.89"></a>
+<span class="sourceLineNo">090</span><a name="line.90"></a>
+<span class="sourceLineNo">091</span>                case '$':<a name="line.91"></a>
+<span class="sourceLineNo">092</span>                    final StringBuilder nameBuf = new StringBuilder();<a name="line.92"></a>
+<span class="sourceLineNo">093</span>                    del = argStr.charAt(cIdx + 1);<a name="line.93"></a>
+<span class="sourceLineNo">094</span>                    if (del == '{') {<a name="line.94"></a>
+<span class="sourceLineNo">095</span>                        cIdx++;<a name="line.95"></a>
+<span class="sourceLineNo">096</span><a name="line.96"></a>
+<span class="sourceLineNo">097</span>                        for (++cIdx; cIdx &lt; argStr.length(); ++cIdx) {<a name="line.97"></a>
+<span class="sourceLineNo">098</span>                            ch = argStr.charAt(cIdx);<a name="line.98"></a>
+<span class="sourceLineNo">099</span>                            if (ch == '_' || ch == '.' || ch == '-' || ch == '+' || Character.isLetterOrDigit(ch)) {<a name="line.99"></a>
+<span class="sourceLineNo">100</span>                                nameBuf.append(ch);<a name="line.100"></a>
+<span class="sourceLineNo">101</span>                            } else {<a name="line.101"></a>
+<span class="sourceLineNo">102</span>                                break;<a name="line.102"></a>
+<span class="sourceLineNo">103</span>                            }<a name="line.103"></a>
+<span class="sourceLineNo">104</span>                        }<a name="line.104"></a>
+<span class="sourceLineNo">105</span><a name="line.105"></a>
+<span class="sourceLineNo">106</span>                        if (nameBuf.length() &gt;= 0) {<a name="line.106"></a>
+<span class="sourceLineNo">107</span><a name="line.107"></a>
+<span class="sourceLineNo">108</span>                            String value;<a name="line.108"></a>
+<span class="sourceLineNo">109</span>                            final Object temp = vars.get(nameBuf.toString());<a name="line.109"></a>
+<span class="sourceLineNo">110</span><a name="line.110"></a>
+<span class="sourceLineNo">111</span>                            if (temp instanceof File) {<a name="line.111"></a>
+<span class="sourceLineNo">112</span>                                // for a file we have to fix the separator chars to allow<a name="line.112"></a>
+<span class="sourceLineNo">113</span>                                // cross-platform compatibility<a name="line.113"></a>
+<span class="sourceLineNo">114</span>                                value = fixFileSeparatorChar(((File) temp).getAbsolutePath());<a name="line.114"></a>
+<span class="sourceLineNo">115</span>                            }<a name="line.115"></a>
+<span class="sourceLineNo">116</span>                            else {<a name="line.116"></a>
+<span class="sourceLineNo">117</span>                                value = temp != null ? temp.toString() : null;    <a name="line.117"></a>
+<span class="sourceLineNo">118</span>                            }<a name="line.118"></a>
+<span class="sourceLineNo">119</span><a name="line.119"></a>
+<span class="sourceLineNo">120</span>                            if (value != null) {<a name="line.120"></a>
+<span class="sourceLineNo">121</span>                                argBuf.append(value);<a name="line.121"></a>
+<span class="sourceLineNo">122</span>                            } else {<a name="line.122"></a>
+<span class="sourceLineNo">123</span>                                if (isLenient) {<a name="line.123"></a>
+<span class="sourceLineNo">124</span>                                    // just append the unresolved variable declaration<a name="line.124"></a>
+<span class="sourceLineNo">125</span>                                    argBuf.append("${").append(nameBuf.toString()).append("}");<a name="line.125"></a>
+<span class="sourceLineNo">126</span>                                } else {<a name="line.126"></a>
+<span class="sourceLineNo">127</span>                                    // complain that no variable was found<a name="line.127"></a>
+<span class="sourceLineNo">128</span>                                    throw new RuntimeException("No value found for : " + nameBuf);<a name="line.128"></a>
+<span class="sourceLineNo">129</span>                                }<a name="line.129"></a>
+<span class="sourceLineNo">130</span>                            }<a name="line.130"></a>
+<span class="sourceLineNo">131</span><a name="line.131"></a>
+<span class="sourceLineNo">132</span>                            del = argStr.charAt(cIdx);<a name="line.132"></a>
+<span class="sourceLineNo">133</span><a name="line.133"></a>
+<span class="sourceLineNo">134</span>                            if (del != '}') {<a name="line.134"></a>
+<span class="sourceLineNo">135</span>                                throw new RuntimeException("Delimiter not found for : " + nameBuf);<a name="line.135"></a>
+<span class="sourceLineNo">136</span>                            }<a name="line.136"></a>
+<span class="sourceLineNo">137</span>                        }<a name="line.137"></a>
+<span class="sourceLineNo">138</span><a name="line.138"></a>
+<span class="sourceLineNo">139</span>                        cIdx++;<a name="line.139"></a>
+<span class="sourceLineNo">140</span>                    }<a name="line.140"></a>
+<span class="sourceLineNo">141</span>                    else {<a name="line.141"></a>
+<span class="sourceLineNo">142</span>                        argBuf.append(ch);<a name="line.142"></a>
+<span class="sourceLineNo">143</span>                        ++cIdx;<a name="line.143"></a>
+<span class="sourceLineNo">144</span>                    }<a name="line.144"></a>
+<span class="sourceLineNo">145</span><a name="line.145"></a>
+<span class="sourceLineNo">146</span>                    break;<a name="line.146"></a>
+<span class="sourceLineNo">147</span><a name="line.147"></a>
+<span class="sourceLineNo">148</span>                default:<a name="line.148"></a>
+<span class="sourceLineNo">149</span>                    argBuf.append(ch);<a name="line.149"></a>
+<span class="sourceLineNo">150</span>                    ++cIdx;<a name="line.150"></a>
+<span class="sourceLineNo">151</span>                    break;<a name="line.151"></a>
+<span class="sourceLineNo">152</span>            }<a name="line.152"></a>
+<span class="sourceLineNo">153</span>        }<a name="line.153"></a>
+<span class="sourceLineNo">154</span><a name="line.154"></a>
+<span class="sourceLineNo">155</span>        return argBuf;<a name="line.155"></a>
+<span class="sourceLineNo">156</span>    }<a name="line.156"></a>
+<span class="sourceLineNo">157</span><a name="line.157"></a>
+<span class="sourceLineNo">158</span>    /**<a name="line.158"></a>
+<span class="sourceLineNo">159</span>     * Split a string into an array of strings based<a name="line.159"></a>
+<span class="sourceLineNo">160</span>     * on a separator.<a name="line.160"></a>
+<span class="sourceLineNo">161</span>     *<a name="line.161"></a>
+<span class="sourceLineNo">162</span>     * @param input     what to split<a name="line.162"></a>
+<span class="sourceLineNo">163</span>     * @param splitChar what to split on<a name="line.163"></a>
+<span class="sourceLineNo">164</span>     * @return the array of strings<a name="line.164"></a>
+<span class="sourceLineNo">165</span>     */<a name="line.165"></a>
+<span class="sourceLineNo">166</span>    public static String[] split(final String input, final String splitChar) {<a name="line.166"></a>
+<span class="sourceLineNo">167</span>        final StringTokenizer tokens = new StringTokenizer(input, splitChar);<a name="line.167"></a>
+<span class="sourceLineNo">168</span>        final List&lt;String&gt; strList = new ArrayList&lt;String&gt;();<a name="line.168"></a>
+<span class="sourceLineNo">169</span>        while (tokens.hasMoreTokens()) {<a name="line.169"></a>
+<span class="sourceLineNo">170</span>            strList.add(tokens.nextToken());<a name="line.170"></a>
+<span class="sourceLineNo">171</span>        }<a name="line.171"></a>
+<span class="sourceLineNo">172</span>        return strList.toArray(new String[strList.size()]);<a name="line.172"></a>
+<span class="sourceLineNo">173</span>    }<a name="line.173"></a>
+<span class="sourceLineNo">174</span><a name="line.174"></a>
+<span class="sourceLineNo">175</span>    /**<a name="line.175"></a>
+<span class="sourceLineNo">176</span>     * Fixes the file separator char for the target platform<a name="line.176"></a>
+<span class="sourceLineNo">177</span>     * using the following replacement.<a name="line.177"></a>
+<span class="sourceLineNo">178</span>     * <a name="line.178"></a>
+<span class="sourceLineNo">179</span>     * &lt;ul&gt;<a name="line.179"></a>
+<span class="sourceLineNo">180</span>     *  &lt;li&gt;'/' &amp;#x2192; File.separatorChar&lt;/li&gt;<a name="line.180"></a>
+<span class="sourceLineNo">181</span>     *  &lt;li&gt;'\\' &amp;#x2192; File.separatorChar&lt;/li&gt;<a name="line.181"></a>
+<span class="sourceLineNo">182</span>     * &lt;/ul&gt;<a name="line.182"></a>
+<span class="sourceLineNo">183</span>     *<a name="line.183"></a>
+<span class="sourceLineNo">184</span>     * @param arg the argument to fix<a name="line.184"></a>
+<span class="sourceLineNo">185</span>     * @return the transformed argument <a name="line.185"></a>
+<span class="sourceLineNo">186</span>     */<a name="line.186"></a>
+<span class="sourceLineNo">187</span>    public static String fixFileSeparatorChar(final String arg) {<a name="line.187"></a>
+<span class="sourceLineNo">188</span>        return arg.replace(SLASH_CHAR, File.separatorChar).replace(<a name="line.188"></a>
+<span class="sourceLineNo">189</span>                BACKSLASH_CHAR, File.separatorChar);<a name="line.189"></a>
+<span class="sourceLineNo">190</span>    }<a name="line.190"></a>
+<span class="sourceLineNo">191</span><a name="line.191"></a>
+<span class="sourceLineNo">192</span>    /**<a name="line.192"></a>
+<span class="sourceLineNo">193</span>     * Concatenates an array of string using a separator.<a name="line.193"></a>
+<span class="sourceLineNo">194</span>     *<a name="line.194"></a>
+<span class="sourceLineNo">195</span>     * @param strings the strings to concatenate<a name="line.195"></a>
+<span class="sourceLineNo">196</span>     * @param separator the separator between two strings<a name="line.196"></a>
+<span class="sourceLineNo">197</span>     * @return the concatenated strings<a name="line.197"></a>
+<span class="sourceLineNo">198</span>     */<a name="line.198"></a>
+<span class="sourceLineNo">199</span>    public static String toString(final String[] strings, final String separator) {<a name="line.199"></a>
+<span class="sourceLineNo">200</span>        final StringBuilder sb = new StringBuilder();<a name="line.200"></a>
+<span class="sourceLineNo">201</span>        for (int i = 0; i &lt; strings.length; i++) {<a name="line.201"></a>
+<span class="sourceLineNo">202</span>            if (i &gt; 0) {<a name="line.202"></a>
+<span class="sourceLineNo">203</span>                sb.append(separator);<a name="line.203"></a>
+<span class="sourceLineNo">204</span>            }<a name="line.204"></a>
+<span class="sourceLineNo">205</span>            sb.append(strings[i]);<a name="line.205"></a>
+<span class="sourceLineNo">206</span>        }<a name="line.206"></a>
+<span class="sourceLineNo">207</span>        return sb.toString();<a name="line.207"></a>
+<span class="sourceLineNo">208</span>    }<a name="line.208"></a>
+<span class="sourceLineNo">209</span><a name="line.209"></a>
+<span class="sourceLineNo">210</span>    /**<a name="line.210"></a>
+<span class="sourceLineNo">211</span>     * Put quotes around the given String if necessary.<a name="line.211"></a>
+<span class="sourceLineNo">212</span>     * &lt;p&gt;<a name="line.212"></a>
+<span class="sourceLineNo">213</span>     * If the argument doesn't include spaces or quotes, return it as is. If it<a name="line.213"></a>
+<span class="sourceLineNo">214</span>     * contains double quotes, use single quotes - else surround the argument by<a name="line.214"></a>
+<span class="sourceLineNo">215</span>     * double quotes.<a name="line.215"></a>
+<span class="sourceLineNo">216</span>     * &lt;/p&gt;<a name="line.216"></a>
+<span class="sourceLineNo">217</span>     *<a name="line.217"></a>
+<span class="sourceLineNo">218</span>     * @param argument the argument to be quoted<a name="line.218"></a>
+<span class="sourceLineNo">219</span>     * @return the quoted argument<a name="line.219"></a>
+<span class="sourceLineNo">220</span>     * @throws IllegalArgumentException If argument contains both types of quotes<a name="line.220"></a>
+<span class="sourceLineNo">221</span>     */<a name="line.221"></a>
+<span class="sourceLineNo">222</span>    public static String quoteArgument(final String argument) {<a name="line.222"></a>
+<span class="sourceLineNo">223</span><a name="line.223"></a>
+<span class="sourceLineNo">224</span>        String cleanedArgument = argument.trim();<a name="line.224"></a>
+<span class="sourceLineNo">225</span><a name="line.225"></a>
+<span class="sourceLineNo">226</span>        // strip the quotes from both ends<a name="line.226"></a>
+<span class="sourceLineNo">227</span>        while (cleanedArgument.startsWith(SINGLE_QUOTE) || cleanedArgument.startsWith(DOUBLE_QUOTE)) {<a name="line.227"></a>
+<span class="sourceLineNo">228</span>            cleanedArgument = cleanedArgument.substring(1);<a name="line.228"></a>
+<span class="sourceLineNo">229</span>        }<a name="line.229"></a>
+<span class="sourceLineNo">230</span>        <a name="line.230"></a>
+<span class="sourceLineNo">231</span>        while (cleanedArgument.endsWith(SINGLE_QUOTE) || cleanedArgument.endsWith(DOUBLE_QUOTE)) {<a name="line.231"></a>
+<span class="sourceLineNo">232</span>            cleanedArgument = cleanedArgument.substring(0, cleanedArgument.length() - 1);<a name="line.232"></a>
+<span class="sourceLineNo">233</span>        }<a name="line.233"></a>
+<span class="sourceLineNo">234</span><a name="line.234"></a>
+<span class="sourceLineNo">235</span>        final StringBuilder buf = new StringBuilder();<a name="line.235"></a>
+<span class="sourceLineNo">236</span>        if (cleanedArgument.indexOf(DOUBLE_QUOTE) &gt; -1) {<a name="line.236"></a>
+<span class="sourceLineNo">237</span>            if (cleanedArgument.indexOf(SINGLE_QUOTE) &gt; -1) {<a name="line.237"></a>
+<span class="sourceLineNo">238</span>                throw new IllegalArgumentException(<a name="line.238"></a>
+<span class="sourceLineNo">239</span>                        "Can't handle single and double quotes in same argument");<a name="line.239"></a>
+<span class="sourceLineNo">240</span>            }<a name="line.240"></a>
+<span class="sourceLineNo">241</span>            return buf.append(SINGLE_QUOTE).append(cleanedArgument).append(<a name="line.241"></a>
+<span class="sourceLineNo">242</span>                    SINGLE_QUOTE).toString();<a name="line.242"></a>
+<span class="sourceLineNo">243</span>        } else if (cleanedArgument.indexOf(SINGLE_QUOTE) &gt; -1<a name="line.243"></a>
+<span class="sourceLineNo">244</span>                || cleanedArgument.indexOf(" ") &gt; -1) {<a name="line.244"></a>
+<span class="sourceLineNo">245</span>            return buf.append(DOUBLE_QUOTE).append(cleanedArgument).append(<a name="line.245"></a>
+<span class="sourceLineNo">246</span>                    DOUBLE_QUOTE).toString();<a name="line.246"></a>
+<span class="sourceLineNo">247</span>        } else {<a name="line.247"></a>
+<span class="sourceLineNo">248</span>            return cleanedArgument;<a name="line.248"></a>
+<span class="sourceLineNo">249</span>        }<a name="line.249"></a>
+<span class="sourceLineNo">250</span>    }<a name="line.250"></a>
+<span class="sourceLineNo">251</span><a name="line.251"></a>
+<span class="sourceLineNo">252</span>    /**<a name="line.252"></a>
+<span class="sourceLineNo">253</span>     * Determines if this is a quoted argument - either single or<a name="line.253"></a>
+<span class="sourceLineNo">254</span>     * double quoted.<a name="line.254"></a>
+<span class="sourceLineNo">255</span>     *<a name="line.255"></a>
+<span class="sourceLineNo">256</span>     * @param argument the argument to check<a name="line.256"></a>
+<span class="sourceLineNo">257</span>     * @return true when the argument is quoted<a name="line.257"></a>
+<span class="sourceLineNo">258</span>     */<a name="line.258"></a>
+<span class="sourceLineNo">259</span>    public static boolean isQuoted(final String argument) {<a name="line.259"></a>
+<span class="sourceLineNo">260</span>        return argument.startsWith(SINGLE_QUOTE) &amp;&amp; argument.endsWith(SINGLE_QUOTE)<a name="line.260"></a>
+<span class="sourceLineNo">261</span>                || argument.startsWith(DOUBLE_QUOTE) &amp;&amp; argument.endsWith(DOUBLE_QUOTE);<a name="line.261"></a>
+<span class="sourceLineNo">262</span>    }<a name="line.262"></a>
+<span class="sourceLineNo">263</span>}<a name="line.263"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>

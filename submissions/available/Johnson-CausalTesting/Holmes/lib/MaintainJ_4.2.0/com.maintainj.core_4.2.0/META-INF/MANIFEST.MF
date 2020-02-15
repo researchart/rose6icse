@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: com.maintainj.core
+Bundle-SymbolicName: com.maintainj.core;singleton:=true
+Bundle-Version: 4.2.0
+Bundle-Vendor: MaintainJ Inc.
+Bundle-Localization: plugin
+Bundle-Activator: com.maintainj.core.MaintainJCorePlugin
+Eclipse-LazyStart: true
+Export-Package: com.maintainj.aspect,
+ com.maintainj.core,
+ com.maintainj.traces.db,
+ com.maintainj.traces.db.search
+Bundle-ClassPath: MaintainJCore.jar,
+ derby.jar,
+ MaintainJAspect.jar,
+ MaintainJDatabase.jar
+Require-Bundle: org.eclipse.core.runtime

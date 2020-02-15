@@ -1,0 +1,130 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>MaintainJ generates UML sequence and class diagram at runtime</title>
+</head>
+
+<body>
+
+<p><b><font face="Verdana" size="3">MaintainJ Introduction</font></b></p>
+
+<p><font face="Verdana" size="2">MaintainJ generates UML sequence and class diagram at 
+runtime for a use case. This happens in three steps:</font></p>
+<p><b><font face="Verdana" size="2">1. Instrument Code</font></b></p>
+<p><font face="Verdana" size="2">This step, inserts log statements before every 
+method call in the class files. Source code is unchanged. You can choose the 
+packages that will be instrumented. All classes and sub-packages under the 
+chosen packages will be instrumented. This can be done either at runtime or 
+build-time.</font></p>
+<p><font face="Verdana" size="2">a) <u>Runtime Instrumentation</u> -  Runtime instrumentation 
+is easy and very quick to get started. The following table lists the application 
+server and JRE configurations on which MaintainJ runtime instrumentation is supported. 
+J2SE applications (Swing or non-GUI) are supported on almost all JREs.</font></p>
+<table border="1" cellpadding="0" cellspacing="0" bordercolor="#C0C0C0" width="100%" style="border-collapse: collapse">
+  <tr>
+    <td >
+    <p align="left"><b><font face="Verdana" size="2">Server </font></b></td>
+    <td align="right" ><b><font face="Verdana" size="2">JRE </font></b></td>
+    <td align="center"  ><b><font face="Verdana" size="2">Sun's JRE</font></b></td>
+    <td align="center"  ><b><font face="Verdana" size="2">BEA's JRockit</font></b></td>
+    <td align="center"  ><b><font face="Verdana" size="2">IBM JRE</font></b></td>
+  </tr>
+  <tr>
+    <td colspan="2" ><b><font face="Verdana" size="2">J2SE Apps</font></b></td>
+    <td align="center"><font face="Verdana" size="2">1.4, 1.5 , 1.6</font></td>
+    <td align="center"><font face="Verdana" size="2">1.4 and 1.5</font></td>
+    <td align="center"><font face="Verdana" size="2">1.5</font></td>
+  </tr>
+  <tr>
+    <td colspan="2" ><b><font face="Verdana" size="2">Tomcat 4</font></b></td>
+    <td align="center"><font face="Verdana" size="2">1.4</font></td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2" ><b><font face="Verdana" size="2">Tomcat 5 &amp; 6</font></b></td>
+    <td align="center"><font face="Verdana" size="2">1.5, 1.6</font></td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+  </tr>
+
+  <tr>
+    <td colspan="2" ><b><font face="Verdana" size="2">JBoss 3</font></b></td>
+    <td align="center"><font face="Verdana" size="2">1.4</font></td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+  </tr>
+
+  <tr>
+    <td colspan="2" ><b><font face="Verdana" size="2">JBoss 4</font></b></td>
+    <td align="center"><font face="Verdana" size="2">1.5, 1.6</font></td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+  </tr>
+
+  <tr>
+    <td colspan="2" ><b><font face="Verdana" size="2">WebLogic 8</font></b></td>
+    <td align="center"><font face="Verdana" size="2">1.4</font></td>
+    <td align="center"><font face="Verdana" size="2">JRockit 1.4</font></td>
+    <td align="center">&nbsp;</td>
+  </tr>
+
+  <tr>
+    <td colspan="2" ><b><font face="Verdana" size="2">WebLogic 9</font></b></td>
+    <td align="center"><font face="Verdana" size="2">1.5</font></td>
+    <td align="center"><font face="Verdana" size="2">JRockit 1.5</font></td>
+    <td align="center">&nbsp;</td>
+  </tr>
+
+  <tr>
+    <td colspan="2" ><b><font face="Verdana" size="2">WebSphere 5</font></b></td>
+    <td align="center"><font face="Verdana" size="2">1.4</font></td>
+    <td align="center">&nbsp;</td>
+    <td align="center"><font face="Verdana" size="2">1.4</font></td>
+  </tr>
+
+  <tr>
+    <td colspan="2" ><b><font face="Verdana" size="2">WebSphere 6</font></b></td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td align="center"><font face="Verdana" size="2">1.5</font></td>
+  </tr>
+  
+</table>
+<p><font face="Verdana" size="2">Runtime instrumented applications are slow to 
+service the first request but perform with little overhead after that. </font></p>
+<p><font face="Verdana" size="2"><u>b) Build-time Instrumentation</u> - Use 
+build-time instrumentation if runtime instrumentation is not supported for your 
+configuration. MaintainJ Instrumentation 
+Wizard supports build-time instrumentation for J2SE, J2EE and Eclipse 
+applications. Instrumentation Wizard supports J2EE applications when they are 
+deployed directly from Eclipse WTP (Web Tools Platform) based IDEs or RAD 6. If 
+the J2EE applications are built and deployed using Ant scripts, the Ant scripts 
+need to be changed.</font></p>
+
+<p><b><font face="Verdana" size="2">2. Generate Trace Files</font></b></p>
+<p><font face="Verdana" size="2">Run the instrumented Java code. Define the 
+start and end points of a use case. Call trace for the use case will be logged 
+to the given trace file (.ser file).</font></p>
+<p><font face="Verdana" size="2"><u>a) J2EE Applications</u> - A JSP is provided 
+to Start and Tracing. You need to click a 'Start Tracing' button before a use 
+case starts and click 'Stop Tracing' at the end of the use case. The call trace 
+will be logged to the given file name when 'Stop Tracing' is clicked.</font></p>
+<p><font face="Verdana" size="2"><u>b) J2SE and Eclipse Applications</u> - A 
+Swing window where you can start and stop tracing opens when your instrumented 
+application starts. Click a 'Start Tracing' button before a use case starts and 
+'Stop Tracing' at the end of the use case. The call trace will be logged to the 
+given file name when 'Stop Tracing' is clicked. </font></p>
+<p><b><font face="Verdana" size="2">3. View the Diagrams</font></b><font face="Verdana" size="2">
+</font></p>
+<p><font face="Verdana" size="2">Just copy or move the trace files to any 
+project in Eclipse workspace to view the diagrams.</font></p>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

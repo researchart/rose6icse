@@ -1,0 +1,295 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>MaintainJ generates UML sequence and class diagram at runtime</title>
+</head>
+
+<body>
+
+<p><h1>5. Generating Call Trace Files</h1></p>
+
+<p><font face="Verdana" size="2">Java applications run in different runtime 
+configurations like Applets, Swing/SWT based GUI applications, non-GUI 
+applications (batch/socket server apps, etc), J2EE server applications etc.   
+MaintainJ supports many of these configurations out of the box with the help 
+of wizards. Check the 
+<a href="userGuide.jsp?param=intro#supportedConfigs">Introduction</a> page for
+the supported configurations and related demo videos. The following sections explain 
+generating the call trace files using these wizards and even without using the 
+wizards.
+</font></p>
+
+<p><b><font face="Verdana" size="2">5.1 Generating call trace for <a href="#j2ee">J2EE Applications</a></font><br>
+<font face="Verdana" size="2">5.2 Generating call trace for <a href="#j2se">J2SE (Swing or non-GUI), Applets and JUnit</a> </font>&nbsp;<br>
+<font face="Verdana" size="2">5.3 Generating call trace for <a href="#plugins"><!-- Eclipse Plug-ins and  -->Java Applications run from command prompt</a></font><br>
+<font face="Verdana" size="2">5.4 Generating call trace files on <a href="#multivms">Multiple JVMs and merging the trace files</a> </font>&nbsp;<br>
+<font face="Verdana" size="2">5.5 Generating call trace files <a href="#howitworks">without a MaintainJ wizard</a> </font></b>&nbsp;<br>
+
+
+
+<p><h2><a name="j2ee"></a>5.1 Generating call trace for J2EE Applications</h2></p>
+<p><font face="Verdana" size="2">If you use Tomcat or JBoss and deploy and start
+the server from Eclipse Servers view, the MaintainJ J2EE Server Launcher plug-in
+should be used. Check the <a href="userGuide.jsp?param=j2eeLauncherDemo">Demo Video</a>.</font></p>
+<p><font face="Verdana" size="2">For all other cases use 
+<a href="http://maintainj.com/updates/4.1.0/MaintainJ.war">MaintainJ.war</a>. MaintainJ.war installs
+MaintainJ related jar files to the application server and configures your J2EE
+application for instrumentation. Deploy MaintainJ.war to the same server instance 
+where you are running your application. 
+Open <i>http://server/MaintainJ/index.jsp</i> for installation and configuration page
+and follow the instructions. Check the 
+<a href="userGuide.jsp?param=j2eeRuntimeDemo">Demo Video</a>.</font></p>
+<p>
+<h2><a name="j2se"></a>5.2 Generating call trace for J2SE (Swing or non-GUI), Applet and JUnit
+Applications</h2>
+<p><b><font face="Verdana" size="2">Demo Videos</font></b> - <font face="Verdana" size="2">
+MaintainJ for <a href="userGuide.jsp?param=j2seRuntimeDemo">Swing</a>,
+<a href="userGuide.jsp?param=appletRuntimeDemo">Applet</a>,
+<a href="userGuide.jsp?param=junitRuntimeDemo">JUnit</a></font></p>
+<p><font face="Verdana" size="2">Use this if you are currently running your application 
+in Eclipse using Java Application / Java Applet / JUnit run configurations.
+</font></p>
+<p><font face="Verdana" size="2">1) Click Run--&gt;Run Configurations in Eclipse 
+to open the run configurations dialog.</font><br>
+<font face="Verdana" size="2">2) On the
+left hand side, you will see three  MaintainJ configurations for Java
+Applets, Java Applications and JUnit as highlighted in the screenshot
+below. MaintainJ run configurations are the same as normal configurations
+except for the <b>MaintainJ</b> tab, which is the second from left.
+
+<br><br>
+<a name="maintainjTab"></a>
+<img border="0" src="images/runtime/j2seLauncher1.png">
+<br><br>3) Create a new configuration for your type of application just as 
+you would when running without MaintainJ. In the MaintainJ tab,
+choose the packages that you want to capture. Choose  only the packages of 
+interest and avoid very high level packages. 
+If you want to capture the values of parameters and return value for each call, 
+select 'Capture method call context data'. You can also capture the actual runtime sql statements 
+your application is sending to the database server by selecting 'Capture SQL' and 
+then choosing your database.<br>
+4) Run the application or Applet or JUnit test cases.
+This will create 'maintainj/META-INF/aop.xml' file in your main project's root
+folder. If you would like to manually edit aop.xml and do not want the wizard to
+overwrite your changes, select 'Do not regenerate aop.xml' checkbox.
+<br>5 a) For JUnit test cases, this will also create 'maintainj\JUnitTraceFiles'
+folder under which the trace files will be written for each test case. This is the
+last step if you are using MaintainJ with JUnit test cases.
+<br>5 b) For J2SE
+applications and applets, a Swing window will open along with your
+application/applet. Enter a file name with full path and without extension 
+and click 'Stop Tracing' to log the call trace up
+to the point of starting the application. The generated trace file names,
+locations and number of calls in each file will be displayed. One trace file 
+for each active thread will be generated. The thread name
+is appended to the given trace file name. Trace files have
+the extension 'ser'. </font></p>
+<p>
+<img border="0" src="images/runtime/swingWindow.png" width="595" height="395"></p>
+<p><font face="Verdana" size="2">6) Once 'Stop Tracing' is clicked, the button is reset
+to 'Start Tracing' as above. Before performing an action for which a trace file is needed, click
+'Start Tracing', perform the action and click 'Stop Tracing' to generate a new trace
+file.
+<br>7) Copy the trace files to a MaintainJ Trace Files Project in Eclipse 
+and open to view the UML diagrams. MaintainJ Trace Files Project 
+can be created by by following
+File->New->Project->MaintainJ->MaintainJ Trace Files Project.</font></p>
+
+<h2><a name="plugins"></a>5.3 Generating call trace for <!-- Eclipse Plug-ins and  -->Java Applications run from
+command prompt</h2>
+
+<p><b><font face="Verdana" size="2">Demo Videos</font></b> -
+<font face="Verdana" size="2">
+<!--  
+<a href="userGuide.jsp?param=pluginRuntimeDemo">
+MaintainJ for Eclipse Plug-ins</a>&nbsp;&nbsp;
+-->
+<a href="userGuide.jsp?param=swingCommandPromptDemo">MaintainJ for
+      Applications run from command prompt</a> </font></p><p><font face="Verdana" size="2">
+This Swing based Wizard supports generating 
+trace files for any Java application that is run from the command prompt 
+(instead of running from Eclipse)<!-- or Eclipse plug-in applications -->. The following 
+steps explain how this wizard is used.</font></p><p>
+<font face="Verdana" size="2">1) Download <a href="http://www.maintainj.com/updates/4.1.0/MaintainJSwingWizard.jar">MaintainJSwingWizard.jar</a> and 
+start the Wizard  using '<b>java -jar MaintainJSwingWizard.jar</b>'</font>
+<br><font face="Verdana" size="2">2) Select Application Type
+as <!-- either  -->J2SE Application<!--  or Eclipse Plug-in -->. Select a folder to copy the MaintainJ 
+related files. <!-- For Java applications,  -->Provide the
+absolute name of the main class (the class with public static void main(String[])
+method). <!-- For Eclipse plug-ins, provide the plug-in activator
+class name. This is the class that extends AbstractUIPlugin (for GUI plug-ins)
+or Plugin (for non-GUI plug-ins). --></font></p><p>
+<img border="0" src="images/runtime/swingWizard1.png"><br><br>
+<font face="Verdana" size="2">3) Choose the package(s) in the application 
+or plug-in. Limit the instrumentation scope to your application or plug-in 
+classes. You may also exclude the package(s) that are not of interest.
+The other options are same as explained above in section <a href="#maintainjTab">5.2</a></font></p><p>
+<img border="0" src="images/runtime/swingWizard2.png">
+<br>
+<br><font face="Verdana" size="2">4) The wizard copies  MaintainJ jar files,
+META-INF/aop.xml (the aspect) and start_with_maintainj.bat 
+<!-- (eclipseShortcut.bat for Eclipse plug-ins) --> to the installation
+folder. <!-- For Java applications,  -->Edit start_with_maintainj.bat to
+set application classpath. 
+<!-- For Eclipse plug-ins, in eclipseShortcut.bat replace &lt;&lt;ECLIPSE_ROOT&gt;&gt; with Eclipse root
+folder and &lt;&lt;JAVA_HOME&gt;&gt; with Java home folder. The Java version
+should be 1.5 or above for Eclipse plug-ins. Start Eclipse with eclipseShortcut.bat. -->  
+</font><br>
+<font face="Verdana" size="2">5) When the Java application<!--  or Eclipse plug-in is started -->, 
+a 'MaintainJ - Start and
+Stop Tracing' Swing window pops up. This is the same window as shown in the last section.
+Enter a file name with full path and without extension and click 'Stop Tracing' to 
+log the call trace up to the point of starting the
+plug-in. One or more trace files with the given file name with thread name
+appended (Ex: EclipseShapeDropped_main.ser) are generated. One trace file for
+each active thread is generated.
+<br>6) Once 'Stop Tracing' is clicked, the button
+is reset to 'Start Tracing'. Before performing an action for which a trace file is
+needed, click 'Start Tracing', perform the action and click 'Stop Tracing' to
+generate a new trace file. </font></p>
+
+<p><h2><a name="multivms"></a>5.4 Generating call trace files on multiple JVMs and merging the trace files</h2></p>
+MaintainJ supports tracing applications running on multiple JVMs simultaneously 
+and merging the trace files for a end-to-end call flow. For example, consider a scenario where 
+a J2EE application calls a web service running on a different J2EE server. 
+You may be interested in seeing the end-to-end call flow of a request 
+going from the J2EE application to the web service and coming back. 
+You can do this by following the steps below. This feature is supported 
+only for JRE 1.5 and above.
+
+<p>
+1) Start MaintainJ Node Manager window using 
+<br><b>'java -classpath &lt;pathTo&gt;/MaintainJAspect.jar com.maintainj.swing.NodeManagerWindow'</b> . 
+You will find MaintainJAspect.jar under eclipse\plugins\com.maintainj.launcher.core_x.x.x. 
+A Swing window similar to the screenshot below opens. Do not do anything yet in this window.
+<p>
+<img border="0" src="images/runtime/nodeManagerWindow.png">
+<p> 
+2) While starting the applications with MaintainJ, select the option to 
+trace multiple JVMs and provide a port number to start the MaintainJ Node Agent. 
+You will see this option on all MaintainJ wizards. In the Eclipse run configuration 
+<a href="#maintainjTab">MaintainJ tab</a>, 
+select 'Capturing call trace on multiple Java VMs'. Select the 
+same option if you are using MaintainJSwingWizard explained in section 5.3. 
+If you are tracing a J2EE application using MaintainJ.war, you will see the 
+same option in 'Step 5: Capture call trace'. 
+<br>
+3) You may trace any combination of Java applications running on different 
+JVMs - multiple J2EE applications or a socket server application and a 
+J2EE application, etc. Once all the applications are started with MaintainJ, 
+go back to the MaintainJ Node Manager window opened in step 1. 
+<br>
+4) Enter the IP addresses of the machines where you are running your applications 
+and the port numbers you gave in step 2. Click 'Test Connection'. Make sure that the 
+status changes to 'Tested'.
+<br>
+5) Click 'Synchronize Nodes' button.
+<br>
+6) Enter the name of the scenario. This will be used to as an identifier for the 
+generated trace files.
+<br>
+7) Click 'Start Tracing' when you are ready to trace.
+<br>
+8) Run the scenario in your application and click 'Stop Tracing'.
+<br>
+9) You will see the list of generated trace files. Click 
+'Download trace files from all nodes' if you want to copy all the trace files to 
+a local folder.
+<br>
+10) You can merge these trace files using Merge Trace Files wizard 
+(at File->New->Other->MaintainJ->Merge Trace Files) to view them in a single 
+sequence diagram.
+
+<p><h2><a name="howitworks"></a>5.5 Generating call trace files without a MaintainJ wizard</h2></p>
+
+If the wizards that come with MaintainJ do not work for your application, you can
+still generate the trace files using the procedure below. <br><br>
+There are 4 steps to instrument your application and generate the trace files. The first three steps will instrument the application. The last step will set the start and end points of the use case and will write the call trace to a file.
+<p>
+<b>1. Prepare the aspect.</b>
+
+<br><br>The aspect should be in aop.xml file. Below is a sample file.<br><br>
+
+&lt;aspectj&gt;<br>
+&nbsp;&lt;aspects&gt;<br>
+&nbsp;&nbsp;      &lt;concrete-aspect name="com.maintainj.inst.J2EEAspect" extends="com.maintainj.aspect.ExecutionAspect"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;         &lt;pointcut name="anyExecution" expression="execution(* *.*(..)) || execution(*.new(..))"/&gt;<br>
+&nbsp;&nbsp;      &lt;/concrete-aspect&gt;<br>
+&nbsp;&lt;/aspects&gt;<br>
+&nbsp;   &lt;weaver options="-proceedOnError -showWeaveInfo -verbose "&gt;<br>
+&nbsp;&nbsp;      <font color="#0d6af0">&lt;include within="com.test..*"/&gt;</font><br>
+&nbsp;   &lt;/weaver&gt;<br>
+&lt;/aspectj&gt;<br><br>
+
+The only line that must be changed is the one within 'weaver options' section in blue. 
+Replace 'com.test' package with a package in your application. Only the classes under 
+the included packages and their sub-packages will be captured in the diagrams. 
+You may include as many packages as you want. If 
+you want to include a class, simply replace 'com.test..*' with the class name. You 
+can also exclude some classes or packages similarly using the 'exclude' keyword. 
+
+<p>
+
+The above aop.xml file does not capture method call context data, JSP's and the SQL statements. 
+If you want to add those options, either contact MaintainJ customer support or use one 
+of the wizards to first generate the aop.xml and then edit it as necessary.
+
+<p>
+<b>2. Update you application classpath.</b><br><br>
+
+In case of J2EE applications, update the server classpath so that it will apply to 
+all applications running on the server. For J2SE, JUnit or Applets, just put them 
+under application classpath. All the jar files mentioned below can be found in 
+eclipse/plugins/com.maintainj.launcher.core_x.x.x folder for J2SE applications 
+and in MaintainJ.war for J2EE applications. 
+
+<p>The instructions here apply for 
+applications running using JRE 1.5 or above.  If you are using JRE 1.4, please contact 
+MaintainJ customer support or use one of the wizards on a sample application to 
+check the jar files added to classpath.<br><br>
+
+The aop.xml created in last step needs to be under META-INF
+folder and that folder needs to be in classpath. Assuming that the location of aop.xml 
+is c:\maintainj\META-INF\aop.xml, below are the jar files and the folder that is added 
+to the classpath for applications using JRE 1.5 or above.
+<br><br>
+<font color="#0d6af0">MaintainJAspect.jar;aspectweaver.jar;c:\maintainj</font>
+
+<p>
+<b>3. Update JVM arguments</b><br><br>
+
+Again, the instructions below are for JRE 1.5 or above.<br><br>
+
+<font color="#0d6af0">-javaagent:&lt;&lt;PathTo&gt;&gt;\aspectjweaver.jar</font><br><br>
+
+<p>
+<a name="howitworksAPI"></a>
+<b>4. Generate trace file</b><br><br>
+
+The challenge here is to find a way to turn on and turn off tracing. In the wizards that 
+come with MaintainJ, this is done using a Swing window for J2SE applications. For J2EE 
+applications, this is done using a JSP. But you are free to devise your  own method.<br><br>
+
+a) To turn on tracing, call the following method. JoinPointMap class is present in MaintainJAspect.jar.<br><br>
+<font color="#0d6af0">
+JoinPointMap.setAddJoinPoint(true);<br><br>
+</font>
+b) To write the call trace to a file and turn off tracing use the following statements.<br><br>
+<font color="#0d6af0">
+JoinPointMap.setAddJoinPoint(false);<br>
+String[][] serFiles = JoinPointMap.writeToFile("c:\\TraceFile");<br>
+JoinPointMap.clear();<br><br>
+</font>
+The input to JoinPointMap.writeToFile() is the trace file name, which is given without 
+any extension. This method returns a String[][] where String[][0] is the generated trace 
+file name and String[][1] is the number of calls in that trace file.
+
+The extension .ser is automatically added to the file name. One trace file for each thread
+in the use case is generated. 
+</body>
+
+</html>

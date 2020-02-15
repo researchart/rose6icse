@@ -1,0 +1,117 @@
+<HTML>
+<BODY> 
+
+<h1>2. Why should I use MaintainJ?</h1><p>
+
+<font face="Verdana" size="2">
+
+Costs of software maintenance are well documented.
+      <a href="http://www.cs.jyu.fi/~koskinen/smcosts.htm">This</a> compilation 
+      puts maintenance cost at more than 90% of total software 
+      cost. The same paper puts the cost of understanding the code at 50% of 
+      maintenance cost.</font></p>
+      <p>
+        <font face="Verdana" size="2">
+		Currently there are no good tools to understand 
+      enterprise scale Java applications. Most of the reverse engineering tools 
+      generate the class diagrams, a static time view of the system. But when a 
+      developer is changing code, he/she is more interested in knowing how 
+        classes 
+      interact at runtime for a single use case.
+      MaintainJ  generates runtime sequence and class diagrams for a single use 
+      case.</font><font face="Verdana"> </font> </p>
+
+
+
+<p><h2>2.1 Why should managers be interested?</h2></p> 
+
+<font size="-1" face="Arial">
+
+<p><font size="-1" face="Verdana">
+
+Change is constant and everywhere - business 
+      changes, development teams change, enhancements and bug fixes involve changes, interfacing with new applications need changes, etc.</font></p>
+      <p><font face="Verdana">Change involves risk. Understanding reduces risk. 
+      MaintainJ significantly reduces the effort spent in understanding large 
+      Java applications. </font></p>
+      <p><font face="Verdana">Typically, developers depend on debuggers to analyze 
+      runtime interactions. Debuggers definitely help but diagrams are better 
+      for the same reason that managers prefer graphs to numbers.</font></p>
+
+</font>
+      <p><font face="Verdana" size="2">Most of the currently available reverse engineering 
+      tools generate class diagrams and a static sequence diagrams. Generally, 
+      the class diagrams generated are not for a single use case. They are more 
+      for the entire system and are too cluttered to understand. Static sequence diagrams are generated from code and show the possible 
+      call flows starting from a method. This helps to understand the code 
+      structure to certain extent but do not help to understand the runtime 
+      behavior.</font></p>
+      <p><font face="Verdana" size="2">MaintainJ generates runtime diagrams for a use case and that is what 
+      developers crave for while debugging a complex Java application.</font><font size="-1" face="Verdana">
+
+</font>
+
+<font size="-1" face="Arial">
+
+<p><font face="Verdana">
+In agile development environments, MaintainJ can also be used to generate always 
+up-to-date 
+UML documentation from code.</font></p>
+      <p><font face="Verdana">MaintainJ is based on open source 
+Eclipse project and works on any IDE that is built on Eclipse platform. </font> 
+
+</font>
+
+<p><h2>2.2 Why should developers be interested?</h2></p> 
+
+<font size="-1" face="Verdana">
+
+Any developer who has ever tried to change a large 
+      Java application should not need much persuasion. For the remaining few, 
+here are a few reasons :</font><p><font face="Verdana" size="2"><b>Dynamic Binding</b> - Dynamic or runtime binding 
+in Java makes understanding code more difficult. Developers often need to 
+understand the runtime object interactions for a specific use case either to 
+debug or enhance the application. Dynamic binding helps in building very 
+flexible systems but, at the same time it increases the time to understand the 
+system. It is also common to employ multiple levels of dynamic binding, like a 
+Vector containing another Vector, which further complicates the issue.</font></p>
+<p><font face="Verdana" size="2"><b>Observer Pattern</b> - Many enterprise applications follow Observer 
+Pattern for flexibility, where 'listener' (or observer) objects change model 
+state besides 'listening' (or observing) for the state changes. When many 
+such listener objects, which are often determined at runtime, change the model, 
+it becomes hard to understand and debug a large application.</font></p>
+<p><font face="Verdana" size="2"><b>Multi-threaded Applications</b> - Multi-threaded 
+applications are always difficult to code and debug. Using MaintainJ, one can 
+see the sequence of method calls happening in each thread in a neat sequence 
+diagram. This makes debugging multi-threaded applications much easier.</font></p>
+<p><font face="Verdana" size="2"><b>Externalized Data and Rules</b> - Externalizing configuration data as well 
+as rule based logic to XML files is very commonly found in the present day Java 
+applications. Very often, the logic to determine the runtime classes is 
+soft-coded in xml files. In a not so well documented large-scale system, it is 
+very hard to understand how the xml file drive the system.</font></p>
+      <p><font face="Verdana" size="2"><b>Poor Design - </b>Designing robust and flexible systems at the same 
+      time is hard. Maintaining them as the systems evolve is harder. If 
+      poor design slips into this equation, it becomes very hard to understand a 
+      system after 2-3 years from initial launch.</font><font face="Verdana">
+      </font> </p>
+      <p><font face="Verdana" size="-1">Here are some other scenarios where 
+      MaintainJ helps developers.</font></p>
+      <p><font face="Verdana" size="2"><b>Complements Debugger</b> - MaintainJ complements debugger rather than replacing it. By generating 
+      the class and sequence diagrams for a use case, it reduces the time spent 
+      in debugger. Unlike other reverse engineering tools, MaintainJ offers 
+      uncluttered and focused UML&nbsp; diagrams. For sequence diagrams, which 
+      get cluttered very easily, MaintainJ offers features like call 
+      folding to generate crisp diagrams.</font></p>
+      <p><font face="Verdana" size="2"><b>During Code reviews</b> - MaintainJ can also be used during code reviews. 
+      Rather than reviewing the entire source code, one can review the diagrams 
+      to find deviations from the design standards. Class diagrams 
+      showing the dependencies help to weed out unwanted dependencies.</font><font face="Verdana">
+      </font>
+      </p>
+      <p><font face="Verdana" size="2"><b>For Agile Teams</b> - For agile programming teams, 
+      MaintainJ provides always up-to-date documentation of the system. Useful 
+      UML diagrams 
+      can be generated whenever one needs them.</font><font face="Verdana">
+      </font>
+
+</BODY></HTML>
