@@ -70,7 +70,7 @@ For instance, if you unzipped the package `Watchman_Artifacts.zip` to the direct
 `python D:\Watchman_Artifacts\validity_evaluation_period1.py`
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-Note that, if your local environment already has other versions of Python installed (such as Python 2.*), please make sure that the command "`python`" runs python version 3.7.4. If you see the following evolution information of the libraries (on daily basis) is printed in your console, the artifact is successfully executed：
+Note that, if your local environment already has other versions of Python installed (such as Python 2.*), it is fine but please make sure that the command "`python`" would run python version 3.7.4. If you see the following evolution information of the libraries (on daily basis) is printed in your console, the artifact is successfully executed：
 
 ```
 Detecting Project:  universal-notifications  Version No:  0.4.0 Last update date: 2017-01-02 17:57:32  Detection date: 2017-01-03
