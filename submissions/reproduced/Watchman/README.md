@@ -136,7 +136,7 @@ Inputs of Watchman
   If the Python project to be analyzed is not released on PyPI, then you can press the &quot;***Import File***&quot; button and then upload its _requirement.txt_ file.
   
   ![](https://github.com/NeolithEra/Figures/blob/master/Input4.png)
-  Figure 3 Uploading the _requirement.txt_ file of a Python project be analysed
+  Figure 3 Uploading the _requirement.txt_ file of a Python project be analyzed
 
 
 </span>
