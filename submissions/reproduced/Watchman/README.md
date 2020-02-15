@@ -114,8 +114,8 @@ Three example Python projects with three types of (potential) DC issues, are pro
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <span style="">
-First, please go to the online Watchman tool via the link ([**http://www.watchman-pypi.com/**](http://www.watchman-pypi.com/)). 
-The main function is provided on the &quot;***DIAGNOSIS***&quot; page.
+First, please go to the online Watchman tool via its link ([**http://www.watchman-pypi.com/**](http://www.watchman-pypi.com/)). 
+Its &quot;***DIAGNOSIS***&quot; page provides the main function.
 </span>
 
 Inputs of Watchman
