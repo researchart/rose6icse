@@ -1,4 +1,4 @@
-Our artifact is publicly available on Github: https://github.com/alebugariu/StringSolversTests
+Our artifact is publicly available on Github: https://github.com/alebugariu/StringSolversTests [![DOI](https://zenodo.org/badge/235884734.svg)](https://zenodo.org/badge/latestdoi/235884734)
 
 The tool synthesizes input formulas in SMT-LIB 2.6 format that are satisfiable or unsatisfiable by construction, together with a model, or with the minimal unsat core, respectively. These inputs are then used for testing the implementation of 
 SMT and automata-based string solvers.
