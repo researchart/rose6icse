@@ -6,7 +6,8 @@ used for testing the implementation of the SMT and automata-based string solvers
 Several test cases have been reported to the developers of these solvers, and the corresponding bugs have been confirmed or 
 fixed.
 
-Our tool is publicly available on Github: https://github.com/alebugariu/StringSolversTests. We also [provide](https://github.com/alebugariu/StringSolversTests/tree/master/experiments)
+Our tool is publicly available on Github: https://github.com/alebugariu/StringSolversTests and it has a DOI [![DOI](https://zenodo.org/badge/235884734.svg)](https://zenodo.org/badge/latestdoi/235884734).
+We also [provide](https://github.com/alebugariu/StringSolversTests/tree/master/experiments)
 all our generated test cases, the SMT-LIB encoding of the examples from the paper and all the results we obtained for the 
 solvers under test, to enable subsequent research studies.
 

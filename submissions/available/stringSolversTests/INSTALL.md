@@ -8,9 +8,10 @@ Download our Docker image:
 ```
 docker pull alebugariu/string_solvers_tests:1.0
 ```
-Start the container:
+Start the container and go to the folder of our project (StringSolversTests):
 ```
 docker run -it alebugariu/string_solvers_tests:1.0
+cd StringSolversTests
 ```
 
 ## Without Docker
@@ -58,7 +59,6 @@ This command will list the available options.
 
 To run our tool:
 ```
-cd StringSolversTests
 chmod +x run.sh
 ./run.sh -help
 ```
