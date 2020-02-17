@@ -30,7 +30,6 @@ Inside the artifact, we wrap up all our scripts with runnable environment into a
   ```
   cat data-constraint-dockera* > data-constraint-docker
   ```
-  
   Also, the instruction file to run the docker image is in `instruction.pdf`.  
   
   2. The source code of our data format checker is in `data-constraint-checker-1.0.tar.gz`.
