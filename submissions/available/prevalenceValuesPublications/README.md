@@ -1,7 +1,7 @@
 # Human Values in Software Engineering Publications (2015-2018)
 
 This dataset is our manual classification of human values in Software Engineering Publications (2015 - 2018) as a complement to our publication.
-The dataset can be obtained in the following link: https://figshare.com/s/7a8c55799584d8783cd6
+The dataset can be obtained in the following link: https://doi.org/10.6084/m9.figshare.7749731
 
 ## Dataset
 File name: `prevalence-human-values-in-se-publication.csv`
@@ -26,6 +26,7 @@ For the result of the paper, we used the classification agreed by both raters.
 - `SecondRaterRelevance`: the relevance of the paper to human values classified by the second rater (Directly Relevant or Not Relevant)
 - `SecondRaterValueCategory`: the human values category of the paper classified by the second rater
 - `SecondRaterValue(1-3)`: one or more human value item of the paper classified by the second rater
+- `RelevanceAgreement`: the relevance agreement between the first and the second rater (Agreed, Disagreed)
 
 ### Reference
 
