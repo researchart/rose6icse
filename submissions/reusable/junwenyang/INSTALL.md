@@ -36,7 +36,7 @@ $ docker run -it -p 127.0.0.1:3000:3000 managedataconstraints/data-constraints-a
   
   Note: You can filter by "absence_type" in order to see only constraints in DB but not in application
   
-  Detailed data is presented in the [excel file](http://bit.ly/constraint-mismatch). 
+  To see how this CSV output from script is converted to the table in the paper, you can refer to [this spreadsheet](http://bit.ly/constraint-mismatch) (under tabs "Table 5-6 raw data" and "Table 5-6 summary").
   
 * Table 6: # Constraints in Application but not in DB 
 
@@ -48,7 +48,7 @@ $ docker run -it -p 127.0.0.1:3000:3000 managedataconstraints/data-constraints-a
 
   Note: You can filter by "absence_type" in order to see only constraints in application but not in DB
   
-  Detailed data presented in the [excel file](http://bit.ly/constraint-mismatch).
+  To see how this CSV output from script is converted to the table in the paper, you can refer to [this spreadsheet](http://bit.ly/constraint-mismatch) (under tabs "Table 5-6 raw data" and "Table 5-6 summary").
 
 * Table 7:  Top 5 popular types of different layer
 
@@ -82,13 +82,13 @@ $ docker run -it -p 127.0.0.1:3000:3000 managedataconstraints/data-constraints-a
   
 * Table 10: # Mismatch constraints 
 
-  Details presented in the [excel file](http://bit.ly/constraint-mismatch)
-
   Go to the `main278/formatchecker/`script folder and run:
   ```
   $ ruby run_apps.rb -s --commit-index
   ```
   This will generate a single CSV file for each application under log/mismatch_constraints_#{app_name}.csv, performing analysis on the commit specified in app_with_commits.txt. You can omit the --commit-index flag to instead analyze the latest version.
+  
+    To see how this CSV output from script is converted to the table in the paper, you can refer to [this spreadsheet](http://bit.ly/constraint-mismatch) (under tabs "Table 10 raw data" and "Table 10 summary").
 
 * User study 
   
