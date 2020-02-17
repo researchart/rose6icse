@@ -56,7 +56,7 @@ dataset
 	|--- repos_dataset_selected_sadoc.csv               Repositories containing a description of the software architecture of the robotic system (115)
 	|--- repos_filtering_intermediate_numbers.pdf       Raw numbers about each single filtering step applied for building the dataset of ROS-based repositories
 	|--- repos_filtering_statistics.pdf                 Tables showing descriptive statistics about the various repositories selected before and after the manual selection, and after the check about the architecture documentation
-	|--- repos_golden_set.pdf                           The golden set of ROS repositories used for understanding if our selection procedure is correct
+	|--- repos_golden_set.pdf                           Contains the list of repositories we knew a priori were good candidates for our study and we used such a set for (i) double check if our repository filtering steps were too strict and (ii) for piloting the manual analysis of the contents of the repositories
 	|--- repos_mining_data/                             
 	│   |--- Archive.zip                                Archive containing all the raw data related to our filtering steps, including intermediate data coming from GHTorrent, raw data produced by rosmap, and the raw data obtained at each single filtering step
 	|--- repos_mining_scripts/                              
@@ -79,7 +79,6 @@ online_questionnaire
     |--- online_questionnaire.pdf                       Full transcript of the on-line questionnaire
 	|--- online_questionnaire_invitation_email.txt      Text of the email for inviting roboticists to participate to the on-line survey
 	|--- online_questionnaire_responses.csv             All the responses of the on-line questionnaire, including our classification and codes
-	|--- online_questionnaire_responses_raw.csv         Raw data containing all the responses of the on-line questionnaire
 	|--- online_questionnaire_scripts/                   
 	    |--- Mail Sender/                               
 	    │   |--- README.md                              
@@ -87,7 +86,6 @@ online_questionnaire
 	    │   |--- mailSender.py                          For each email address to target, it sends an (hard-coded)invitation email via the SendGrid API
 	    |--- cloned_repos/                              Empty folder which will contain the cloned repositories
 	    |--- cloned_repos.csv                           The list of cloned repositories from which to extract the list of contributors
-	    |--- people_12_months.csv                       The list of all contributors targeted by the on-line questionnaire
 	    |--- repos_to_clone.csv                         The list of repositories to clone
 ```
 
