@@ -15,7 +15,7 @@ decodeCmd = "apktool d %s -o %s%s" % (testPath+app+'.apk', testPath, app)
 print decodeCmd
 os.system(decodeCmd)
 
-#perfomr corresponding intrumentation according to the analytic service
+##perfomr corresponding intrumentation according to the analytic service
 if analyticService == 'Tune':
     instrumentation.tune(app, testPath)
 
