@@ -13,7 +13,7 @@ Setting up SLACC can be a cumbersome task. We have preset SLACC as a virtualbox 
 ### Navigating around
 * Once the image is booted up, it can be logged in using the credentials
 ```
-USER_NAME :  SLACC
+USER_NAME : slacc
 PASS_WORD: slacc
 ```
 * The source code is already downloaded and unpacked in the folder `~/Raise/ProgramRepair/SLACC`. Navigate into this folder
@@ -22,7 +22,7 @@ PASS_WORD: slacc
 ```
 * Setting up DB. Check if mongoDB is running using the command `mongo`. If not start mongoDB using
 ```
-> mongostart
+> sudo systemctl start mongod
 ```
 * You are now set to use SLACC. No changes have to be made to the java or python properties. Head over to the [README](https://github.com/DynamicCodeSearch/SLACC/tree/ICSE20/README.md#running-slacc) to try out a on the `Example` dataset or the `CodeJam` dataset.
 
@@ -36,6 +36,11 @@ Clone SLACC from github using
 ### Hardware
 * SLACC requires atleast 4GB of memory to function on smaller programs. Storage and number of processors vary based on the size of the targe code for clone detection.
 * For the CodeJam dataset used in the paper, we used a 16 node cluster 4-core AMD opteron processor and 32GB DDR3 1333 ECCDRAM. This took around 2 hours for SLACC to identify clusters in the dataset.
+
+### Database
+* Most of the data and meta-data used by SLACC is stored in MongoDB. We use [MongoDB 3.6](https://docs.mongodb.com/manual/installation/) for our experiments but it should work on later versions as well.
+* Set the environment variable **$MONGO_HOME** to the path where Mongo is installed.
+* When running `mongo`, ensure its running as a daemon(background process).
 
 ### Java
 * SLACC requires [JDK version 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). After downloading this version configure the environment variable **$JAVA_HOME** to the path where Java is installed.
@@ -51,10 +56,6 @@ Clone SLACC from github using
 > cd SLACC/code
 > pip install -r requirements.txt
 ```
-
-### Database
-* Most of the data and meta-data used by SLACC is stored in MongoDB. We use [MongoDB 3.6](https://docs.mongodb.com/manual/installation/) for our experiments but it should work on later versions as well.
-* Set the environment variable **$MONGO_HOME** to the path where Mongo is installed.
 
 ### Properties
 Finally the properties have to be set for Java and Python

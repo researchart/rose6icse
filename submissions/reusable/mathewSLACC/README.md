@@ -13,7 +13,7 @@ The artifacts for SLACC can be installed by following the instructions in [INSTA
 * `Example`: A sample program that contains 3 (2 in python, 1 in java) implementations of interleaving of arrays used in the `Motivation` section of the paper. 
 
 ## Running SLACC
-Make sure [SLACC is setup](https://github.com/DynamicCodeSearch/SLACC/blob/ICSE20/INSTALL.md) before trying to run the following scripts.
+Make sure [SLACC is setup](https://github.com/DynamicCodeSearch/SLACC/blob/ICSE20/INSTALL.md) and the database is running before trying to run the following scripts.
 All code to run SLACC is made from the directory code. Navigate into this folder before executing subsequent scripts.
 ```
 > cd code
