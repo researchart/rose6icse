@@ -14,7 +14,7 @@ Inside the artifact, we wrap up all our scripts with runnable environment into a
 
   2. Benchmarks used in our paper to evaluate our data-constraint analysis tools, including
 
-     * The source code of 12 open-source Ruby-on-Rails applications that we evaluate Panorama upon, under `main278/formatchecker/apps/`
+     * The source code of 12 open-source Ruby-on-Rails applications that we evaluate data-constraint analysis tools upon, under `main278/formatchecker/apps/`
 
      * The 114 issues collected from the bug tracking system of the 12 applications.
 
@@ -22,7 +22,7 @@ Inside the artifact, we wrap up all our scripts with runnable environment into a
   
   4. The environment to run the scripts. 
 
-  With the provided materials, the docker image enables reviewers to reproduce all the results presented in our paper `main-278 Managing data constraints in database-backed web applications`. 
+  With the provided materials, the reviewers can reproduce all the results presented in our paper `main-278` Managing data constraints in database-backed web applications`. 
   
 ### The open science framework [project](https://osf.io/yaefh/) with DOI: `10.17605/OSF.IO/YAEFH`  for availability.
 
@@ -33,7 +33,7 @@ Inside the artifact, we wrap up all our scripts with runnable environment into a
      * And extract the tar file by `tar xvf data-constraint-docker.tar`.
    
 
-  2. The source code of our data format checker is in `data-constraint-checker-1.0.tar.gz`, including different parameters to analyze different aspects of constraints:
+  2. The source code of our data-constraint analysis tools in `data-constraint-checker-1.0.tar.gz`, including different parameters to analyze different aspects of constraints:
 
      * --lastest, extract all constraints in the latest version of the applications
      * --tva, analyze the evolution of constraints change
