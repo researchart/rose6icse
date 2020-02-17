@@ -6,21 +6,33 @@ We hope this artifact can demonstrate the use of our data-constraint analysis to
 
 ## What's inside the artifact:
 
-Inside the artifact, you can find the following items:
+Inside the artifact, we wrap up all our scripts into a docker image, and we upload all materials to our open science framework project:
 
-1. The source code of our data-constraint analysis tools, including different parameters to analyze different aspects of constraints:
+### Inside the docker image, we provide:
 
-   * --lastest, extract all constraints in the latest version of the applications
-   * --tva, analyze the evolution of constraints change
-   * --single, compare the constraints across layer 
+  1. The source code of our data-constraint analysis tools, including different parameters to analyze different aspects of constraints:
+
+     * --lastest, extract all constraints in the latest version of the applications
+     * --tva, analyze the evolution of constraints change
+     * --single, compare the constraints across layer 
+
+  2. Benchmarks used in our paper to evaluate our data-constraint analysis tools, including
+
+     * The source code of 12 open-source Ruby-on-Rails applications that we evaluate Panorama upon, under `main278/formatchecker/apps/`
+
+     * The 114 issues collected from the bug tracking system of the 12 applications.
+
+  3. The [questionnaires](http://bit.ly/user-questionnaire) and [results of our user study](http://bit.ly/error-message-user-study) is located at `/home/main278/user-study`.
   
-2. Benchmarks used in our paper to evaluate our data-constraint analysis tools, including
+### The osf project https://osf.io/yaefh/.
 
-   * The source code of 12 open-source Ruby-on-Rails applications that we evaluate Panorama upon, under `main278/formatchecker/apps/`
+  1. The docker image is uploaded into 4 tar file: data-constraint-dockera[a,b,c,d], which enables you to run the docker image without the dockerhub.
+  ```
+  cat data-constraint-dockera* > data-constraint-docker
+  ```
   
-   * The 114 issues collected from the bug tracking system of the 12 applications.
-
-3. The [questionnaires](http://bit.ly/user-questionnaire) and [results of our user study](http://bit.ly/error-message-user-study) is located at `/home/main278/user-study`.
+  
+  
 
 ## What to do with the artifact and how?
 
