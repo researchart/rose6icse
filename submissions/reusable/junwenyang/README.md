@@ -10,11 +10,7 @@ Inside the artifact, we wrap up all our scripts with runnable environment into a
 
 ### The docker image for facilitation of reusing and re-purposing:
 
-  1. The source code of our data-constraint analysis tools, including different parameters to analyze different aspects of constraints:
-
-     * --lastest, extract all constraints in the latest version of the applications
-     * --tva, analyze the evolution of constraints change
-     * --single, compare the constraints across layer 
+  1. The source code of our data-constraint analysis tools.
 
   2. Benchmarks used in our paper to evaluate our data-constraint analysis tools, including
 
@@ -24,6 +20,10 @@ Inside the artifact, we wrap up all our scripts with runnable environment into a
 
   3. The [questionnaires](http://bit.ly/user-questionnaire) and [results of our user study](http://bit.ly/error-message-user-study) is located at `/home/main278/user-study`.
   
+  4. The environment to run the scripts. 
+
+  With the provided materials, the docker image enables reviewers to reproduce all the results presented in our paper `main-278 Managing data constraints in database-backed web applications`. 
+  
 ### The osf project https://osf.io/yaefh/ for availability.
 
   1. The docker image is uploaded into 4 tar file: data-constraint-dockera[a,b,c,d], which enables you to run the docker image without the dockerhub with detailed instructions in `instruction.pdf`. You can run the following script to merge four files into one tar. 
@@ -32,7 +32,11 @@ Inside the artifact, we wrap up all our scripts with runnable environment into a
     cat data-constraint-dockera* > data-constraint-docker
     ```
 
-  2. The source code of our data format checker is in `data-constraint-checker-1.0.tar.gz`.
+  2. The source code of our data format checker is in `data-constraint-checker-1.0.tar.gz`, including different parameters to analyze different aspects of constraints:
+
+     * --lastest, extract all constraints in the latest version of the applications
+     * --tva, analyze the evolution of constraints change
+     * --single, compare the constraints across layer 
   
   3. The pdf of our final version paper of id main-278 is in `data-format-bug.pdf`. 
   
