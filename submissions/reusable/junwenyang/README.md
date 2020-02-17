@@ -6,7 +6,7 @@ We hope this artifact can demonstrate the use of our data-constraint analysis to
 
 ## What's inside the artifact:
 
-Inside the docker image, you can find the following items:
+Inside the artifact, you can find the following items:
 
 1. The source code of our data-constraint analysis tools, including different parameters to analyze different aspects of constraints:
 
