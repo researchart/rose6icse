@@ -28,10 +28,11 @@ Inside the artifact, we wrap up all our scripts with runnable environment into a
 
   1. The docker image is uploaded into 4 tar file: data-constraint-dockera[a,b,c,d], which enables you to run the docker image without the dockerhub.
   
-    ```
-    cat data-constraint-dockera* > data-constraint-docker
-    ```
-    Also, the instruction file to run the docker image is in `instruction.pdf`.  
+  ```
+  cat data-constraint-dockera* > data-constraint-docker
+  ```
+
+  Also, the instruction file to run the docker image is in `instruction.pdf`.  
   
   2. The source code of our data format checker is in `data-constraint-checker-1.0.tar.gz`.
   
