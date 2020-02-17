@@ -5,7 +5,7 @@ The artifact has been published as a project on open science framework with DOI 
 
 ## What's inside the artifact:
 
-Inside the artifact, we wrap up all our scripts with runnable environment into a docker image, for reusability. In addition, for availability, we upload this image as well as all related materials (including the companion paper) to our open science framework project.
+Inside the artifact, we wrap up all our scripts with runnable environment into a docker image, for reusability. In addition, for availability, we upload this image as well as related materials (including the companion paper) to our open science framework project.
 
 Below are details of what is included in each part:
 
