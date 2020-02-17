@@ -1,4 +1,4 @@
-We provide a docker image that contains the script checkers in Vibranium and all the applications we use in the paper.
+We provide a docker image that contains the script checkers in our paper main#278 and all the applications we use in the paper.
 Below are steps to run it and reproduce the experiments on docker.
 
 ### Pull and run the docker image 
