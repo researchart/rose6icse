@@ -18,6 +18,11 @@ A pre-print of the paper is available [here](https://dimitro.gr/assets/papers/SM
 
 * At least 35GB of available disk space.
 
+For Windows users, we provide a VirtualBox VM running
+Ubuntu 18.04 that contains the required environment
+for running our instructions.
+
+You can download this VM, from this [link](https://drive.google.com/open?id=104-t1BXXdSM8sJi-pr-_OMrOaxvQGs-Y).
 
 # Setup
 
