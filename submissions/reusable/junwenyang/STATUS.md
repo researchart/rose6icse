@@ -10,5 +10,5 @@ Moreover, the artifact also facilitates the reuse and repurposing of our propose
 
 * The issues collected from the bug tracking systems of the 12 open source applications are available through the [link](https://osf.io/vnt6y/) with detailed categorization and explanation, which can be used to repurpose the study in Section 6 (research question 3). 
 
-* The user study result can be reused with the de-identified raw data as well as the detailed steps to summarize the raw results provided by the [link](http://bit.ly/error-message-user-study). Also, the corresponding [questionnaire](https://osf.io/sg5x8/) can be used to repurpose the user study.
+* The user study result can be reused with the de-identified raw data as well as the detailed steps to summarize the raw results provided by the [link](http://bit.ly/error-message-user-study). Also, the corresponding [questionnaire](https://osf.io/sg5x8/) can be used to repurpose the user study in Section 7.4.
 
