@@ -39,7 +39,7 @@ Inside the artifact, we wrap up all our scripts with runnable environment into a
      * --tva, analyze the evolution of constraints change
      * --single, compare the constraints across layer 
   
-  3. The final version paper `main-278` uploaded as `data-format-bug.pdf`. 
+  3. The final version of our paper `main-278` uploaded as `data-format-bug.pdf`. 
   
   
 
