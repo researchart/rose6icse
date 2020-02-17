@@ -1,43 +1,44 @@
-The artifact has been published as a project on open science framework with DOI `10.17605/OSF.IO/YAEFH`.  
-
 This artifact for our companion paper “Managing data constraints in database-backed web applications (#278)” includes the data-constraint analysis tools we developed and raw data produced by our user study. 
-We hope this artifact can demonstrate the use of our data-constraint analysis tools to reviewers and potential users.
+We hope this artifact can demonstrate the use of our data-constraint analysis tools to reviewers, as well as be useful to users who might be interested in performing similar analysis on different applications.
 
+The artifact has been published as a docker image on Docker Hub with the [link](http://bit.ly/docker-image-278).  
 
 ## What's inside the artifact:
 
-Inside the artifact, we wrap up all our scripts with runnable environment into a docker image, and we upload all related materials to our open science framework project:
+Inside the artifact, we wrap up all our scripts with runnable environment into a docker image, for reusability. In addition, for availability, we upload this image as well as all related materials (including the companion paper) to our open science framework project.
 
-### The docker image for  reusing and re-purposing:
+Below are details of what is included in each part:
+
+### The docker image contains the following, to faciliate reuse and repurposing:
 
   1. The source code of our data-constraint analysis tools.
 
   2. Benchmarks used in our paper to evaluate our data-constraint analysis tools, including
 
-     * The source code of 12 open-source Ruby-on-Rails applications that we evaluate data-constraint analysis tools upon, under `main278/formatchecker/apps/`
+     * The source code of 12 open-source Ruby-on-Rails applications that we evaluate in our study, under `/home/main278/formatchecker/apps/`
 
      * The 114 issues collected from the bug tracking system of the 12 applications.
 
-  3. The [questionnaires](http://bit.ly/user-questionnaire) and [results of our user study](http://bit.ly/error-message-user-study) is located at `/home/main278/user-study`.
+  3. The [questionnaires](http://bit.ly/user-questionnaire) and [results of our user study](http://bit.ly/error-message-user-study), located at `/home/main278/user-study`.
   
-  4. The environment to run the scripts. 
+  4. The necessary environment to run the scripts.
 
-  With the provided materials, the reviewers can reproduce all the results presented in our paper `main-278` Managing data constraints in database-backed web applications. Also, other users can clone their rails projects to the docker container, and apply our tools to extract constraints.
+  We also include instructions to enable reviewers to reproduce all the results presented in our paper ` main-278 Managing data constraints in database-backed web applications`, using the scripts in the docker image. 
   
-### The open science framework [project](https://osf.io/yaefh/) with DOI: `10.17605/OSF.IO/YAEFH`  for availability.
+### The open science framework [project](https://osf.io/yaefh/) with DOI: `10.17605/OSF.IO/YAEFH` contains the following, for availability:
 
-  1. The docker image uploaded as 4 tar file: data-constraint-dockera[a,b,c,d], which enables you to run the docker image without the dockerhub.
+  1. The docker image, referenced above, uploaded as a 4-part tar file: data-constraint-dockera[a,b,c,d], which enables users to run the docker image without needing dockerhub.
 
      * You can merge four tar files into one tar by `$ cat data-constraint-dockera* > data-constraint-docker.tar`
 
      * And extract the tar file by `tar xvf data-constraint-docker.tar`.
    
 
-  2. The source code of our data-constraint analysis tools in `data-constraint-checker-1.0.tar.gz`, including different parameters to analyze different aspects of constraints:
+  2. A copy of the source code of our data format checker (in case users wish to use it outside docker), in `data-constraint-checker-1.0.tar.gz`, including different parameters to analyze different aspects of constraints:
 
-     * --lastest, extract all constraints in the latest version of the applications
-     * --tva, analyze the evolution of constraints change
-     * --single, compare the constraints across layer 
+     * `--latest`, extract all constraints in the latest version of the applications
+     * `--tva`, analyze the evolution of constraints change
+     * `--single`, compare the constraints across layer 
   
   3. The final version of our paper `main-278` uploaded as `data-format-bug.pdf`. 
   
@@ -45,6 +46,6 @@ Inside the artifact, we wrap up all our scripts with runnable environment into a
 
 ## What to do with the artifact and how?
 
-With the code and data included in the docker image, one can use the tool to manage data constraints, directly and also reproduce the experiments in our paper. 
+One can use the code and data included in the docker image to analyze data constraints in their own applications directly, or to reproduce the experiments in our paper. 
 
-We put detailed instruction of both in the [INSTALL](https://github.com/manageconstraints/rose6icse/blob/master/submissions/available/junwenyang/README.md) file. 
+We put detailed instructions for each of these in the [INSTALL](https://github.com/manageconstraints/rose6icse/blob/master/submissions/available/junwenyang/README.md) file. 
