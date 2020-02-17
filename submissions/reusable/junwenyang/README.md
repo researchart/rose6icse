@@ -22,7 +22,7 @@ Inside the artifact, we wrap up all our scripts with runnable environment into a
   
   4. The environment to run the scripts. 
 
-  With the provided materials, the reviewers can reproduce all the results presented in our paper `main-278` Managing data constraints in database-backed web applications`. Other users can also clone their projects to the docker container, and run our scripts to analyze their own applications to extract constraints.
+  With the provided materials, the reviewers can reproduce all the results presented in our paper `main-278` Managing data constraints in database-backed web applications. Also, other users can clone their rails projects to the docker container, and apply our tools to extract constraints.
   
 ### The open science framework [project](https://osf.io/yaefh/) with DOI: `10.17605/OSF.IO/YAEFH`  for availability.
 
