@@ -1,10 +1,10 @@
-We provide a docker image that contains the script checkers in Vibranium and all the applications we use in the paper.
+We provide a docker image that contains the script checkers in our paper main#278 and all the applications we use in the paper.
 Below are steps to run it and reproduce the experiments on docker.
 
 ### Pull and run the docker image 
 * Login to you docker hub account and pull the [docker image](https://hub.docker.com/repository/docker/managedataconstraints/data-constraints-analyzer):
 ```
-$ docker pull managedataconstraints/data-constraints-analyzer
+$ docker pull managedataconstraints/data-constraints-analyzer:first
 ```
 ```
 $ docker run -it -p 127.0.0.1:3000:3000 managedataconstraints/data-constraints-analyzer:first
@@ -18,14 +18,16 @@ $ docker run -it -p 127.0.0.1:3000:3000 managedataconstraints/data-constraints-a
   $ cd main278/formatchecker/ 
   $ ruby run_apps.rb --tva
   ```
-  The data is stored in the [excel file](http://bit.ly/app-versions-vs-constraint-changes).
-
+  The output will be stored at the `../log/ouput_#{app_name}.log` file for each corresponding app. 
+   
+  
 * Table 4: Data constraints in web applications
   ```
   $ ruby run_apps.rb  --latest-version
   ```
-  The data is presented in the [excel file](http://bit.ly/data-constraints-in-web-applications) under the `latest-version #constraints` tab. 
-
+  The output will be generated in the terminal. 
+  
+ 
 * Table 5: # Constraints in DB but not in Application
 
   Go to the `main278/formatchecker/`  script folder and run:
@@ -60,18 +62,24 @@ $ docker run -it -p 127.0.0.1:3000:3000 managedataconstraints/data-constraints-a
   ```
   $ ruby api_breakdown_spread_sheets.rb 
   ```
+  
   The summarized breakdown will be written to output/api_total_breakdown.xlsx. 
+  
+  ```
+  xlsx2csv -n summary output/api_total_breakdown.xlsx 
+  ```
+  Then the summary will be printed in the terminal.  
 
-  Details presented in the `summary` tab of  the [excel file](http://bit.ly/top-5-popular-types-of-different-layers)
-
+ 
 * Table 8: app versions vs constraint changes
-
-  Details presented in the `constraint-evolution` tab of the [excel file](http://bit.ly/app-versions-vs-constraint-changes) 
 
   Go to the `main278/formatchecker/` script folder and run:
   ```
   $ ruby run_apps.rb --tva 
   ```
+  The output will be stored at the `../log/ouput_#{app_name}.log` file for each corresponding app. 
+   
+ 
 * Table 9:  Data-constraint issues in real-world apps
 
   Raw issues in the [issue file](http://bit.ly/data-constraints-issues-in-Rails) 
@@ -92,17 +100,17 @@ $ docker run -it -p 127.0.0.1:3000:3000 managedataconstraints/data-constraints-a
 
 * User study 
   
-  results can be accessed through [google drive](http://bit.ly/error-message-user-study) or [here](./user-study.html)
+  results can be accessed through [file](https://osf.io/sg5x8/) or [here](https://hyperloop-rails.github.io/vibranium/docs/user-study.html)
 
-  User study questionnaire can be found [here](http://bit.ly/user-questionnaire).
+  User study questionnaire can be found [here](https://osf.io/hb6tg/).
   
   Both file can be found under the folder `main278/user-study` on the docker image.
 
-* The table in the Discussion section of [issues in Django](http://bit.ly/data-constraints-issues-in-Django) 
+* The table in the Discussion section of [issues in Django](https://osf.io/4qgnt/) 
 
-* [Issues we report to developers and their feedback (Section 7)](https://docs.google.com/spreadsheets/d/1d9wh0BxLLgQaSKSxFTA3ou5RH7P5D8LKaHQ1paU45u8/edit?usp=sharing)
+* [Issues we report to developers and their feedback (Section 7)](https://osf.io/3cvbz/)
 
-* Source Code for better error message [gem](https://github.com/manangeconstraints/better_error_msg_gem).
+* Source Code for better error message [gem](https://osf.io/wg2mb/).
 
 
 ### Apply on other applications
