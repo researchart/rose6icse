@@ -9,7 +9,7 @@ Inside the artifact, we wrap up all our scripts with runnable environment into a
 
 Below are details of what is included in each part:
 
-### The docker image contains the following, to faciliate reuse and repurposing:
+### Docker image (for reuse and repurposing):
 
   1. The source code of our data-constraint analysis tools.
 
@@ -25,7 +25,7 @@ Below are details of what is included in each part:
 
   We also include instructions to enable reviewers to reproduce all the results presented in our paper ` main-278 Managing data constraints in database-backed web applications`, using the scripts in the docker image. 
   
-### The open science framework [project](https://osf.io/yaefh/) with DOI: `10.17605/OSF.IO/YAEFH` contains the following, for availability:
+### The open science framework [project](https://osf.io/yaefh/) with DOI: `10.17605/OSF.IO/YAEFH` (for availability):
 
   1. The docker image, referenced above, uploaded as a 4-part tar file: data-constraint-dockera[a,b,c,d], which enables users to run the docker image without needing dockerhub.
 
