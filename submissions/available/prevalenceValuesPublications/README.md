@@ -10,7 +10,7 @@ This file contains the title and the URL to the 1350 publications from top SE ve
 
 In this dataset, we provided the classification result from two different raters.
 Each rater provided whether a publication is directly relevant to human values or not. If the publication was relevant, the rater provided a value category and up to three value items in which the publication is relevant.
-For the result of the paper, we used the classification agreed by both raters.
+For the result of the paper, we used the classification agreed by both raters for the values relevance and at least one value category/items for the specific values.
 
 ### Columns information
 
