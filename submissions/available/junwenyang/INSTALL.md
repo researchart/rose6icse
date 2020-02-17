@@ -4,7 +4,7 @@ Below are steps to run it and reproduce the experiments on docker.
 ### Pull and run the docker image 
 * Login to you docker hub account and pull the [docker image](https://hub.docker.com/repository/docker/managedataconstraints/data-constraints-analyzer):
 ```
-$ docker pull managedataconstraints/data-constraints-analyzer
+$ docker pull managedataconstraints/data-constraints-analyzer:first
 ```
 ```
 $ docker run -it -p 127.0.0.1:3000:3000 managedataconstraints/data-constraints-analyzer:first
@@ -18,13 +18,17 @@ $ docker run -it -p 127.0.0.1:3000:3000 managedataconstraints/data-constraints-a
   $ cd main278/formatchecker/ 
   $ ruby run_apps.rb --tva
   ```
-  The data is stored in the [excel file](http://bit.ly/app-versions-vs-constraint-changes).
+  The output will be stored at the `../log/ouput_#{app_name}.log` file for each corresponding app. 
+   
+  The pre-complied data is stored in the [excel file](http://bit.ly/app-versions-vs-constraint-changes).
 
 * Table 4: Data constraints in web applications
   ```
   $ ruby run_apps.rb  --latest-version
   ```
-  The data is presented in the [excel file](http://bit.ly/data-constraints-in-web-applications) under the `latest-version #constraints` tab. 
+  The output will be generated in the terminal. 
+  
+  The pre-complied data is presented in the [excel file](http://bit.ly/data-constraints-in-web-applications) under the `latest-version #constraints` tab. 
 
 * Table 5: # Constraints in DB but not in Application
 
@@ -60,18 +64,26 @@ $ docker run -it -p 127.0.0.1:3000:3000 managedataconstraints/data-constraints-a
   ```
   $ ruby api_breakdown_spread_sheets.rb 
   ```
+  
   The summarized breakdown will be written to output/api_total_breakdown.xlsx. 
+  
+  ```
+  xlsx2csv -n summary output/api_total_breakdown.xlsx 
+  ```
+  Then the summary will be printed in the terminal.  
 
-  Details presented in the `summary` tab of  the [excel file](http://bit.ly/top-5-popular-types-of-different-layers)
+  Also, details presented in the `summary` tab of  the pre-compiled [excel file](http://bit.ly/top-5-popular-types-of-different-layers)
 
 * Table 8: app versions vs constraint changes
-
-  Details presented in the `constraint-evolution` tab of the [excel file](http://bit.ly/app-versions-vs-constraint-changes) 
 
   Go to the `main278/formatchecker/` script folder and run:
   ```
   $ ruby run_apps.rb --tva 
   ```
+  The output will be stored at the `../log/ouput_#{app_name}.log` file for each corresponding app. 
+   
+  The pre-complied data is stored in the [excel file](http://bit.ly/app-versions-vs-constraint-changes), in the `constraint-evolution` tab of the [it](http://bit.ly/app-versions-vs-constraint-changes), you can find the evolution data. 
+
 * Table 9:  Data-constraint issues in real-world apps
 
   Raw issues in the [issue file](http://bit.ly/data-constraints-issues-in-Rails) 
@@ -92,7 +104,7 @@ $ docker run -it -p 127.0.0.1:3000:3000 managedataconstraints/data-constraints-a
 
 * User study 
   
-  results can be accessed through [google drive](http://bit.ly/error-message-user-study) or [here](./user-study.html)
+  results can be accessed through [google drive](http://bit.ly/error-message-user-study) or [here](https://hyperloop-rails.github.io/vibranium/docs/user-study.html)
 
   User study questionnaire can be found [here](http://bit.ly/user-questionnaire).
   
