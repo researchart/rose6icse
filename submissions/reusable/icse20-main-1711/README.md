@@ -26,11 +26,14 @@ Hyperopt is a Python library that provides algorithms and software infrastructur
 
 ## Installation
 
-- Python version 3.0
-- Install thrid-party packages
+- `Python==3.6` 
+- Install thrid-party packages (In `Anacaonda` environment)
   - `pip install hyperopt`
   - `pip install scikit-learn==0.20.4`
   - `pip install iteration_utilities`
+  - `conda install tqdm`
+  - `pip install imbalanced-learn==0.4  `
+  - `pip install func_timeout`
 
 ## A quick start to run experiments
 
