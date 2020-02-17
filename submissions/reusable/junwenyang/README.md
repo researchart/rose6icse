@@ -27,10 +27,10 @@ Inside the artifact, we wrap up all our scripts with runnable environment into a
 ### The open science framework [project](https://osf.io/yaefh/) with DOI: `10.17605/OSF.IO/YAEFH`  for availability.
 
   1. The docker image is uploaded into 4 tar file: data-constraint-dockera[a,b,c,d], which enables you to run the docker image without the dockerhub.
-    * You can merge four tar files into one tar by: 
-    ```$ cat data-constraint-dockera* > data-constraint-docker.tar```
-    * And extract the tar file by: 
-    ```tar xvf data-constraint-docker.tar```
+
+     * You can merge four tar files into one tar by `$ cat data-constraint-dockera* > data-constraint-docker.tar`
+
+     * And extract the tar file by `tar xvf data-constraint-docker.tar`.
    
 
   2. The source code of our data format checker is in `data-constraint-checker-1.0.tar.gz`, including different parameters to analyze different aspects of constraints:
