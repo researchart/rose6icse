@@ -6,9 +6,9 @@ We hope this artifact can demonstrate the use of our data-constraint analysis to
 
 ## What's inside the artifact:
 
-Inside the artifact, we wrap up all our scripts into a docker image, and we upload all materials to our open science framework project:
+Inside the artifact, we wrap up all our scripts with runnable environment into a docker image, and we upload all related materials to our open science framework project:
 
-### Inside the docker image, we provide:
+### The docker image for facilitation of reusing and re-purposing:
 
   1. The source code of our data-constraint analysis tools, including different parameters to analyze different aspects of constraints:
 
@@ -24,13 +24,16 @@ Inside the artifact, we wrap up all our scripts into a docker image, and we uplo
 
   3. The [questionnaires](http://bit.ly/user-questionnaire) and [results of our user study](http://bit.ly/error-message-user-study) is located at `/home/main278/user-study`.
   
-### The osf project https://osf.io/yaefh/.
+### The osf project https://osf.io/yaefh/ for availability.
 
   1. The docker image is uploaded into 4 tar file: data-constraint-dockera[a,b,c,d], which enables you to run the docker image without the dockerhub.
   ```
   cat data-constraint-dockera* > data-constraint-docker
   ```
   
+  Also, the instruction file to run the docker image is in `instruction.pdf`.  
+  
+  2. The source code of our data format checker is in `data-constraint-checker-1.0.tar.gz`.
   
   
 
