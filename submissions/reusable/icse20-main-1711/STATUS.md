@@ -1,1 +1,7 @@
-We are applying for the AVAILABLE and REUSABLE badge. There is a lack of thorough understanding about what are the impacts of automated parameters optimization on various CPDP techniques. We present the first empirical study that looks into such impacts on 62 CPDP techniques, 13 of which are chosen from the existing CPDP literature while the other 49 ones have not been explored before. Our study result and code is open to the public and can be reproduced based on the steps described in "README.md".
+We are applying for the `Reusable and Available` badge. 
+
+First, we released our source code and artefacts so that they are `available` for other researchers.
+
+Second, our automated parameter optimisation tool can be `reused` for further testing and development. We describe the workflow and usages of the tool step by step.
+
+We envisage that this tool can be used by others and make contributions to the software engineering community.

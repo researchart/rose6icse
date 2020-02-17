@@ -54,7 +54,13 @@ Hyperopt is a Python library that provides algorithms and software infrastructur
 
 ## Contact
 
-If you meet any problems, please feel free to contact us.
-+ Ke Li (k.li@exeter.ac.uk)
-+ Zilin Xiang (zilin.xiang@hotmail.com)
-+ Tao Chen (t.t.chen@lboro.ac.uk)
+Code can be found from: https://github.com/COLA-Laboratory/icse2020
+
+If you meet any problems, please feel free to contact us. (From `CONTACT.md`, you can get our e-mails.)
+
+- Ke Li
+  - E-mail: k.li@exeter.ac.uk | keli.genius@gmail.com
+  - Github ID: JerryI00
+- Zilin Xiang
+  - E-mail: zilin.xiang@hotmail.com
+  - Github ID: ZilinXiang
