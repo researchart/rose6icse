@@ -1,3 +1,5 @@
+We apply for the Reusable badge. 
+
 For the functionality of this artifact, we provide packages and detailed instructions to support repeatability of all the experiments of our companion paper, which enables users to reproduce the results for all the four research questions addressed across the companion paper.
 
 Moreover, the artifact also facilitates the reuse and repurposing of our proposed data-constraint analysis framework from the following perspective:
