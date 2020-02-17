@@ -7,7 +7,7 @@ import os
 
 
 
-##===================================crashlytics.setUserEmail / setUserIdentifier /setUserName ================= 5 6 7
+###===================================crashlytics.setUserEmail / setUserIdentifier /setUserName ================= 5 6 7
 def crashlytics(app, testPath):
     APIfileName = "Crashlytics.smali"
     APIname_1 = ".method public static setUserEmail(Ljava/lang/String;)V"
