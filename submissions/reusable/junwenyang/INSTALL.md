@@ -30,24 +30,24 @@ $ docker run -it -p 127.0.0.1:3000:3000 managedataconstraints/data-constraints-a
 
   Go to the `main278/formatchecker/`  script folder and run:
   ```
-  $ ruby run_apps.rb -s 
+  $ ruby run_apps.rb -s --commit-index
   ```
-  Extract the results from the log file:
-  ```
-  $ grep “db_present_model_absent” log/output.log
-  ```
+  This will generate a single CSV file for each application under log/absent_constraints_#{app_name}.csv, performing analysis on the commit specified in app_with_commits.txt. You can omit the --commit-index flag to instead analyze the latest version.
+  
+  Note: You can filter by "absence_type" in order to see only constraints in DB but not in application
+  
   Detailed data is presented in the [excel file](http://bit.ly/constraint-mismatch). 
   
 * Table 6: # Constraints in Application but not in DB 
 
   Go to the `main278/formatchecker/`  script folder and run:
   ```
-  $ ruby run_apps.rb -s 
+  $ ruby run_apps.rb -s --commit-index
   ```
-  Extract the results from the log file:
-  ```
-  $ grep “model_present_db_absent” log/output.log
-  ```
+  This will generate a single CSV file for each application under log/absent_constraints_#{app_name}.csv, performing analysis on the commit specified in app_with_commits.txt. You can omit the --commit-index flag to instead analyze the latest version.
+
+  Note: You can filter by "absence_type" in order to see only constraints in application but not in DB
+  
   Detailed data presented in the [excel file](http://bit.ly/constraint-mismatch).
 
 * Table 7:  Top 5 popular types of different layer
@@ -86,12 +86,10 @@ $ docker run -it -p 127.0.0.1:3000:3000 managedataconstraints/data-constraints-a
 
   Go to the `main278/formatchecker/`script folder and run:
   ```
-  $ ruby run_apps.rb -s 
+  $ ruby run_apps.rb -s --commit-index
   ```
-  Then, to extract the results from the log file:
-  ```
-  $ grep “mismatch_constraint” log/output.log
-  ```
+  This will generate a single CSV file for each application under log/mismatch_constraints_#{app_name}.csv, performing analysis on the commit specified in app_with_commits.txt. You can omit the --commit-index flag to instead analyze the latest version.
+
 * User study 
   
   results can be accessed through [google drive](http://bit.ly/error-message-user-study) or [here](./user-study.html)
