@@ -24,6 +24,10 @@ for running our instructions.
 
 You can download this VM, from this [link](https://drive.google.com/open?id=104-t1BXXdSM8sJi-pr-_OMrOaxvQGs-Y).
 
+VM details:
+* `username`: user
+* `password`: user
+
 # Setup
 
 See [INSTALL.md](./INSTALL.md)
