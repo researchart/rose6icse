@@ -14,6 +14,17 @@ The artifacts for SLACC can be installed by following the instructions in [INSTA
 
 ## Running SLACC
 Make sure [SLACC is setup](https://github.com/DynamicCodeSearch/SLACC/blob/ICSE20/INSTALL.md) and the database is running before trying to run the following scripts.
+
+**On Ubuntu**
+```
+> sudo systemctl start mongod
+```
+
+[**On MacOS**](https://docs.mongodb.com/manual/tutorial/manage-mongodb-processes/#start-mongod-as-a-daemon)
+```
+> mongod --fork --logpath /var/log/mongodb/mongod.log
+```
+
 All code to run SLACC is made from the directory code. Navigate into this folder before executing subsequent scripts.
 ```
 > cd code
