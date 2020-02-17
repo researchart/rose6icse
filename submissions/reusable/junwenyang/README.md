@@ -27,11 +27,9 @@ Inside the artifact, we wrap up all our scripts with runnable environment into a
 ### The open science framework [project](https://osf.io/yaefh/) with DOI: `10.17605/OSF.IO/YAEFH`  for availability.
 
   1. The docker image is uploaded into 4 tar file: data-constraint-dockera[a,b,c,d], which enables you to run the docker image without the dockerhub.
-    
-    You merge four tar files into one tar by: 
+    * You can merge four tar files into one tar by: 
     ```$ cat data-constraint-dockera* > data-constraint-docker.tar```
-    
-    And extract the tar file by: 
+    * And extract the tar file by: 
     ```tar xvf data-constraint-docker.tar```
    
 
