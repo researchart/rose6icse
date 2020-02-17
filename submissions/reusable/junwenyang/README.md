@@ -1,4 +1,4 @@
-This artifact for our companion paper “Managing data constraints in database-backed web applications (#278)” includes the data-constraint analysis tools we developed and raw data produced by our user study. 
+This artifact for our companion paper “Managing data constraints in database-backed web applications (#278)” includes the data-constraint analysis tools we developed - which were used to generate the results in that paper - as well as raw data produced by our user study. 
 We hope this artifact can demonstrate the use of our data-constraint analysis tools to reviewers, as well as be useful to users who might be interested in performing similar analysis on different applications.
 
 The artifact has been published as a project on open science framework with DOI `10.17605/OSF.IO/YAEFH`.  
