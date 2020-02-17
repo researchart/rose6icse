@@ -1,4 +1,4 @@
-The artifact has been published as a docker image on Docker Hub with the [link](http://bit.ly/docker-image-278).  
+The artifact has been published as a docker image on Docker Hub with the [link](http://bit.ly/docker-image-278) and a project on open science framework with DOI `10.17605/OSF.IO/YAEFH`.  
 
 This artifact for our companion paper “Managing data constraints in database-backed web applications (#278)” includes the data-constraint analysis tools we developed and raw data produced by our user study. 
 We hope this artifact can demonstrate the use of our data-constraint analysis tools to reviewers and potential users.
