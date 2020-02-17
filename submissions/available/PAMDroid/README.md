@@ -50,7 +50,7 @@ According to the invocation results, there are 120 apps having the misconfigurat
 * Steps to reproduce the result using PAMDroid (we take the app "com.texty.sms" as an example). Before start, make sure your test device is connected to the computer and USB debugging is enabled.   
     1. Download the apkfile "com.texty.sms.apk" from the directory /testApp/  (If you want to test on other apps, you can find other sample apps in the same directory.)
 
-    2. Check the file "app-analytic" and find which analytic service is used in this app. In this example, "com.texty.sms" is using "Crashlytics". 
+    2. Check the file "APP-Analytic" and find which analytic service is used in this app. In this example, "com.texty.sms" is using "Crashlytics". 
 
     3. In the PAMDroid.py, line 8, put the analytic service there. e.g. analyticService = 'Crashlytics'. Update the testPath to where your local path of the apk file. Run PAMdDoid.py (under python 2.7). 
 
