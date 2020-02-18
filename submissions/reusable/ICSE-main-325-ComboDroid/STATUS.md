@@ -14,7 +14,7 @@ To name a few, some functionalities of our artifact are easy to reuse:
 - The generated combos can be reused for further testing and analyzing purposes;
 - The manual execution recording and start-up script recording functionality can be easily reused for other semi-automatic techniques, 
 since the recorded traces/scripts are in the form of adb command sequences and standard XML layout files; and
-- The instrument functionality of ComboDroid provides fully functional apk files that outputs full API call traces in the Android device log. 
+- The instrument functionality of ComboDroid provides fully functional apk files that outputs API call traces via the Android logging system. 
 Such instrumented apps can be reused for collecting and analyzing app behaviors.
 
 We hope that the tool could be used by others and make contributions to the community.
