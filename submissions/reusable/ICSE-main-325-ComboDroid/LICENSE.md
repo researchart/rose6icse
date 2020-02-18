@@ -1,7 +1,7 @@
 # Released under MIT License
 
-Dogfood: A workload generation tool for testing file systems
-Copyright © 2020 Dongjie Chen (midwinter1993@gmail.com)
+ComboDroid: Generating High-Quality Test Inputs for Android Apps via Use Case Combinations
+Copyright © 2020 Jue Wang (skull591@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the "Software"),
