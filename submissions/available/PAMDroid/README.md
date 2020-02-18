@@ -1,5 +1,5 @@
 
-<font size=5, color="#dd0000">**Source code and supported files are in this repository:  https://github.com/XuelingZhang19/PAMDroid 
+<font color="#dd0000">**Source code and supported files are in this repository:  https://github.com/XuelingZhang19/PAMDroid 
 ** </font>  
 
 <font size=5>**PAMDroid** </font>     
