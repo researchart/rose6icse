@@ -18,8 +18,8 @@ We provide two kinds of installation approaches, docker and configuring manually
     `allennlp train FRMiner/config.json -s FRMiner/out/ -f --include-package FRMiner`
     
     
-This training process will take a long time which depends on the performance of your machine. 
-if you just want to test the functions of the code or get an initial trained model, you can set the `num_epochs` field in `config.json` as a small integer number.
+This training process will take a long time, which depends on the performance of your machine. 
+If you just want to test the functions of the code or get an initial trained model, you can set the `num_epochs` field in `config.json` as a small integer number.
     
     
 ## Configure manually
@@ -62,7 +62,7 @@ if you just want to test the functions of the code or get an initial trained mod
      
 6. Run
 
-    Open terminal in the parent folder which is the same directory level as `FRMiner` and run
+    Open terminal in the parent folder which is at the same directory level as `FRMiner` and run
     ``allennlp train <config file> -s <serialization path> -f --include-package FRMiner``.
     
     If you are running the code for the first time, the code will automatically download an NLP model `en-core-web-sm`, 
