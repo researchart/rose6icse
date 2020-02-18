@@ -1,8 +1,7 @@
 
-<font color="#dd0000">Source code and supported files are in this repository:</font>  https://github.com/XuelingZhang19/PAMDroid 
+**Source code and supported files are in this repository: https://github.com/XuelingZhang19/PAMDroid** 
 
 
-<font color=#00ffff size=72>color=#00ffff</font>
 
 
 <font size=5>**PAMDroid** </font>     
