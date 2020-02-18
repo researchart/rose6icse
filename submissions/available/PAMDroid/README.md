@@ -2,6 +2,8 @@
 <font color="#dd0000">**Source code and supported files are in this repository:  https://github.com/XuelingZhang19/PAMDroid 
 ** </font>  
 
+<font color="#dd0000">浅红色文字</font><br /> 
+
 <font size=5>**PAMDroid** </font>     
 PAMDroid is a semi-automated approach to detect the misconfiguration of analytic services.  
 
