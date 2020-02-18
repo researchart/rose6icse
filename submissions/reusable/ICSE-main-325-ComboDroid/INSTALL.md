@@ -8,12 +8,11 @@ Virtual machine repository: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.
 For ease of reuse and reproduction of the experiment results, we provide two repositories that are publicly available in Zenodo.
 
 The source code repository contains the Java and Kotlin source code of ComboDroid, and can be built and run with other required dependencies. 
-See [Build and run from source code repostitory](#Build and run from source code repository) for detailed instructions.
 
 We also provide a virtual machine containing pre-built artifacts, test subjects used in our experiments, and all required dependencies. 
-ComboDroid can directly run within the virtual machine. See [Run within virtual machine](#Run within virtual machine)  for detailed instructions.
+ComboDroid can directly run within the virtual machine.
 
-*Note*: the source code can only be built and run in the Linux system. If you are running on Other platforms such as Windows, please use the virtual machine.
+*Note*: the source code can only be built and run in the Linux system. If you are running on other platforms such as Windows, please use the virtual machine.
 
 ## Build and run from source code repository
 
@@ -43,7 +42,7 @@ Please ensure the 1.8 version of JDK is properly installed and the environment i
 Please ensure the newest version of Android SDK is properly installed. 
 The best way to download Android SDK is through Android Studio, which can be downloaded [here](https://developer.android.com/studio).
 The SDK manager can be opened in Tools->SDK Manager option in the Android studio, 
-and the Android SDK Build-Tools and platform, which is required to build and run the artifact, can be downloaded in the SDK Tools tab and the SDK platform tab, respectively.
+and the Android SDK Build-Tools and platforms, which are required to build and run the artifact, can be downloaded in the SDK Tools tab and the SDK platform tab, respectively.
 To build the artifact, please add the path to the d8 compiler into the PATH environment variable.
 The d8 compiler can be found at the directory of the newest version of build tools (currently 29.0.2) `[SDK_LOCATION]/build-tools/29.0.2`.
 
@@ -91,10 +90,10 @@ The above command will generate the `client.jar` file at the source code directo
 
 ### Run the artifact
 
-To run the artifact, a configuration specifying all options and parameters is required.
+To run the artifact, a configuration file specifying all options and parameters is required.
 ComboDroid first parses the configuration file, and instruments the apk file of the app with [Soot](https://github.com/Sable/soot) (implemented by Kotlin);
 then, it installs the instrumented app on the Android device, pushes the client (implemented by Kotlin and Java) to the device, and begins the testing process.
-During the testing process, ComboDroid iterates to (1) mine an automaton of the app, either fully automatically (variant ComboDroid<sup>$\alpha$</sup>) or with manual execution traces (variant ComboDroid<sup>$\beta$</sup>), and extracts use cases from it, and (2) generate combos with extracted use cases.
+During the testing process, ComboDroid iterates to (1) mine an automaton of the app, either fully automatically (the alpha variant) or with manual execution traces (the beta variant), and extracts use cases from it, and (2) generate combos with extracted use cases.
 
 #### Step-1: Prepare the configuration file
 
@@ -103,7 +102,7 @@ A configuration file for ComboDroid is a set of key-value pairs containing the f
     * `subject-dir`: the directory containing the apk file of the app under test;
     * `apk-name`: the name of the apk file;
     * `androidSDK-dir`: the location of the Android SDK;
-    * `instument-outpu-dir`: the directory where the instrumented apk files will be stored;
+    * `instument-output-dir`: the directory where the instrumented apk files will be stored;
     * `android-platform-version`: the version of the Android platform for instrumentation, which is normally set to **26**;
     * `android-build-tool-version`: the version of Android build tool for instrumentation, which is normally set to **27.0.3**;
     * `keystore-path`: the location of the keystore file for re-signing the apk file after instrumentation, see [Android Keystore System](https://developer.android.com/training/articles/keystore) for more details;
@@ -137,32 +136,33 @@ where the `ComboDroid.jar` is the name of the controller jar file, followed by t
 
 #### (Optional) Step-3: Provide a startup script
 
-For some apps, to thoroughly exercise its functionalities, some startup operations are needed (e.g., logging in). 
-If the `-no-startup` option is not specified and no startup script is specified in the configuration file (or could not be found), the artifact will ask the tester whether a startup script is needed:
+For some apps, to thoroughly exercise their functionalities, some startup operations are needed (e.g., logging in). 
+If the `-no-startup` option is not specified and no startup script is specified in the configuration file (or could not be found), ComboDroid will ask the tester whether a startup script is needed:
 ```bash
 No specified startup script of the file is missing, would you like to record a start up script? [yes/no]
 ```
-If the tester enters `yes`,  the artifact will then freshly start the app, and record a startup script (see the next section). 
+If the tester enters `yes`, ComboDroid will then freshly start the app, and record a startup script (see the next section). 
 
 #### (Optional) Step-4: Recording manual execution traces
 
 If the tester runs the **beta** or **beta_record** variants of the artifact, or wants to record a startup script, the artifact will freshly start the app, and ask the tester to provide events.
 
-1. ComboDroid first initializes the recording process and starts the app, during which no event will be recorded;
-2. After initialization, the command window will show `Waiting for event....`, and the tester can begin sending events. Currently, ComboDroid accepts events via the following ways:
+1. ComboDroid first initializes the recording process and starts the app, during which no event will be recorded.
+If the startup script is provided or recorded, it will be used to do additional initialization.
+2. After initialization, the shell will show `Waiting for event....`, and the tester can begin sending events. Currently, ComboDroid accepts events via the following ways:
     - GUI events: to send GUI events, the tester can directly touch the screen. Currently, ComboDroid accepts touch, long touch, and straight swipe events;
-    - System events: ComboDroid currently accepts (1) BACK, HOME, and VOLUME key events, and (2) adb shell command which the tester can directly input in the command window;
-    - Specifying start and end of a use case (not needed for the startup script): the test can input `start` and `end` in the command window to specify the start and end of a use case, respectively; and
-    - Specifying the end of an execution trace: the tester can input `halt` in the command window to stop recording an execution trace.
+    - System events: ComboDroid currently accepts (1) BACK, HOME, and VOLUME key events, and (2) adb shell command which the tester can directly input in the shell;
+    - Specifying start and end of a use case (not needed for the startup script): the test can input `start` and `end` in the shell to specify the start and end of a use case, respectively; and
+    - Specifying the end of an execution trace: the tester can input `halt` in the shell to stop recording an execution trace.
     *Note*: After receiving each event, ComboDroid will dump the GUI layouts and record them, 
-    and cannot handle another event before showing `"Ready recording event, waiting for the next event`  on the command window.
-3. After finishing recording an execution trace, ComboDroid will show `Enter 1 to start recording, 2 to quit` on the command window, asking whether the tester wants to record another trace.
+    and cannot handle another event before showing `"Ready recording event, waiting for the next event`  on the shell.
+3. After finishing recording an execution trace, ComboDroid will show `Enter 1 to start recording, 2 to quit` on the shell, asking whether the tester wants to record another trace.
 The tester can either input `1` to do so or `2` to quit.
 
 #### Step-5: Testing result
 
 After the testing process finishes, the detailed coverage result will be stored at the working directory named `Coverage.xml`. 
-The execution log, including full execution traces and generated combos, will be directly printed out in the command window and can be easily redirected with commands such as `tee`.  
+The execution log, including full execution traces and generated combos, will be directly printed out in the shell and can be easily redirected with commands such as `tee`.  
 
 ## Run within virtual machine
 
@@ -170,11 +170,13 @@ To ease the reuse of our artifact, we also provide a virtual machine containing 
 
 ### Import the virtual machine
 
-The ova file of our virtual machine can directly run on VirtualBox of version 6.1.2 or later;
+The ova file of our virtual machine can directly run on VirtualBox of version 6.1.2 or later.
 
 #### (Optional) Step-1: Installing KVM
 For Linux users, KVM is recommended to install first to boost the speed of the emulator within the virtual machine.
-*Note*: KVM is **not** necessary for windows users.
+
+*Note*: KVM should be installed on the host machine, not the vritual matchine; 
+it is **not** necessary for windows users.
 
 To install KVM, one can run 
 ```bash
@@ -220,14 +222,15 @@ at the `/home/combodroid` directory, where
 For each test subject, we use an **integer** in [1,17] to represent it.
 The order is the same as the one of Table 1 in our paper; and
 * `OPTION` specifies which variant should run.
-As described in our paper, it is either **alpha** for fully automatic variant ComboDroid<sup>$\alpha$</sup> or **beta** for semi-automatic variant  ComboDroid<sup>$\beta$</sup>. Note that we already provide the previously used manual traces, therefore running the **beta** variant will only run the use case combining phase, which is fully automatic. 
+As described in our paper, it is either **alpha** for fully automatic variant or **beta** for semi-automatic variant. 
+Note that we already provide the previously used manual traces, therefore running the **beta** variant will only run the use case combining phase, which is fully automatic. 
 For instance, one can run 
 ```bash
 ./runComboDroid.sh 2 alpha
 ```
-to run ComboDorid<sup>$\alpha$</sup> for AntennaPod (listed in second in Table 1 of our paper).
+to run alpha variant of ComboDroid for AntennaPod (listed in second in Table 1 of our paper).
 
-The script will boot an Android emulator in no window mode (to further boots the speed of the emulator), which can take up to 15s, and then begin the testing process.
+The script will boot an Android emulator in no window mode (to further boosts the speed of the emulator), which can take up to 15s, and then begin the testing process.
 
 *Note*: Due to the recent update of GitHub, its account authorization page no longer supports the browser of Android 6.0, and this makes it impossible to test most of the functionalities of PocketHub [#8] by ComboDroid's current implementation. We plan to deal with this in the short future.
 
@@ -242,6 +245,10 @@ With a proper configuration file, run
 ```
 at the `/home/combodroid` directory, where the `Configuration_file_path` is the path to the configuration file.
 The execution process is the same as the one when running the artifact built from scratch.
+
+*Note*: for **alpha** and **beta_combine** variant, no user interaction with the emulator is required.
+Therefore, the emulator will run in no window mode.
+For **beta** and **beta_record** variant, the emulator will run in window mode for tester to provide execution traces.
 
 ### Test results
 
