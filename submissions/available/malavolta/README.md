@@ -43,54 +43,50 @@ data_analysis
     |--- documentation_fragments.csv            TODO
     |--- guidelines_definitions.csv             TODO
 ```
-The data in the CSV files has been manually, collaboratively, and iteratively extracted by the authors of the paper. The steps for recreating the plots presented in the paper the list of contributors to contact for replicating this study are presented [here](./INSTALL.md). 
+The data in the CSV files has been manually, collaboratively, and iteratively extracted by the authors of the paper. The steps for recreating the plots presented in the paper the list of contributors to contact for replicating this study are presented [here](https://github.com/S2-group/icse-seip-2020-replication-package/INSTALL.md). 
 
 ### Dataset
 ---
 ```
 dataset
-    .
-    |--- Repos                                              TODO
-	|--- manual_selection_gitlab.pdf                    TODO
-	|--- repos_dataset_all.csv                          TODO
-	|--- repos_dataset_selected.csv                     TODO
-	|--- repos_dataset_selected_sadoc.csv               TODO
-	|--- repos_filtering_intermediate_numbers.pdf       TODO
-	|--- repos_filtering_statistics.pdf                 TODO
-	|--- repos_golden_set.pdf                           TODO
-	|--- repos_mining_data                              TODO
-	│   |--- Archive.zip                                TODO
-	|--- repos_mining_scripts                           TODO    
-	    |--- cloner.py                                  TODO
-	    |--- detector.py                                TODO
-	    |--- explorer.py                                TODO
-	    |--- ghtorrent_queries.sql                      TODO
-	    |--- merge_counter.py                           TODO
-	    |--- metrics_manager.py                         TODO
-	    |--- visit_website.scpt                         TODO
+    	.
+	|--- manual_selection_gitlab.pdf                    16 out of 46 GitLab projects were not hosted on gitlab.com, so we performed all the filtering steps manually in those cases. This is the data we manually extracted about the 16 Gitlab repositories resulting from this manual step
+	|--- repos_dataset_all.csv                          Automatically filtered repositories (598)
+	|--- repos_dataset_selected.csv                     Manually filtered repositories (335)
+	|--- repos_dataset_selected_sadoc.csv               Repositories containing a description of the software architecture of the robotic system (115)
+	|--- repos_filtering_intermediate_numbers.pdf       Raw numbers about each single filtering step applied for building the dataset of ROS-based repositories
+	|--- repos_filtering_statistics.pdf                 Tables showing descriptive statistics about the various repositories selected before and after the manual selection, and after the check about the architecture documentation
+	|--- repos_golden_set.pdf                           Contains the list of repositories we knew a priori were good candidates for our study and we used such a set for (i) double check if our repository filtering steps were too strict and (ii) for piloting the manual analysis of the contents of the repositories
+	|--- repos_mining_data/                             
+	│   |--- Archive.zip                                Archive containing all the raw data related to our filtering steps, including intermediate data coming from GHTorrent, raw data produced by rosmap, and the raw data obtained at each single filtering step
+	|--- repos_mining_scripts/                              
+	    |--- cloner.py                                  Clones GitHub repositories based on a list provided as CSV file
+	    |--- detector.py                                Given locally-cloned repositories, it detects which ones contain at least one ROS launch file (either in Python or XML)
+	    |--- explorer.py                                Given the results of rosmap and GHTorrent, it performs all  filtering steps shown in Figure 4 in the paper (until step 9, step 10 is manual)
+	    |--- ghtorrent_queries.sql                      Contains all SQL queries targeting GHTorrent  
+	    |--- merge_counter.py                           Counts and merges duplicate results between rosmap and GHTorrent
+	    |--- metrics_manager.py                         Computes a set of metrics on all targeted repositories (e.g., number of PRs, number of commits, etc.)
+	    |--- visit_website.scpt                         Auxiliary script for programmatically visiting a given URL using Google Chrome in MacOS
 ```
 
-Interested researchers can fully rebuild/update the whole dataset by following the steps presented [here](./INSTALL.md).
+Interested researchers can fully rebuild/update the whole dataset by following the steps presented [here](https://github.com/S2-group/icse-seip-2020-replication-package/INSTALL.md).
 
 ### Online questionnaire
 ---
 ```
 online_questionnaire
     .
-    |--- online_questionnaire.pdf                           TODO
-	|--- online_questionnaire_invitation_email.txt      TODO
-	|--- online_questionnaire_responses.csv             TODO
-	|--- online_questionnaire_responses_raw.csv         TODO
-	|--- online_questionnaire_scripts                   TODO
-	    |--- Mail Sender                                TODO
-	    │   |--- README.md                              TODO
-	    │   |--- emails.csv                             TODO
-	    │   |--- mailSender.py                          TODO
-	    |--- cloned_repos                               TODO
-	    |--- cloned_repos.csv                           TODO
-	    |--- cloner.py                                  TODO
-	    |--- people_12_months.csv                       TODO
-	    |--- repos_to_clone.csv                         TODO
+    |--- online_questionnaire.pdf                       Full transcript of the on-line questionnaire
+	|--- online_questionnaire_invitation_email.txt      Text of the email for inviting roboticists to participate to the on-line survey
+	|--- online_questionnaire_responses.csv             All the responses of the on-line questionnaire, including our classification and codes
+	|--- online_questionnaire_scripts/                   
+	    |--- Mail Sender/                               
+	    │   |--- README.md                              
+	    │   |--- emails.csv                             The list of email addresses to target
+	    │   |--- mailSender.py                          For each email address to target, it sends an (hard-coded)invitation email via the SendGrid API
+	    |--- cloned_repos/                              Empty folder which will contain the cloned repositories
+	    |--- cloned_repos.csv                           The list of cloned repositories from which to extract the list of contributors
+	    |--- repos_to_clone.csv                         The list of repositories to clone
 ```
 
-The steps for contacting the list of contributors of the targeted GitHub repositories are presented [here](./INSTALL.md). 
+The steps for contacting the list of contributors of the targeted GitHub repositories are presented [here](https://github.com/S2-group/icse-seip-2020-replication-package/INSTALL.md). 
