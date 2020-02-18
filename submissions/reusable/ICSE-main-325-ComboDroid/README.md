@@ -11,7 +11,7 @@ Virtual machine repository: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.
 ComboDroid is a prototype tool to generate effective test inputs for Android apps.
 we introduce its basic usage,
 how to use it to reproduce the evaluation results in the paper,
-and how to reuse it for further Android app testing.
+and how to reuse it for additional purposes.
 
 ## Obtain the artifact
 
@@ -19,6 +19,10 @@ We have uploaded the source code of ComboDroid to Zenodo:  [![DOI](https://zenod
 Moreover, to ease the reuse and reproduction, we also upload an ova file of a virtual machine containing the pre-built artifact, all test subjects used in our experiments, and all required dependencies to Zenodo:  [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3673079.svg)](https://doi.org/10.5281/zenodo.3673079)
 
 Please follow the instructions in `INSTALL.md` to complete the installation.
+
+## Basic usage
+
+The basic usage of ComboDroid is explained in detail in the `INSTALL.md` file.
 
 ## Reproduce results in the paper
 
