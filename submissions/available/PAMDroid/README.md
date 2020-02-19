@@ -1,3 +1,9 @@
+
+**Source code and supported files are in this repository:**  https://github.com/XuelingZhang19/PAMDroid
+
+
+
+
 <font size=5>**PAMDroid** </font>     
 PAMDroid is a semi-automated approach to detect the misconfiguration of analytic services.  
 
@@ -47,7 +53,8 @@ According to the invocation results, there are 120 apps having the misconfigurat
             Serial Number: ZX1G22KHQK  
             Ads ID: ce3b1e33-8e03-4664-aafc-8d50f474a442  
 
-* Steps to reproduce the result using PAMDroid (we take the app "com.texty.sms" as an example). Before start, make sure your test device is connected to the computer and USB debugging is enabled.   
+* Steps to reproduce the result using PAMDroid (we take the app "com.texty.sms" as an example). Before start, make sure your test device is connected to the computer and USB debugging is enabled.  
+
     1. Download the apkfile "com.texty.sms.apk" from the directory /testApp/  (If you want to test on other apps, you can find other sample apps in the same directory.)
 
     2. Check the file "APP-Analytic" and find which analytic service is used in this app. In this example, "com.texty.sms" is using "Crashlytics". 
