@@ -1,118 +1,353 @@
-# Artifact evaluation for ComboDroid
 
-## DOI of repositories
 
-Source code repository: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3666313.svg)](https://doi.org/10.5281/zenodo.3666313)
+  
+# Artifact evaluation for ComboDroid  
+  
 
-Virtual machine repository: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3673079.svg)](https://doi.org/10.5281/zenodo.3673079)
+## DOI of repositories  
+  
 
-## Overview
+Source code repository: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3666313.svg)](https://doi.org/10.5281/zenodo.3666313)  
+  
 
-ComboDroid is a prototype tool to generate effective test inputs for Android apps.
-we introduce its basic usage,
-how to use it to reproduce the evaluation results in the paper,
-and how to reuse it for additional purposes.
+Virtual machine repository: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3673079.svg)](https://doi.org/10.5281/zenodo.3673079)  
+  
 
-## Obtain the artifact
+## Overview  
+  
 
-We have uploaded the source code of ComboDroid to Zenodo:  [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3666313.svg)](https://doi.org/10.5281/zenodo.3666313).
-Moreover, to ease the reuse and reproduction, we also upload an ova file of a virtual machine containing the pre-built artifact, all test subjects used in our experiments, and all required dependencies to Zenodo:  [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3673079.svg)](https://doi.org/10.5281/zenodo.3673079)
+ComboDroid is a prototype tool to generate effective test inputs for Android apps.  
+We introduce its usage,  
+how to use it to reproduce the evaluation results in the paper,  
+and how to reuse it for additional purposes.  
+  
 
-Please follow the instructions in `INSTALL.md` to complete the installation.
+## Obtain the artifact  
+  
 
-## Basic usage
+To ease the reuse and reproduction, we upload an ova file of a virtual machine containing the pre-built artifact, all test subjects used in our experiments, and all required dependencies to Zenodo: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3673079.svg)](https://doi.org/10.5281/zenodo.3673079).  
+We have also uploaded the source code of ComboDroid to Zenodo: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3666313.svg)](https://doi.org/10.5281/zenodo.3666313).  
+  
 
-The basic usage of ComboDroid is explained in detail in the `INSTALL.md` file.
+Please follow the instructions in `INSTALL.md` to complete the installation.  
+  
 
-## Reproduce results in the paper
+## Basic usage  
+  
 
-The results can be reproduced within our provided virtual machine.
-Since two testing scenarios are presented in the paper,
-we introduce steps to reproduce the results, respectively.
-The `INSTALL.md` file also contains detailed instructions.
+We use an example to show the basic usage of ComboDroid within our virtual machine environment.  
+  
 
-### Running Alpha variant of ComboDroid
+At the `/home/combodroid` directory within the virtual machine, run  
 
-In the `/home/combodroid` directory, run
+```bash  
+./runComboDroid.sh 16 alpha  
+```  
 
+to run the alpha variant of ComboDroid on the app CoolClock.  
+  
+
+The script will do some pre-processing of the running environment,  
+and the following messages will show:  
+
+```bash  
+rm: cannot remove '/home/combodroid/artifact/Coverage.xml': No such file or directory
+No interaction with the Android device needed, running in no-window mode to increase the speed
+error: no emulator detected
+Wait for emulator to boot 
+```  
+
+At this point,  
+the AVD will boot in no-windowed mode (to boost its speed).  
+When it finishes booting, a message `Emulator boot complete` will show,  
+and ComboDroid will start.  
+  
+
+*Note*: the AVD can take up to 20s to boot, or even longer without qemu-KVM on the host.  
+Please be patient.  
+  
+
+ComboDroid first examines the running environment and parses the options.  
+For the example, following messages will show:  
+
+```bash  
+Configs_alpha/Config_CoolClock.txt -v --no-startup  
+[ComboDroid] CoordConfig(displayWidth=1080.0, displayHeight=1920.0, minX=0.0, maxX=32767.0, minY=0.0, maxY=32767.0)  
+[ComboDroid] Property: package-name, value: clock.socoolby.com.clock  
+[ComboDroid] Property: subject-dir, value: subjects  
+[ComboDroid] Property: apk-name, value: CoolClock.apk  
+[ComboDroid] Property: instrument-output-dir, value: instrumentedApks  
+[ComboDroid] Property: keystore-path, value: /home/combodroid/artifact/testKeyStore.jks  
+[ComboDroid] Property: key-alias, value: combodroid  
+[ComboDroid] Property: key-password, value: combodroid  
+[ComboDroid] Property: androidSDK-dir, value: /home/combodroid/Android  
+[ComboDroid] Property: android-platform-version, value: 26  
+[ComboDroid] Property: android-buildtool-version, value: 27.0.3  
+[ComboDroid] Property: ComboDroid-type, value: alpha  
+[ComboDroid] Property: trace-directory, value: traces  
+[ComboDroid] Property: running-minutes, value: 720  
+[ComboDroid] Property: modeling-minutes, value: 30  
+[ComboDroid] WARNING: unable to find startup-script proerty in the configuration file, use default value []  
+[ComboDroid] Property: startup-script, value:  
+```  
+  
+
+Next, it uses Soot to instrument the apk file.  
+It traverses through apk files and finds those API calls that are likely to access shared resources.  
+It instruments logging statements before these calls and also prints out the name of the APIs.  
+After the instrumentation, the apk file gets re-signed and pushed onto the AVD.  
+During this process, following messages will show:  
+
+```bash  
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".  
+SLF4J: Defaulting to no-operation (NOP) logger implementation  
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.  
+Soot started on Wed Feb 19 14:36:58 CET 2020  
+[ComboDroid] invoking clock.socoolby.com.clock.utils.NetworkService.getInstance is likely to access the network resource  
+[ComboDroid] invoking clock.socoolby.com.clock.utils.NetworkService.sendRequest is likely to access the network resource  
+[ComboDroid] invoking clock.socoolby.com.clock.protocol.WeatherRequest.setmCity is likely to invoke a local write  
+[ComboDroid] invoking clock.socoolby.com.clock.utils.NetworkService.getInstance is likely to access the network resource  
+[ComboDroid] invoking clock.socoolby.com.clock.ClockApplication.getContext is likely to invoke a local read  
+[ComboDroid] invoking clock.socoolby.com.clock.utils.NetworkService.sendRequest is likely to access the network resource  
+[ComboDroid] invoking com.android.volley.toolbox.HttpHeaderParser.parseCharset is likely to access the network resource  
+[ComboDroid] invoking com.android.volley.toolbox.HttpHeaderParser.parseCacheHeaders is likely to access the network resource  
+...  
+Soot finished on Wed Feb 19 14:37:01 CET 2020  
+Soot has run for 0 min. 3 sec.  
+[ComboDroid] resign the instrument app /home/combodroid/artifact/instrumentedApks/CoolClock.apk-Ins/CoolClock.apk  
+```  
+
+Next, a client responsible for generating and sending events will be pushed onto the AVD, and the input generation process starts.  
+Execution logs such as the following ones will be printed out and also dumped on a log file:  
+
+```bash  
+[ComboDroid] Events injected: 1  
+[ComboDroid] ## Network stats: elapsed time=99ms (0ms mobile, 0ms wifi, 99ms not connected)  
+[ComboDroid] In Continueous mode, re-deploy 43200000 719  
+[ComboDroid] :Monkey: seed=1582273498387 count=1000  
+[ComboDroid] :AllowPackage: clock.socoolby.com.clock  
+[ComboDroid] :IncludeCategory: android.intent.category.LAUNCHER  
+[ComboDroid] :IncludeCategory: android.intent.category.MONKEY  
+[ComboDroid] Power Manager says we are interactive  
+[ComboDroid] -Wed Feb 19 14:40:53 GMT+01:00 2020 Needs to start the app!  
+[ComboDroid] -Wed Feb 19 14:40:53 GMT+01:00 2020 reset trace, but the backup hasn't been used or the currentState is null, keep holding it  
+[ComboDroid] :Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=clock.socoolby.com.clock/.MainActivity;end  
+[ComboDroid] // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=clock.socoolby.com.clock/.MainActivity } in package clock.socoolby.com.clock  
+[ComboDroid] -Wed Feb 19 14:40:56 GMT+01:00 2020 read a trace with size of 708  
+[ComboDroid] -Wed Feb 19 14:40:56 GMT+01:00 2020 In trace we find 354 network access, 0/0 database access, 0/0 database field access, 0/0 preference access,and 33/11 local variable access  
+[ComboDroid] >>>>>>>> Modeling begin step [1][97780456295]  
+[ComboDroid] -Wed Feb 19 14:40:56 GMT+01:00 2020 no previous state, record start trace  
+[ComboDroid] GSTG(g0): activities (1), states (1), edges (0), unvisited actions (7), visited actions (0)  
+[ComboDroid] GSTG is NOT updated.  
+[ComboDroid] GSTG state is changed.  
+...  
+```  
+  
+
+The example will run for 12 hours.  
+After the execution finishes, the dumped log file `Log.txt` as well as a detailed Coverage file `Coverage.xml` will be stored at the directory `/home/combodroid/result_16_alpha_TIMESTAMP`,  
+where the `TIMESTAMP` is a 14-digit timestamp indicating the starting time of the input generation process.  
+For instance, the directory can be `/home/combodroid/result_16_alpha_20200127141251`.  
+  
+
+## Reproduce results in the paper  
+  
+
+The results can be reproduced within our provided virtual machine.  
+Since two testing scenarios are presented in the paper,  
+we introduce steps to reproduce the results, respectively.  
+  
+
+### Running Alpha variant of ComboDroid  
+  
+
+In the `/home/combodroid` directory, run  
+  
+
+```bash  
+./runComboDroid SUBJECT alpha  
+```  
+
+to run alpha variant of ComboDroid on one `SUBJECT`,  
+where `SUBJECT` is an integer in [1,17] representing a test subject used in our evaluation:  
+
+| Index | Subject | Index | Subject |  
+|:---------:|:---------:|:---------:|:---------:|  
+| 1 |WordPress | 10 |Hacker News Reader |  
+| 2 |AntennaPod | 11 |CallMeter |  
+| 3 |K-9 Mail | 12 |SimpleTask |  
+| 4 |MyExpenses | 13 |Simple Draw|  
+| 5 |Wikipedia | 14 |Aard2 |  
+| 6 |AnkiDroid | 15 |Workd Clock|  
+| 7 |AmazeFileManager| 16 |CoolClock |  
+| 8 |PocketHub | 17 |Alogcat |  
+| 9 |AnyMemo |  
+  
+
+The statement coverage result will be in the file `/home/combodroid/result_SUBJECT_alpha_TIMESTAMP/Coverage.xml`.  
+  
+
+### Running Beta variant of ComboDroid  
+  
+
+In the `/home/combodroid` directory, run  
+  
+
+```bash  
+./runComboDroid SUBJECT beta  
+```  
+
+to run the beta variant of ComboDroid on one `SUBJECT`,  
+where `SUBJECT` is an integer in [1,10] representing a test subject used in our evaluation.  
+The indices of subjects are the same as the one for the alpha variant.  
+  
+
+The statement coverage result will be in the file `/home/combodroid/result_SUBJECT_beta_TIMESTAMP/Coverage.xml`.  
+ 
+  *Note*: Due to the recent update of GitHub, its account authorization page no longer supports the browser of Android 6.0, and this makes it impossible to test most of the functionalities of PocketHub [#8] by ComboDroid's current implementation. We plan to deal with this in the short future.
+
+## Generating test inputs for additional apps  
+  
+
+Besides the test subjects, ComboDroid can also generate test inputs for other apps.  
+To do so, in the `/home/combodroid` directory, run  
+
+```bash  
+./runComboDroid 0 PATH_TO_CONFIGURATION_FILE  
+```  
+
+where `PATH_TO_CONFIGURATION_FILE` is the path to a configuration file specifying the configurations.  
+  
+
+A configuration file for ComboDroid is a set of key-value pairs containing the following properties:  
+
+* Mandatory:  
+* `subject-dir`: the directory containing the apk file of the app under test;  
+* `apk-name`: the name of the apk file;  
+* `androidSDK-dir`: the location of the Android SDK;  
+* `instrument-output-dir`: the directory where the instrumented apk files will be stored;  
+* `android-platform-version`: the version of the Android platform for instrumentation, which is normally set to **26**;  
+* `android-build-tool-version`: the version of Android build tool for instrumentation, which is normally set to **27.0.3**;  
+* `keystore-path`: the location of the Keystore file for re-signing the apk file after instrumentation, see [Android Keystore System](https://developer.android.com/training/articles/keystore) for more details;  
+* `key-alias`: the alias of the key in the Keystore file;  
+* `key-password`: the password of the key in the Keystore file;  
+* `package-name`: the package name of the app under test;  
+* `ComboDroid-type`: the variant of ComboDroid requested to run, whose value can be:  
+- **alpha**: run the alpha variant of ComboDroid;  
+- **beta**: run the complete beta variant of ComboDroid, which (1) askes the human to provide execution traces, and (2) uses the traces for testing;  
+- **beta_record**: only ask human to record execution traces; and  
+- **beta_combine**: uses existing execution traces for combining.  
+* `running-minutes`: the overall running minutes of ComboDroid; and  
+* `modeling-minutes`: the running minutes for each automaton mining phase.  
+* Optional:  
+* `trace-directory`: the location of existing execution traces. Mandatory when running **beta_combine** variant of ComboDroid; and  
+* `startup-script`: the location of a startup script to perform additional initialization of the app (e.g., logging in).  
+  
+
+Examples of configuration files can be found at the `/home/combodroid/artifact/Configs_alpha` directory.  
+
+The results will be stored at the `home/combodroid/result_0_TIMESTAMP` directory.
+
+Based on the configruation file, at the begining of the execution ComboDroid may require further interactions with the tester. We describe them here.
+
+### Provide a startup script
+
+For some apps, to thoroughly exercise their functionalities, some startup operations are needed (e.g., logging in). 
+If no startup script is specified in the configuration file (or the file could not be found), ComboDroid will ask the tester whether a startup script is needed:
 ```bash
-./runComboDroid SUBJECT alpha 
+No specified startup script of the file is missing, would you like to record a start up script? [yes/no]
 ```
+If the tester enters `yes`, ComboDroid will then freshly start the app, and record a startup script (see the next section). 
 
-where *SUBJECT* is an integer in [1,17] representing a test subject used in our evaluation.
-The order of subjects is the same as the one in Table 1 of our paper.
+### Recording manual execution traces
 
-The statement coverage result will be in the file `/home/workspace/result_SUBJECT_alpha_TIMESTAMP/Coverage.xml`.
+If the tester runs the **beta** or **beta_record** variants of the artifact, or wants to record a startup script, ComboDroid will freshly start the app, and ask the tester to provide events.
 
-### Running Beta variant of ComboDroid
+1. ComboDroid first initializes the recording process and freshly starts the app, during which no event will be recorded.
+If the startup script is provided or recorded, it will be used to do additional initialization.
+2. After initialization, the shell will show `Waiting for event....`, and the tester can begin sending events. Currently, ComboDroid accepts events via the following ways:
+    - GUI events: to send GUI events, the tester can directly touch the screen. Currently, ComboDroid accepts touch, long touch, and straight swipe events;
+    - System events: ComboDroid currently accepts (1) BACK, HOME, and VOLUME key events, and (2) adb shell command which the tester can directly input in the shell;
+    - Specifying start and end of a use case (not needed for the startup script): the test can input `start` and `end` in the shell to specify the start and end of a use case, respectively; and
+    - Specifying the end of an execution trace: the tester can input `halt` in the shell to stop recording an execution trace.
+    *Note*: After receiving each event, ComboDroid will dump the GUI layouts and record them, 
+    and cannot handle another event before showing `"Ready recording event, waiting for the next event`  on the shell.
+3. After finishing recording an execution trace, ComboDroid will show `Enter 1 to start recording, 2 to quit` on the shell, asking whether the tester wants to record another trace.
+The tester can either input `1` to go back to step 1, or `2` to quit.
+  
 
-In the `/home/combodroid` directory, run
+## Reuse ComboDroid for further purposes  
+  
 
-```bash
-./runComboDroid SUBJECT beta 
-```
+ComboDroid is well structured with many functionalities that can be reused for other activities.  
+We name a few and describe them in detail.  
+  
 
-where *SUBJECT* is an integer in [1,17] representing a test subject used in our evaluation. 
-The order of subjects is the same as the one in Table 1 in our paper.
+### Testing other Android apps.  
+  
 
-The statement coverage result will be in the file `/home/workspace/result_SUBJECT_beta_TIMESTAMP/Coverage.xml`.
+Naturally, besides test subjects we used for evaluation, ComboDroid can be used to generate test inputs and test other Android apps.  
+  
 
-## Reuse ComboDroid for further Android app testing research
+### Reuse of generated combos  
+  
 
-ComboDroid is well structured with many functionalities that can be reused for other activities.
-We name a few and describe them in detail.
+In the execution log of ComboDorid, we record all generated combos, which are long, and meaningful test inputs.  
+Such inputs can explore functionalities of Android apps hidden deep, or/and exercise complex combinations of such functionalities, and thus can be reused for other testing or analyzing purposes.  
+  
 
-### Testing other Android apps.
+Currently, the combos are recorded in a format that can be translated into monkey events by ComboDroid.  
+In the short future, we plan to add an interface to ComboDroid to support combo replaying, further enhancing its reusability.  
+  
 
-Naturally, besides test subjects we used for evaluation, ComboDroid can be used to generate test inputs and test other Android apps.
+### Reuse of startup scripts and manual inputs  
+  
 
-In `INSTALL.md` file we describe in-depth how to do so.
+As described in the paper and the `INSTALL.md` file, ComboDroid records manually provided inputs and startup scripts.  
+To ease the reusability of these inputs and scripts, ComboDroid records them in the combination of GUI layout XML files, and sequence of adb command (for GUI events, they are recorded in `adb shell input` commands, and for system events, they are `adb shell` command).  
+For each event the tester sends, ComboDroid records the current GUI layout of the app, the event in the form of adb command, and the time of the clock of the Android device (in milliseconds) when receiving the event.  
+The format is well organized and self-explanatory and can be reused for other purposes.  
+Therefore, ComboDroid can serve as a recording tool.  
+  
 
-### Reuse of generated combos
+To achieve so, one can run the **beta_record** variant of ComboDroid.  
+The startup script will be stored in the `startup.txt` file at the working directory,  
+and the recorded traces will be stored in the `trace` directory at the working directory.  
+  
 
-In the execution log of ComboDorid, we record all generated combos, which are long, and meaningful test inputs.
-Such inputs can explore functionalities of Android apps hidden deep, or/and exercise complex combinations of such functionalities, and thus can be reused for other testing or analyzing purposes.
+### Reuse of the instrumented apk file  
+  
 
-Currently, the combos are recorded in a format that can be translated into monkey events by ComboDroid.
-In the short future, we plan to add an interface to ComboDroid to support combo replaying, further enhancing its reusability.
+ComboDroid instruments the apk file to get API call traces during the execution.  
+Such an instrumented apk file is stored in the specified directory and can be reused for other activities concerning execution trace analysis.  
+  
 
-### Reuse of startup scripts and manual inputs
+Currently, ComboDroid instruments the apk file to log API calls through the Android logging system.  
+For each API call that is likely to access shared resources, such as database or network, a log in the following format will be printed in the `info` channel of the logging system:  
 
-As described in the paper and the `INSTALL.md` file, ComboDroid records manually provided inputs and startup scripts.
-To ease the reusability of these inputs and scripts, ComboDroid records them in the combination of GUI layout XML files, and sequence of adb command (for GUI events, they are recorded in `adb shell input` commands, and for system events, they are `adb shell` command).
-For each event the tester sends, ComboDroid records the current GUI layout of the app, the event in the form of adb command, and the time of the clock of the Android device (in milliseconds) when receiving the event.
-The format is well organized and self-explaintory and can be reused for other purposes.
-Therefore, ComboDroid can serve as a recording tool.
+- The log tag is `ComboDroid.TAG`;  
+- The message is in the form of `CALLER_FULL_CLASS_PATH.CALLER_METHOD_NAME->CALLEE_FULL_CLASS_PATH.CALLEE_METHOD_NAME#ID TYPE_OF_ACCESS`  
+where  
+* `ID` is a unique identifier of this API call, and  
+* `TYPE_OF_ACCESS` specifies the type of the accessed resource and how it is accessed, which can be  
+- `network access`: this API call is likely to contribute to a network resource accessing;  
+- `database read`: this API call is likely to contribute to a database reading;  
+- `database write`: this API call is likely to contribute to a database writing;  
+- `shared preference read`: this API call is likely to contribute to a shared preference reading;  
+- `shared preference write`: this API call is likely to contribute to a shared preference writing;  
+- `local read`: this API call is likely to contribute to a local variable reading; and  
+- `local write`: this API call is likely to contribute to a local variable writing.  
+  
 
-To achieve so, one can run the **beta_record** variant of ComboDroid. 
-The startup script will be stored in the `startup.txt` file at the working directory,
- and the recorded traces will be stored in the `trace` directory at the working directory.
- 
- ### Reuse of the instrumented apk file
- 
- ComboDroid instruments the apk file to get API call trace during the execution.
- Such an instrumented apk file is stored in the specified directory and can be reused for other activities concerning execution trace analysis.
- 
-Currently, ComboDroid instruments the apk file to log API calls through the Android logging system.
-For each API call that is likely to access shared resources, such as database or network, a log in the following format will be printed in the `info` channel of the logging system:
-- The log tag is `ComboDroid.TAG`;
-- The message is in the form of `CALLER_FULL_CLASS_PATH.CALLER_METHOD_NAME->CALLEE_FULL_CLASS_PATH.CALLEE_METHOD_NAME#ID TYPE_OF_ACCESS`
-where
-    * `ID` is a unique identifier of this API call, and
-    * `TYPE_OF_ACCESS` specifies the type of the accessed resource and how it is accessed, which can be
-        - `network access`: this API call is likely to contribute to a network resource accessing;
-        - `database read`: this API call is likely to contribute to a database reading;
-        - `database write`: this API call is likely to contribute to a database writing;
-        - `shared preference read`: this API call is likely to contribute to a shared preference reading;
-        - `shared preference write`: this API call is likely to contribute to a shared preference writing;
-        - `local read`: this API call is likely to contribute to a local variable reading; and
-        - `local write`: this API call is likely to contribute to a local variable writing.
+For the local variables accessing, please refer to our paper to see how it is identified.  
+  
 
-For the local variables accessing, please refer to our paper to see how it is identified.
+Furthermore, for standard APIs provided by the Android system to access database and shared preference,  
+logs recording the corresponding arguments used to call them are also logged in the following format:  
 
-Furthermore, for standard APIs provided by the Android system to access database and shared preference, 
-logs recording the corresponding arguments used to call them are also logged in the following format:
-- The log tag is `ComboDroid.TAG-CALLEE_FULL_CLASS_PATH.CALLEE_METHOD_NAME#ID`; and
-- The message of each log is one of the arguments.
+- The log tag is `ComboDroid.TAG-CALLEE_FULL_CLASS_PATH.CALLEE_METHOD_NAME#ID`; and  
+- The message of each log is one of the arguments.  
+  
 
 The arguments are logged in the same order as the one they are specified.
+ 

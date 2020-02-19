@@ -9,7 +9,8 @@ Second, our tool can be `reused` for further purposes.
 We describe the workflow and usages of the tool step by step for a comprehensive guideline,
 and discuss how it can be reused in depth in the `README.md`.
 
-To name a few, some functionalities of our artifact are easy to reuse:
+ComboDroid is well structured with many functionalities that can be reused for other activities.  
+For instance:
 
 - The `runComboDroid` script can be used to easily run tests on other apps; 
 - The generated combos can be reused for further testing and analyzing purposes;
