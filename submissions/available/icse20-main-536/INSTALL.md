@@ -34,7 +34,9 @@ python3 bias_bugs_generate_results.py
 #### Prerequisite
 ```
 OS: Ubuntu 18.10  
-Python 2.7 with library numpy-1.16, tqdm-4.41, torch-1.3.1, torchsummary  
+Python 2.7 with library numpy-1.16, tqdm-4.41, torch-1.3.1, torchsummary, torchvision-0.4.2  
+pip2 install numpy==1.16 tqdm==4.41 torch==1.3.1 torchsummary torchvision==0.4.2  
+
 Python 3.7/3.8 with library numpy, scipy, matplotlib, sklearn, pandas
 ```
 #### Clone the Repository
@@ -72,3 +74,6 @@ python3 bias_bugs_generate_results.py --datasets=robust_cifar10_small
 1. Reproducing scripts should generate exactly the same results as in paper (Table 3, Figure 6, Table 4, Figure 10).
 2. When inspecting CIFAR-10 models, csv files are generated without errors.  
 3. After overriding the original csv files and running scripts for reproduction, the precision and recall of predicting confusion errors and bias errors are outputted.
+
+## DOI
+[![DOI](https://zenodo.org/badge/227184732.svg)](https://zenodo.org/badge/latestdoi/227184732)
