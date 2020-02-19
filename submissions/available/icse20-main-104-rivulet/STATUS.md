@@ -1,0 +1,4 @@
+We are applying for the following badges:
+
+* Available, because we have released this artifact under an MIT license and archived it publicly and permanently using [figshare](https://doi.org/10.6084/m9.figshare.11592033). The code is also available on GitHub for easily downloading.
+* Reusable, because we believe that the artifact can allow future reuse and repurposing of the tool. It also allows for easy replication. We also show that the tool can be used in a standard, automated environment, since [TravisCI compiles and runs RIVULET's benchmark suite with each commit](https://travis-ci.com/gmu-swe/rivulet).
