@@ -1,5 +1,6 @@
 
 
+
   
 # Artifact evaluation for ComboDroid  
   
@@ -27,24 +28,27 @@ and how to reuse it for additional purposes.
 
 To ease the reuse and reproduction, we upload an ova file of a virtual machine containing the pre-built artifact, all test subjects used in our experiments, and all required dependencies to Zenodo: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3673079.svg)](https://doi.org/10.5281/zenodo.3673079).  
 We have also uploaded the source code of ComboDroid to Zenodo: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3666313.svg)](https://doi.org/10.5281/zenodo.3666313).  
-  
-
 Please follow the instructions in `INSTALL.md` to complete the installation.  
   
 
 ## Basic usage  
   
 
-We use an example to show the basic usage of ComboDroid within our virtual machine environment.  
-  
+We use a running example to show the basic usage of ComboDroid within our virtual machine environment.  
+
+We provide an additional script and one additional configuration file, 
+namely the `runComboDroid.sh` file and the `Config_runningExample.txt` file,
+to run the example. 
+One can copy these two files to the `/home/combodroid` directory within the virtual machine.
+
+*Note*: the `runComboDroid.sh` script *should* override the original one in the directory.
+This is expected.  
 
 At the `/home/combodroid` directory within the virtual machine, run  
-
 ```bash  
-./runComboDroid.sh 16 alpha  
+./runComboDroid.sh running-example
 ```  
-
-to run the alpha variant of ComboDroid on the app CoolClock.  
+The script will run the alpha variant of ComboDroid on the app Hacker News Reader for 10 minutes. 
   
 
 The script will do some pre-processing of the running environment,  
@@ -52,17 +56,18 @@ and the following messages will show:
 
 ```bash  
 rm: cannot remove '/home/combodroid/artifact/Coverage.xml': No such file or directory
-No interaction with the Android device needed, running in no-window mode to increase the speed
+Interaction with the Android device needed, running in windowed mode
 error: no emulator detected
-Wait for emulator to boot 
+Wait for emulator to boot
 ```  
 
 At this point,  
-the AVD will boot in no-windowed mode (to boost its speed).  
+the AVD will boot.  
 When it finishes booting, a message `Emulator boot complete` will show,  
-and ComboDroid will start.  
+and ComboDroid will start. 
+The execution log will be printed in the terminal and dumped into a log file.
+We describe in detail how ComboDroid works and the logs for the running example.
   
-
 *Note*: the AVD can take up to 20s to boot, or even longer without qemu-KVM on the host.  
 Please be patient.  
   
@@ -71,83 +76,119 @@ ComboDroid first examines the running environment and parses the options.
 For the example, following messages will show:  
 
 ```bash  
-Configs_alpha/Config_CoolClock.txt -v --no-startup  
-[ComboDroid] CoordConfig(displayWidth=1080.0, displayHeight=1920.0, minX=0.0, maxX=32767.0, minY=0.0, maxY=32767.0)  
-[ComboDroid] Property: package-name, value: clock.socoolby.com.clock  
-[ComboDroid] Property: subject-dir, value: subjects  
-[ComboDroid] Property: apk-name, value: CoolClock.apk  
-[ComboDroid] Property: instrument-output-dir, value: instrumentedApks  
-[ComboDroid] Property: keystore-path, value: /home/combodroid/artifact/testKeyStore.jks  
-[ComboDroid] Property: key-alias, value: combodroid  
-[ComboDroid] Property: key-password, value: combodroid  
-[ComboDroid] Property: androidSDK-dir, value: /home/combodroid/Android  
-[ComboDroid] Property: android-platform-version, value: 26  
-[ComboDroid] Property: android-buildtool-version, value: 27.0.3  
-[ComboDroid] Property: ComboDroid-type, value: alpha  
-[ComboDroid] Property: trace-directory, value: traces  
-[ComboDroid] Property: running-minutes, value: 720  
-[ComboDroid] Property: modeling-minutes, value: 30  
-[ComboDroid] WARNING: unable to find startup-script proerty in the configuration file, use default value []  
-[ComboDroid] Property: startup-script, value:  
+/home/combodroid/Config_runningExample.txt -v --no-startup
+[ComboDroid] CoordConfig(displayWidth=1080.0, displayHeight=1920.0, minX=0.0, maxX=32767.0, minY=0.0, maxY=32767.0)
+[ComboDroid] Property: package-name, value: io.github.hidroh.materialistic
+[ComboDroid] Property: subject-dir, value: subjects
+[ComboDroid] Property: apk-name, value: hnr.apk
+[ComboDroid] Property: instrument-output-dir, value: instrumentedApks
+[ComboDroid] Property: keystore-path, value: /home/combodroid/artifact/testKeyStore.jks
+[ComboDroid] Property: key-alias, value: combodroid
+[ComboDroid] Property: key-password, value: combodroid
+[ComboDroid] Property: androidSDK-dir, value: /home/combodroid/Android
+[ComboDroid] Property: android-platform-version, value: 26
+[ComboDroid] Property: android-buildtool-version, value: 27.0.3
+[ComboDroid] Property: ComboDroid-type, value: alpha
+[ComboDroid] Property: trace-directory, value: traces
+[ComboDroid] Property: running-minutes, value: 10
+[ComboDroid] Property: modeling-minutes, value: 5
+[ComboDroid] WARNING: unable to find startup-script proerty in the configuration file, use default value []
+[ComboDroid] Property: startup-script, value: 
 ```  
   
 
 Next, it uses Soot to instrument the apk file.  
-It traverses through apk files and finds those API calls that are likely to access shared resources.  
-It instruments logging statements before these calls and also prints out the name of the APIs.  
+It traverses through the apk file and finds those API calls that are likely to access shared resources.  
+It instruments logging statements before these calls and also logs the name of the APIs.  
 After the instrumentation, the apk file gets re-signed and pushed onto the AVD.  
-During this process, following messages will show:  
+During this process, the following messages will show:  
 
 ```bash  
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".  
 SLF4J: Defaulting to no-operation (NOP) logger implementation  
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.  
-Soot started on Wed Feb 19 14:36:58 CET 2020  
-[ComboDroid] invoking clock.socoolby.com.clock.utils.NetworkService.getInstance is likely to access the network resource  
-[ComboDroid] invoking clock.socoolby.com.clock.utils.NetworkService.sendRequest is likely to access the network resource  
-[ComboDroid] invoking clock.socoolby.com.clock.protocol.WeatherRequest.setmCity is likely to invoke a local write  
-[ComboDroid] invoking clock.socoolby.com.clock.utils.NetworkService.getInstance is likely to access the network resource  
-[ComboDroid] invoking clock.socoolby.com.clock.ClockApplication.getContext is likely to invoke a local read  
-[ComboDroid] invoking clock.socoolby.com.clock.utils.NetworkService.sendRequest is likely to access the network resource  
-[ComboDroid] invoking com.android.volley.toolbox.HttpHeaderParser.parseCharset is likely to access the network resource  
-[ComboDroid] invoking com.android.volley.toolbox.HttpHeaderParser.parseCacheHeaders is likely to access the network resource  
+Soot started on Wed Feb 19 18:55:19 CET 2020
+[ComboDroid] invoking retrofit2.OkHttpCall.parseResponse is likely to access network resource
+[ComboDroid] invoking retrofit2.OkHttpCall$1.callSuccess is likely to access network resource
+[ComboDroid] invoking retrofit2.OkHttpCall$1.callFailure is likely to access network resource
+[ComboDroid] invoking io.github.hidroh.materialistic.data.MaterialisticDatabase$ReadStory.getId is likely to read database
+[ComboDroid] invoking okhttp3.Request.method is likely to access network resource
+[ComboDroid] invoking androidx.preference.Preference.getContext is likely to read shared preferences
+[ComboDroid] invoking okhttp3.internal.ws.RealWebSocket$1.<init> is likely to access network resource
 ...  
-Soot finished on Wed Feb 19 14:37:01 CET 2020  
-Soot has run for 0 min. 3 sec.  
-[ComboDroid] resign the instrument app /home/combodroid/artifact/instrumentedApks/CoolClock.apk-Ins/CoolClock.apk  
+Soot finished on Wed Feb 19 18:55:32 CET 2020
+Soot has run for 0 min. 13 sec.
+[ComboDroid] resign the instrument app /home/combodroid/artifact/instrumentedApks/hnr.apk-Ins/hnr.apk
 ```  
 
 Next, a client responsible for generating and sending events will be pushed onto the AVD, and the input generation process starts.  
-Execution logs such as the following ones will be printed out and also dumped on a log file:  
+For the running example, the log will look like this:  
 
 ```bash  
-[ComboDroid] Events injected: 1  
-[ComboDroid] ## Network stats: elapsed time=99ms (0ms mobile, 0ms wifi, 99ms not connected)  
-[ComboDroid] In Continueous mode, re-deploy 43200000 719  
-[ComboDroid] :Monkey: seed=1582273498387 count=1000  
-[ComboDroid] :AllowPackage: clock.socoolby.com.clock  
-[ComboDroid] :IncludeCategory: android.intent.category.LAUNCHER  
-[ComboDroid] :IncludeCategory: android.intent.category.MONKEY  
-[ComboDroid] Power Manager says we are interactive  
-[ComboDroid] -Wed Feb 19 14:40:53 GMT+01:00 2020 Needs to start the app!  
-[ComboDroid] -Wed Feb 19 14:40:53 GMT+01:00 2020 reset trace, but the backup hasn't been used or the currentState is null, keep holding it  
-[ComboDroid] :Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=clock.socoolby.com.clock/.MainActivity;end  
-[ComboDroid] // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=clock.socoolby.com.clock/.MainActivity } in package clock.socoolby.com.clock  
-[ComboDroid] -Wed Feb 19 14:40:56 GMT+01:00 2020 read a trace with size of 708  
-[ComboDroid] -Wed Feb 19 14:40:56 GMT+01:00 2020 In trace we find 354 network access, 0/0 database access, 0/0 database field access, 0/0 preference access,and 33/11 local variable access  
-[ComboDroid] >>>>>>>> Modeling begin step [1][97780456295]  
-[ComboDroid] -Wed Feb 19 14:40:56 GMT+01:00 2020 no previous state, record start trace  
-[ComboDroid] GSTG(g0): activities (1), states (1), edges (0), unvisited actions (7), visited actions (0)  
-[ComboDroid] GSTG is NOT updated.  
-[ComboDroid] GSTG state is changed.  
-...  
+[ComboDroid] Events injected: 1
+[ComboDroid] ## Network stats: elapsed time=25ms (0ms mobile, 0ms wifi, 25ms not connected)
+[ComboDroid] In Continueous mode, re-deploy 600000 9
+[ComboDroid] :Monkey: seed=1582288840024 count=1000
+[ComboDroid] :AllowPackage: io.github.hidroh.materialistic
+[ComboDroid] :IncludeCategory: android.intent.category.LAUNCHER
+[ComboDroid] :IncludeCategory: android.intent.category.MONKEY
+[ComboDroid] Power Manager says we are interactive
+[ComboDroid] -Wed Feb 19 18:56:20 GMT+01:00 2020  Needs to start the app!
+[ComboDroid] -Wed Feb 19 18:56:20 GMT+01:00 2020 reset trace, but the backup hasn't been used or the currentState is null, keep holding it
+[ComboDroid] :Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=io.github.hidroh.materialistic/.LauncherActivity;end
+[ComboDroid]     // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=io.github.hidroh.materialistic/.LauncherActivity } in package io.github.hidroh.materialistic
+[ComboDroid]     // Allowing start of Intent { cmp=io.github.hidroh.materialistic/.ListActivity } in package io.github.hidroh.materialistic
+[ComboDroid]     // activityResuming(io.github.hidroh.materialistic)
+[ComboDroid] -Wed Feb 19 18:56:22 GMT+01:00 2020  read a trace with size of 146
+[ComboDroid] *** WARNING *** find more than one argument for : io.github.hidroh.materialistic.Preferences.get->android.content.SharedPreferences.getBoolean#5801 shared preferences read
+[ComboDroid] *** WARNING *** find more than one argument for : io.github.hidroh.materialistic.Preferences.get->android.content.SharedPreferences.getString#8796 shared preferences read
+[ComboDroid] *** WARNING *** find more than one argument for : io.github.hidroh.materialistic.Preferences.get->android.content.SharedPreferences.getString#12799 shared preferences read
+[ComboDroid] -Wed Feb 19 18:56:22 GMT+01:00 2020 In trace we find 482 network access, 0/0 database access, 0/0 database field access, 5/0 preference access,and 7/3 local variable access
+[ComboDroid] >>>>>>>> Modeling begin step [1][113221340682]
+[ComboDroid] this:Naming[6], parent:Naming[0].
+[ComboDroid]   0. [000][BASE] //*[@clickable='true' or @long-clickable='true' or @checkable='true' or @scrollable='true'] -> ActionPatchNamer[TypeNamer[type,resource-id]]
+[ComboDroid]   1. [000][BASE] //*[@clickable='false' and @long-clickable='false' and @checkable='false' and @scrollable='false'] -> ActionPatchNamer[EmptyNamer]
+[ComboDroid]   2. [001][REFINE] //*[@class="android.widget.FrameLayout"][@resource-id=""][@enabled='true'][@clickable='true'][@checkable='false'][@long-clickable='true'][@scrollable='false'] -> ActionPatchNamer[CompoundNamer[TypeNamer[type,resource-id],IndexNamer[index]]]
+[ComboDroid] -Wed Feb 19 18:56:22 GMT+01:00 2020 no previous state, record start trace
+[ComboDroid] GSTG(g1): activities (1), states (1), edges (0), unvisited actions (25), visited actions (0)
+[ComboDroid] GSTG is NOT updated.
+[ComboDroid] GSTG state is changed.
+[ComboDroid] Graph Stable Counter: graph (0), state (0), activity (0)
+...
+[ComboDroid] Events injected: 2947
+[ComboDroid] :Sending rotation degree=0, persist=false
+[ComboDroid] -Wed Feb 19 19:05:20 GMT+01:00 2020 Explored app activities:
+[ComboDroid]    1 io.github.hidroh.materialistic.ComposeActivity
+[ComboDroid]    2 io.github.hidroh.materialistic.ItemActivity
+[ComboDroid]    3 io.github.hidroh.materialistic.LauncherActivity
+[ComboDroid]    4 io.github.hidroh.materialistic.ListActivity
+[ComboDroid]    5 io.github.hidroh.materialistic.UserActivity
+[ComboDroid]      0  TRIVIAL_ACTIVITY
+[ComboDroid]      0  SATURATED_STATE
+[ComboDroid]      0  USE_BUFFER
+[ComboDroid]    207  EARLY_STAGE
+[ComboDroid]      0  EPSILON_GREEDY
+[ComboDroid]      0  RANDOM
+[ComboDroid]      0  NULL
+[ComboDroid]      2  BUFFER_LOSS
+[ComboDroid]     53  FILL_BUFFER
+[ComboDroid]      0  BAD_STATE
+[ComboDroid] -Wed Feb 19 19:05:20 GMT+01:00 2020 Total Coverage: Covered 15143 Total: 54982 Ratio: 0.27541740933396386
+[ComboDroid] -Wed Feb 19 19:05:20 GMT+01:00 2020 Encounter 0 new GUIs asking for additional use cases
+[ComboDroid] :Dropped: keys=0 pointers=3 trackballs=0 flips=0 rotations=0
+[ComboDroid] ## Network stats: elapsed time=540798ms (0ms mobile, 0ms wifi, 540798ms not connected)
+[ComboDroid] // Monkey finished
+[ComboDroid] -Wed Feb 19 19:05:20 GMT+01:00 2020 print traces
+[ComboDroid] Executed 10
 ```  
-  
-
-The example will run for 12 hours.  
-After the execution finishes, the dumped log file `Log.txt` as well as a detailed Coverage file `Coverage.xml` will be stored at the directory `/home/combodroid/result_16_alpha_TIMESTAMP`,  
+The scripts runs ComboDroid for 10 minutes on the running example.
+After the execution finishes, the dumped log file `Log.txt` as well as a detailed Coverage file `Coverage.xml` will be stored at the directory `/home/combodroid/result_running-example_TIMESTAMP`,  
 where the `TIMESTAMP` is a 14-digit timestamp indicating the starting time of the input generation process.  
-For instance, the directory can be `/home/combodroid/result_16_alpha_20200127141251`.  
+For instance, the directory can be `/home/combodroid/result_running-example_20200127141251`.  
+
+*Note*: By the end of the execution, the script will clean up the envrionment.
+Some errors such as `cp: cannot stat 'Coverage.xml': No such file or director` may occur.
+This is expected and does not affect the execution.
   
 
 ## Reproduce results in the paper  
@@ -184,7 +225,8 @@ where `SUBJECT` is an integer in [1,17] representing a test subject used in our 
 | 9 |AnyMemo |  
   
 
-The statement coverage result will be in the file `/home/combodroid/result_SUBJECT_alpha_TIMESTAMP/Coverage.xml`.  
+The statement coverage result will be in the file `/home/combodroid/result_SUBJECT_alpha_TIMESTAMP/Coverage.xml`
+as well as the `/home/combodroid/artifact/Coverage.xml` file.  
   
 
 ### Running Beta variant of ComboDroid  
@@ -201,8 +243,8 @@ to run the beta variant of ComboDroid on one `SUBJECT`,
 where `SUBJECT` is an integer in [1,10] representing a test subject used in our evaluation.  
 The indices of subjects are the same as the one for the alpha variant.  
   
-
-The statement coverage result will be in the file `/home/combodroid/result_SUBJECT_beta_TIMESTAMP/Coverage.xml`.  
+The statement coverage result will be in the file `/home/combodroid/result_SUBJECT_beta_TIMESTAMP/Coverage.xml`
+as well as the `/home/combodroid/artifact/Coverage.xml` file.  
  
   *Note*: Due to the recent update of GitHub, its account authorization page no longer supports the browser of Android 6.0, and this makes it impossible to test most of the functionalities of PocketHub [#8] by ComboDroid's current implementation. We plan to deal with this in the short future.
 
@@ -216,12 +258,11 @@ To do so, in the `/home/combodroid` directory, run
 ./runComboDroid 0 PATH_TO_CONFIGURATION_FILE  
 ```  
 
-where `PATH_TO_CONFIGURATION_FILE` is the path to a configuration file specifying the configurations.  
+where `PATH_TO_CONFIGURATION_FILE` is the **absolute** path to a configuration file specifying the configurations.  
   
-
 A configuration file for ComboDroid is a set of key-value pairs containing the following properties:  
 
-* Mandatory:  
+Mandatory:  
 * `subject-dir`: the directory containing the apk file of the app under test;  
 * `apk-name`: the name of the apk file;  
 * `androidSDK-dir`: the location of the Android SDK;  
@@ -233,29 +274,28 @@ A configuration file for ComboDroid is a set of key-value pairs containing the f
 * `key-password`: the password of the key in the Keystore file;  
 * `package-name`: the package name of the app under test;  
 * `ComboDroid-type`: the variant of ComboDroid requested to run, whose value can be:  
-- **alpha**: run the alpha variant of ComboDroid;  
-- **beta**: run the complete beta variant of ComboDroid, which (1) askes the human to provide execution traces, and (2) uses the traces for testing;  
-- **beta_record**: only ask human to record execution traces; and  
-- **beta_combine**: uses existing execution traces for combining.  
+    - **alpha**: run the alpha variant of ComboDroid;  
+    - **beta**: run the complete beta variant of ComboDroid, which (1) askes the human to provide execution traces, and (2) uses the traces for testing;  
+    - **beta_record**: only ask human to record execution traces; or
+    - **beta_combine**: uses existing execution traces for combining.  
 * `running-minutes`: the overall running minutes of ComboDroid; and  
 * `modeling-minutes`: the running minutes for each automaton mining phase.  
-* Optional:  
+Optional:  
 * `trace-directory`: the location of existing execution traces. Mandatory when running **beta_combine** variant of ComboDroid; and  
 * `startup-script`: the location of a startup script to perform additional initialization of the app (e.g., logging in).  
   
-
 Examples of configuration files can be found at the `/home/combodroid/artifact/Configs_alpha` directory.  
 
 The results will be stored at the `home/combodroid/result_0_TIMESTAMP` directory.
 
-Based on the configruation file, at the begining of the execution ComboDroid may require further interactions with the tester. We describe them here.
+Based on the configuration file, at the beginning of the execution, ComboDroid may require further interactions with the tester. We describe them here.
 
 ### Provide a startup script
 
 For some apps, to thoroughly exercise their functionalities, some startup operations are needed (e.g., logging in). 
 If no startup script is specified in the configuration file (or the file could not be found), ComboDroid will ask the tester whether a startup script is needed:
 ```bash
-No specified startup script of the file is missing, would you like to record a start up script? [yes/no]
+No specified startup script of the file is missing, would you like to record a startup script? [yes/no]
 ```
 If the tester enters `yes`, ComboDroid will then freshly start the app, and record a startup script (see the next section). 
 
@@ -265,15 +305,15 @@ If the tester runs the **beta** or **beta_record** variants of the artifact, or 
 
 1. ComboDroid first initializes the recording process and freshly starts the app, during which no event will be recorded.
 If the startup script is provided or recorded, it will be used to do additional initialization.
-2. After initialization, the shell will show `Waiting for event....`, and the tester can begin sending events. Currently, ComboDroid accepts events via the following ways:
+2. After initialization, `Waiting for event....` will show on the terminal, and the tester can begin sending events. Currently, ComboDroid accepts events via the following ways:
     - GUI events: to send GUI events, the tester can directly touch the screen. Currently, ComboDroid accepts touch, long touch, and straight swipe events;
-    - System events: ComboDroid currently accepts (1) BACK, HOME, and VOLUME key events, and (2) adb shell command which the tester can directly input in the shell;
+    - System events: ComboDroid currently accepts (1) BACK, HOME, and VOLUME key events, and (2) adb shell command which the tester can directly input in the terminal;
     - Specifying start and end of a use case (not needed for the startup script): the test can input `start` and `end` in the shell to specify the start and end of a use case, respectively; and
     - Specifying the end of an execution trace: the tester can input `halt` in the shell to stop recording an execution trace.
-    *Note*: After receiving each event, ComboDroid will dump the GUI layouts and record them, 
-    and cannot handle another event before showing `"Ready recording event, waiting for the next event`  on the shell.
+    *Note*: After receiving each event, ComboDroid will dump the GUI layout and record the event, 
+    and cannot handle another event before showing `"Ready recording event, waiting for the next event`  on the terminal.
 3. After finishing recording an execution trace, ComboDroid will show `Enter 1 to start recording, 2 to quit` on the shell, asking whether the tester wants to record another trace.
-The tester can either input `1` to go back to step 1, or `2` to quit.
+The tester can either input `1` to go back to step 1, or `2` to quit recording.
   
 
 ## Reuse ComboDroid for further purposes  
@@ -297,13 +337,13 @@ Such inputs can explore functionalities of Android apps hidden deep, or/and exer
   
 
 Currently, the combos are recorded in a format that can be translated into monkey events by ComboDroid.  
-In the short future, we plan to add an interface to ComboDroid to support combo replaying, further enhancing its reusability.  
+In the short future, we plan to add an interface to ComboDroid to support the translation as well as replaying the combos.
   
 
 ### Reuse of startup scripts and manual inputs  
   
 
-As described in the paper and the `INSTALL.md` file, ComboDroid records manually provided inputs and startup scripts.  
+As described in the paper and this document, ComboDroid records manually provided inputs and startup scripts.  
 To ease the reusability of these inputs and scripts, ComboDroid records them in the combination of GUI layout XML files, and sequence of adb command (for GUI events, they are recorded in `adb shell input` commands, and for system events, they are `adb shell` command).  
 For each event the tester sends, ComboDroid records the current GUI layout of the app, the event in the form of adb command, and the time of the clock of the Android device (in milliseconds) when receiving the event.  
 The format is well organized and self-explanatory and can be reused for other purposes.  
@@ -313,7 +353,7 @@ Therefore, ComboDroid can serve as a recording tool.
 To achieve so, one can run the **beta_record** variant of ComboDroid.  
 The startup script will be stored in the `startup.txt` file at the working directory,  
 and the recorded traces will be stored in the `trace` directory at the working directory.  
-  
+ Examples can be found at the `/home/combodroid/artifact/recorded_traces`.
 
 ### Reuse of the instrumented apk file  
   

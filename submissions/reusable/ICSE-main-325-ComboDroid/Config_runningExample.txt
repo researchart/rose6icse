@@ -1,0 +1,14 @@
+subject-dir = subjects
+apk-name = hnr.apk
+instrument-output-dir = instrumentedApks
+androidSDK-dir = /home/combodroid/Android
+android-platform-version = 26
+android-buildtool-version = 27.0.3
+keystore-path = /home/combodroid/artifact/testKeyStore.jks
+key-alias = combodroid
+key-password = combodroid
+package-name = io.github.hidroh.materialistic
+ComboDroid-type = alpha
+trace-directory = traces
+running-minutes = 10
+modeling-minutes = 5

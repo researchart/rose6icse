@@ -12,7 +12,7 @@ and discuss how it can be reused in depth in the `README.md`.
 ComboDroid is well structured with many functionalities that can be reused for other activities.  
 For instance:
 
-- The `runComboDroid` script can be used to easily run tests on other apps; 
+- The `runComboDroid.sh` script can be used to easily run tests on other apps; 
 - The generated combos can be reused for further testing and analyzing purposes;
 - The manual execution recording and start-up script recording functionality can be easily reused for other semi-automatic techniques, 
 since the recorded traces/scripts are in the form of adb command sequences and standard XML layout files; and
