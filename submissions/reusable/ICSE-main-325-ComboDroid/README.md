@@ -222,7 +222,6 @@ To test any given app (APK), the following steps should be followed:
 The execution log file `Log.txt` will be stored at the `result_0_TIMESTAMP` directory.
 
 We describe these steps in detail.
-Suppose we want to run beta variant (semi-automatically) of ComboDroid on an app, whose APK file is at `/home/combodroid/aut.apk`, for 60 minutes with a 10-minute time limit of automaton mining phase of each iteration.
 
 ### 3.1 Write a Configuration File
 
@@ -252,11 +251,14 @@ A configuration file for ComboDroid is a set of key-value pairs containing the f
   
 Examples of configuration files can be found at the `/home/combodroid/artifact/Configs_alpha` directory. 
 We'll further provide detailed instructions in our public Github repo. 
-In our pre-built VM image, for the example (running beta variant on the `aut.jar` apk file) you only need to copy a random example configuration file, and change the following proerties to:
+In our pre-built VM image, many properties in the example configuration files need no modification when running other apps.
+Suppose we want to run beta variant (semi-automatically) of ComboDroid on an app (package name `A.B.C`), whose APK file is stored at `/home/combodroid/aut.apk`, for 60 minutes with a 10-minute time limit of automaton mining phase of each iteration.
+We only need to copy an example configuration file, and change the following proerties to:
   
 * `subject-dir=/home/combodroid`;
 * `apk-name=aut.jar`;
 * `ComboDroid-type=beta`;
+* `package-name=A.B.C`
 * `running-minutes=60`; and
 * `modeling-minutes=10`.
 
