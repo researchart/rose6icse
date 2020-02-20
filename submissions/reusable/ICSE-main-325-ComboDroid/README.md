@@ -1,6 +1,8 @@
+
+
 # Artifact Evaluation for ComboDroid  
 
-ComboDroid is a prototype tool to generate effective test inputs for Android apps. Please follow the instructions in `INSTALL.md` to complete the installation. All following instructions assum that we are in the ComboDroid installation directory
+ComboDroid is a prototype tool to generate effective test inputs for Android apps. Please follow the instructions in `INSTALL.md` to complete the installation. All following instructions assume that we are in the ComboDroid installation directory
 (`/home/combodroid` in the pre-built VM image).
 
 Source code repository: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3666313.svg)](https://doi.org/10.5281/zenodo.3666313)  
@@ -12,18 +14,20 @@ Virtual machine repository: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.
 Load [`runComboDroid.sh`](runComboDroid.sh) and [`Config_runningExample.txt`](Config_runningExample.txt) to the ComboDroid installation directory (`/home/combodroid` in the provided VM image).
 If you're using the provided VM image, `runComboDroid.sh` **already exists and should be replaced with the updated version**.
 
-> (add how to copy it from VM). If you don't have a shared folder, it may be difficult without vbox extension.
+The easiest way to load the two additional scripts to the VM is using the *drag-n-drop* functionality of VirtualBox.
+You can find guidance [here](https://www.virtualbox.org/manual/UserManual.html#guestadd-dnd).
+If this does not work (due to reasons such as unsupported host environment), 
+you can also load the file via the network (e.g., send yourself an email with the files as an attachment on the host and download it in the VM).
 
-To see how ComboDroid automatically tests the unmodified Hacker News Reader apk (version X.X.X) for 10 minutes (with a window), just type
+To see how ComboDroid automatically tests the unmodified Hacker News Reader APK (version 3.3) for 10 minutes (with an AVD window), just type
 
 ```bash  
 bash runComboDroid.sh running-example
 ```
 
-Wait a while for running environment setup (may took ~20s to minutes). Some error messages may appear; just ignore them. Then you'll see Android device emulator (AVD) boot. The full log can be found in `Log.txt`.
+Wait for a while for running environment setup (may take ~20s to minutes). Some error messages may appear; just ignore them. Then you'll see Android device emulator (AVD) boot. The full log can be found in `Log.txt`.
 
 ```bash  
-rm: cannot remove '/home/combodroid/artifact/Coverage.xml': No such file or directory
 Interaction with the Android device needed, running in windowed mode
 error: no emulator detected
 Wait for emulator to boot
@@ -140,12 +144,12 @@ For the running example, the log will look like this:
 [ComboDroid] Executed 10
 ``` 
 
-The scripts runs ComboDroid for 10 minutes on the running example.
+The script runs ComboDroid for 10 minutes on the running example.
 After the execution finishes, the dumped log file `Log.txt` as well as a detailed Coverage file `Coverage.xml` will be stored at the directory `result_running-example_TIMESTAMP`,  
 where the `TIMESTAMP` is a 14-digit timestamp indicating the starting time of the input generation process.  
 For instance, the directory can be `result_running-example_20200127141251`.  
 
-*Note*: By the end of the execution, the script will clean up the envrionment.
+*Note*: By the end of the execution, the script will clean up the environment.
 Some errors such as `cp: cannot stat 'Coverage.xml': No such file or director` may occur.
 This is expected and does not affect the execution.
   
@@ -156,14 +160,14 @@ The results can be reproduced within our provided virtual machine.
 Since two testing scenarios are presented in the paper,  
 we introduce steps to reproduce the results, respectively.  
 
-### 2.1 Running Alpha Variant of ComboDroid (Fullly Automatic)
+### 2.1 Running Alpha Variant of ComboDroid (Fully Automatic)
 
 
-In the `/home/combodroid` directory, run  
+in the ComboDroid installation directory (`/home/combodroid`), run  
   
 
 ```bash  
-./runComboDroid SUBJECT alpha  
+bash runComboDroid SUBJECT alpha  
 ```  
 
 to run alpha variant of ComboDroid on one `SUBJECT`,  
@@ -189,11 +193,11 @@ as well as the `/home/combodroid/artifact/Coverage.xml` file.
 ### 2.2 Running Beta Variant of ComboDroid (Semi-Automatic)
   
 
-In the `/home/combodroid` directory, run  
+in the ComboDroid installation directory (`/home/combodroid`), run  
   
 
 ```bash  
-./runComboDroid SUBJECT beta  
+bash runComboDroid SUBJECT beta  
 ```  
 
 to run the beta variant of ComboDroid on one `SUBJECT`,  
@@ -207,137 +211,105 @@ as well as the `/home/combodroid/artifact/Coverage.xml` file.
 
 ## 3. Configuring ComboDroid for Testing Android Apps
 
-To test any given app (APK), in the ComboDroid installation directory, run  
+To test any given app (APK), the following steps should be followed:
 
-```bash  
-./runComboDroid 0 PATH_TO_CONFIGURATION_FILE  
-```
+1. Write a configuration file;
+2. At the ComboDroid installation directory (`/home/combodroid`), run
+    ```bash  
+    bash runComboDroid 0 PATH_TO_CONFIGURATION_FILE  
+    ```
+    where `PATH_TO_CONFIGURATION_FILE` is the **absolute** path to a configuration file;
+3. (Optional) Provide a startup script; and 
+4. (Optional) Record manual execution traces.
 
-where `PATH_TO_CONFIGURATION_FILE` is the **absolute** path to a configuration file specifying the configurations.
-A configuration file for ComboDroid is a set of key-value pairs containing the following properties:  
+The execution log file `Log.txt` will be stored at the `result_0_TIMESTAMP` directory.
 
-Mandatory:  
-* `subject-dir`: the directory containing the apk file of the app under test;  
-* `apk-name`: the name of the apk file;  
-* `androidSDK-dir`: the location of the Android SDK;  
-* `instrument-output-dir`: the directory where the instrumented apk files will be stored;  
-* `android-platform-version`: the version of the Android platform for instrumentation, which is normally set to **26**;  
-* `android-build-tool-version`: the version of Android build tool for instrumentation, which is normally set to **27.0.3**;  
-* `keystore-path`: the location of the Keystore file for re-signing the apk file after instrumentation, see [Android Keystore System](https://developer.android.com/training/articles/keystore) for more details;  
-* `key-alias`: the alias of the key in the Keystore file;  
-* `key-password`: the password of the key in the Keystore file;  
-* `package-name`: the package name of the app under test;  
-* `ComboDroid-type`: the variant of ComboDroid requested to run, whose value can be:  
-    - **alpha**: run the alpha variant of ComboDroid;  
-    - **beta**: run the complete beta variant of ComboDroid, which (1) askes the human to provide execution traces, and (2) uses the traces for testing;  
-    - **beta_record**: only ask human to record execution traces; or
-    - **beta_combine**: uses existing execution traces for combining.  
-* `running-minutes`: the overall running minutes of ComboDroid; and  
-* `modeling-minutes`: the running minutes for each automaton mining phase.  
-Optional:  
-* `trace-directory`: the location of existing execution traces. Mandatory when running **beta_combine** variant of ComboDroid; and  
-* `startup-script`: the location of a startup script to perform additional initialization of the app (e.g., logging in).  
+We describe these steps in detail.
+Suppose we want to run beta variant (semi-automatically) of ComboDroid on an app, whose APK file is at `/home/combodroid/aut.apk`, for 60 minutes with a 10-minute time limit of automaton mining phase of each iteration.
+
+### 3.1 Write a Configuration File
+
+A configuration file for ComboDroid is a set of key-value pairs containing the following properties.
+
+- Mandatory:  
+    * `subject-dir`: the directory containing the apk file of the app under test;  
+    * `apk-name`: the name of the apk file;  
+    * `androidSDK-dir`: the location of the Android SDK;  
+    * `instrument-output-dir`: the directory where the instrumented apk files will be stored;  
+    * `android-platform-version`: the version of the Android platform for instrumentation, which is normally set to **26**;  
+    * `android-build-tool-version`: the version of Android build tool for instrumentation, which is normally set to **27.0.3**;  
+    * `keystore-path`: the location of the Keystore file for re-signing the apk file after instrumentation, see [Android Keystore System](https://developer.android.com/training/articles/keystore) for more details;  
+    * `key-alias`: the alias of the key in the Keystore file;  
+    * `key-password`: the password of the key in the Keystore file;  
+    * `package-name`: the package name of the app under test;  
+    * `ComboDroid-type`: the variant of ComboDroid requested to run, whose value can be:  
+        - **alpha**: run the alpha variant of ComboDroid; or
+        - **beta**: run the complete beta variant of ComboDroid, which (1) askes the human to provide execution traces, and (2) uses the traces for testing;  
+        - **beta_record**: only ask human to record execution traces; or
+        - **beta_combine**: uses existing execution traces for combining.  
+    * `running-minutes`: the overall running minutes of ComboDroid; and  
+    * `modeling-minutes`: the running minutes for each automaton mining phase. 
+- Optional:  
+    * `trace-directory`: the location of existing execution traces. Mandatory when running **beta_combine** variant of ComboDroid; and  
+    * `startup-script`: the location of a startup script to perform additional initialization of the app (e.g., logging in).  
   
-Examples of configuration files can be found at the `/home/combodroid/artifact/Configs_alpha` directory. We'll further provide detailed instructions in our public Github repo.
+Examples of configuration files can be found at the `/home/combodroid/artifact/Configs_alpha` directory. 
+We'll further provide detailed instructions in our public Github repo. 
+In our pre-built VM image, for the example (running beta variant on the `aut.jar` apk file) you only need to copy a random example configuration file, and change the following proerties to:
+  
+* `subject-dir=/home/combodroid`;
+* `apk-name=aut.jar`;
+* `ComboDroid-type=beta`;
+* `running-minutes=60`; and
+* `modeling-minutes=10`.
 
-Based on the configuration file, at the beginning of the execution, ComboDroid may require further interactions with the tester. We describe them here.
+All other properties can be left as they are.
 
-### Provide a startup script
+
+#### 3.2 (Optinal) Provide a Startup Script
 
 For some apps, to thoroughly exercise their functionalities, some startup operations are needed (e.g., logging in). 
-If no startup script is specified in the configuration file (or the file could not be found), ComboDroid will ask the tester whether a startup script is needed:
+If you have previously tested the app and recorded a startup script, 
+you can reuse it by setting the `start-script` property in the configuration file.
+If no startup script is specified in the configuration file (or the specified file could not be found), ComboDroid will ask the tester whether a startup script is needed:
 ```bash
 No specified startup script of the file is missing, would you like to record a startup script? [yes/no]
 ```
-If the tester enters `yes`, ComboDroid will then freshly start the app, and record a startup script (see the next section). 
+If the tester enters `yes`, ComboDroid records a startup script:
 
-### Recording manual execution traces
+1. ComboDroid first initializes the recording process and freshly starts the app;
+2. After initialization, a message `Waiting for event....` will show on bash, and the tester can begin recording startup script. Currently, ComboDroid supports recording the following kinds of events:
+    - GUI event: currently, ComboDroid supports touch, long touch, and straight swipe events. To record such GUI events, the tester can directly click or drag on  the screen of AVD;
+    - System event: ComboDroid currently supports (1) BACK, HOME, and VOLUME key events, and (2) adb shell command. The tester can click on the buttons of AVD to record key events, and input adb shell command on bash to record adb command;
+3. When all required events have been recorded, the tester can input `halt` in the bash to stop recording.
 
-If the tester runs the **beta** or **beta_record** variants of the artifact, or wants to record a startup script, ComboDroid will freshly start the app, and ask the tester to provide events.
+The recorded startup script is at `/home/combodroid/artifact/startup.txt`.
+All events are recorded in the format of  `adb shell` command with a timestamp indicating how long after sending the previous event this event  is sent, and can be further reused. 
 
-1. ComboDroid first initializes the recording process and freshly starts the app, during which no event will be recorded.
-If the startup script is provided or recorded, it will be used to do additional initialization.
-2. After initialization, `Waiting for event....` will show on the terminal, and the tester can begin sending events. Currently, ComboDroid accepts events via the following ways:
-    - GUI events: to send GUI events, the tester can directly touch the screen. Currently, ComboDroid accepts touch, long touch, and straight swipe events;
-    - System events: ComboDroid currently accepts (1) BACK, HOME, and VOLUME key events, and (2) adb shell command which the tester can directly input in the terminal;
-    - Specifying start and end of a use case (not needed for the startup script): the test can input `start` and `end` in the shell to specify the start and end of a use case, respectively; and
-    - Specifying the end of an execution trace: the tester can input `halt` in the shell to stop recording an execution trace.
-    *Note*: After receiving each event, ComboDroid will dump the GUI layout and record the event, 
-    and cannot handle another event before showing `"Ready recording event, waiting for the next event`  on the terminal.
-3. After finishing recording an execution trace, ComboDroid will show `Enter 1 to start recording, 2 to quit` on the shell, asking whether the tester wants to record another trace.
-The tester can either input `1` to go back to step 1, or `2` to quit recording.
-  
+*Note*: After receiving each event, ComboDroid will dump the GUI layout and record the event, 
+and cannot handle another event before showing `"Ready recording event, waiting for the next event`  on the bash.
 
-## Reuse ComboDroid for further purposes  
-  
-We name and describe in detail a few functionalities of ComboDroid that cen be reused for other purposes.  
-  
+### 3.3 (Optional) Record Manual Execution Traces
 
-### Testing other Android apps.  
-  
+If the tester runs the **beta** or **beta_record** variants of the artifact such as our example, ComboDroid will ask the tester to record manual execution traces.
+The process is similar to the one of recording a startup script:
 
-Naturally, besides test subjects we used for evaluation, ComboDroid can be used to generate test inputs and test other Android apps.  
-  
+1. ComboDroid first initializes the recording process and freshly starts the app;
+2. After initialization, a message `Waiting for the event....` will show on bash, and the tester can begin recording execution traces. 
+Besides the GUI events and the system events, when recording an execution trace the test can also specify start and end of a use case by inputting `start` and `end` on bash to specify the start and end of a use case, respectively;
+   
+4. When finishing recording an execution trace, the tester can input `halt` on bash to stop recording. 
+ComboDroid will show `Enter 1 to start recording, 2 to quit` on the bash, asking whether the tester wants to record another trace.
+The tester can either input `1` to go back to step 1 to do so, or `2` to quit recording.
 
-### Reuse of generated combos  
-  
+The recorded traces is stored at the `/home/combodroid/artifact/traces` directory.
 
-In the execution log of ComboDorid, we record all generated combos, which are long, and meaningful test inputs.  
-Such inputs can explore functionalities of Android apps hidden deep, or/and exercise complex combinations of such functionalities, and thus can be reused for other testing or analyzing purposes.  
-  
+## 4. Usage of Tool Built from Source Code
 
-Currently, the combos are recorded in a format that can be translated into monkey events by ComboDroid.  
-In the short future, we plan to add an interface to ComboDroid to support the translation as well as replaying the combos.
-  
-
-### Reuse of startup scripts and manual inputs  
-  
-
-As described in the paper and this document, ComboDroid records manually provided inputs and startup scripts.  
-To ease the reusability of these inputs and scripts, ComboDroid records them in the combination of GUI layout XML files, and sequence of adb command (for GUI events, they are recorded in `adb shell input` commands, and for system events, they are `adb shell` command).  
-For each event the tester sends, ComboDroid records the current GUI layout of the app, the event in the form of adb command, and the time of the clock of the Android device (in milliseconds) when receiving the event.  
-The format is well organized and self-explanatory and can be reused for other purposes.  
-Therefore, ComboDroid can serve as a recording tool.  
-  
-
-To achieve so, one can run the **beta_record** variant of ComboDroid.  
-The startup script will be stored in the `startup.txt` file at the working directory,  
-and the recorded traces will be stored in the `trace` directory at the working directory.  
- Examples can be found at the `/home/combodroid/artifact/recorded_traces`.
-
-### Reuse of the instrumented apk file  
-  
-
-ComboDroid instruments the apk file to get API call traces during the execution.  
-Such an instrumented apk file is stored in the specified directory and can be reused for other activities concerning execution trace analysis.  
-  
-
-Currently, ComboDroid instruments the apk file to log API calls through the Android logging system.  
-For each API call that is likely to access shared resources, such as database or network, a log in the following format will be printed in the `info` channel of the logging system:  
-
-- The log tag is `ComboDroid.TAG`;  
-- The message is in the form of `CALLER_FULL_CLASS_PATH.CALLER_METHOD_NAME->CALLEE_FULL_CLASS_PATH.CALLEE_METHOD_NAME#ID TYPE_OF_ACCESS`  
-where  
-* `ID` is a unique identifier of this API call, and  
-* `TYPE_OF_ACCESS` specifies the type of the accessed resource and how it is accessed, which can be  
-- `network access`: this API call is likely to contribute to a network resource accessing;  
-- `database read`: this API call is likely to contribute to a database reading;  
-- `database write`: this API call is likely to contribute to a database writing;  
-- `shared preference read`: this API call is likely to contribute to a shared preference reading;  
-- `shared preference write`: this API call is likely to contribute to a shared preference writing;  
-- `local read`: this API call is likely to contribute to a local variable reading; and  
-- `local write`: this API call is likely to contribute to a local variable writing.  
-  
-
-For the local variables accessing, please refer to our paper to see how it is identified.  
-  
-
-Furthermore, for standard APIs provided by the Android system to access database and shared preference,  
-logs recording the corresponding arguments used to call them are also logged in the following format:  
-
-- The log tag is `ComboDroid.TAG-CALLEE_FULL_CLASS_PATH.CALLEE_METHOD_NAME#ID`; and  
-- The message of each log is one of the arguments.  
-  
-
-The arguments are logged in the same order as the one they are specified.
+In `INTALL.md` we introduce how to build the tool from source code.
+The built tool, namely two jar files `ComboDroid.jar` and `client.jar`, 
+can be directly used in our VM.
+Load the two jar files to the `/home/combodroid/artifact` directory,
+overriding the pre-built artifact,
+and you can run it just as described in the previous sections.
  

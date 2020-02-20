@@ -79,6 +79,8 @@ if [ $1 -eq 0 ];
 then
 	echo $2
 	type=$(cat $2 | grep ComboDroid-type | cut -d'=' -f2 | xargs)
+	mkdir -p artifact/traces/traces
+	mkdir -p artifact/traces/layouts
 	boot_windowed
 	rm -rf /home/combodroid/results_$1_$now 
 	mkdir /home/combodroid/result_$1_$now
