@@ -318,9 +318,7 @@ The tester can either input `1` to go back to step 1, or `2` to quit recording.
 
 ## Reuse ComboDroid for further purposes  
   
-
-ComboDroid is well structured with many functionalities that can be reused for other activities.  
-We name a few and describe them in detail.  
+We name and describe in detail a few functionalities of ComboDroid that cen be reused for other purposes.  
   
 
 ### Testing other Android apps.  

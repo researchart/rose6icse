@@ -65,7 +65,8 @@ This is expected and does not affect the execution of ComboDroid.
 
 When running on hosts of other platforms such as Windows,  
 KVM might not be supported and thus qemu-KVM cannot be install.  
-Nevertheless, one can still import and run the virtual machine normally as described above without the qemu-KVM.  
+Nevertheless, one can still import and run the virtual machine normally without the qemu-KVM.
+The process is the same as described above.  
 The speed of the AVD (Android Virtual Device) within the virtual machine might be slower in such situations, 
 but it does not severely affect the overall performance of ComboDroid.
   

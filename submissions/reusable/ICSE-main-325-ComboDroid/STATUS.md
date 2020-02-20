@@ -7,10 +7,7 @@ to ease the burden of reproducing results of our experiments.
 
 Second, our tool can be `reused` for further purposes.
 We describe the workflow and usages of the tool step by step for a comprehensive guideline,
-and discuss how it can be reused in depth in the `README.md`.
-
-ComboDroid is well structured with many functionalities that can be reused for other activities.  
-For instance:
+and discuss how it can be reused in depth in the `README.md`:
 
 - The `runComboDroid.sh` script can be used to easily run tests on other apps; 
 - The generated combos can be reused for further testing and analyzing purposes;
