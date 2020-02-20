@@ -1,21 +1,22 @@
+
+
 Source code repository: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3666313.svg)](https://doi.org/10.5281/zenodo.3666313)  
 
 Virtual machine repository: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3673079.svg)](https://doi.org/10.5281/zenodo.3673079)  
 
 # Install ComboDroid  
   
-## TD;DR (Linux or Windows, Using Pre-build VM Image)
+## TL;DR (Linux or Windows, Using Pre-build VM Image)
 
-Download the [VirtualBox VM Image](https://doi.org/10.5281/zenodo.3673079) and import it (click "import" button and select the `ova` file; the import process may take a few minutes).
+Download the [VirtualBox VM Image](https://doi.org/10.5281/zenodo.3673079) and import it (click "File -> Import Appliance" menu item and select the `ova` file; the import process may take a few minutes).
 Test subjects are also shipped with the VM image for reproducing experimental results.
 
 **Important Notes**:
 
-* You may need VirtualBox >= 6.1.2 with nested virtualization. Otherwise you may encounter an import error; (how to override it?). Overring the error still boots the artifact; however, the artifact may run slowly.
-* On Linux hosts, we recommend install the [packages](URL), which improves the performance of Android device emulator in VM. This is the best configuration to reproduce the experimental results.
+* It is mandatory to use VirtualBox >= 6.1.2 with nested virtualization.
 * On Windows hosts (even with latest VirtualBox), the performance would slightly hurt. The artifact still works.
-* The VM image consumes losts of disk space (~XX GiB).
-* If you see an `BrokenSharedFolder` warning at VM booting, just ignore it.
+* The VM image consumes lots of disk space (~30 GiB).
+* If you see a `BrokenSharedFolder` warning at VM booting, just ignore it.
 
 ## Build from Source Code (Linux)
 
@@ -32,7 +33,13 @@ The source code is available at [this link](https://doi.org/10.5281/zenodo.36663
 
 ### Build Guide
 
-Before build, make sure that the path to the d8 compiler of the Android SDK exists in the `PATH` environment variable, which is normally at `[SDK_LOCATION]/build-tools/29.0.3`. Try `XXXX` in bash to test if `PATH` is set correctly.
+Before build, make sure that the path to the d8 compiler of the Android SDK exists in the `PATH` environment variable, which is normally at `[SDK_LOCATION]/build-tools/29.0.3`. Try `d8` in bash to test if `PATH` is set correctly.
+
+To build the artifact, we need to build two jar files, namely a controller jar named `ComboDroid.jar` and a client jar named `client.jar`.
+We provide a build script `build.sh` to build these two jars. 
+We first introduce how to build with `build.sh` and then how to build without it.
+
+#### TL;DR (Build with `build.sh`)
 
 To build, at `ComboDroid` directory do:  
 
@@ -42,7 +49,7 @@ To build, at `ComboDroid` directory do:
 
 A correct build generates `client.jar` and `ComboDroid.jar` at the source code directory  `ComboDroid`. 
 
-[jyy:] I'm lost. Why bother a controller? Why `build.sh` don't cover it?
+We next describe how to build the artifact without `build.sh`.
 
 #### Build controller  
 
@@ -80,8 +87,8 @@ replace the `ComboDroid.jar` with the controller jar file and `client.jar` with 
 and run it using the scripts introduced in  `Readme.md`.
 
 To use it outside the virtual machine, do the followings:
-1. Connect an Android device of api 23 via adb;
-2. Prepare the configuration file metioned in `Readme.md`;
+1. Connect an Android device of API 23 via adb;
+2. Prepare the configuration file mentioned in `Readme.md`;
 3. Run 
     ```bash
     java -jar ComboDroid.jar PATH_TO_CONFIGURATION_FILE
