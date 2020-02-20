@@ -310,5 +310,5 @@ The built tool, namely two jar files `ComboDroid.jar` and `client.jar`,
 can be directly used in our VM.
 Load the two jar files to the `/home/combodroid/artifact` directory,
 overriding the pre-built artifact,
-and you can run it just as described in the previous sections.
+and you can run it at the ComboDroid installation directory `/home/combodroid` as described in the previous sections.
  
