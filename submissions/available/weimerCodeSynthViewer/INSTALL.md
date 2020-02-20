@@ -12,9 +12,27 @@ The Backend Server is built with [Node.js](https://nodejs.org/en/) and requires 
 * fs
 * shuffle-seed
 
-The above packages should be installed using the [Node Package Manager](https://nodejs.org/en/knowledge/getting-started/npm/what-is-npm/) in the ```code-synth-viewer``` directory (e.g., ```cd path/to/code-synth-viewer; npm install shuffle-seed```). This will create a directory ```node_modules``` in ```code-synth-viewer```. 
+Before installing the above packages, you should verify that you have node installed (e.g., ``node -v``). Then, initialize the project as a node package with the following commands: ``cd /path/to/code-synth-viewer && npm init``.
+
+You can then install the above packages using the [Node Package Manager](https://nodejs.org/en/knowledge/getting-started/npm/what-is-npm/) in the ```code-synth-viewer``` directory (e.g., ```cd path/to/code-synth-viewer; npm install shuffle-seed```). This will create a directory ```node_modules``` in ```code-synth-viewer```. 
+
+Below is a summary of the list of steps required for configuring/installing CodeSynthViewer:
+* Verify node installation with ``node -v`` and ``npm -v``
+* ``cd path/to/code-synth-viewer && npm init``
+* While still in the ``code-synth-viewer`` directory, install the required node packages with ``npm``. For example, ``npm install http``.
+* Configure your keycode for the start key `=` as outlined below.
 
 ## Getting Started
+
+Below are instructions for general usage of CodeSynthViewer
+
+### Keyboard Configuration
+
+Before using the software, you must change one line in ``presenter.html`` in correspondence with your environment. CodeSynthViewer uses the `=` key to trigger the start of the server. However, the Javascript ``event.keycode`` value for `=` varies by OS and web browser.
+
+To check your keycode, navigate to https://keycode.info/ and press the `=` key. Then, update the following line in ``presenter.html``: ``if (event.keyCode == <YOUR KEYCODE HERE>) {``.
+
+### General Usage
 
 General usage for CodeSynthViewer involves a [Node.js](https://nodejs.org/en/) back-end and a locally-hosted web-based front-end. General usage requires the following steps:
 
