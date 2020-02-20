@@ -1,116 +1,50 @@
-
 Source code repository: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3666313.svg)](https://doi.org/10.5281/zenodo.3666313)  
-  
 
 Virtual machine repository: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3673079.svg)](https://doi.org/10.5281/zenodo.3673079)  
-  
-  
 
 # Install ComboDroid  
   
+## TD;DR (Linux or Windows, Using Pre-build VM Image)
 
-For ease of reuse and reproduction of the experiment results, we provide two repositories that are publicly available in Zenodo.  
-  
+Download the [VirtualBox VM Image](https://doi.org/10.5281/zenodo.3673079) and import it (click "import" button and select the `ova` file; the import process may take a few minutes).
+Test subjects are also shipped with the VM image for reproducing experimental results.
 
-We provide a virtual machine containing pre-built artifacts, test subjects used in our experiments, and all required dependencies.  
-ComboDroid can directly run within the virtual machine on any host platform.  
-  
+**Important Notes**:
 
-We also provide a source code repository containing the Java and Kotlin source code of ComboDroid, that can be built and run with other required dependencies.  
-  
+* You may need VirtualBox >= 6.1.2 with nested virtualization. Otherwise you may encounter an import error; (how to override it?). Overring the error still boots the artifact; however, the artifact may run slowly.
+* On Linux hosts, we recommend install the [packages](URL), which improves the Android device emulator in VM. This is the best configuration to reproduce the experimental results.
+* On Windows hosts, the performance would slightly hurt. The artifact still works.
+* The VM image consumes losts of disk space (~XX GiB).
+* If you see an `BrokenSharedFolder` warning at VM booting, just ignore it.
 
-*Note*: the source code can only be built and run in the Linux system. If you are running on other platforms such as Windows, please use the virtual machine.  
-  
+## Build from Scratch (Linux, with Android Studio Installed)
 
-## Import virtual machine  
-  
+The source code is available at [this link](https://doi.org/10.5281/zenodo.3666313).
 
-To ease the reuse of our artifact, we provide a virtual machine containing the pre-built artifact, test subjects used in our evaluation, and all required dependencies.  
-We describe how to install and start the virtual machine on a Linux host machine,  
-and introduce how to do so on hosts of other platforms at the end of this section.  
-  
+**Dependencies**: JDK-1.8 and Android SDK. If you have Android Studio installed, all dependencies are just set.
 
-### Installing qemu-KVM  
-
-When running on Linux hosts, qemu-KVM is recommended to install  
-to boost the speed of the the virtual machine.  
-To install qemu-KVM, run  
-
-```bash  
-sudo apt-get install qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils ia32-libs-multiarch  
-```  
-  
-
-### Import the virtual machine  
-  
-
-The ova file of our virtual machine can directly run on VirtualBox of version 6.1.2 or later.  
-After downloading the ova file, it can be directly opened with VirtualBox.  
-An import window will show up asking for parameters, and  
-one can directly click `Import` at the bottom to proceed.  
-The importing process may take a few minutes to finish.  
-  
-
-### Start the virtual machine  
-  
-
-After importing the virtual machine, it can be started with VirtualBox.  
-ComboDroid can directly run within the virtual machine since all dependencies are contained (including an AVD).  
-
-*Note*: When starting the virtual machine, a BorkenSharedFolder error may occur.
-This is expected and does not affect the execution of ComboDroid.
-  
-
-### Import on other platforms  
-
-When running on hosts of other platforms such as Windows,  
-KVM might not be supported and thus qemu-KVM cannot be install.  
-Nevertheless, one can still import and run the virtual machine normally as described above without the qemu-KVM.  
-The speed of the AVD (Android Virtual Device) within the virtual machine might be slower in such situations, 
-but it does not severely affect the overall performance of ComboDroid.
-  
-
-## Build from scratch  
-  
-
-One can build ComboDroid from scratch with the source code repository.  
-The source code repository contains the following parts:  
-  
+### Source Code Repository Overview
 
 - The `Client` directory containing source code for the client of ComboDroid deployed on the Android device to generate and send events;  
 - The `Controller` directory containing source code for the controller of ComboDroid running on the computer to control the client;  
 - The build.sh file that can be used to compile and build the artifact; and  
 - The README.md file containing instructions to build the tool (all contents are also included in this section).  
-  
 
-Next, we describe in detail how to build and run with the source code.  
-  
+### Build Guide
 
-### Prerequisites  
-  
+Before build, make sure that the path to the d8 compiler of the Android SDK exists in the `PATH` environment variable, which is normally at `[SDK_LOCATION]/build-tools/29.0.3`. Try `XXXX` in bash to test if `PATH` is set correctly.
 
-To build the artifact, JDK-1.8 and Android SDK are required.  
-These dependencies can be set properly by intalling the Android Studio.  
-Note that the path to the d8 compiler of the Android SDK needs to be added to the `PATH` environment variable, which is normally at `[SDK_LOCATION]/build-tools/29.0.3`.  
-
-*Note*: The code can only be built and run in a Linux system.  
-  
-
-### Build from source code  
-  
-
-We provide a shell script build.sh to quickly build the artifact from source code. run  
+To build, at `ComboDroid` directory do:  
 
 ```bash  
 ./build.sh  
-```  
-command at the source code directory `ComboDroid`, and the built artifact, which contains two jar files `client.jar` and `ComboDroid.jar`,  
-which are the client and the controller, respectively, will be generated at the source code directory  `ComboDroid`.  
-We further explain the commands used to build the artifact.  
-  
+```
+
+A correct build generates `client.jar` and `ComboDroid.jar` at the source code directory  `ComboDroid`. 
+
+[jyy:] I'm lost. Why bother a controller? Why `build.sh` don't cover it?
 
 #### Build controller  
-  
 
 To build the controller, run:  
 ```bash  
