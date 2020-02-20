@@ -9,8 +9,33 @@ The repository contains two major folders.
 The artifacts for SLACC can be installed by following the instructions in [INSTALL.md](https://github.com/DynamicCodeSearch/SLACC/blob/ICSE20/INSTALL.md). SLACC can either be [setup from scratch](https://github.com/DynamicCodeSearch/SLACC/edit/ICSE20/INSTALL.md#setting-up-from-scratch) or reusing the preconfigured [virtualbox image](https://github.com/DynamicCodeSearch/SLACC/edit/ICSE20/INSTALL.md#preconfigured-image). We would recommend using the preconfigured image for prototyping or running the `Example` dataset used in the motivation section of the paper. For running the `CodeJam` dataset, it might be best to setup from the scratch or use the image on a machine with at least 16GB of memory and 2 processors.
 
 ## Datasets
+
+### Existing datasets
 * `CodeJam` : Study on four problems from Google Code Jam (GCJ) repository and their valid submissions in Java and Python. We use the first problem from the fifth round of GCJ from 2011 to 2014. Overall in this study, we consider 247 projects; 170 from Java and 77 from Python. 
 * `Example`: A sample program that contains 3 (2 in python, 1 in java) implementations of interleaving of arrays used in the `Motivation` section of the paper. 
+
+### New Datasets
+For a new dataset, source code has to be added in the folder `SLACC/projects/src/main/<language>/<dataset>`
+* Ensure that `<dataset>` is same for both Java and Python in order to detect clone across the languages
+* For `<language>` = `python`, no changes need to be made to the source code.
+* For `<language>` = `java`, the package name has to be prepended with `<dataset>`. This is because the source folder for java code is in the folder `SLACC/projects/src/main/java`.
+* Once the dataset is stored in this format, SLACC can be run on it by following the steps below.
+
+## Configuring SLACC
+Configurations and Hyperparameters for SLACC are stored in [Settings.java](https://github.com/DynamicCodeSearch/SLACC/blob/master/code/src/main/java/edu/ncsu/config/Settings.java) and [properties.py].
+* Minimimum size of snippet(`MIN_STMT`).
+   * For Java - [MIN_STMT](https://github.com/DynamicCodeSearch/SLACC/blob/master/code/src/main/java/edu/ncsu/config/Settings.java#L88)
+   * For Python - [MIN_STMT](https://github.com/DynamicCodeSearch/SLACC/blob/master/code/src/main/python/properties.py#L37)
+* Maximum number of arguments(`ARG_MAX`)
+   * For Java - [ARG_MAX](https://github.com/DynamicCodeSearch/SLACC/blob/master/code/src/main/java/edu/ncsu/config/Settings.java#L93)
+   * For Python - [ARG_MAX](https://github.com/DynamicCodeSearch/SLACC/blob/master/code/src/main/python/properties.py#L38)
+* Number of executions
+   * For Java - [EXECUTIONS](https://github.com/DynamicCodeSearch/SLACC/blob/master/code/src/main/java/edu/ncsu/config/Settings.java#L104)
+   * For Python - [EXECUTIONS](https://github.com/DynamicCodeSearch/SLACC/blob/master/code/src/main/python/properties.py#L33)
+* Tolerance Threshold(`TOLERANCE_THRESHOLD`)
+  * This is equivalent to `1 - SIMT` used in the paper
+  * A range of tolerance thresholds can be set at [TOLERANCE_THRESHOLDS](https://github.com/DynamicCodeSearch/SLACC/blob/master/code/src/main/python/properties.py#L39)
+
 
 ## Running SLACC
 Make sure [SLACC is setup](https://github.com/DynamicCodeSearch/SLACC/blob/ICSE20/INSTALL.md) and the database is running before trying to run the following scripts.
@@ -127,11 +152,15 @@ The extracted arguemnts are stored in `primitive_arguments` and `fuzzed_argument
   ```
   > `sh scripts/common/analyze.sh <dataset>`
   ```
-  This script ensures that the functions are clustered for similarity thresholds of `0.01, 0.05, 0.10, 0.15, 0.20, 0.25, 0.30`.
+  This script ensures that the functions are clustered for `similarity_thresholds` of `0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 0.99`. The clusters though are saved in terms of the `tolerance_threshold`. 
+  ```
+  tolerance_threshold = 1 - similarity threshold
+  ```
+A similarity threshold of `0.9` implies that for two functions two be considered similar, they should produce the same output on atleast 90\% of the inputs. This also means that the cluster is tolerant with a `tolerance_threshold` of 0.1 or can produce different of outputs on atmost 10\% of the inputs.
   
 ### 5. Results
   The cluster results are stored as `.txt` files, `.pkl` files and in the database.
-  * `.txt` - These files contains the functions grouped as clusters in a readable format. This can be accessed from the folder `code/meta_results/<dataset>/clusters/cluster_testing/eps_<threshold>/*.txt`. There are four types of `.txt` files in this folder
+  * `.txt` - These files contains the functions grouped as clusters in a readable format. This can be accessed from the folder `code/meta_results/<dataset>/clusters/cluster_testing/eps_<tolerance_threshold>/*.txt`. There are four types of `.txt` files in this folder
     * `java_python.txt` : Contains all the clusters.
     * `only_java.txt`: Contains all the clusters with only java functions.
     * `only_python.txt`: Contains all the clusters with only python functions.
