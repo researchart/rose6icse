@@ -2,7 +2,17 @@
 
 CodeSynthViewer involves a [Node.js](https://nodejs.org/en/) back-end and a locally-hosted web-based front-end. Instructions for both installation and basic usage are outlined in the README of the repository, itself. However, we provide similar details here for the purpose of our submission: 
 
-## Prerequisites and Installation
+## Overview
+
+Below is an enumerated list of the commands/requirements for running CodeSynthViewer. For more details, see the Prerequisites and Installation sections:
+* Download [Node.js](https://nodejs.org/en/download/)
+* Verify your Node.js installation with ``node -v``. Confirm that you also have the [Node Package Manager](https://nodejs.org/en/knowledge/getting-started/npm/what-is-npm) installed with ``npm -v``
+* Navigate to the ``code-synth-viewer`` directory (i.e., ``cd path/to/code-synth-viewer'')
+* Initialize the project as a node package with ``npm init``
+* While in the ``code-synth-viewer`` directory, install the following packages with ``npm``: http, path, request, express, fs, and shuffle-seed. For example, ``npm install http``.
+* Configure your keycode for the start key `=` as outlined below
+
+## Prerequisites
 
 The Backend Server is built with [Node.js](https://nodejs.org/en/) and requires the following packages:
 * http
@@ -12,15 +22,13 @@ The Backend Server is built with [Node.js](https://nodejs.org/en/) and requires 
 * fs
 * shuffle-seed
 
-Before installing the above packages, you should verify that you have node installed (e.g., ``node -v``). Then, initialize the project as a node package with the following commands: ``cd /path/to/code-synth-viewer && npm init``.
+Before setting up CodeSynthViewer, you must verify that you have node installed (e.g., ``node -v`` and ``npm -v``). If you do not have Node.js installed, you can do so from [their website](https://nodejs.org/en/download/).
+
+## Installation
+
+Once you have verified your Node.js installation, you must initialize the CodeSynthViewer as a node package with the following commands: ``cd /path/to/code-synth-viewer && npm init``.
 
 You can then install the above packages using the [Node Package Manager](https://nodejs.org/en/knowledge/getting-started/npm/what-is-npm/) in the ```code-synth-viewer``` directory (e.g., ```cd path/to/code-synth-viewer; npm install shuffle-seed```). This will create a directory ```node_modules``` in ```code-synth-viewer```. 
-
-Below is a summary of the list of steps required for configuring/installing CodeSynthViewer:
-* Verify node installation with ``node -v`` and ``npm -v``
-* ``cd path/to/code-synth-viewer && npm init``
-* While still in the ``code-synth-viewer`` directory, install the required node packages with ``npm``. For example, ``npm install http``.
-* Configure your keycode for the start key `=` as outlined below.
 
 ## Getting Started
 
