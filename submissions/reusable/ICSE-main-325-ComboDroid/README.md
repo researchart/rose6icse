@@ -2,8 +2,9 @@
 
 # Artifact Evaluation for ComboDroid  
 
-ComboDroid is a prototype tool to generate effective test inputs for Android apps. Please follow the instructions in `INSTALL.md` to complete the installation. All following instructions assume that we are in the ComboDroid installation directory
-(`/home/combodroid` in the pre-built VM image).
+**Please follow the instructions in `INSTALL.md` to complete the installation**.
+
+ComboDroid is a prototype tool to generate effective test inputs for Android apps. All following instructions assume that we are in the ComboDroid installation directory (`/home/combodroid` in the pre-built VM image).
 
 Source code repository: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3666313.svg)](https://doi.org/10.5281/zenodo.3666313)  
 
