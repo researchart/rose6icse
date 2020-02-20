@@ -60,11 +60,7 @@ For the example, following messages will show:
 [ComboDroid] Property: startup-script, value: 
 ```  
 
-Next, it uses Soot to instrument the apk file.  
-It traverses through the apk file and finds those API calls that are likely to access shared resources.  
-It instruments logging statements before these calls and also logs the name of the APIs.  
-After the instrumentation, the apk file gets re-signed and pushed onto the AVD.  
-During this process, the following messages will show (just ignore errors):
+Next, it uses Soot to instrument the apk file. It traverses through the apk file and finds those API calls that are likely to access shared resources. It instruments logging statements before these calls and also logs the name of the APIs. After the instrumentation, the apk file gets re-signed and pushed onto the AVD. During this process, the following messages will show (just ignore errors):
 
 ```bash  
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".  
@@ -285,7 +281,8 @@ If the tester enters `yes`, ComboDroid records a startup script:
 3. When all required events have been recorded, the tester can input `halt` in the bash to stop recording.
 
 The recorded startup script is at `/home/combodroid/artifact/startup.txt`.
-All events are recorded in the format of  `adb shell` command with a timestamp indicating how long after sending the previous event this event  is sent, and can be further reused. 
+All events are recorded in the format of  `adb shell` command with a timestamp indicating how long after sending the previous event this event is sent, and can be further reused. 
+ComboDroid will then use this script to do initialization whenever the app starts freshly during the testing process.
 
 *Note*: After receiving each event, ComboDroid will dump the GUI layout and record the event, 
 and cannot handle another event before showing `"Ready recording event, waiting for the next event`  on the bash.
@@ -297,13 +294,14 @@ The process is similar to the one of recording a startup script:
 
 1. ComboDroid first initializes the recording process and freshly starts the app;
 2. After initialization, a message `Waiting for the event....` will show on bash, and the tester can begin recording execution traces. 
-Besides the GUI events and the system events, when recording an execution trace the test can also specify start and end of a use case by inputting `start` and `end` on bash to specify the start and end of a use case, respectively;
+Besides the GUI events and the system events, when recording an execution trace the test can also specify start and end of a use case by inputting `start` and `end` on bash to specify the start and end of a use case, respectively; and
    
 4. When finishing recording an execution trace, the tester can input `halt` on bash to stop recording. 
 ComboDroid will show `Enter 1 to start recording, 2 to quit` on the bash, asking whether the tester wants to record another trace.
 The tester can either input `1` to go back to step 1 to do so, or `2` to quit recording.
 
 The recorded traces is stored at the `/home/combodroid/artifact/traces` directory.
+ComboDroid will then use these traces to conduct automatic testing.
 
 ## 4. Usage of Tool Built from Source Code
 
