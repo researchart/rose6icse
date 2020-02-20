@@ -73,7 +73,7 @@ then
 fi
 
 
-rm /home/combodroid/artifact/Coverage.xml
+rm -f /home/combodroid/artifact/Coverage.xml
 
 if [ $1 -eq 0 ];
 then
