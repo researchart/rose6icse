@@ -1,76 +1,35 @@
+# Artifact Evaluation for ComboDroid  
 
-
-
-  
-# Artifact evaluation for ComboDroid  
-  
-
-## DOI of repositories  
-  
+ComboDroid is a prototype tool to generate effective test inputs for Android apps. Please follow the instructions in `INSTALL.md` to complete the installation. All following instructions assum that we are in the ComboDroid installation directory
+(`/home/combodroid` in the pre-built VM image).
 
 Source code repository: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3666313.svg)](https://doi.org/10.5281/zenodo.3666313)  
-  
 
 Virtual machine repository: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3673079.svg)](https://doi.org/10.5281/zenodo.3673079)  
-  
 
-## Overview  
-  
+## 1. Running Example: Automatically Testing of Hacker News Reader
 
-ComboDroid is a prototype tool to generate effective test inputs for Android apps.  
-We introduce its usage,  
-how to use it to reproduce the evaluation results in the paper,  
-and how to reuse it for additional purposes.  
-  
+Load [`runComboDroid.sh`](runComboDroid.sh) and [`Config_runningExample.txt`](Config_runningExample.txt) to the ComboDroid installation directory (`/home/combodroid` in the provided VM image).
+If you're using the provided VM image, `runComboDroid.sh` **already exists and should be replaced with the updated version**.
 
-## Obtain the artifact  
-  
+> (add how to copy it from VM). If you don't have a shared folder, it may be difficult without vbox extension.
 
-To ease the reuse and reproduction, we upload an ova file of a virtual machine containing the pre-built artifact, all test subjects used in our experiments, and all required dependencies to Zenodo: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3673079.svg)](https://doi.org/10.5281/zenodo.3673079).  
-We have also uploaded the source code of ComboDroid to Zenodo: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3666313.svg)](https://doi.org/10.5281/zenodo.3666313).  
-Please follow the instructions in `INSTALL.md` to complete the installation.  
-  
+To see how ComboDroid automatically tests the unmodified Hacker News Reader apk (version X.X.X) for 10 minutes (with a window), just type
 
-## Basic usage  
-  
-
-We use a running example to show the basic usage of ComboDroid within our virtual machine environment.  
-
-We provide an additional script and one additional configuration file, 
-namely the `runComboDroid.sh` file and the `Config_runningExample.txt` file,
-to run the example. 
-One can copy these two files to the `/home/combodroid` directory within the virtual machine.
-
-*Note*: the `runComboDroid.sh` script *should* override the original one in the directory.
-This is expected.  
-
-At the `/home/combodroid` directory within the virtual machine, run  
 ```bash  
-./runComboDroid.sh running-example
-```  
-The script will run the alpha variant of ComboDroid on the app Hacker News Reader for 10 minutes. 
-  
+bash runComboDroid.sh running-example
+```
 
-The script will do some pre-processing of the running environment,  
-and the following messages will show:  
+Wait a while for running environment setup (may took ~20s to minutes). Some error messages may appear; just ignore them. Then you'll see Android device emulator (AVD) boot. The full log can be found in `Log.txt`.
 
 ```bash  
 rm: cannot remove '/home/combodroid/artifact/Coverage.xml': No such file or directory
 Interaction with the Android device needed, running in windowed mode
 error: no emulator detected
 Wait for emulator to boot
-```  
-
-At this point,  
-the AVD will boot.  
-When it finishes booting, a message `Emulator boot complete` will show,  
-and ComboDroid will start. 
-The execution log will be printed in the terminal and dumped into a log file.
-We describe in detail how ComboDroid works and the logs for the running example.
-  
-*Note*: the AVD can take up to 20s to boot, or even longer without qemu-KVM on the host.  
-Please be patient.  
-  
+...
+Emulator boot complete      <== ComboDroid starts now!
+```
 
 ComboDroid first examines the running environment and parses the options.  
 For the example, following messages will show:  
@@ -95,13 +54,12 @@ For the example, following messages will show:
 [ComboDroid] WARNING: unable to find startup-script proerty in the configuration file, use default value []
 [ComboDroid] Property: startup-script, value: 
 ```  
-  
 
 Next, it uses Soot to instrument the apk file.  
 It traverses through the apk file and finds those API calls that are likely to access shared resources.  
 It instruments logging statements before these calls and also logs the name of the APIs.  
 After the instrumentation, the apk file gets re-signed and pushed onto the AVD.  
-During this process, the following messages will show:  
+During this process, the following messages will show (just ignore errors):
 
 ```bash  
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".  
@@ -121,7 +79,7 @@ Soot has run for 0 min. 13 sec.
 [ComboDroid] resign the instrument app /home/combodroid/artifact/instrumentedApks/hnr.apk-Ins/hnr.apk
 ```  
 
-Next, a client responsible for generating and sending events will be pushed onto the AVD, and the input generation process starts.  
+Next, a client responsible for generating and sending events will be pushed onto the AVD, and the input generation process starts. **You should see events to be delievered to the Android app.**
 For the running example, the log will look like this:  
 
 ```bash  
@@ -180,27 +138,26 @@ For the running example, the log will look like this:
 [ComboDroid] // Monkey finished
 [ComboDroid] -Wed Feb 19 19:05:20 GMT+01:00 2020 print traces
 [ComboDroid] Executed 10
-```  
+``` 
+
 The scripts runs ComboDroid for 10 minutes on the running example.
-After the execution finishes, the dumped log file `Log.txt` as well as a detailed Coverage file `Coverage.xml` will be stored at the directory `/home/combodroid/result_running-example_TIMESTAMP`,  
+After the execution finishes, the dumped log file `Log.txt` as well as a detailed Coverage file `Coverage.xml` will be stored at the directory `result_running-example_TIMESTAMP`,  
 where the `TIMESTAMP` is a 14-digit timestamp indicating the starting time of the input generation process.  
-For instance, the directory can be `/home/combodroid/result_running-example_20200127141251`.  
+For instance, the directory can be `result_running-example_20200127141251`.  
 
 *Note*: By the end of the execution, the script will clean up the envrionment.
 Some errors such as `cp: cannot stat 'Coverage.xml': No such file or director` may occur.
 This is expected and does not affect the execution.
   
 
-## Reproduce results in the paper  
-  
+## 2. Reproducing the Experimental Results in the Paper (Using the Pre-built VM Image)
 
 The results can be reproduced within our provided virtual machine.  
 Since two testing scenarios are presented in the paper,  
 we introduce steps to reproduce the results, respectively.  
-  
 
-### Running Alpha variant of ComboDroid  
-  
+### 2.1 Running Alpha Variant of ComboDroid (Fullly Automatic)
+
 
 In the `/home/combodroid` directory, run  
   
@@ -229,7 +186,7 @@ The statement coverage result will be in the file `/home/combodroid/result_SUBJE
 as well as the `/home/combodroid/artifact/Coverage.xml` file.  
   
 
-### Running Beta variant of ComboDroid  
+### 2.2 Running Beta Variant of ComboDroid (Semi-Automatic)
   
 
 In the `/home/combodroid` directory, run  
@@ -248,18 +205,15 @@ as well as the `/home/combodroid/artifact/Coverage.xml` file.
  
   *Note*: Due to the recent update of GitHub, its account authorization page no longer supports the browser of Android 6.0, and this makes it impossible to test most of the functionalities of PocketHub [#8] by ComboDroid's current implementation. We plan to deal with this in the short future.
 
-## Generating test inputs for additional apps  
-  
+## 3. Configuring ComboDroid for Testing Android Apps
 
-Besides the test subjects, ComboDroid can also generate test inputs for other apps.  
-To do so, in the `/home/combodroid` directory, run  
+To test any given app (APK), in the ComboDroid installation directory, run  
 
 ```bash  
 ./runComboDroid 0 PATH_TO_CONFIGURATION_FILE  
-```  
+```
 
-where `PATH_TO_CONFIGURATION_FILE` is the **absolute** path to a configuration file specifying the configurations.  
-  
+where `PATH_TO_CONFIGURATION_FILE` is the **absolute** path to a configuration file specifying the configurations.
 A configuration file for ComboDroid is a set of key-value pairs containing the following properties:  
 
 Mandatory:  
@@ -284,9 +238,7 @@ Optional:
 * `trace-directory`: the location of existing execution traces. Mandatory when running **beta_combine** variant of ComboDroid; and  
 * `startup-script`: the location of a startup script to perform additional initialization of the app (e.g., logging in).  
   
-Examples of configuration files can be found at the `/home/combodroid/artifact/Configs_alpha` directory.  
-
-The results will be stored at the `home/combodroid/result_0_TIMESTAMP` directory.
+Examples of configuration files can be found at the `/home/combodroid/artifact/Configs_alpha` directory. We'll further provide detailed instructions in our public Github repo.
 
 Based on the configuration file, at the beginning of the execution, ComboDroid may require further interactions with the tester. We describe them here.
 
