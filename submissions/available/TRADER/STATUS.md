@@ -4,5 +4,5 @@ Our artifact provides a tool called TRADER for debugging recurrent neural networ
 
 - The artifact is functional. The main results presented in our paper can be reproduced.
 - Documentation is available for using TRADER and reproducing reported results [README.md](README.md).
-- The artifact is publicly available on [Github](https://github.com/trader-rnn/TRADER).
+- The artifact is publicly available on [Github](https://github.com/trader-rnn/TRADER) and [Zenodo](https://doi.org/10.5281/zenodo.3677026).
 - The artifact is packed within a [Docker image](https://hub.docker.com/repository/docker/traderrnn/trader) for easy reuse by others.
