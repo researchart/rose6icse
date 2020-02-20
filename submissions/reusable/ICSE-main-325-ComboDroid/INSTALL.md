@@ -12,12 +12,12 @@ Test subjects are also shipped with the VM image for reproducing experimental re
 **Important Notes**:
 
 * You may need VirtualBox >= 6.1.2 with nested virtualization. Otherwise you may encounter an import error; (how to override it?). Overring the error still boots the artifact; however, the artifact may run slowly.
-* On Linux hosts, we recommend install the [packages](URL), which improves the Android device emulator in VM. This is the best configuration to reproduce the experimental results.
-* On Windows hosts, the performance would slightly hurt. The artifact still works.
+* On Linux hosts, we recommend install the [packages](URL), which improves the performance of Android device emulator in VM. This is the best configuration to reproduce the experimental results.
+* On Windows hosts (even with latest VirtualBox), the performance would slightly hurt. The artifact still works.
 * The VM image consumes losts of disk space (~XX GiB).
 * If you see an `BrokenSharedFolder` warning at VM booting, just ignore it.
 
-## Build from Scratch (Linux, with Android Studio Installed)
+## Build from Source Code (Linux)
 
 The source code is available at [this link](https://doi.org/10.5281/zenodo.3666313).
 
