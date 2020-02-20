@@ -4,10 +4,11 @@ Please follow the following steps to install the docker image of MPI-SV, verify 
 
 We suppose that **the host OS** is **Linux** or **Mac OS X** on which docker can be installed. We suppose that you have installed the **docker** environment; otherwise, please go to [this link](https://docs.docker.com/install/) for help. 
 
+
 # Download MPI-SV's docker image
 
 ```
-docker pull mpisv/mpi-sv
+docker pull mpisv/mpi-sv:v1.0
 ```
 
 If the image downloading succeeds, you can use the following command to have a check.
@@ -16,7 +17,13 @@ If the image downloading succeeds, you can use the following command to have a c
 docker images
 ```
 
-You should see that an image named **mpisv/mpi-sv** exists.
+You should see that an image named **mpisv/mpi-sv** exists. We have tested the docker image on the following three platforms. 
+
+OS | Version | Result of "uname -a" | Result of "docker --version"
+---- | --- | --- | ---
+Mac OS X | Mojave 10.14.6 | Darwin 192.168.0.100 18.7.0 Darwin Kernel Version 18.7.0: Sun Dec  1 18:59:03 PST 2019; root:xnu-4903.278.19~1/RELEASE_X86_64 x86_64 | Docker version 19.03.5, build 633a0ea
+Debian | 10.3 | Linux test-vm 4.19.0-8-amd64 #1 SMP Debian 4.19.98-1 (2020-01-26) x86_64 GNU/Linux | Docker version 19.03.6, build 369ce74a3c
+Ubuntu | 14.04 | Linux ubuntu 4.4.0-31-generic #50~14.04.1-Ubuntu SMP Wed Jul 13 01:07:32 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux | Docker version 1.6.2, build 7c8fca2
 
 # Run the test
 
@@ -128,7 +135,7 @@ So, we can see that the first process blocks at the Recv operation and the other
 Then, we enable the model checking-based boosting in **mpisv** to verify the program also in 4 processes.
 
 ```
-mpisv 4 -wild-opt -use-directeddfs-search demo.bc
+mpisv 4 -wild-opt -use-directeddfs-search test.bc
 ```
 
 The last three output messages should be as follows.
@@ -145,7 +152,7 @@ It indicates that MPI-SV **only** needs 2 iterations to find the deadlock by usi
 
 We can use docker to repoduce the experimental results in the paper. For the results in Table 2, we only reproduce two kinds of results (**whether deadlock exists**, **the numbers of the iterations**) under two modes: **pure symbolic execution** ("Symbolic execution" in Table 2) and **model checking-based boosting** ("Our approach" in Table 2). 
 
-In the following, the [first part](#reproduce-the-result-of-one-verification-task-in-table-2) explains how to reproduce the result of one verifcation task; the [second part](#reproduce-the-results-only-the-ones-with-the-verification-time-that-is-less-than-5-minutes-of-the-finished-verification-tasks-in-table-2) gives how to reproduce the results of the deadlock-freedom verfication tasks (each of which needs less than 5 minutes) in Table 2; the [third part](#reproduce-the-results-of-ltl-temporal-property-verification-section-5-temporal-properties-page-10) gives how to reproduce the results of verifying temporal properties; the [last part](#reproduce-the-results-of-all-the-verification-tasks-with-a-very-long-time-in-table-2) give how to reproduce the resutls of all the deadlock-freedom verfication tasks in Table 2. 
+In the following, the [first part](#reproduce-the-result-of-one-verification-task-in-table-2) explains how to reproduce the result of one verification task; the [second part](#reproduce-the-results-only-the-ones-with-the-verification-time-that-is-less-than-5-minutes-of-the-finished-verification-tasks-in-table-2) gives how to reproduce the results of the deadlock-freedom verfication tasks (each of which needs less than 5 minutes) in Table 2; the [third part](#reproduce-the-results-of-ltl-temporal-property-verification-section-5-temporal-properties-page-10) gives how to reproduce the results of verifying temporal properties; the [last part](#reproduce-the-results-of-all-the-verification-tasks-with-a-very-long-time-in-table-2) give how to reproduce the resutls of all the deadlock-freedom verfication tasks in Table 2. 
 
 **We suggest following the steps in the [first part](#reproduce-the-result-of-one-verification-task-in-table-2) to have a try of one verification task. Due to the long-running time of getting all the results (By running with 8 processes in parallel, it took more than 8 hours on our experimental server which has 8 cores (Intel(R) Xeon(R) CPU E5-2682 v4 @ 2.50GHz) and 64G memory), we suggest to only follow the steps of the [second](#reproduce-the-results-only-the-ones-with-the-verification-time-that-is-less-than-5-minutes-of-the-finished-verification-tasks-in-table-2) and the [third](#reproduce-the-results-of-ltl-temporal-property-verification-section-5-temporal-properties-page-10) parts for reproducing the experimental results.** 
 
