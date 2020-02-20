@@ -1,5 +1,7 @@
 # TRADER
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3677026.svg)](https://doi.org/10.5281/zenodo.3677026)
+
 ## Installation
 
 1. Please use Ubuntu 16.04 or 18.04, 64bit version
