@@ -4,10 +4,11 @@ Please follow the following steps to install the docker image of MPI-SV, verify 
 
 We suppose that **the host OS** is **Linux** or **Mac OS X** on which docker can be installed. We suppose that you have installed the **docker** environment; otherwise, please go to [this link](https://docs.docker.com/install/) for help. 
 
+
 # Download MPI-SV's docker image
 
 ```
-docker pull mpisv/mpi-sv:latest
+docker pull mpisv/mpi-sv:v1.0
 ```
 
 If the image downloading succeeds, you can use the following command to have a check.
@@ -16,7 +17,13 @@ If the image downloading succeeds, you can use the following command to have a c
 docker images
 ```
 
-You should see that an image named **mpisv/mpi-sv** exists.
+You should see that an image named **mpisv/mpi-sv** exists. We have tested the docker image on the following three platforms. 
+
+OS | Version | Result of "uname -a" | Result of "docker --version"
+---- | --- | --- | ---
+Mac OS X | Mojave 10.14.6 | Darwin 192.168.0.100 18.7.0 Darwin Kernel Version 18.7.0: Sun Dec  1 18:59:03 PST 2019; root:xnu-4903.278.19~1/RELEASE_X86_64 x86_64 | Docker version 19.03.5, build 633a0ea
+Debian | 10.3 | Linux test-vm 4.19.0-8-amd64 #1 SMP Debian 4.19.98-1 (2020-01-26) x86_64 GNU/Linux | Docker version 19.03.6, build 369ce74a3c
+Ubuntu | 14.04 | Linux ubuntu 4.4.0-31-generic #50~14.04.1-Ubuntu SMP Wed Jul 13 01:07:32 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux | Docker version 1.6.2, build 7c8fca2
 
 # Run the test
 
