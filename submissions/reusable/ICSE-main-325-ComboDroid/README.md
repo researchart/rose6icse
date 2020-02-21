@@ -220,6 +220,17 @@ The execution log file `Log.txt` will be stored at the `result_0_TIMESTAMP` dire
 
 A configuration file for ComboDroid is a set of key-value pairs containing the following properties.
 
+Suppose that we copied an example configuration file. To test an app `aut.jar` with package `A.B.C` under semi-automatic configuration for 60 minutes with a 10-minute time limit of automaton mining phase of each iteration, change the properties:
+
+* `subject-dir=/path/to/subject`;
+* `apk-name=aut.jar`;
+* `ComboDroid-type=beta`;
+* `package-name=A.B.C`
+* `running-minutes=60`; and
+* `modeling-minutes=10`.
+
+Explanations of the configurations:
+
 - Mandatory:  
     * `subject-dir`: the directory containing the apk file of the app under test;  
     * `apk-name`: the name of the apk file;  
@@ -242,18 +253,7 @@ A configuration file for ComboDroid is a set of key-value pairs containing the f
     * `trace-directory`: the location of existing execution traces. Mandatory when running **beta_combine** variant of ComboDroid; and  
     * `startup-script`: the location of a startup script to perform additional initialization of the app (e.g., logging in). 
 
-Examples of configuration files can be found at the `/home/combodroid/artifact/Configs_alpha` directory. The easiest way to setup a configuration file is modifying from an existing one. In our pre-built VM image, many properties in the example configuration files need no modification when running other apps. Suppose we want to run beta variant (semi-automatically) of ComboDroid on an app (package name `A.B.C`), whose APK file is stored at `/home/combodroid/aut.apk`, for 60 minutes with a 10-minute time limit of automaton mining phase of each iteration. (We'll further provide detailed instructions in our public Github repo.)
-
-Suppose tht we copied an example configuration file. To test an app `aut.jar` with package `A.B.C`, change the properties:
-
-* `subject-dir=/home/combodroid`;
-* `apk-name=aut.jar`;
-* `ComboDroid-type=beta`;
-* `package-name=A.B.C`
-* `running-minutes=60`; and
-* `modeling-minutes=10`.
-
-#### 3.2 (Optinal) Provide a Startup Script
+### 3.2 (Optinal) Providing a Startup Script
 
 For some apps, to thoroughly exercise their functionalities, some startup operations are needed (e.g., logging in). If you have previously tested the app and recorded a startup script, you can reuse it by setting the `start-script` property in the configuration file. If no startup script is specified in the configuration file (or the specified file could not be found), ComboDroid will ask the tester whether a startup script is needed:
 
@@ -276,17 +276,15 @@ ComboDroid will then use this script to do initialization whenever the app start
 *Note*: After receiving each event, ComboDroid will dump the GUI layout and record the event, 
 and cannot handle another event before showing `"Ready recording event, waiting for the next event`  on the bash.
 
-### 3.3 (Optional) Record Manual Execution Traces
+### 3.3 (Optional) Recording Manual Execution Traces
 
 If the tester runs the **beta** or **beta_record** variants of the artifact such as our example, ComboDroid will ask the tester to record manual execution traces.
 The process is similar to the one of recording a startup script:
 
 1. ComboDroid first initializes the recording process and freshly starts the app;
-2. After initialization, a message `Waiting for the event....` will show on bash, and the tester can begin recording execution traces. 
-Besides the GUI events and the system events, when recording an execution trace the test can also specify start and end of a use case by inputting `start` and `end` on bash to specify the start and end of a use case, respectively; and
-   4. When finishing recording an execution trace, the tester can input `halt` on bash to stop recording. 
-ComboDroid will show `Enter 1 to start recording, 2 to quit` on the bash, asking whether the tester wants to record another trace.
-The tester can either input `1` to go back to step 1 to do so, or `2` to quit recording.
+2. After initialization, a message `Waiting for the event....` will show on bash, and the tester can begin recording execution traces.
+3. Besides the GUI events and the system events, when recording an execution trace the test can also specify start and end of a use case by inputting `start` and `end` on bash to specify the start and end of a use case, respectively; and
+4. When finishing recording an execution trace, the tester can input `halt` on bash to stop recording. 
+ComboDroid will show `Enter 1 to start recording, 2 to quit` on the bash, asking whether the tester wants to record another trace. The tester can either input `1` to go back to step 1 to do so, or `2` to quit recording.
 
-The recorded traces is stored at the `/home/combodroid/artifact/traces` directory.
-ComboDroid will then use these traces to conduct automatic testing.
+ComboDroid will then use recorded traces to conduct automatic testing.
