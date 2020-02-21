@@ -192,3 +192,7 @@ where:
 `prep` is `_enc_bpe_10000`, `_enc_bpe_5000`, `_enc_bpe_10000` to train bpe models; `_sub` to train a subtoken (heuristic model); ` ` (no suffix) to train a full-token (closed vocab model).
 
 `huge?` is `_huge` if training on the large training set, ` ` (empty suffix) if training on the small training set.
+
+## Results replication for n-gram models
+
+For the evaluation of n-gram modes, we used [the original implementation](https://github.com/SLP-team/SLP-Core) from Hellendoorn and Devanbu [41]. We used v0.1 of their models, which is the version used in their reported experiments. 

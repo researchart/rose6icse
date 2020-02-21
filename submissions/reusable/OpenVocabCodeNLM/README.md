@@ -58,3 +58,7 @@ We provide [instructions](INSTALL.md) on how to download and install the librari
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3628665.svg)](https://doi.org/10.5281/zenodo.3628665)
 
+### N-gram models implementation
+
+The original implementation (v0.1) from Hellendoorn and Devanbu [41] was used:
+https://github.com/SLP-team/SLP-Core.
