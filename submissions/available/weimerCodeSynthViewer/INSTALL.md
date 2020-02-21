@@ -8,7 +8,7 @@ Below is an enumerated list of the commands/requirements for running CodeSynthVi
 * Download [Node.js](https://nodejs.org/en/download/)
 * Verify your Node.js installation with ``node -v``. Confirm that you also have the [Node Package Manager](https://nodejs.org/en/knowledge/getting-started/npm/what-is-npm) installed with ``npm -v``
 * Navigate to the ``code-synth-viewer`` directory (i.e., ``cd path/to/code-synth-viewer'')
-* Initialize the project as a node package with ``npm init``. Accept all default options.
+* Initialize the project as a node package with ``npm init``. If the field specifying the name of the package is empty, name it ``code-synth-viewer``. Otherwise, accept all default options.
 * While in the ``code-synth-viewer`` directory, install the following packages with ``npm``: http, path, request, express, fs, and shuffle-seed. For example, ``npm install http``.
 * Configure your keycode for the start key `=` as outlined below
 
