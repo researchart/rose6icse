@@ -1,157 +1,74 @@
+# Install ComboDroid  
 
-# Install ComboDroid
+Source code repository: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3666313.svg)](https://doi.org/10.5281/zenodo.3666313)  
 
-Though we have provided scripts and pre-built artifacts, to understand the installation comprehensively, we introduce the workflow and its dependencies of ComboDroid.
+Virtual machine repository: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3673079.svg)](https://doi.org/10.5281/zenodo.3673079)  
 
+  
+## 1. TL;DR (Linux or Windows, Using Pre-build VM Image)
 
-## ComboDroid: workflow and dependencies
+Download the [VirtualBox VM Image](https://doi.org/10.5281/zenodo.3673079) and import it (click "File -> Import Appliance" menu item and select the `ova` file; the import process may take a few minutes). Test subjects are also shipped with the VM image for reproducing experimental results.
 
-### TL;DR
+**Important Notes**:
 
-1. Install KVM on the machine. see [Configure hardware acceleration for the Android Emulator](https://developer.android.com/studio/run/emulator-acceleration) for installing KVM on different platforms;
-2. Download the ova file of the virtual machine, and run it on VirtualBox of version 6.1.2 or later, which supports nested KVM virtualization; and
-3. Open an terminal in the virtual machine, and run
-	```bash
-	./runComboDroid.sh SUBJECT [OPTION]
-	```
-  	at `/home/combodroid` directory, where:
+* It is mandatory to use VirtualBox >= 6.1.2 with nested virtualization.
+* On Windows hosts (even with latest VirtualBox), the performance would slightly hurt. The artifact still works.
+* The VM image consumes lots of disk space (~30 GiB).
+* If you see a `BrokenSharedFolder` warning at VM booting, just ignore it.
 
-	* SUBJECT specifies which app should be tested. Enter either
-		- An **integer** in [1,17] for each test subjects used in our evaluation accordingly (the order is the same as the one of Table 1 in our paper)<sup>1</sup>; or
-		- **0** for additional apps the tester want to test.
-	* OPTION specifies the settings to test the app.
-		- For test subjects in our evaluation, enter **alpha** or **beta** to run the corresponding variant of ComboDroid, e.g.,
-			```bash
-			./runComboDroid.sh 2 alpha
-			```
-		- For additional apps, the location of a configuration file must be given 
-		(See [Step-1: Prepare the configuration file](#Step-1: Prepare the configuration file) for more details),
-    	e.g.,
-			```bash
-			./runComboDroid.sh 0 /home/combodroid/artifact/Configs_alpha/Config_Aard2.txt
-			```
+## 2 Build from Source Code (Linux)
 
-The testing results and logs are stored at the `/home/combodroid/result_SUBJECT_OPTION_TIMESTAMP` directory for test subjects in our evaluation 
-(e.g., `/home/combodroid/results_1_beta_20200109125739`), 
-or `/home/combodroid/result_0_TIMESTAMP` directory for additional apps.
+The source code is available at [this link](https://doi.org/10.5281/zenodo.3666313).
 
-<sup>1</sup> Due to the recent update of GitHub, its account authorization page no longer supports the browser of Android 6.0, and this makes it impossible to test most of the functionalities of PocketHub [#8] by ComboDroid's current implementation. We plan to deal with this in the short future.
+**Dependencies**: JDK-1.8 and Android SDK. If you have AndroidStudio installed, all dependencies are just set.
 
-### Introduction
+**Source Code Repository Overview**:
 
-ComboDroid first parses the configuration file, and instruments the apk file of the app with [Soot](https://github.com/Sable/soot) (implemented by Kotlin);
-then, it installs the instrumented app on the Android device, pushes a test client (implemented by Kotlin and Java) to the device, and begins the test.
+- The `Client` directory containing source code for the client of ComboDroid deployed on the Android device to generate and send events;  
+- The `Controller` directory containing source code for the controller of ComboDroid running on the computer to control the client;  
+- The build.sh file that can be used to compile and build the artifact; and  
+- The README.md file containing instructions to build the tool (all contents are also included in this section).  
 
-During the test, ComboDroid iterates to (1) mine an automaton of the app, either fully automatically (variant alpha) or with manual execution traces (variant beta), and extracts use cases from it, and (2) generate combos with extracted use cases.
+### 2.1 Setting Up
 
-In summary, we need the following dependencies to install and run:
+Before building, make sure that the path to the d8 compiler of the Android SDK exists in the `PATH` environment variable, which is normally at `[SDK_LOCATION]/build-tools/29.0.3`. Try `d8` in bash to test if `PATH` is set correctly.
 
+To build the artifact, we need to build two jar files, namely a controller jar named `ComboDroid.jar` and a client jar named `client.jar`.
+We provide a build script `build.sh` to build these two jars. 
+We first introduce how to build with `build.sh` and then how to build manually.
 
-### Java SDK
+### 2.2 Build
 
-Currently, the Android SDK as well as ComboDroid requires Java 1.8.
-See [Java SE Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) for more information about installing and settings.
+To build the tool, at the source code directory run:
 
-### Android SDK
-
-To instrument the apk file, the Android SDK is required. 
-Currently, the complete SDK can be downloaded within Android Studio. 
-See [Android Studio](https://developer.android.com/studio?hl=en) for more information.
-
-
-### Android Device
-
-The current implementation of ComboDroid targets Android 6.0 (API-level 23).
-ComboDroid can run on both emulator and real device.
-
-
-## Run ComboDroid
-
-We prepare some ready-made artifacts to reproduce our evaluation results.
-We also provide comprehensive instructions step by step for testing additional Android apps.
-
-*Notice*: All the following commands are run under directory `/home/combodroid`
-
-### Step-1: Prepare the configuration file
-
-*Notice*: this step is not necessary for reproducing our evaluation results.
-
-A configuration file for ComboDroid is a set of key-value pairs containing following properties:
-* Mandatory:
-	* subject-dir: the folder containing the apk file of the app under test;
-	* apk-name: the name of the apk file;
-	* androidSDK-dir: the location of the Android SDK;
-	* android-platform-version: the version of android platform for instrumentation, which is normally set to **26**;
-	* android-build-tool-version: the version of android build tool for instrumentation, which is normally set to **27.0.3**;
-	* keystore-path: the location of the keystore file for re-sign the apk file after instrumentation, see [Android Keystore System](https://developer.android.com/training/articles/keystore);
-	* key-alias: the alias of the key in the keystore file;
-	* key-password: the password of the key in the keystore file;
-	* package-name: the package name of the app under test;
-	* ComboDroid-type: the variant of ComboDroid requested to run, whose value can be:
-		- alpha: run the alpha variant of ComboDroid;
-		- beta: run the beta variant of ComboDroid, which (1) askes the human to record execution traces, and (2) uses the traces for testing;  
-		- beta_record: only ask human to record execution traces; and
-		- beta_combine: uses existing execution traces for testing.
-	* running-minutes: the overall running minutes of ComboDroid; and
-	* modeling-minutes: the running minutes for each automation mining phase.
-* Optional:
-	* trace-directory: the location of existing execution traces. Mandatory when running beta_combine variant of ComboDroid; and
-	* startup-script: the location of a startup script to perform additional initialization of the app (e.g., logging in).
-
-The example configuration file can be found at `/home/combodroid/artifact/Configs_alpha` directory.
-
-### Step-2 Run the ComboDroid
-
-Run
-
-```bash
-./runComboDroid.sh SUBJECT [OPTION]
+```bash  
+./build.sh  
 ```
-where:
-* SUBJECT specifies which app should be tested. Enter either
-	- An **integer** in [1,17] for each test subjects used in our evaluation accordingly (the order is the same as the one of Table 1 in our paper); or
-	- **0** for additional apps the tester want to test.
-* OPTION specifies the settings to test the app.
-	- For test subjects in our evaluation, enter **alpha** or **beta** to run the corresponding variant of ComboDroid, e.g.,
-		```bash
-		./runComboDroid.sh 2 alpha
-		```
-	- For additional apps, the location of a configuration file must be given, e.g.,
-		```bash
-		./runComboDroid.sh 0 /home/combodroid/artifact/Configs_alpha/Config_Aard2.txt
-		```
 
-Depending on the running variant, ComboDroid may request further interactions.
+A correct build generates `client.jar` and `ComboDroid.jar` at the source code directory  `ComboDroid`.
 
-#### Providing a start-up script
+### 2.3 Notes
 
-If no start-up script is specified in the configuration file, ComboDroid will ask if a start-up script is needed.
-If so, it will ask the tester to record such a script.
-The recorded script will be stored in `/home/combodroid/artifact/startup.txt`.
-Detailed information will be presented in the terminal.
+`build.sh` consists of the following two parts. On error, please refer to the error messages from gradlew or `d8`.
 
-#### Recording execution traces
+**ComboDroid (Controller)** :
 
-When running beta or beta_record variant, the tester will be asked to provide execution traces. 
-Detailed instructions and information will be presented in the terminal.
-The recorded traces will be stored in the `/home/combodroid/traces` directory.
+```bash  
+cd Controller  
+./gradlew jar
+cp build/libs/ComboDroid-1.0-SNAPSHOT.jar ../ComboDroid.jar
+```    
+The jar file will be generated by Gradle and copied to `ComboDroid.jar`.
 
-#### Feedback loop
+**Build the Client**:
 
-If running the beta of beta_combine variant of ComboDroid, when it exhausts all possible combos or encouter enough previsouly unexplored app states, 
-it will ask the tester to provide additional execution traces starting from the initial state of the newly explored ones, respectively. 
-Detailed instructions and information will be presented in the terminal.
+```bash  
+cd Client
+./gradlew jar  
+d8 build/libs/client-1.0-SNAPSHOT.jar --output ../client.jar  
+```  
 
-### Test results
-
-When the test finishes, the results can be found at the `/home/combodroid/result_SUBJECT_OPTION_TIMESTAMP` directory for test subjects in our evaluation 
-(e.g., `/home/combodroid/results_1_beta_20200109125739`), or `/home/combodroid/result_0_TIMESTAMP` directory for other apps, which includes:
-	
-* Coverage.xml: the statement coverage results of the app under test; and
-* Log.txt: the complete test log file, including full execution traces and generated combos.
-
-
-## Known issues
-
-* ConcurrentModificationException: We use [Soot](https://github.com/Sable/soot) to instrument the app under test 
-for recording execution traces. Soot opens multiple threads for instrumentation, and though we have strictly follow its guide lines, in rare occasions a ConcurrentModificationException can occur. We have reported it to Soot's developers.
+The jar file will be first generated by Gradle,  
+and then processed by the d8 compiler to generate the final jar file with dex files inside.  
+The `--output` option of the command is used to specify the location and name of the final jar.  
+The above command will generate the `client.jar` file at the source code directory  `ComboDroid`.
