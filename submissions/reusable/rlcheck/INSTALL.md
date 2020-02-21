@@ -4,16 +4,25 @@ The following documents how to download + install the RLCheck aritfact on your m
 
 ## Requirements
 
-* You will need **Docker** on your system. You can get Docker CE for Ubuntu here: https://docs.docker.com/install/linux/docker-ce/ubuntu. See links on the sidebar for installation on other platforms.
+* To use the docker image, you will need **Docker** on your system. You can get Docker CE for Ubuntu here: https://docs.docker.com/install/linux/docker-ce/ubuntu. See links on the sidebar for installation on other platforms.
 
-## Load image
+### Load image or download code
 
 To load the artifact on your system, pull the image from the public repo.
 ```
 docker pull carolemieux/rlcheck-artifact
 ```
 
-## Run container
+Alternatively, you can clone the the code from the [public github repo](https://github.com/sameerreddy13/rlcheck). If you clone the code instead, run the following to set up the code:
+```
+cd /path/to/rlcheck
+cd jqf
+mvn package 
+cd ..
+```
+replace `rlcheck-artifact` with `/path/to/rlcheck` in the instructions below instead. 
+
+### Run container
 
 Run the following to start a container and get a shell in your terminal:
 
