@@ -1,5 +1,3 @@
-
-
 # Artifact Evaluation for ComboDroid  
 
 **Please follow the instructions in `INSTALL.md` to complete the installation**.
@@ -10,19 +8,20 @@ Source code repository: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3666
 
 Virtual machine repository: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3673079.svg)](https://doi.org/10.5281/zenodo.3673079)  
 
-## 1. Running Example: Automatically Testing of Hacker News Reader
+## 1. Running Example: Automatically Testing of "Hacker News Reader"
 
-Load [`runComboDroid.sh`](runComboDroid.sh) and [`Config_runningExample.txt`](Config_runningExample.txt) to the ComboDroid installation directory (`/home/combodroid` in the provided VM image).
-If you're using the provided VM image, `runComboDroid.sh` **already exists and should be replaced with the updated version**.
+Load [`runComboDroid.sh`](runComboDroid.sh) and [`Config_runningExample.txt`](Config_runningExample.txt) to the ComboDroid installation directory:
 
-The easiest way to load the two additional scripts to the VM is using the *drag-n-drop* functionality of VirtualBox.
-You can find guidance [here](https://www.virtualbox.org/manual/UserManual.html#guestadd-dnd).
-If this does not work (due to reasons such as unsupported host environment), 
-you can also load the file via the network (e.g., send yourself an email with the files as an attachment on the host and download it in the VM).
+* If you're using the provided VM image, `/home/combodroid` is the installation directory.
+* If you're buidling from source, the installation directory is where `ComboDroid.jar` and `client.jar` are.
 
-To see how ComboDroid automatically tests the unmodified Hacker News Reader APK (version 3.3) for 10 minutes (with an AVD window), just type
+**Important Note**: If you're using the provided VM image, `runComboDroid.sh` **already exists and should be replaced with the updated version**.
 
-```bash  
+> The easiest way to load the two additional scripts to the VM is using the *drag-n-drop* functionality of VirtualBox. You can find guidance [here](https://www.virtualbox.org/manual/UserManual.html#guestadd-dnd). If this does not work (due to reasons such as unsupported host environment), you can also load the file via the network (e.g., using a temporary pastebin [https://paste.ubuntu.com/](https://paste.ubuntu.com/))
+
+To see how ComboDroid automatically tests the unmodified Hacker News Reader APK (version 3.3) for 10 minutes (with an AVD window), use the following command:
+
+```bash
 bash runComboDroid.sh running-example
 ```
 
@@ -148,17 +147,16 @@ For instance, the directory can be `result_running-example_20200127141251`.
 
 *Note*: By the end of the execution, the script will clean up the environment.
 Some errors such as `cp: cannot stat 'Coverage.xml': No such file or director` may occur.
+Just ignore them. These issues will be fixed later in the revised edition.
 This is expected and does not affect the execution.
   
 
 ## 2. Reproducing the Experimental Results in the Paper (Using the Pre-built VM Image)
 
-The results can be reproduced within our provided virtual machine.  
-Since two testing scenarios are presented in the paper,  
+The results can be reproduced within our provided virtual machine. Since two testing scenarios are presented in the paper,  
 we introduce steps to reproduce the results, respectively.  
 
 ### 2.1 Running Alpha Variant of ComboDroid (Fully Automatic)
-
 
 in the ComboDroid installation directory (`/home/combodroid`), run  
   
@@ -167,8 +165,7 @@ in the ComboDroid installation directory (`/home/combodroid`), run
 bash runComboDroid SUBJECT alpha  
 ```  
 
-to run alpha variant of ComboDroid on one `SUBJECT`,  
-where `SUBJECT` is an integer in [1,17] representing a test subject used in our evaluation:  
+to run alpha variant of ComboDroid on one `SUBJECT`, where `SUBJECT` is an integer in [1,17] representing a test subject used in our evaluation:  
 
 | Index | Subject | Index | Subject |  
 |:---------:|:---------:|:---------:|:---------:|  
@@ -189,9 +186,7 @@ as well as the `/home/combodroid/artifact/Coverage.xml` file.
 
 ### 2.2 Running Beta Variant of ComboDroid (Semi-Automatic)
   
-
 in the ComboDroid installation directory (`/home/combodroid`), run  
-  
 
 ```bash  
 bash runComboDroid SUBJECT beta  
@@ -204,13 +199,13 @@ The indices of subjects are the same as the one for the alpha variant.
 The statement coverage result will be in the file `/home/combodroid/result_SUBJECT_beta_TIMESTAMP/Coverage.xml`
 as well as the `/home/combodroid/artifact/Coverage.xml` file.  
  
-  *Note*: Due to the recent update of GitHub, its account authorization page no longer supports the browser of Android 6.0, and this makes it impossible to test most of the functionalities of PocketHub [#8] by ComboDroid's current implementation. We plan to deal with this in the short future.
+*Note*: Due to the recent update of GitHub, its account authorization page no longer supports the browser of Android 6.0, and this makes it impossible to test most of the functionalities of PocketHub [#8] by ComboDroid's current implementation. We plan to deal with this in the short future.
 
-## 3. Configuring ComboDroid for Testing Android Apps
+## 3. Configuring ComboDroid for Testing Other Apps
 
 To test any given app (APK), the following steps should be followed:
 
-1. Write a configuration file;
+1. Write a configuration file (modify from an existing one);
 2. At the ComboDroid installation directory (`/home/combodroid`), run
     ```bash  
     bash runComboDroid 0 PATH_TO_CONFIGURATION_FILE  
@@ -220,8 +215,6 @@ To test any given app (APK), the following steps should be followed:
 4. (Optional) Record manual execution traces.
 
 The execution log file `Log.txt` will be stored at the `result_0_TIMESTAMP` directory.
-
-We describe these steps in detail.
 
 ### 3.1 Write a Configuration File
 
@@ -247,14 +240,12 @@ A configuration file for ComboDroid is a set of key-value pairs containing the f
     * `modeling-minutes`: the running minutes for each automaton mining phase. 
 - Optional:  
     * `trace-directory`: the location of existing execution traces. Mandatory when running **beta_combine** variant of ComboDroid; and  
-    * `startup-script`: the location of a startup script to perform additional initialization of the app (e.g., logging in).  
-  
-Examples of configuration files can be found at the `/home/combodroid/artifact/Configs_alpha` directory. 
-We'll further provide detailed instructions in our public Github repo. 
-In our pre-built VM image, many properties in the example configuration files need no modification when running other apps.
-Suppose we want to run beta variant (semi-automatically) of ComboDroid on an app (package name `A.B.C`), whose APK file is stored at `/home/combodroid/aut.apk`, for 60 minutes with a 10-minute time limit of automaton mining phase of each iteration.
-We only need to copy an example configuration file, and change the following proerties to:
-  
+    * `startup-script`: the location of a startup script to perform additional initialization of the app (e.g., logging in). 
+
+Examples of configuration files can be found at the `/home/combodroid/artifact/Configs_alpha` directory. The easiest way to setup a configuration file is modifying from an existing one. In our pre-built VM image, many properties in the example configuration files need no modification when running other apps. Suppose we want to run beta variant (semi-automatically) of ComboDroid on an app (package name `A.B.C`), whose APK file is stored at `/home/combodroid/aut.apk`, for 60 minutes with a 10-minute time limit of automaton mining phase of each iteration. (We'll further provide detailed instructions in our public Github repo.)
+
+Suppose tht we copied an example configuration file. To test an app `aut.jar` with package `A.B.C`, change the properties:
+
 * `subject-dir=/home/combodroid`;
 * `apk-name=aut.jar`;
 * `ComboDroid-type=beta`;
@@ -262,18 +253,14 @@ We only need to copy an example configuration file, and change the following pro
 * `running-minutes=60`; and
 * `modeling-minutes=10`.
 
-All other properties can be left as they are.
-
-
 #### 3.2 (Optinal) Provide a Startup Script
 
-For some apps, to thoroughly exercise their functionalities, some startup operations are needed (e.g., logging in). 
-If you have previously tested the app and recorded a startup script, 
-you can reuse it by setting the `start-script` property in the configuration file.
-If no startup script is specified in the configuration file (or the specified file could not be found), ComboDroid will ask the tester whether a startup script is needed:
+For some apps, to thoroughly exercise their functionalities, some startup operations are needed (e.g., logging in). If you have previously tested the app and recorded a startup script, you can reuse it by setting the `start-script` property in the configuration file. If no startup script is specified in the configuration file (or the specified file could not be found), ComboDroid will ask the tester whether a startup script is needed:
+
 ```bash
 No specified startup script of the file is missing, would you like to record a startup script? [yes/no]
 ```
+
 If the tester enters `yes`, ComboDroid records a startup script:
 
 1. ComboDroid first initializes the recording process and freshly starts the app;
@@ -297,20 +284,9 @@ The process is similar to the one of recording a startup script:
 1. ComboDroid first initializes the recording process and freshly starts the app;
 2. After initialization, a message `Waiting for the event....` will show on bash, and the tester can begin recording execution traces. 
 Besides the GUI events and the system events, when recording an execution trace the test can also specify start and end of a use case by inputting `start` and `end` on bash to specify the start and end of a use case, respectively; and
-   
-4. When finishing recording an execution trace, the tester can input `halt` on bash to stop recording. 
+   4. When finishing recording an execution trace, the tester can input `halt` on bash to stop recording. 
 ComboDroid will show `Enter 1 to start recording, 2 to quit` on the bash, asking whether the tester wants to record another trace.
 The tester can either input `1` to go back to step 1 to do so, or `2` to quit recording.
 
 The recorded traces is stored at the `/home/combodroid/artifact/traces` directory.
 ComboDroid will then use these traces to conduct automatic testing.
-
-## 4. Usage of Tool Built from Source Code
-
-In `INTALL.md` we introduce how to build the tool from source code.
-The built tool, namely two jar files `ComboDroid.jar` and `client.jar`, 
-can be directly used in our VM.
-Load the two jar files to the `/home/combodroid/artifact` directory,
-overriding the pre-built artifact,
-and you can run it at the ComboDroid installation directory `/home/combodroid` as described in the previous sections.
- 
