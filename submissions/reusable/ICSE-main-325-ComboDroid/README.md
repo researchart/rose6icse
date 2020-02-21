@@ -13,7 +13,7 @@ Virtual machine repository: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.
 Load [`runComboDroid.sh`](runComboDroid.sh) and [`Config_runningExample.txt`](Config_runningExample.txt) to the ComboDroid installation directory:
 
 * If you're using the provided VM image, `/home/combodroid` is the installation directory.
-* If you're buidling from source, the installation directory is where `ComboDroid.jar` and `client.jar` are.
+* If you're building from source, the installation directory is where `ComboDroid.jar` and `client.jar` are.
 
 **Important Note**: If you're using the provided VM image, `runComboDroid.sh` **already exists and should be replaced with the updated version**.
 
@@ -244,7 +244,7 @@ Explanations of the configurations:
     * `package-name`: the package name of the app under test;  
     * `ComboDroid-type`: the variant of ComboDroid requested to run, whose value can be:  
         - **alpha**: run the alpha variant of ComboDroid; or
-        - **beta**: run the complete beta variant of ComboDroid, which (1) askes the human to provide execution traces, and (2) uses the traces for testing;  
+        - **beta**: run the complete beta variant of ComboDroid, which (1) asks the human to provide execution traces, and (2) uses the traces for testing;  
         - **beta_record**: only ask human to record execution traces; or
         - **beta_combine**: uses existing execution traces for combining.  
     * `running-minutes`: the overall running minutes of ComboDroid; and  
@@ -253,7 +253,7 @@ Explanations of the configurations:
     * `trace-directory`: the location of existing execution traces. Mandatory when running **beta_combine** variant of ComboDroid; and  
     * `startup-script`: the location of a startup script to perform additional initialization of the app (e.g., logging in). 
 
-### 3.2 (Optinal) Providing a Startup Script
+### 3.2 (Optional) Providing a Startup Script
 
 For some apps, to thoroughly exercise their functionalities, some startup operations are needed (e.g., logging in). If you have previously tested the app and recorded a startup script, you can reuse it by setting the `start-script` property in the configuration file. If no startup script is specified in the configuration file (or the specified file could not be found), ComboDroid will ask the tester whether a startup script is needed:
 
