@@ -13,12 +13,21 @@ This document has the following sections:
 
 * You will need **Docker** on your system. You can get Docker CE for Ubuntu here: https://docs.docker.com/install/linux/docker-ce/ubuntu. See links on the sidebar for installation on other platforms.
 
-### Load image
+### Load image or download code
 
 To load the artifact on your system, pull the image from the public repo.
 ```
 docker pull carolemieux/rlcheck-artifact
 ```
+
+Alternatively, you can clone the the code from the [public github repo](https://github.com/sameerreddy13/rlcheck). If you clone the code instead, run the following to set up the code:
+```
+cd /path/to/rlcheck
+cd jqf
+mvn package 
+cd ..
+```
+replace `rlcheck-artifact` with `/path/to/rlcheck` in the instructions below instead. 
 
 ### Run container
 
@@ -38,10 +47,11 @@ The default directory in the container, `/rlcheck-artifact`, contains the follow
 	- `jqf`: This is the main rlcheck implementation used in the evaluation on top of the the Java fuzzing platform JQF (cloned from https://github.com/rohanpadhye/jqf). 
 	- `bst_example`: python implementation used for the case studies in Section 4 of the paper.
 - `scripts`: Contains various scripts used for running experiments and generating figures from the paper.
-- `pre-baked`: Contains results of the experiments that were run on the authors' machines.
+The following are only present in the container distribution, not in the public github repo:
+- `pre-baked`: Contains results of the experiments that were run on the authors' machines. 
     - `java-data`: data for the main evaluation
     - `python-data`: data for the evaluation of Section 4. 
-- `example_figs`: examples of Figures 6-10 with fewer reps, on the author's machine.
+- `example_figs`: examples of Figures 6-10 with fewer reps, on the author's machine. 
 - `fresh-baked`: This will contain the results of the experiments that you run, after following Part Two.
 
 ## Part One: Validating claims in paper (10 minutes human time)
