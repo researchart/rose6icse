@@ -2,7 +2,7 @@
 The following is required to set up TimeMachine:
 * at least 100 GB hard drive 
 * 8 GB memory
-* Ububntu 16.04 64-bit
+* Ububntu 18.04 64-bit
 
 ## Install ##
 
