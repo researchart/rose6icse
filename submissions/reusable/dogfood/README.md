@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/234754374.svg)](https://zenodo.org/badge/latestdoi/234754374)
+
 # Artifact evaluation for Dogfood
 
 ## Overview
@@ -16,7 +18,7 @@ We have upload a docker image containing all necessary files and subjects.
 Dogfood should be used under a Linux operating system.
 Ubuntu-16.04 and Ubuntu-18.04 are recommendations as we have tested Dogfood under them.
 *Note* that a virtual machine such as virtual-box or vmware may not work because Dogfood leverages the KVM,
-which may be unavailable in a virtual environment.
+which may be unavailable in a virtual environment (see `INSTALL.md`).
 
 Please follow the instructions in `INSTALL.md` to complete the installation.
 
@@ -76,14 +78,17 @@ The `<file system>` should be one of
 Run Syzkaller need some extra steps:
 
 1. Install Syzkaller, follow the [instructions](https://github.com/google/syzkaller/blob/master/docs/contributing.md#go)
-2. Create a disk formatted by a file system 
+2. Create a disk formatted by a file system
 (we provide scripts to make it easy, run):
+
 ```bash
 cd workspace/objs/debian-image
 ./create-image.sh
 ./create-fs-image.sh <file system>
 ```
+
 Which means:
+
 - Create a Debian Linux Image, [instructions](https://github.com/google/syzkaller/blob/master/docs/linux/setup_ubuntu-host_qemu-vm_x86-64-kernel.md#image)
 - Create a disk formatted by a file system containing the Debian Linux tools
 
@@ -94,6 +99,7 @@ We have provided a Syzkaller configuration and a script.
 - Specify `workspace/syzkaller/my.cfg` file with two parameters: `$WORKSPACE_DIR`---the absolute path of `workspace/`, and the absolute path where Syzkaller installed.
 
 If Syzkaller is installed according to the above-mentioned instructions successfully, just run:
+
 ```bash
 ./run.sh
 ```
@@ -254,9 +260,9 @@ $test: ./analyze-log.py | sort | uniq # Count unique bugs
 
 When finding a bug logged in the log file `workspace/vm.log`,
 you can make a test case to reproduce it.
-The script workspace/bug-extract is used to extract bug cases automatically.
+The script `workspace/bug-extract` is used to extract bug cases automatically.
 When finding a bug in the log, you can make a test case to reproduce it.
-The following steps may help:
+The following section introduces manual steps to reproduce a bug:
 
 ### 1. Locate the bug, like
 
